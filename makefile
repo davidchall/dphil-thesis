@@ -2,7 +2,7 @@ THESIS=thesis
 
 all: $(THESIS)
 
-thesis: $(THESIS).tex references.bib thesisproperties.sty $(wildcard sections/*.tex) $(wildcard figures/*)
+thesis: $(THESIS).tex references.bib $(wildcard sections/*.tex) $(wildcard figures/*)
 	pdflatex $(THESIS).tex
 	bibtex $(THESIS)
 	pdflatex $(THESIS).tex

@@ -1,38 +1,46 @@
-\documentclass[a4paper,12pt]{thesis}
+\documentclass[sftitles]{hepthesis}
 
-% Custom macros
-\usepackage{thesisproperties}
 \usepackage{physicsmacros}
-
-% Standard macros
 \usepackage{graphicx}
 \graphicspath{{./figures/}}
+\makeatother
+
+\title{Discovery of the Higgs boson in the $WW$ decay channel using the ATLAS detector at the Large Hadron Collider}
+\author{David Christopher Hall}
 
 %\includeonly{}
 \begin{document}
-
 %TC:ignore
-\include{sections/title}
 \pagenumbering{roman}
-\addcontentsline{toc}{section}{Abstract}
-\include{sections/abstract}
+\begin{frontmatter}
+  \input{sections/frontmatter}
+\end{frontmatter}
 %TC:endignore
-\addcontentsline{toc}{section}{Acknowledgments}
-\include{sections/acknowledgments}
 
-\tableofcontents
-\listoffigures
-\listoftables
-\cleardoublepage
 \pagenumbering{arabic}
+\begin{mainmatter}
+  \include{sections/introduction}
+  \part{Theoretical and Experimental Background}
+  \include{sections/standardmodel}
+  \include{sections/montecarlo}
+  \include{sections/detector}
 
+  \part{Standard Model $WW$ cross section measurement}
 
-\include{sections/introduction}
+  \part{$H\rightarrow WW$ discovery}
 
+\end{mainmatter}
 
+\begin{appendices}
 
-\cite{Dummy}
-\bibliographystyle{plain}
-\bibliography{references}
+\end{appendices}
+
+\begin{backmatter}
+  %\bibliographystyle{h-physrev}
+  \bibliographystyle{plain}
+  \bibliography{references}
+  \listoffigures
+  \listoftables
+\end{backmatter}
 
 \end{document}

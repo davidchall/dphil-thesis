@@ -1,6 +1,15 @@
+
+[1;31m!!!  File sections/standardmodel not found in path [./].  !!![0m
+
+[1;31m!!!  File sections/montecarlo not found in path [./].  !!![0m
+
+[1;31m!!!  File sections/detector not found in path [./].  !!![0m
 ::: Subtotals :::
-2 words in Chapter: Acknowledgments
-0 words in Chapter: Introduction
+1 words in _top_
+1 words in Chapter: Introduction
+0 words in Part: Theoretical and Experimental Background
+1 words in Part: Standard Model $WW$ cross section measurement
+1 words in Part: $H\rightarrow WW$ discovery
 ::: Total :::
-Words: 2
+Words: 4
 Formulae: 0
