@@ -1,0 +1,55 @@
+<html>
+<head>
+<!--Load the AJAX API-->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+// Load the Visualization API and the piechart package.
+google.load('visualization', '1.0', {'packages':['corechart']});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+
+// Data containing chapter word counts
+var chapterData = new google.visualization.DataTable();
+chapterData.addColumn('string', 'Chapter');
+chapterData.addColumn('number', 'Words');
+chapterData.addRows([
+['Acknowledgments', 2],
+['Introduction', 0]
+]);
+// Set chart options
+var chapterOptions = {'title':'Chapter word counts',
+'width':500,
+'height':300
+};
+
+// Instantiate and draw our chart, passing in some options.
+var chapterChart = new google.visualization.PieChart(document.getElementById('chapterChart_div'));
+chapterChart.draw(chapterData, chapterOptions);
+
+
+// Data containing timestamped word counts
+var timestampData = new google.visualization.DataTable();
+timestampData.addColumn('datetime', 'Commit Date');
+timestampData.addColumn('number', 'Words');
+timestampData.addRows([
+[new Date(2013, 4, 3, 18, 58, 10), 2],
+[new Date(2013, 4, 3, 19, 0, 6), 2]
+]);
+var timestampOptions = {'title':'Word count vs time',
+'width':500,
+'height':300,
+legend:{position:'none'}
+};
+var timestampChart = new google.visualization.LineChart(document.getElementById('timestampChart_div'));
+timestampChart.draw(timestampData, timestampOptions);
+}
+
+</script>
+</head>
+
+<body>
+<div id="chapterChart_div"></div>
+<div id="timestampChart_div"></div>
+</body>
+</html>

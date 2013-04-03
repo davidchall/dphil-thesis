@@ -1,0 +1,16 @@
+### Options to be used with TeXcount
+
+# Counting options
+-merge
+-sub=chapter
+-sum=1,0,1,0,0,1,0
+
+# Macro rules
+
+# Output template
+-template=
+	\::: Chapter subtotals :::\n
+	\{SUB?{sum} words in {title}\n?SUB}
+	\::: Total :::\n
+	\Words: {sum}\n
+        \Formulae: {displaymath}\n
