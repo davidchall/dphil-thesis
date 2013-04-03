@@ -11,10 +11,12 @@
 %\includeonly{}
 \begin{document}
 
+%TC:ignore
 \include{sections/title}
 \pagenumbering{roman}
 \addcontentsline{toc}{section}{Abstract}
 \include{sections/abstract}
+%TC:endignore
 \addcontentsline{toc}{section}{Acknowledgments}
 \include{sections/acknowledgments}
 
@@ -22,11 +24,12 @@
 \listoffigures
 \listoftables
 \cleardoublepage
-
-test
-
 \pagenumbering{arabic}
+
+
 \include{sections/introduction}
+
+
 
 \cite{Dummy}
 \bibliographystyle{plain}

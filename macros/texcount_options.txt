@@ -9,7 +9,7 @@
 
 # Output template
 -template=
-	\::: Chapter subtotals :::\n
+	\::: Subtotals :::\n
 	\{SUB?{sum} words in {title}\n?SUB}
 	\::: Total :::\n
 	\Words: {sum}\n
