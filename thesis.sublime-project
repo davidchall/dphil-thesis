@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/David/Documents/Work/thesis/myThesis",
+            "file_exclude_patterns": ["*.aux", "*.pdf", "*.blg", "*.lot", "*.lof", "*.toc"]
+		}
+	]
+}

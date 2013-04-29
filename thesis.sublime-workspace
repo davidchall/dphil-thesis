@@ -1,0 +1,878 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"m_m",
+				"m_max_WW"
+			],
+			[
+				"p_max",
+				"p_max_WW"
+			],
+			[
+				"pdf",
+				"pdf_errorsets"
+			],
+			[
+				"pro",
+				"processes"
+			],
+			[
+				"var",
+				"variations"
+			],
+			[
+				"pr",
+				"process"
+			],
+			[
+				"vari",
+				"variation"
+			],
+			[
+				"p",
+				"process"
+			],
+			[
+				"va",
+				"variations"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"kZW",
+				"kZWINDOW_0JET	EventFinder::cut_t"
+			],
+			[
+				"kZVE",
+				"kZVETO_0JET	EventFinder::cut_t"
+			],
+			[
+				"kZ",
+				"kZVETO_0JET	EventFinder::cut_t"
+			],
+			[
+				"cu",
+				"cutflowPrecision	int"
+			],
+			[
+				"cut",
+				"cutflow	ofstream"
+			],
+			[
+				"b_jet",
+				"b_jet_AntiKt4TruthJets_E	TBranch *"
+			],
+			[
+				"b_rwgt",
+				"b_rwgt_weight	TBranch *"
+			],
+			[
+				"rwgt_",
+				"rwgt_weight	vector<double> *"
+			],
+			[
+				"Cutf",
+				"Cutflow	class"
+			],
+			[
+				"rwgt",
+				"rwgt_facfact	vector<double> *"
+			],
+			[
+				"ori",
+				"orig_pdf2	int"
+			],
+			[
+				"orig",
+				"orig_pdf1	int"
+			],
+			[
+				"origin",
+				"original-renfact"
+			],
+			[
+				"or",
+				"orig_renfact	double"
+			],
+			[
+				"rw",
+				"rwgt_weight	vector<double> *"
+			],
+			[
+				"Get",
+				"GetValue(const char *cutname)	double"
+			],
+			[
+				"G",
+				"GetValue(const char *cutname)	double"
+			],
+			[
+				"b_rwg",
+				"b_rwgt_weight	TBranch *"
+			],
+			[
+				"Print",
+				"PrintError(const CutflowException &e)	void"
+			],
+			[
+				"Prin",
+				"PrintError(const CutflowException &e)	void"
+			],
+			[
+				"Cutflow",
+				"CutflowException	class"
+			],
+			[
+				"Cut",
+				"CutflowException	class"
+			],
+			[
+				"Su",
+				"TH1::Sumw2()	void"
+			],
+			[
+				"hist",
+				"histograms-file"
+			],
+			[
+				"channe",
+				"channelDesc	TString [4]"
+			],
+			[
+				"Fill",
+				"FillHistograms(EventFinder::cut_t cut, double weight)	void"
+			],
+			[
+				"chann",
+				"channelDesc	TString [4]"
+			],
+			[
+				"kN_C",
+				"kN_CUTS	EventFinder::cut_t"
+			],
+			[
+				"cutf",
+				"cutflow-precision"
+			],
+			[
+				"elec",
+				"electrons_sel	vector<TLorentzVector>"
+			],
+			[
+				"statu",
+				"status-file"
+			],
+			[
+				"cl",
+				"close()	void"
+			],
+			[
+				"sta",
+				"statusStream	ofstream"
+			],
+			[
+				"config",
+				"configfile_options	po::options_description"
+			],
+			[
+				"variabl",
+				"variables_map	class"
+			],
+			[
+				"confi",
+				"configfile_options	po::options_description"
+			],
+			[
+				"Re",
+				"RealTime()	Double_t"
+			],
+			[
+				"muon",
+				"muons_sel	vector<TLorentzVector>"
+			],
+			[
+				"ele",
+				"electrons_sel	vector<TLorentzVector>"
+			],
+			[
+				"jet_Anti",
+				"jet_AntiKt4TruthJets_E	vector<float> *"
+			],
+			[
+				"Delt",
+				"DeltaR(const TLorentzVector &v) const	Double_t"
+			],
+			[
+				"electrons",
+				"electrons_sel	vector<TLorentzVector>"
+			],
+			[
+				"electron",
+				"electrons_sel	vector<TLorentzVector>"
+			],
+			[
+				"kCR_1J",
+				"kCR_1JET_OLD	EventFinder::cut_t"
+			],
+			[
+				"kSR_1",
+				"kSR_1JET_OLD	EventFinder::cut_t"
+			],
+			[
+				"kCR_",
+				"kCR_0JET_OLD	EventFinder::cut_t"
+			],
+			[
+				"kSR_",
+				"kSR_0JET_OLD	EventFinder::cut_t"
+			],
+			[
+				"kSR1",
+				"kSR1_0JET_PTLL70	EventFinder::cut_t"
+			],
+			[
+				"nTrees",
+				"nTrees	Int_t"
+			],
+			[
+				"kN",
+				"kN_CHANNELS	EventFinder::channel_t"
+			],
+			[
+				"error",
+				"errorString"
+			],
+			[
+				"erro",
+				"errorString"
+			],
+			[
+				"histogrm",
+				"histograms"
+			],
+			[
+				"subPad",
+				"subPad_ratio"
+			],
+			[
+				"x",
+				"xAxisLog"
+			],
+			[
+				"subP",
+				"subPad_plots"
+			],
+			[
+				"variab",
+				"variable"
+			],
+			[
+				"SetTe",
+				"SetTextFont"
+			],
+			[
+				"fie",
+				"fileName"
+			],
+			[
+				"TH1D",
+				"TH1D()	constructor"
+			],
+			[
+				"kTOPO",
+				"kTOPODPHILL_1JET	EventFinder::cut_t"
+			],
+			[
+				"kWW",
+				"kWWCONTROL_1JET	EventFinder::cut_t"
+			],
+			[
+				"CutTopo",
+				"CutTopoDPhill_0jet"
+			],
+			[
+				"kTOPOD",
+				"kTOPODPHILL_1JET	EventFinder::cut_t"
+			],
+			[
+				"kTOPOMLL",
+				"kTOPOMLL_1JET	EventFinder::cut_t"
+			],
+			[
+				"kTOP",
+				"kTOPODPHILL_0JET	EventFinder::cut_t"
+			],
+			[
+				"DPhill",
+				"DPhillMET	Double_t"
+			],
+			[
+				"nSe",
+				"nSelectedJets	Int_t"
+			],
+			[
+				"channel",
+				"channel	int"
+			],
+			[
+				"SetVe",
+				"SetVectM(const TVector3 &spatial, Double_t mass)	void"
+			],
+			[
+				"nSelect",
+				"nSelectedJets	Int_t"
+			],
+			[
+				"SetP",
+				"SetPxPyPzE(Double_t px, Double_t py, Double_t pz, Double_t e)	void"
+			],
+			[
+				"ga",
+				"gamma_mass	float"
+			],
+			[
+				"read",
+				"read_electrons	vector<TLorentzVector>"
+			],
+			[
+				"electron_",
+				"electron_truth	TLorentzVector"
+			],
+			[
+				"read_",
+				"read_muons	vector<TLorentzVector>"
+			],
+			[
+				"SetPtE",
+				"SetPtEtaPhiM(Double_t pt, Double_t eta, Double_t phi, Double_t m)	void"
+			],
+			[
+				"bookHist",
+				"bookHistogram2D(const std::string &name, const std::vector<double> &xbinedges, const std::vector<double> &ybinedges)	AIDA::IHistogram2D *"
+			],
+			[
+				"_h_Le",
+				"_h_LepPtLead"
+			],
+			[
+				"Del",
+				"DeltaR(const TLorentzVector &) const	Double_t"
+			],
+			[
+				"bookH",
+				"bookHistogram1D(const std::string &name, size_t nbins, double lower, double upper)	AIDA::IHistogram1D *"
+			],
+			[
+				"bookHi",
+				"bookHistogram1D(const std::string &name, const std::vector<double> &binedges)	AIDA::IHistogram1D *"
+			],
+			[
+				"_h_",
+				"_h_GammaM 	AIDA::IHistogram1D *[][][]"
+			],
+			[
+				"jetb",
+				"jetbin_t	enum"
+			],
+			[
+				"i",
+				"i	int"
+			],
+			[
+				"Ge",
+				"GetMaximum"
+			],
+			[
+				"h_mad",
+				"h_madgraph"
+			],
+			[
+				"SetT",
+				"SetTextSize"
+			],
+			[
+				"SetL",
+				"SetLabelSize"
+			],
+			[
+				"SetLab",
+				"SetLabelFont"
+			],
+			[
+				"h_ma",
+				"h_madgraph_k"
+			],
+			[
+				"yA",
+				"yAxisTitle"
+			],
+			[
+				"_h_n",
+				"_h_nJets_incl"
+			],
+			[
+				"_h_ga",
+				"_h_gamma_m"
+			],
+			[
+				"anal",
+				"analysis_t"
+			],
+			[
+				"SetPx",
+				"SetPxPyPzE(Double_t px, Double_t py, Double_t pz, Double_t e)	void"
+			],
+			[
+				"TLorentz",
+				"TLorentzVector	class"
+			],
+			[
+				"sum2",
+				"sum2	double"
+			],
+			[
+				"nCalls",
+				"nCalls	int"
+			],
+			[
+				"m",
+				"mt19937	typedef"
+			],
+			[
+				"Ma",
+				"Mag2"
+			],
+			[
+				"TVec",
+				"TVector3	class"
+			],
+			[
+				"out",
+				"outfilename	string"
+			],
+			[
+				"BOOST_FOREACH",
+				"BOOST_FOREACH(VAR, COL)	macro"
+			],
+			[
+				"parse_com",
+				"parse_command_line(int argc, const charT *const *argv, const boost::program_options::options_description &)	basic_parsed_options<charT>"
+			],
+			[
+				"valu",
+				"value<class T>()	typed_value<T> *"
+			],
+			[
+				"option",
+				"options_description	class"
+			],
+			[
+				"TH1",
+				"TH1D	class"
+			],
+			[
+				"TLor",
+				"TLorentzVector	class"
+			],
+			[
+				"GetEn",
+				"GetEntries() const	Long64_t"
+			],
+			[
+				"o",
+				"o"
+			],
+			[
+				"CXX",
+				"CXXFLAGS"
+			],
+			[
+				"Ad",
+				"Add(const char *name)	Int_t"
+			],
+			[
+				"BO",
+				"BOOSTLIBS"
+			],
+			[
+				"sublime",
+				"sublime-project"
+			],
+			[
+				"project",
+				"project_path"
+			],
+			[
+				"BOOS",
+				"BOOSTFLAGS"
+			],
+			[
+				"LIB",
+				"LIBDIR"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "sections/introduction.tex",
+			"settings":
+			{
+				"buffer_size": 92,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "thesis.sublime-project",
+			"settings":
+			{
+				"buffer_size": 180,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/LaTeXTools/LaTeX.sublime-build",
+	"command_palette":
+	{
+		"height": 357.0,
+		"selected_items":
+		[
+			[
+				"pack",
+				"Package Control: Disable Package"
+			],
+			[
+				"clan",
+				"Preferences: SublimeClang Settings – Default"
+			],
+			[
+				"sublimec",
+				"Preferences: SublimeClang Settings – User"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pack in",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"clang",
+				"Preferences: SublimeClang Settings – Default"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"pack ina",
+				"Package Control: Install Package"
+			],
+			[
+				"pac in",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 588.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/David/Documents/Work/truth_analyses/wgammastar/wgammastar.sublime-project",
+		"/Users/David/Documents/Work/truth_analyses/wgammastar/src/EventFinder.cxx",
+		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/Makefile",
+		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/inc/EventFinder.h",
+		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/src/Cutflow.cxx",
+		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/obj/.gitignore",
+		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/.gitignore",
+		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/inc/Cutflow.h",
+		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/8TeV-jetveto.sublime-project",
+		"/Users/David/Documents/Work/notes/hsg3-moriond13/ggH/Theory/tex/WWnom.tex",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/results/update.sh",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/results/plotScaleVariations.cxx",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/SublimeClang/SublimeClang.sublime-settings",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/cc.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/cu.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/uc.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/uu.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/dd.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/cd.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/dc.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/bin/analyse.mcfm.sh",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/Makefile",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/src/Analyse.cxx",
+		"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/mcfm-ww.sublime-project",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/sherpa/ATLAS_2012_WZ.cc",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/results/makeplots.py",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/madgraph/bin/infiles.txt",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/madgraph/inc/EventFinder.h",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/sherpa/Cutflow.hh",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/mcfm/inc/EventFinder.h",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/madgraph/src/Cutflow.cxx",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/mcfm/src/EventFinder.cxx",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/mcfm/inc/Cutflow.h",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/mcfm/src/Cutflow.cxx",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/madgraph/src/EventFinder.cxx",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/wgammastar.sublime-project",
+		"/Users/David/Documents/Work/analysis/Higgs/wgammastar/.gitignore",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/User/SublimeClang.sublime-settings",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/Users/David/Documents/Work/RootUtils/rootlogon.C",
+		"/Users/David/Documents/Work/analysis/Higgs/nnlo/src/VegasHistogram.cxx",
+		"/Users/David/Documents/Work/analysis/Higgs/nnlo/inc/VegasHistogram.h",
+		"/Users/David/Documents/Work/analysis/Higgs/nnlo/inc/EventFinder.h",
+		"/Users/David/Documents/Work/analysis/Higgs/nnlo/Makefile",
+		"/Users/David/Documents/Work/analysis/Higgs/nnlo/src/Analyse.cxx",
+		"/Users/David/Documents/Work/analysis/Higgs/nnlo/inc/EventFinderLinkDef.h",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/CMakeLists.txt",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/Makefile",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/src/interface.cxx",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/src/interface.h",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/src/RootTuple.cxx",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/src/RootTuple.h",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/external/dummyroot.f",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/external/mcatnlo_hwanRootTuple.f",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/external/FC_namemangling.h",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/docs/RootTuple-doc.tex",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/src/RootTuple-config.in",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/src/CMakeLists.txt",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/RootTuple.sublime-project",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/src/dummyroot.f",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/docs/CMakeLists.txt",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/.gitignore",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/docs/test.tex",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/cmake/Modules/UseLATEX.cmake",
+		"/Users/David/Documents/Work/MC/RootTuple/dev/RootTuple/cmake/Modules/FindROOT.cmake",
+		"/Users/David/Documents/Work/Papers/ATLAS working/WW_5ifb.tex",
+		"/Users/David/Dropbox/LaTeX/Curriculum-Vitae/2012-08-02.tex"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"weight",
+			"mu_F",
+			"mu_R",
+			"weight",
+			"rwgt_",
+			"rwgt_weight",
+			"rwgt_facfact",
+			"rwgt_renfact",
+			"setbranchstat",
+			"weight",
+			"cr_0jet",
+			"deltaphi",
+			"METRel",
+			"elecs_low",
+			"low",
+			"cutNumber",
+			"kall",
+			"low",
+			"Description",
+			"max",
+			"h_gamma_p",
+			"nJets_\"",
+			"elec",
+			"->inc",
+			"cf_0jet_incl",
+			"Custom",
+			"code",
+			"lib",
+			"fortran",
+			"roottuple",
+			"set",
+			"Chris White",
+			"compress",
+			";",
+			"void",
+			"ntuple",
+			"latex2html",
+			"need",
+			"latex2html",
+			"renormalization"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "sections/introduction.tex",
+					"settings":
+					{
+						"buffer_size": 92,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								92,
+								92
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "thesis.sublime-project",
+					"settings":
+					{
+						"buffer_size": 180,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								168,
+								168
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clang":
+	{
+		"height": 58.0
+	},
+	"output.exec":
+	{
+		"height": 102.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/David/Documents/Work/analysis/Higgs/mcfm-ww/mcfm-ww.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 125.0,
+	"status_bar_visible": true
+}
