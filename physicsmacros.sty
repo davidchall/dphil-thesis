@@ -1,50 +1,5 @@
 \ProvidesPackage{physicsmacros}
 
-%
-% +--------------------------------------------------------------------+
-% |                                                                    |
-% |  Some useful units                                                 |
-% |                                                                    |
-% +--------------------------------------------------------------------+
-%
-\def\TeV{\ifmmode {\mathrm{\ Te\kern -0.1em V}}\else
-                   \textrm{Te\kern -0.1em V}\fi}
-\def\GeV{\ifmmode {\mathrm{\ Ge\kern -0.1em V}}\else
-                   \textrm{Ge\kern -0.1em V}\fi}
-\def\MeV{\ifmmode {\mathrm{\ Me\kern -0.1em V}}\else
-                   \textrm{Me\kern -0.1em V}\fi}
-\def\keV{\ifmmode {\mathrm{\ ke\kern -0.1em V}}\else
-                   \textrm{ke\kern -0.1em V}\fi}
-\def\eV{\ifmmode  {\mathrm{\ e\kern -0.1em V}}\else
-                   \textrm{e\kern -0.1em V}\fi}
+\DeclareRobustCommand{\HtoWW}{\HepProcess{\PHiggs \to \PW \PW}\xspace}
 
-\def\TeVc{\ifmmode {\mathrm{\ Te\kern -0.1em V}/c}\else
-                   {\textrm{Te\kern -0.1em V}/$c$}\fi}
-\def\GeVc{\ifmmode {\mathrm{\ Ge\kern -0.1em V}/c}\else
-                   {\textrm{Ge\kern -0.1em V}/$c$}\fi}
-\def\MeVc{\ifmmode {\mathrm{\ Me\kern -0.1em V}/c}\else
-                   {\textrm{Me\kern -0.1em V}/$c$}\fi}
-\def\keVc{\ifmmode {\mathrm{\ ke\kern -0.1em V}/c}\else
-                   {\textrm{ke\kern -0.1em V}/$c$}\fi}
-\def\eVc{\ifmmode  {\mathrm{\ e\kern -0.1em V}/c}\else
-                   {\textrm{e\kern -0.1em V}/$c$}\fi}
-
-\def\TeVcc{\ifmmode {\mathrm{\ Te\kern -0.1em V}/c^2}\else
-                   {\textrm{Te\kern -0.1em V}/$c^2$}\fi}
-\def\GeVcc{\ifmmode {\mathrm{\ Ge\kern -0.1em V}/c^2}\else
-                   {\textrm{Ge\kern -0.1em V}/$c^2$}\fi}
-\def\MeVcc{\ifmmode {\mathrm{\ Me\kern -0.1em V}/c^2}\else
-                   {\textrm{Me\kern -0.1em V}/$c^2$}\fi}
-\def\keVcc{\ifmmode {\mathrm{\ ke\kern -0.1em V}/c^2}\else
-                   {\textrm{ke\kern -0.1em V}/$c^2$}\fi}
-\def\eVcc{\ifmmode  {\mathrm{\ e\kern -0.1em V}/c^2}\else
-                   {\textrm{e\kern -0.1em V}/$c^2$}\fi}
-
-\def\ifb{\mbox{fb$^{-1}$}}%  Inverse femtobarns.
-\def\ipb{\mbox{pb$^{-1}$}}%  Inverse picobarns.
-\def\inb{\mbox{nb$^{-1}$}}%  Inverse nanobarns.
-
-\def\cm{\ifmmode  {\mathrm{\ cm}}\else
-                   \textrm{~cm}\fi}
-
-
+\DeclareRobustCommand{\mcfm}{{\sc mcfm}\xspace}
