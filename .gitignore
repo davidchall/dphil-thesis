@@ -1,2 +1,11 @@
-# Ignore all emacs backup files
-*~
+*.aux
+thesis.log
+thesis.toc
+thesis.lot
+thesis.lof
+thesis.fls
+thesis.blg
+thesis.fdb_latexmk
+comment.cut
+thesis.synctex.gz
+thesis.pdf
