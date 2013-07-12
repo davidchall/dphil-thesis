@@ -10,3 +10,5 @@ thesis.fdb_latexmk
 comment.cut
 thesis.synctex.gz
 thesis.pdf
+thesis.out
+thesis.tdo
