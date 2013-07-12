@@ -520,18 +520,18 @@
 	"buffers":
 	[
 		{
-			"file": "sections/introduction.tex",
+			"file": "thesis.tex",
 			"settings":
 			{
-				"buffer_size": 92,
+				"buffer_size": 1025,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "thesis.sublime-project",
+			"file": "tex/standardmodel.tex",
 			"settings":
 			{
-				"buffer_size": 180,
+				"buffer_size": 251,
 				"line_ending": "Unix"
 			}
 		}
@@ -604,6 +604,25 @@
 	},
 	"file_history":
 	[
+		"/Users/David/Documents/DPhil/thesis/tex/acknowledgements.tex",
+		"/Users/David/Documents/DPhil/thesis/mystyle.sty",
+		"/Users/David/Documents/DPhil/thesis/mythesis.cls",
+		"/Users/David/Documents/DPhil/thesis/sections/standardmodel.tex",
+		"/Users/David/Documents/DPhil/thesis/preamble.tex",
+		"/Users/David/Documents/DPhil/thesis/tex/frontmatter.tex",
+		"/Users/David/Documents/DPhil/thesis/sections/preface.tex",
+		"/Users/David/Documents/DPhil/thesis/sections/frontmatter.tex",
+		"/Users/David/Documents/DPhil/thesis/experiment.bib",
+		"/Users/David/Documents/DPhil/thesis/mc.bib",
+		"/Users/David/Documents/DPhil/thesis/theory.bib",
+		"/Users/David/Documents/DPhil/thesis/references/../theory.bib",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/User/LaTeXTools Preferences.sublime-settings",
+		"/Users/David/Library/Application Support/Sublime Text 2/Packages/LaTeXTools/LaTeXTools Preferences.sublime-settings",
+		"/Users/David/Documents/DPhil/thesis/sections/introduction.tex",
+		"/Users/David/Documents/DPhil/thesis/makefile",
+		"/Users/David/Documents/DPhil/thesis/thesis.sublime-project",
+		"/Users/David/Documents/DPhil/thesis/sections/acknowledgements.tex",
+		"/Users/David/Documents/DPhil/thesis/sections/abstract.tex",
 		"/Users/David/Documents/Work/truth_analyses/wgammastar/wgammastar.sublime-project",
 		"/Users/David/Documents/Work/truth_analyses/wgammastar/src/EventFinder.cxx",
 		"/Users/David/Documents/Work/analysis/WW/8TeV-jetveto/Makefile",
@@ -748,27 +767,30 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "sections/introduction.tex",
+					"file": "thesis.tex",
 					"settings":
 					{
-						"buffer_size": 92,
+						"buffer_size": 1025,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								92,
-								92
+								36,
+								36
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -778,23 +800,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "thesis.sublime-project",
+					"file": "tex/standardmodel.tex",
 					"settings":
 					{
-						"buffer_size": 180,
+						"buffer_size": 251,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								168,
-								168
+								250,
+								250
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -873,6 +895,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 125.0,
+	"side_bar_width": 176.0,
 	"status_bar_visible": true
 }
