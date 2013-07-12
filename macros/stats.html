@@ -14,7 +14,8 @@ var chapterData = new google.visualization.DataTable();
 chapterData.addColumn('string', 'Chapter');
 chapterData.addColumn('number', 'Words');
 chapterData.addRows([
-['Introduction', 1]
+['Introduction', 0],
+['The', 0]
 ]);
 // Set chart options
 var chapterOptions = {'title':'Chapter word counts',
@@ -36,7 +37,8 @@ timestampData.addRows([
 [new Date(2013, 4, 3, 19, 0, 6), 2],
 [new Date(2013, 4, 3, 19, 1, 9), 2],
 [new Date(2013, 4, 3, 23, 10, 42), 3],
-[new Date(2013, 4, 4, 0, 34, 47), 4]
+[new Date(2013, 4, 4, 0, 34, 47), 4],
+[new Date(2013, 7, 13, 0, 38, 17), 0]
 ]);
 var timestampOptions = {'title':'Word count vs time',
 'width':500,
