@@ -1,14 +1,12 @@
-\documentclass[hyper, linkcolor=blue]{mythesis}
+\documentclass[hyper,linkcolor=blue]{mythesis}
 
-\usepackage{mystyle}
 \usepackage[colorinlistoftodos]{todonotes}
-\graphicspath{{./figures/}}
 \makeatother
 
-\title{Discovery of the Higgs boson in the \WW decay channel using the ATLAS detector at the Large Hadron Collider}
+\title{Discovery and measurement of the Higgs boson in the \WW decay channel with the ATLAS detector}
 \author{David Christopher Hall}
 
-%\includeonly{}
+
 \begin{document}
 %TC:ignore
 \begin{frontmatter}
@@ -18,19 +16,129 @@
 
 \begin{mainmatter}
   \listoftodos
-  \include{tex/introduction}
-  \part{Theoretical and Experimental Background}
-    \include{tex/standardmodel}
-    \include{tex/montecarlo}
-    \include{tex/detector}
+  
+  \chapter*{Introduction}
+    \addcontentsline{toc}{chapter}{Introduction}
+    \label{chap:intro}
+    \input{tex/introduction}
 
-  \part{Standard Model \WW cross section measurement}
+  \chapter{Theoretical motivation}
+    \label{chap:motivation}
+    \input{tex/motivation/intro}
+    \section{The Standard Model of particle physics}
+      \label{sec:sm}
+      \input{tex/motivation/sm}
+    \section{Electroweak symmetry breaking}
+      \label{sec:ewsb}
+      \input{tex/motivation/ewsb}
+    \section{Constraints on the Higgs boson prior to the LHC}
+      \label{sec:prior_constraints}
+      \input{tex/motivation/constraints}
+    \section{Higgs boson production at the LHC}
+      \label{sec:higgs_production}
+      \input{tex/motivation/production}
 
-  \part{\HWW discovery}
-    \include{tex/ww}
-    \include{tex/signal}
-    \include{tex/wgammastar}
+  \chapter{The ATLAS experiment}
+    \label{chap:experiment}
+    \input{tex/experiment/intro}
+    \section{The Large Hadron Collider}
+      \label{sec:lhc}
+      \input{tex/experiment/lhc}
+    \section{The ATLAS detector}
+      \label{sec:atlas}
+      \input{tex/experiment/atlas}
+    \section{Luminosity measurement and the run-I dataset}
+      \label{sec:dataset}
+      \input{tex/experiment/dataset}
 
+  \chapter{Computational tools}
+    \label{chap:tools}
+    \input{tex/tools/intro}
+    \section{Perturbative QCD}
+      \label{sec:qcd}
+      \input{tex/tools/qcd}
+    \section{Monte Carlo event generation}
+      \label{sec:mc}
+      \input{tex/tools/mc}
+    \section{Jets}
+      \label{sec:jets}
+      \input{tex/tools/jets}
+    \section{ME-PS merging}
+      \label{sec:merging}
+      \input{tex/tools/merging}
+    \section{NLO-PS matching}
+      \label{sec:matching}
+      \input{tex/tools/matching}
+  
+  \chapter{Overview of the \HWW analysis}
+    \label{chap:selection}
+    \input{tex/selection/intro}
+    \section{Reconstruction of physics objects}
+      \label{sec:objects}
+      \input{tex/selection/objects}
+    \section{Selection of \WW events}
+      \label{sec:presel}
+      \input{tex/selection/presel}
+    \section{Selection of \HWW events}
+      \label{sec:signalregions}
+      \input{tex/selection/signalregions}
+
+  \chapter{\ggH modelling}
+    \label{chap:signal}
+    \input{tex/signal/intro}
+    \section{Cross section uncertainties}
+      \label{sec:ggf_xs}
+      \input{tex/signal/xs}
+    \section{Jet bin uncertainties}
+      \label{sec:ggf_jetbin}
+      \input{tex/signal/jetbin}
+    \section{Transverse momentum modelling}
+      \label{sec:ggf_pt}
+      \input{tex/signal/pt}
+    \section{Acceptance uncertainties}
+      \label{sec:ggf_acc}
+      \input{tex/signal/acc}
+
+  \chapter{\WW measurement and modelling}
+    \label{chap:ww}
+    \input{tex/ww/intro}
+    \section{Cross section measurement in 0 jet bin}
+      \label{sec:ww_meas}
+      \input{tex/ww/meas}
+    \section{Data-driven background estimation}
+      \label{sec:ww_bkg}
+      \input{tex/ww/bkg}
+
+  \chapter{Other backgrounds}
+    \label{chap:backgrounds}
+    \input{tex/backgrounds/intro}
+    \section{\Wjets and QCD}
+      \label{sec:wjets}
+      \input{tex/backgrounds/wjets}
+    \section{Top}
+      \label{sec:top}
+      \input{tex/backgrounds/top}
+    \section{\Zjets}
+      \label{sec:dy}
+      \input{tex/backgrounds/dy}
+    \section{Diboson}
+      \label{sec:diboson}
+      \input{tex/backgrounds/diboson}
+
+  \chapter{Results}
+    \label{chap:results}
+    \input{tex/results/intro}
+    \section{Systematic uncertainties}
+      \label{sec:systematics}
+      \input{tex/results/systematics}
+    \section{Fitting procedure}
+    \section{Limits}
+    \section{Fiducial cross section measurement}
+      \label{sec:fiducial}
+      \input{tex/results/fiducial}
+    \section{Differential cross section measurements}
+      \label{sec:unfolding}
+      \input{tex/results/unfolding}
 \end{mainmatter}
 
 \begin{appendices}
@@ -38,8 +146,8 @@
 \end{appendices}
 
 \begin{backmatter}
-  \bibliographystyle{h-physrev}
-  %\bibliographystyle{plain}
+  %\bibliographystyle{h-physrev}
+  \bibliographystyle{plain}
   \bibliography{theory, mc, experiment}
   \listoffigures
   \listoftables

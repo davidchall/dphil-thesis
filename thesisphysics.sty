@@ -1,0 +1,25 @@
+\ProvidesPackage{thesisphysics}
+
+%% Physics processes
+\DeclareRobustCommand{\HWW}{\HepProcess{\PHiggs \HepTo \PW \PW}\xspace}
+\DeclareRobustCommand{\ggH}{\HepProcess{\Pgluon \Pgluon \HepTo \PHiggs}\xspace}
+\DeclareRobustCommand{\WW}{\HepProcess{\PW \PW}\xspace}
+\DeclareRobustCommand{\WZ}{\HepProcess{\PW \PZ}\xspace}
+\DeclareRobustCommand{\Wgstar}{\HepProcess{\PW \PZ}\xspace}
+\DeclareRobustCommand{\Wjets}{\HepProcess{\PW +}jets\xspace}
+\DeclareRobustCommand{\Zjets}{\HepProcess{\PZ +}jets\xspace}
+
+
+%% Physics variables
+\DeclareRobustCommand{\mll}{\thesismath{m_{\Plepton\Plepton}}\xspace}
+\DeclareRobustCommand{\dphill}{\thesismath{\Delta\phi_{\Plepton\Plepton}}\xspace}
+
+
+
+%% MC generators
+\DeclareRobustCommand{\mcfm}{{\sc mcfm}\xspace}
+\DeclareRobustCommand{\mcatnlo}{{\sc mc@nlo}\xspace}
+\DeclareRobustCommand{\sherpa}{{\sc Sherpa}\xspace}
+\DeclareRobustCommand{\powheg}{{\sc PowHeg}\xspace}
+
+

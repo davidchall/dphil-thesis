@@ -6,5 +6,8 @@
 \LoadClass[sftitles]{hepthesis}
 
 \RequirePackage{graphicx}
-\RequirePackage[italic]{hepnicenames}
+\usepackage[italic]{hepparticles}
+\RequirePackage[italic]{hepnames}
 \RequirePackage{hepunits}
+\RequirePackage{thesismath}
+\RequirePackage{thesisphysics}
