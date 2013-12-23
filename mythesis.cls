@@ -3,7 +3,7 @@
 % Pass options to hepthesis class, but ensure sftitles enabled
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{hepthesis}}
 \ProcessOptions\relax
-\LoadClass[sftitles]{hepthesis}
+\LoadClass[sftitles, oneside]{hepthesis}
 
 \RequirePackage{graphicx}
 \usepackage[italic]{hepparticles}
@@ -11,3 +11,6 @@
 \RequirePackage{hepunits}
 \RequirePackage{thesismath}
 \RequirePackage{thesisphysics}
+\RequirePackage[utf8]{inputenc}
+
+\setspacing{double}

@@ -1,9 +1,10 @@
 {
+	"spell_check": true,
 	"folders":
 	[
 		{
 			"path": ".",
-			"file_exclude_patterns": ["*.aux", "*.log", "*.lot", "*.lof", "*.toc", "*.blg", "*bbl", "*.pdf", "*.gz", "*.fdb_latexmk", "comment.cut"]
+			"file_exclude_patterns": ["*.aux", "*.log", "*.lot", "*.lof", "*.toc", "*.tdo", "*.blg", "*bbl", "*.gz", "*.fdb_latexmk", "comment.cut", "*.out"]
 		}
 	]
 }
