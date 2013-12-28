@@ -1,3 +1,8 @@
+% This BibTeX style is based on the h-physrev style by Jonathan Flynn.
+% It was adapted by David Hall on 28/12/13 to support doi and eprint
+% hyperlinks, using ideas from the UT Phys style of Jacques Distler.
+% A new cds field was added to be used with the new confnote entry.
+%
 ENTRY
 { address
 eprint
@@ -23,6 +28,11 @@ title
 type
 volume
 year
+archive
+archivePrefix
+primaryClass
+doi
+cds
 }
 {}
 { label }
@@ -215,6 +225,54 @@ FUNCTION {format.edited}
 { editor empty$
 { "" }
 { "edited by " editor format.names * }
+if$
+}
+FUNCTION {format.archive}
+{
+archivePrefix empty$
+{ "" }
+{ archivePrefix ":" *}
+if$            
+}
+FUNCTION {format.primaryClass}
+{
+primaryClass empty$
+{ "" }
+{ " [" primaryClass * "]" *}
+if$            
+}
+FUNCTION {format.eprint}
+{ eprint empty$
+{ ""}
+{ archive empty$
+{"\href{http://arxiv.org/abs/" eprint * "}" * 
+"{{\ttfamily " * format.archive * eprint *
+format.primaryClass * "}}" *}
+{"\href{" archive *  "/" * eprint * "}" * 
+"{{\ttfamily " * format.archive * eprint *
+format.primaryClass * "}}" *}
+if$
+}
+if$
+}
+FUNCTION {add.doi}
+{ duplicate$ empty$
+{ skip$ }
+{ doi empty$
+{}
+{"\href{http://dx.doi.org/" doi * "}{" * swap$ * "}" *}
+if$
+}
+if$
+}
+FUNCTION {add.cds}
+{ duplicate$ empty$
+{ skip$ }
+{ cds empty$
+{}
+{"\href{http://cds.cern.ch/record/" cds * "}{" * swap$ * "}" *}
+if$
+}
 if$
 }
 FUNCTION {format.title}
@@ -542,13 +600,13 @@ format.date empty$
 if$
 }
 if$
-output
+add.doi output
 }
 { format.article.crossref output.nonnull
 format.pages output
 }
 if$
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -572,7 +630,7 @@ crossref missing$
 format.book.crossref output.nonnull
 }
 if$    
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -587,7 +645,7 @@ howpublished address new.block.checkb
 howpublished output
 address output
 format.date output
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -612,7 +670,7 @@ new.block
 format.book.crossref output.nonnull
 }
 if$
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -639,7 +697,7 @@ format.date "year" output.check
 format.chapter.pages output
 }
 if$
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -674,7 +732,7 @@ if$
 format.pages output
 }
 if$
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -710,7 +768,7 @@ address output
 if$
 format.edition output
 format.date output
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -725,7 +783,7 @@ new.block
 school "school" output.check
 address output
 format.date "year" output.check
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -739,7 +797,7 @@ format.title output
 howpublished new.block.checka
 howpublished output
 format.date output
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -755,7 +813,7 @@ new.block
 school "school" output.check
 address output
 format.date "year" output.check
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -791,7 +849,7 @@ if$
 publisher output
 }
 if$
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -802,7 +860,7 @@ collaboration output
 format.authors "author" output.check
 new.block
 format.inst.tr.num.date output.nonnull
-eprint output
+format.eprint output
 new.block
 note output
 fin.entry
@@ -816,6 +874,20 @@ format.title "title" output.check
 new.block
 note "note" output.check
 format.date output
+fin.entry
+}
+FUNCTION {confnote}
+{ output.bibitem
+collaboration output
+new.block
+format.title "title" output.check
+new.block
+number empty$
+{ "empty number in " cite$ * warning$ }
+{ number add.cds output }
+if$
+format.date "year" output.check
+note output
 fin.entry
 }
 FUNCTION {default.type} { misc }
@@ -937,6 +1009,7 @@ FUNCTION {begin.bib}
 'skip$
 { preamble$ write$ newline$ }
 if$
+"\providecommand{\href}[2]{#2}"
 "\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
 }
 EXECUTE {begin.bib}

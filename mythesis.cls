@@ -11,6 +11,7 @@
 \RequirePackage{hepunits}
 \RequirePackage{thesismath}
 \RequirePackage{thesisphysics}
+\RequirePackage{cite}
 \RequirePackage[utf8]{inputenc}
 
 \setspacing{double}
