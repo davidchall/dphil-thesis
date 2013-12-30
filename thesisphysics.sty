@@ -3,6 +3,10 @@
 %% Physics processes
 \DeclareRobustCommand{\HWW}{\HepProcess{\PHiggs \HepTo \PW \PW}\xspace}
 \DeclareRobustCommand{\ggH}{\HepProcess{\Pgluon \Pgluon \HepTo \PHiggs}\xspace}
+\DeclareRobustCommand{\WH}{\HepProcess{\PW \PHiggs}\xspace}
+\DeclareRobustCommand{\ZH}{\HepProcess{\PZ \PHiggs}\xspace}
+\DeclareRobustCommand{\ttH}{\HepProcess{\Ptop \Ptop \PHiggs}\xspace}
+
 \DeclareRobustCommand{\WW}{\HepProcess{\PW \PW}\xspace}
 \DeclareRobustCommand{\WZ}{\HepProcess{\PW \PZ}\xspace}
 \DeclareRobustCommand{\Wgstar}{\HepProcess{\PW \PZ}\xspace}
@@ -11,6 +15,9 @@
 
 
 %% Physics variables
+\DeclareRobustCommand{\mH}{\thesismath{m_{\PHiggs}}\xspace}
+\DeclareRobustCommand{\mW}{\thesismath{m_{\PW}}\xspace}
+\DeclareRobustCommand{\mZ}{\thesismath{m_{\PZ}}\xspace}
 \DeclareRobustCommand{\mll}{\thesismath{m_{\Plepton\Plepton}}\xspace}
 \DeclareRobustCommand{\dphill}{\thesismath{\Delta\phi_{\Plepton\Plepton}}\xspace}
 
@@ -23,3 +30,5 @@
 \DeclareRobustCommand{\powheg}{{\sc PowHeg}\xspace}
 
 
+%% Experiments
+\DeclareRobustCommand{\dzero}{D\O\xspace}
