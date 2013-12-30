@@ -1,7 +1,8 @@
 % This BibTeX style is based on the h-physrev style by Jonathan Flynn.
 % It was adapted by David Hall on 28/12/13 to support doi and eprint
 % hyperlinks, using ideas from the UT Phys style of Jacques Distler.
-% A new cds field was added to be used with the new confnote entry.
+% A new cds field can be used with techreport entries.
+% Also put in raggedright environment
 %
 ENTRY
 { address
@@ -506,6 +507,17 @@ year empty$
 { ", " * year * " (unpublished)" * }
 if$
 }
+FUNCTION {format.tr.date}
+{ number empty$
+{ "" "empty number in " cite$ * warning$ }
+{ number }
+if$
+year empty$
+{ "empty year in " cite$ * warning$ }
+{ " " * year paren * }
+if$
+add.cds
+}
 FUNCTION {format.article.crossref}
 { key empty$
 { journal empty$
@@ -859,7 +871,7 @@ FUNCTION {techreport}
 collaboration output
 format.authors "author" output.check
 new.block
-format.inst.tr.num.date output.nonnull
+format.tr.date output.nonnull
 format.eprint output
 new.block
 note output
@@ -874,20 +886,6 @@ format.title "title" output.check
 new.block
 note "note" output.check
 format.date output
-fin.entry
-}
-FUNCTION {confnote}
-{ output.bibitem
-collaboration output
-new.block
-format.title "title" output.check
-new.block
-number empty$
-{ "empty number in " cite$ * warning$ }
-{ number add.cds output }
-if$
-format.date "year" output.check
-note output
 fin.entry
 }
 FUNCTION {default.type} { misc }
@@ -1010,13 +1008,13 @@ FUNCTION {begin.bib}
 { preamble$ write$ newline$ }
 if$
 "\providecommand{\href}[2]{#2}"
-"\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
+"\begingroup\raggedright\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
 }
 EXECUTE {begin.bib}
 EXECUTE {init.state.consts}
 ITERATE {call.type$}
 FUNCTION {end.bib}
 { newline$
-"\end{thebibliography}" write$ newline$
+"\end{thebibliography}\endgroup" write$ newline$
 }
 EXECUTE {end.bib}
