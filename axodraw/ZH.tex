@@ -1,0 +1,24 @@
+\documentclass[12pt]{standalone}
+\usepackage{axodraw}
+\usepackage[italic]{hepparticles}
+\usepackage[italic]{hepnames}
+
+\begin{document}
+
+\unitlength 1pt \SetScale{1}
+\begin{picture}(150,100)(-5,-10)
+	\ArrowLine(20, 5)(50,40)
+	\ArrowLine(50,40)(20,75)
+	\Photon(50,40)(90,40){2}{5}
+	\Photon(120,20)(90,40){2}{5}
+	\DashLine(90,40)(120,60){5}
+	\Vertex(50,40){2}
+	\Vertex(90,40){2}
+	\put(  8, 2){${\Pquark}$}
+	\put(  8,72){${\APquark}$}
+	\put(125,56){${\PHiggs}$}
+	\put( 65,25){${\PZ}$}
+	\put(125,12){${\PZ}$}
+\end{picture}
+
+\end{document}

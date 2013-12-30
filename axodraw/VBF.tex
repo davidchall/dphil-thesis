@@ -1,0 +1,30 @@
+\documentclass[12pt]{standalone}
+\usepackage{axodraw}
+\usepackage[italic]{hepparticles}
+\usepackage[italic]{hepnames}
+
+\begin{document}
+
+\unitlength 0.9pt
+\begin{picture}(140,115)(-5,-10)
+	\SetScale{0.9}
+	\Line( 15,95)( 65,90)
+	\Line( 15, 5)( 65,10)
+	\Line(115, 5)( 65,10)
+	\Line(115,95)( 65,90)
+	\Photon( 65,10)( 65,90){3}{7}
+	\DashLine(115,50)( 65,50){6}
+	\Vertex(65,90){2}
+	\Vertex(65,10){2}
+	\Vertex(65,50){2}
+	\put(  0,90){$\Pq$}
+	\put(  0,0){$\Pq$}
+	\put(123,90){{$\Pq$}}
+	\put(123,0){{$\Pq$}}
+	\put(123,45){{$\PHiggs$}}
+	\put( 75,65){{$V$}}
+	\put( 75,20){{$V$}}
+	\SetScale{1}
+\end{picture}
+
+\end{document}

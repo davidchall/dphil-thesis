@@ -1,0 +1,27 @@
+\documentclass[12pt]{standalone}
+\usepackage{axodraw}
+\usepackage[italic]{hepparticles}
+\usepackage[italic]{hepnames}
+
+\begin{document}
+
+\SetScale{0.8}
+\begin{picture}(110,95)(-13,-6)
+	\Gluon(0,0)(50,0){3}{5}
+	\Gluon(0,100)(50,100){3}{5}
+	\ArrowLine(100,0)(50,0)
+	\ArrowLine(50,0)(50,50)
+	\ArrowLine(50,50)(50,100)
+	\ArrowLine(50,100)(100,100)
+	\DashLine(50,50)(100,50){5}
+	\Vertex(50,100){2}
+	\Vertex(50,50){2}
+	\Vertex(50,0){2}
+	\put(85,35){$\PHiggs$}
+	\put(-12,78){$\Pgluon$}
+	\put(-12,-2){$\Pgluon$}
+	\put(85,78){$\Ptop$}
+	\put(85,-2){$\APtop$}
+\end{picture}
+
+\end{document}

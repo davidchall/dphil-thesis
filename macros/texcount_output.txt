@@ -1,7 +1,7 @@
 ::: Subtotals :::
-0 words in _top_
+70 words in Chapter
 0 words in Chapter: Introduction
-355 words in Chapter: Theoretical motivation
+583 words in Chapter: Theoretical motivation
 4 words in Chapter: The ATLAS experiment
 0 words in Chapter: Computational tools
 0 words in Chapter: Overview of the \HWW analysis
@@ -9,7 +9,7 @@
 0 words in Chapter: \WW measurement and modelling
 0 words in Chapter: Other backgrounds
 0 words in Chapter: Results
-0 words in Chapter: Conclusions
+15 words in Chapter: Conclusions
 ::: Total :::
-Words: 359
+Words: 672
 Formulae: 1
