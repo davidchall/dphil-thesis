@@ -1,6 +1,9 @@
 \ProvidesPackage{thesisphysics}
 
 %% Physics processes
+\DeclareRobustCommand{\Pgammastar}{\HepParticle{\gamma}{}{*}\xspace}
+\DeclareRobustCommand{\PV}{\HepGenParticle{V}{}{}\xspace}
+
 \DeclareRobustCommand{\HWW}{\HepProcess{\PHiggs \HepTo \PW \PW}\xspace}
 \DeclareRobustCommand{\ggH}{\HepProcess{\Pgluon \Pgluon \HepTo \PHiggs}\xspace}
 \DeclareRobustCommand{\WH}{\HepProcess{\PW \PHiggs}\xspace}
@@ -9,10 +12,13 @@
 
 \DeclareRobustCommand{\WW}{\HepProcess{\PW \PW}\xspace}
 \DeclareRobustCommand{\WZ}{\HepProcess{\PW \PZ}\xspace}
-\DeclareRobustCommand{\Wgstar}{\HepProcess{\PW \PZ}\xspace}
+\DeclareRobustCommand{\Wgstar}{\HepProcess{\PW \Pgammastar}\xspace}
 \DeclareRobustCommand{\Wjets}{\HepProcess{\PW +}jets\xspace}
 \DeclareRobustCommand{\Zjets}{\HepProcess{\PZ +}jets\xspace}
 
+\DeclareRobustCommand{\epluseminus}{\HepProcess{\Pelectron\Ppositron}\xspace}
+\DeclareRobustCommand{\pp}{\HepProcess{\Pproton\Pproton}\xspace}
+\DeclareRobustCommand{\ppbar}{\HepProcess{\Pproton\APproton}\xspace}
 
 %% Physics variables
 \DeclareRobustCommand{\mH}{\thesismath{m_{\PHiggs}}\xspace}

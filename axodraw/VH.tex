@@ -2,11 +2,12 @@
 \usepackage{axodraw}
 \usepackage[italic]{hepparticles}
 \usepackage[italic]{hepnames}
+\DeclareRobustCommand{\PV}{\HepGenParticle{V}{}{}\xspace}
 
 \begin{document}
 
 \unitlength 1pt \SetScale{1}
-\begin{picture}(150,100)(-5,-10)
+\begin{picture}(150,100)(5,-10)
 	\ArrowLine(20, 5)(50,40)
 	\ArrowLine(50,40)(20,75)
 	\Photon(50,40)(90,40){2}{5}
@@ -17,8 +18,8 @@
 	\put(  8, 2){${\Pquark}$}
 	\put(  8,72){${\APquark}$}
 	\put(125,56){${\PHiggs}$}
-	\put( 65,25){${\PZ}$}
-	\put(125,12){${\PZ}$}
+	\put( 55,25){${\PW,\PZ}$}
+	\put(125,12){${\PW,\PZ}$}
 \end{picture}
 
 \end{document}
