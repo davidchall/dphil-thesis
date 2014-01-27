@@ -14,6 +14,8 @@
 \RequirePackage{cite}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{subcaption}
+\RequirePackage{amssymb}
+\RequirePackage{multirow}
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
