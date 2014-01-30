@@ -1,8 +1,8 @@
 ::: Subtotals :::
 158 words in Chapter
 0 words in Chapter: Introduction
-2290 words in Chapter: Theoretical motivation
-95 words in Chapter: The ATLAS experiment
+2869 words in Chapter: Theoretical motivation
+434 words in Chapter: The ATLAS experiment
 68 words in Chapter: Phenomenological tools
 0 words in Chapter: Overview of the \HWW analysis
 0 words in Chapter: \ggH modelling
@@ -11,5 +11,5 @@
 0 words in Chapter: Results
 50 words in Chapter: Conclusions
 ::: Total :::
-Words: 2661
-Formulae: 5
+Words: 3579
+Formulae: 20

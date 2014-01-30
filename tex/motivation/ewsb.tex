@@ -1,17 +1,14 @@
 %!TEX root = ../../thesis.tex
 
-The first theory of weak interactions was a four-point interaction with coupling parameter 
-$G_F$ = \unit{$1.166\times 10^{-5}$}{\GeV\rpsquared}, the Fermi constant. Although 
-remarkably successful in describing low energy phenomena, such as nuclear $\beta$-decay, 
-the theory experiences serious issues at high energies - predicting cross sections which 
-scale with \ac{CM} energy $E$ like $\sigma \sim G_F^2 E^2$. These violate unitarity at 
-$E \gtrsim \unit{300}{\GeV}$ \cite{Aitchison}.
+The first theory of weak interactions was a four-point interaction with Fermi coupling 
+\unit{$G_F = 1.166\times 10^{-5}$}{\GeV\rpsquared}. Although successful in describing low energy phenomena, such as nuclear $\beta$-decay, at high energies the theory predicted cross sections which violate unitarity at $E \gtrsim \unit{300}{\GeV}$ 
+\cite{Aitchison}.
 
-The solution was to mediate the weak interaction through the exchange of electrically 
-charged vector bosons (known as \PWpm bosons), similar to the exchange of photons in 
-\ac{QED}. However, unlike \ac{QED}, the weak interaction is short ranged and therefore 
-its exchange bosons must be massive. Since the propagator for a particle of mass $m$ and 
-momentum $p$ contains $1 / (p^2 - m^2)$, in the low energy limit we identify that
+The solution was to introduce charged vector bosons (\PWpm bosons) to mediate the weak 
+interaction, similar to the exchange of photons in \ac{QED}. However, unlike \ac{QED}, 
+the weak interaction is short ranged and therefore its exchange bosons must be massive. 
+Since the propagator for a particle of mass $m$ and momentum $p$ contains 
+$1 / (p^2 - m^2)$, in the low energy limit we can identify that
 \begin{equation}
 	G_F \sim g^2 / m_{\PW}^2 ,
 \end{equation}
@@ -42,20 +39,22 @@ A major step was taken by Glashow in the proposal of an \EWgroup group
 strength $g$, and a single gauge field $B_{\mu}$ which couples to weak hypercharge $Y$ 
 with strength $g'$. The subscript `$L$' indicates that only left-handed chiral particles 
 couple to the $W^i_{\mu}$ fields, explaining the \VminusA nature of the weak interaction. 
-The physical gauge fields are obtained through the mixing of these fields, with weak mixing
-angle $\theta_W$:
+The physical gauge fields are obtained through the mixing of these fields
 \begin{align}
-	W^{\pm}_{\mu} &= (W^1_{\mu} \mp i W^2_{\mu}) / \sqrt{2} \\
-	A_{\mu} &= \sin\theta_W W^3_{\mu} + \cos\theta_W B_{\mu} \\
-	Z_{\mu} &= \cos\theta_W W^3_{\mu} - \sin\theta_W B_{\mu} ,
+	W^{\pm}_{\mu} &= (W^1_{\mu} \mp i W^2_{\mu}) / \sqrt{2} \label{eq:Wfield} \\
+	A_{\mu} &= \sin\theta_W W^3_{\mu} + \cos\theta_W B_{\mu} \label{eq:Afield} \\
+	Z_{\mu} &= \cos\theta_W W^3_{\mu} - \sin\theta_W B_{\mu} \label{eq:Zfield}
 \end{align}
-where $W^{\pm}_{\mu}$ leads to the electrically charged \PWpm bosons, $A_{\mu}$ leads to
-the photon and $Z_{\mu}$ leads to a new neutral \PZ boson. Weak neutral currents were a 
-prediction of the theory and were later confirmed experimentally. 
-\todo[inline]{Cite Gargamelle neutrino experiment?}
+\begin{align}
+	\cos\theta_W = g/\sqrt{g^2 + g'^2} && \sin\theta_W = g'/\sqrt{g^2 + g'^2} \label{eq:weak_mixing}
+\end{align}
+where $W^{\pm}_{\mu}$ give electrically charged \PWpm bosons, $A_{\mu}$ gives the photon 
+and $Z_{\mu}$ gives a new neutral \PZ boson. Weak neutral currents were later confirmed 
+experimentally. 
 
 Glashow's \EWgroup theory therefore predicts the interaction of fermions, in left-handed 
-\SUgroup{2} doublets and right-handed \SUgroup{2} singlets, with \PWpm, \PZ and \Pphoton 
+\SUgroup{2} doublets and right-handed \SUgroup{2} singlets (see 
+\Table~\ref{tab:ew_fermions}), with \PWpm, \PZ and \Pphoton 
 exchange bosons. Gauge boson self-interactions are also expected due to the non-abelian 
 nature of the \ac{EW} theory. The \PWpm bosons couple to weak isospin $T$ with strength 
 $g$, the \PZ boson couples vectorially to $c_V$ and axially to $c_A$ with strength 
@@ -63,10 +62,8 @@ $g/(2\cos\theta_W)$, and the photon couples to electric charge $Q$ with strength
 $e = g\sin\theta_W$, where
 \begin{align}
 	c_V &= T_3 - 2 Q \sin^2\theta_W & c_A &= T_3 \\
-	Q   &= T_3 + \frac{Y}{2}
+	Q   &= T_3 + \frac{Y}{2}.
 \end{align}
-and $T_3$ is the third component of weak isospin. The relevant quantum numbers of each
-fermion are displayed in \Table~\ref{tab:ew_fermions}.
 
 \begin{table}
 	\begin{tabular}{ccc@{\hskip 1cm}cccc}
@@ -95,16 +92,33 @@ fermion are displayed in \Table~\ref{tab:ew_fermions}.
 	\label{tab:ew_fermions}
 \end{table}
 
-Unfortunately, it was necessary to manually break the \ac{EW} symmetry to give masses to 
-the \PWpm and \PZ bosons. Initial attempts to invoke a mechanism of spontaneous symmetry 
-breaking were hindered by the Goldstone Theorem.
+We have seen that the $\SUgroup{2}\times\Ugroup{1}$ symmetry must be broken, leaving 
+\ac{QED} behind
+\begin{equation*}
+\EWgroup \xrightarrow{\text{EWSB}} \QEDgroup
+\end{equation*}
+Unfortunately, it was necessary to explicitly break the \ac{EW} symmetry by adding mass
+terms for the \PWpm and \PZ bosons by hand. Initial attempts to invoke a mechanism of 
+\ac{SSB} were hindered by the Goldstone theorem.
 
 
 
-\subsection{The Goldstone Theorem}
+\subsection{The Goldstone theorem}
 \label{sec:ewsb:goldstone}
-Sombrero
-Difficulties in breaking electroweak symmetry due to Goldstone theorem predicting massless scalar Nambu-Goldstone bosons (not experimentally observed)
+\ac{SSB} arises when the vacuum state does not respect the symmetry in question. This can 
+occur when a field acquires a non-zero vacuum expectation value. To see this, consider a 
+complex scalar field $\phi$ described by the Lagrangian
+\begin{equation}
+	\mathcal{L} 
+	= \parenths{\partial_{\mu}\phi^{\dagger}} \parenths{\partial^{\mu}\phi} 
+	+ \mu^2 \phi^{\dagger}\phi - \lambda \parenths{\phi^{\dagger}\phi}^2
+	\label{eq:lagr:goldstone}
+\end{equation}
+with $\mu^2, \lambda > 0$ giving a sombrero potential (\Figure~\ref{fig:sombrero}).
+$\mathcal{L}$ is invariant under global \Ugroup{1} transformations $\phi \rightarrow 
+\eexp{-i\alpha} \phi$. There is an infinite set of degenerate vacua
+$\phi = \mu\eexp{-i\theta}/\sqrt{2\lambda}$ that are not invariant under 
+global \Ugroup{1} transformations, thus the symmetry is broken.
 
 \begin{figure}
 	\includegraphics[width=\mediumfigwidth]{tex/motivation/sombrero}
@@ -115,14 +129,141 @@ Difficulties in breaking electroweak symmetry due to Goldstone theorem predictin
 	\label{fig:sombrero}
 \end{figure}
 
-\subsection{The Higgs Mechanism}
-\label{sec:ewsb:higgs}
-Abelian Higgs model
-Superconductivity done by Anderson for non-relativistic theory (Meissner effect since photons eat Goldstone bosons, massive mode in Raman spectrum is Higgs boson)
-Apply Higgs mechanism to non-abelian theories (Kibble)
-Weinberg and Salam independently applied to EW
-Gave relation between W and Z masses
+The Goldstone theorem states that \ac{SSB} of a continuous global symmetry will lead to 
+the existence of a number of massless scalar Nambu-Goldstone bosons \cite{Goldstone:1962}.
+This can be seen by considering radial and azimuthal excitations, $h\parenths{x}$ and 
+$\theta\parenths{x}$, about the vacuum 
+\begin{equation}
+	\phi\parenths{x} = \frac{1}{\sqrt{2}} \sqbracs{v + h\parenths{x}} \eexp{-i\theta\parenths{x} / v} ,
+\end{equation}
+where $v = \mu/\sqrt{\lambda}$. When substituted into (\ref{eq:lagr:goldstone}), we get
+\begin{equation}
+	\mathcal{L} = \tfrac{1}{2}\partial_{\mu}\theta \partial^{\mu}\theta
+	+ \tfrac{1}{2}\partial_{\mu}h \partial^{\mu}h
+	- \mu^2 h^2
+	+ \dots
+\end{equation}
+where the dots denote terms neither kinetic nor mass. 
+We identify a massless Nambu-Goldstone boson (the $\theta$-mode) and a Higgs boson of 
+mass $\sqrt{2}\mu$ (the $h$-mode).
 
-\begin{equation*}
-\SUgroup{2}_{L} \times \Ugroup{1}_{Y} \xrightarrow{\text{EWSB}} \Ugroup{1}_{Q}
-\end{equation*}
+In order to explain massive \PWpm and \PZ bosons, the electroweak symmetry must be broken.
+But the Goldstone theorem suggested that this would predict massless scalar bosons, which
+were not experimentally observed.
+
+
+
+\subsection{The Higgs mechanism}
+\label{sec:ewsb:higgs}
+However, when \ac{SSB} of a continuous local symmetry is studied, something remarkable 
+happens. The Nambu-Goldstone bosons of the theory are `eaten' by the gauge bosons, giving 
+them mass. The degrees of freedom appear as longitudinal components of the massive gauge 
+bosons. This is known as the Higgs mechanism 
+\cite{Englert:1964,Higgs:1964a,Higgs:1964b,Guralnik:1964,Higgs:1966}.
+
+Consider the Lagrangian for a \Ugroup{1} gauge theory with a sombrero potential
+\begin{equation}
+	\mathcal{L} 
+	= \parenths{D_{\mu}\phi}^{\dagger} \parenths{D^{\mu}\phi}
+	- \tfrac{1}{4} F_{\mu\nu} F^{\mu\nu}
+	+ \mu^2 \phi^{\dagger} \phi - \lambda \parenths{\phi^{\dagger} \phi}^2
+	\label{eq:lagr:abelHiggs}
+\end{equation}
+where $D_{\mu} = \partial_{\mu} + iqA_{\mu}$ is the covariant derivative and $F_{\mu\nu} 
+= \partial_{\mu}A_{\nu} - \partial_{\nu}A_{\mu}$ is the field tensor. This is invariant 
+under local \Ugroup{1} transformations $\phi \rightarrow \eexp{-i\alpha\parenths{x}} \phi$
+when accompanied by a gauge transformation of the potential 
+$A^{\mu} \rightarrow A^{\mu} + \tfrac{1}{q}\partial^{\mu} \alpha\parenths{x}$.
+
+We choose the unitary gauge $\alpha\parenths{x} = -\theta\parenths{x}/v$ to `gauge away' 
+the $\theta$-mode. Ultimately, the final result is gauge-independent, but other choices 
+make the gauge boson propagators gauge-dependent. Considering excitations about the vacuum
+\begin{equation}
+	\phi\parenths{x} = \frac{1}{\sqrt{2}} \sqbracs{v + h\parenths{x}}
+\end{equation}
+the Lagrangian (\ref{eq:lagr:abelHiggs})) becomes
+\begin{equation}
+	\mathcal{L}
+	= \frac{1}{2} q^2 v^2 A_{\mu} A^{\mu}
+	- F_{\mu\nu}F^{\mu\nu}
+	+ \frac{1}{2} \partial_{\mu}h \partial^{\mu}h
+	- \mu^2 h^2
+	+ \dots
+\end{equation}
+where the dots denote terms neither kinetic nor mass. 
+The Nambu-Goldstone boson is no longer present and the photon has acquired a mass $qv$.
+Again, there is a massive scalar Higgs boson as a by-product of the \ac{SSB}.
+
+\todo[inline]{Gauge boson mass term is wrong sign??}
+
+\subsection{Glashow-Salam-Weinberg electroweak theory}
+The Higgs mechanism can be extended to non-abelian gauge theories, as necessary to 
+describe electroweak symmetry breaking \cite{Kibble:1967,Weinberg:1967,Salam:1968}.
+Consider the Lagrangian for an \SUgroup{2}\cross\Ugroup{1} gauge theory with a sombrero
+potential
+\begin{equation}
+	\mathcal{L} 
+	= \parenths{D_{\mu}\phi}^{\dagger} \parenths{D^{\mu}\phi}
+	- \tfrac{1}{4} \bvec{F}_{\mu\nu} \cdot \bvec{F}^{\mu\nu}
+	- \tfrac{1}{4} G_{\mu\nu} G^{\mu\nu}
+	+ \mu^2 \phi^{\dagger} \phi - \lambda \parenths{\phi^{\dagger} \phi}^2
+	\label{eq:lagr:ewHiggs}
+\end{equation}
+where $D^{\mu} = \partial^{\mu} + \tfrac{i}{2} g \bvec{\tau} \cdot \bvec{W}^{\mu} + 
+\tfrac{i}{2} g' Y B^{\mu}$ is the covariant derivative and $\bvec{F}^{\mu\nu} = 
+\partial^{\mu}\bvec{W}^{\nu} - \partial^{\nu}\bvec{W}^{\mu} - g \bvec{W}^{\mu} \cross 
+\bvec{W}^{\nu}$ and $G^{\mu\nu} = \partial^{\mu}B^{\nu} - \partial^{\nu}B^{\mu}$ are the
+field tensors. In this case, $\phi$ is an \SUgroup{2} doublet of complex scalar fields
+\begin{equation}
+	\phi = \colvector{\phi^+\\\phi^0} = \colvector{\frac{1}{\sqrt{2}} \parenths{\phi_1 + i\phi_2}\\ \frac{1}{\sqrt{2}} \parenths{\phi_3 + i\phi_4}}.
+\end{equation}
+
+Again, there are infinite degenerate vacua satisfying 
+$\parenths{\phi_1^2 + \phi_2^2 + \phi_3^2 + \phi_4^2} = \mu^2/\lambda$. In analogue with 
+the abelian Higgs mechanism, the unitary gauge sets the vacuum expectation values of 
+$\phi_1$, $\phi_2$ and $\phi_4$ to be zero. Considering excitations about the vacuum
+\begin{equation}
+	\phi\parenths{x} = \colvector{0\\ \frac{1}{\sqrt{2}} 
+	\sqbracs{v + h\parenths{x}}} \label{eq:higgs_doublet}
+\end{equation}
+the Lagrangian (\ref{eq:lagr:ewHiggs}) becomes
+\begin{align}
+	\mathcal{L} &= \tfrac{1}{8} g^2 v^2 \bvec{W}_{\mu} \cdot \bvec{W}^{\mu} - \tfrac{1}{4} \bvec{F}_{\mu\nu} \cdot \bvec{F}^{\mu\nu} + \tfrac{1}{8} v^2 g'^2 B_{\mu} B^{\mu} - \tfrac{1}{4} v^2 gg' B_{\mu} W_{3}^{\mu} - \tfrac{1}{4} G_{\mu\nu} G^{\mu\nu} \nonumber \\
+	&\quad\quad {} + \tfrac{1}{2} \partial_{\mu}h \partial^{\mu}h - \mu^2 h^2 + \dots \\
+	&= \tfrac{1}{4} g^2 v^2 W^{+}_{\mu} W^{-\mu} - \tfrac{1}{2} \parenths{\partial_{\mu}W^{+}_{\nu} - \partial_{\nu}W^{+}_{\mu}} \parenths{\partial^{\mu}W^{-\nu} - \partial^{\nu}W^{-\mu}} \nonumber \\
+	&\quad\quad {} + \tfrac{1}{8} v^2 \parenths{g^2 + g'^2} Z_{\mu} Z^{\mu} - \tfrac{1}{4} \parenths{\partial_{\mu}Z_{\nu} - \partial_{\nu}Z_{\mu}} \parenths{\partial^{\mu}Z^{\nu} - \partial^{\nu}Z^{\mu}} - \tfrac{1}{4} F_{\mu\nu} F^{\mu\nu} \nonumber \\
+	&\quad\quad {} + \tfrac{1}{2} \partial_{\mu}h \partial^{\mu}h - \mu^2 h^2 + \dots
+\end{align}
+where the dots denote terms neither kinetic nor mass, and the expression has been rewritten in terms of the physical gauge fields using (\ref{eq:Wfield}), (\ref{eq:Zfield})
+and (\ref{eq:Afield}). The \PWpm bosons acquire a mass $gv/2$ and the \PZ boson acquires a
+mass $v \sqrt{\parenths{g^2+g'^2}}/2$, while the photon is massless. Again, a Higgs boson
+is a remnant of the \ac{SSB}.
+
+This theory predicts a striking relation between the gauge boson masses, using 
+(\ref{eq:weak_mixing})
+\begin{equation}
+	m_{\PW} = m_{\PZ} \cos\theta_W ,
+\end{equation}
+which was experimentally verified once the \PW and \PZ bosons were discovered. It also 
+predicted a massive scalar Higgs boson, whose mass could not be determined from the other 
+model parameters.
+
+Fermion masses can also be incorporated into \ac{EW} theory through Yukawa couplings.
+Consider a coupling between the electron-type \SUgroup{2} doublet (see 
+\Table~\ref{tab:ew_fermions}), the Higgs doublet $\phi$ given in 
+(\ref{eq:higgs_doublet}), and the electron \SUgroup{2} singlet
+\begin{align}
+	\mathcal{L}_{\Pe}^{\text{Yuk}} &= -g_{\Pe} \parenths{\Plepton_{\Pe L} \phi \Pe_{R} + \Pe_{R} \phi^{\dagger} \Plepton_{\Pe L}} \\
+	&= -\frac{g_{\Pe}}{\sqrt{2}} \sqbracs{v + h} \parenths{\Pe_{L} \Pe_{R} + \Pe_{R} \Pe_{L}}
+\end{align}
+The electron has acquired a mass $g_{\Pe}v/\sqrt{2}$ and the coupling of the Higgs boson
+to the electron is proportional that that mass.
+
+Finally, we note a similar phenomenon in superconductors. There, the \Ugroup{1} symmetry 
+of \ac{QED} is spontaneously broken, as in \Section~\ref{sec:ewsb:higgs}, giving mass to 
+the photon and thereby producing the Meissner effect. In fact, Higgs bosons have been 
+observed in the Raman spectra of superconductors. However, a major difference is that the 
+bosonic field is formed of Cooper pairs of bound electrons, and therefore the \ac{SSB} is 
+dynamic. It is natural to ask whether a similar dynamic mechanism could be used to break
+\ac{EW} symmetry, where the Higgs boson is a composite particle. This is an active area
+of theoretical research.
