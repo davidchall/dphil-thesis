@@ -1,74 +1,28 @@
 %!TEX root = ../../thesis.tex
 
-\ac{EW} theory contains several free parameters that must be experimentally 
-determined: five couplings ($g$, $g'$, $g_{\Pe}$, $g_{\Pmu}$, $g_{\Ptau}$) and two 
-Higgs sector parameters ($\mu$, $\lambda$). Using relations from \Section~\ref{sec:ewsb},
-it is advantageous to choose an alternative set of independent parameters more closely
-connected to experiment: $\alpha$, \mW, \mZ, \mH, $m_{\Pe}$, $m_{\Pmu}$, $m_{\Ptau}$.
-Finding the Higgs boson and measuring its mass was therefore of fundamental importance to 
-understanding the \ac{EW} sector, and this was a primary goal of the \ac{LHC}. 
+The \ac{EW} sector of the \ac{SM} contains several free parameters that must be 
+experimentally determined: two couplings ($g$, $g'$) and two Higgs sector parameters 
+($\mu$, $\lambda$). Using relations in \Section~\ref{sec:ewsb}, it is advantageous to 
+choose an alternative set of independent parameters more closely connected to experiment: 
+$\alpha_{EM}$, \mW, \mZ, \mH. Finding the Higgs boson and measuring its mass is therefore 
+of fundamental importance to understanding the \ac{EW} sector, and this was a primary 
+goal of the \ac{LHC} physics program.
 
-Prior to the \ac{LHC}, the value of \mH was constrained through theoretical 
-considerations, direct searches at previous colliders and global fits of other 
-electroweak observables.
-
-
-
-\subsection{Theoretical constraints}
-\label{sec:prior_constraints:theory}
-
-Like all coupling constants in a renormalisable theory, the Higgs quartic coupling 
-$\lambda$ `runs' with energy scale $\Lambda$, as described by the \acp{RGE}. The running 
-is characterised by the $\beta$-function:
-\begin{equation*}
-	\beta_{\lambda} = \frac{\partial \lambda}{\partial \log\Lambda}
-\end{equation*}
-
-For high \mH, self-couplings dominate $\beta_{\lambda}$, which have a
-positive contribution. Therefore $\lambda$ increases with the scale, and above some 
-critical scale $\Lambda_c$ the \ac{EW} theory is no longer perturbative. Thus we would 
-either expect to observe non-perturbative behaviour at scales \about$\Lambda_c$ or new 
-physics at a scale $<\Lambda_c$ that circumvents this issue. Larger values of \mH lead to 
-lower values of $\Lambda_c$ and are therefore disfavoured (blue line in 
-\Figure~\ref{fig:theory_constraints}). Requiring perturbativity up to the 
-reduced Planck scale of \unit{$\Lambda_{P} \about 10^{18}$}{\GeV} (where we expect new 
-physics describing gravity) places an upper bound on \mH of \unit{175}{\GeV} 
-\cite{Ellis:2009}.
-
-For small \mH, top loops dominate $\beta_{\lambda}$, which have a negative 
-contribution. Therefore $\lambda$ decreases as the scale increases, and above some 
-critical scale $\Lambda_c$ the coupling becomes negative. At such scales, the \ac{EW} 
-vacuum is simply a local minimum and it is possible for the Universe to collapse through
-quantum tunnelling into the more stable vacuum state (green band in 
-\Figure~\ref{fig:theory_constraints}). Requiring vacuum stability up to $\Lambda_{P}$ 
-places a lower bound on \mH of \unit{129}{\GeV} \cite{Ellis:2009}. It is also possible 
-to consider a metastable Universe whose expected lifetime is longer than its age.
-Accounting for thermal fluctuations up to temperatures \about $\Lambda_{P}$, the \ac{EW}
-vacuum has a sufficiently long lifetime if \unit{\mH$>$122}{\GeV} (pale blue band in 
-\Figure~\ref{fig:theory_constraints}) \cite{Ellis:2009}. These bounds are rather 
-sensitive to the top mass, which has a large uncertainty.
-
-\begin{figure}
-	\includegraphics[width=\mediumfigwidth]{tex/motivation/theory_constraints}
-	\caption{The scale $\Lambda$ at which the Higgs quartic coupling becomes 
-	non-perturbative (blue lines) or an instability in the \ac{EW} vacuum appears
-	(green band) \cite{Ellis:2009}. The two blue lines represent different degrees of 
-	non-perturbativity (lower line corresponds to a two-loop correction of 25\%, upper 
-	line is 50\%), and their difference is indicative of the theoretical uncertainty in 
-	this bound. The blue and red bands are bounds for a metastable Universe including and
-	neglecting thermal fluctuations respectively.}
-	\label{fig:theory_constraints}
-\end{figure}
+Prior to the \ac{LHC}, the value of \mH was constrained through direct searches at 
+previous colliders, global fits of other electroweak observables and theoretical 
+considerations.
 
 
 
 \subsection{Direct searches}
 \label{sec:prior_constraints:direct}
 
-Experimental searches for the Higgs boson were first performed at LEP (CERN, Geneva), which ran from 1989 to 2000. This was a circular \epluseminus collider with a \ac{CM} 
-energy tuned to the \PZ-pole and then varied between 189 and \unit{209}{\GeV}. A combined 
-search for \ZH was performed using an integrated luminosity of \unit{2.5}{\invfb}, which 
-excluded \mH $<$ \unit{114.4}{\GeV} at the 95\% \ac{CL} \cite{LEP:2003}.
+Experimental searches for the Higgs boson were first performed at \acs{LEP} (CERN, 
+Geneva), which ran from 1989 to 2000. This was a circular \epluseminus collider with a 
+\ac{CM} energy tuned to the \PZ-pole and then later varied between 189 and 
+\unit{209}{\GeV}. A combined search for \ZH was performed using an integrated luminosity 
+of \unit{2.5}{\invfb}, which excluded \mH $<$ \unit{114.4}{\GeV} at the 95\% \ac{CL} 
+\cite{LEP:2003}.
 
 Further searches were performed at the Tevatron (FNAL, Illinois), which ran from 1987
 to 2011. This was a circular \ppbar collider with \ac{CM} energies of \unit{1.8}{\TeV}
@@ -96,10 +50,10 @@ and it is therefore possible to infer \mH through precision \ac{EW} measurements
 the leading \mH dependence is logarithmic, the inferred constraints are weaker than those
 used to predict the top mass (where the dependence is quadratic).
 
-Performing a global fit of various electroweak measurements at the \ac{LEP}, SLC and
+Performing a global fit of various electroweak measurements at the \acs{LEP}, SLC and
 Tevatron colliders (\eg \mW, $\Gamma_{\PW}$, $m_{\Ptop}$), it was possible to exclude 
-\mH$>$\unit{158}{\GeV} at the 95\% \ac{CL} \cite{Gfitter:2008}. However, the best fit \mH
-was excluded by direct searches, as shown in \Figure~\ref{fig:ewfit}.
+\mH $>$ \unit{158}{\GeV} at the 95\% \ac{CL} \cite{Gfitter:2008}. However, the best fit 
+value was excluded by direct searches, as shown in \Figure~\ref{fig:ewfit}.
 
 \begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/motivation/ewfit_nodirect}
@@ -123,3 +77,51 @@ was excluded by direct searches, as shown in \Figure~\ref{fig:ewfit}.
 % 	direct searches at the \ac{LEP} and the Tevatron.}
 % 	\label{fig:ewfit}
 % \end{figure}
+
+
+
+\subsection{Theoretical constraints}
+\label{sec:prior_constraints:theory}
+
+Like all coupling constants in a renormalisable theory, the Higgs quartic coupling 
+$\lambda$ `runs' with energy scale $\Lambda$, as described by the \acp{RGE}. The running 
+is characterised by the $\beta$-function:
+\begin{equation*}
+	\beta_{\lambda} = \frac{\partial \lambda}{\partial \log\Lambda}
+\end{equation*}
+
+For high \mH, self-couplings dominate $\beta_{\lambda}$, which have a
+positive contribution. Therefore $\lambda$ increases with the scale, and above some 
+critical scale $\Lambda_c$ the \ac{EW} theory is no longer perturbative. Thus we would 
+either expect to observe non-perturbative behaviour at scales \about$\Lambda_c$ or new 
+physics at a scale $<\Lambda_c$ that circumvents this issue. Larger values of \mH lead to 
+lower values of $\Lambda_c$ and are therefore disfavoured (blue line in 
+\Figure~\ref{fig:theory_constraints}). Requiring perturbativity up to the 
+reduced Planck scale of \unit{$\Lambda_{P}~\about~10^{18}$}{\GeV} (where we expect new 
+physics describing gravity) places an upper bound on \mH of \unit{175}{\GeV} 
+\cite{Ellis:2009}.
+
+For small \mH, top loops dominate $\beta_{\lambda}$, which have a negative 
+contribution. Therefore $\lambda$ decreases as the scale increases, and above some 
+critical scale $\Lambda_c$ the coupling becomes negative. Then the \ac{EW} 
+vacuum is simply a local minimum and it is possible for the Universe to collapse through
+quantum tunnelling into the more stable vacuum state (yellow band in 
+\Figure~\ref{fig:theory_constraints}). Requiring vacuum stability up to $\Lambda_{P}$ 
+places a lower bound on \mH of \unit{129}{\GeV} \cite{Ellis:2009}. It is also possible 
+to consider a metastable Universe whose expected lifetime is longer than its age.
+Accounting for thermal fluctuations up to temperatures \about $\Lambda_{P}$, the \ac{EW}
+vacuum has a lifetime longer than the age of the Universe if \mH $>$ \unit{122}{\GeV} 
+(pale blue band in \Figure~\ref{fig:theory_constraints}) \cite{Ellis:2009}. These bounds 
+are rather sensitive to the top mass, which has a large uncertainty.
+
+\begin{figure}
+	\includegraphics[width=\mediumfigwidth]{tex/motivation/theory_constraints}
+	\caption{The scale $\Lambda$ at which the Higgs quartic coupling becomes 
+	non-perturbative (blue lines) or an instability in the \ac{EW} vacuum appears
+	(yellow band) \cite{Ellis:2009}. The two blue lines represent different degrees of 
+	non-perturbativity (lower line corresponds to a two-loop correction of 25\%, upper 
+	line is 50\%), and their difference is indicative of the theoretical uncertainty in 
+	this bound. The blue and red bands are bounds for a metastable Universe including and
+	neglecting thermal fluctuations respectively.}
+	\label{fig:theory_constraints}
+\end{figure}
