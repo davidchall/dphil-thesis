@@ -44,5 +44,14 @@ components of the beam size, and $F$ is a reduction factor due to the crossing a
 the interaction point. The \ac{LHC} is designed to hold 2808 proton bunches, corresponding 
 to \unit{25}{\nano\second} bunch spacing, each containing $1.15\times10^{11}$ protons. The 
 other design parameters were \unit{$\sigma_{x,y} = 16.7$}{\micro\metre} and 
-\unit{$f_{\text{rev}} = 11.245$}{\kHz}, giving a design luminosity of 
+\unit{$f_{\text{rev}} = 11.25$}{\kHz}, giving a design luminosity of 
 \unit{$L = 10^{34}$}{\lumiunits} \cite{LHC}.
+
+A trade-off for a large luminosity is a large number of additional proton-proton 
+interactions, known as pile-up. Although a rare interesting event will trigger the 
+detector readout, these common uninteresting events will simultaneously be recorded, 
+obscuring the interesting physics and degrading detector performance. Increasing $N_b$ 
+gives more interactions within the same bunch crossing, known as in-time pile-up. For 
+large $n_b$, the bunch spacing can be shorter than the detector latency, and interactions 
+from other bunch crossings can affect the measurement - this is known as out-of-time 
+pile-up. Reducing $\sigma_{x,y}$ will increase both types of pile-up.
