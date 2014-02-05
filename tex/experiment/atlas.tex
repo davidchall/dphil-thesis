@@ -52,6 +52,33 @@ particles to be measured from the curvature of their tracks.
 	\label{fig:atlas_wedge}
 \end{figure}
 
+The general performance goals of each detector sub-system are shown in 
+\Table~\ref{tab:atlas_targets}.
+
+\begin{table}
+	\begin{tabular}{lr@{\;{=}\;}lcc}
+		\multirow{2}{*}{Detector component} & 
+		\multicolumn{2}{c}{\multirow{2}{*}{Required resolution}} & 
+		\multicolumn{2}{c}{$\mods{\eta}$ coverage} \\
+		& \multicolumn{2}{c}{} & Measurement & L1 trigger \\
+		\hline
+		Tracking                 & $\sigma_{p_T}/p_T$ & $0.05\% \times p_T \oplus 1\%$ &
+		$<2.5$ & -- \\
+		EM calorimetry           & $\sigma_{E}/E$ & $10\% / \sqrt{E} \oplus 0.7\%$ &
+		$<3.2$ & $<2.5$ \\
+		Hadronic calorimetry     & \multicolumn{2}{l}{} & & \\
+		\quad barrel and end-cap & $\sigma_{E}/E$ & $50\% / \sqrt{E} \oplus 3\%$ &
+		$<3.2$ & $<3.2$ \\
+		\quad   forward          & $\sigma_{E}/E$ & $100\% / \sqrt{E} \oplus 10\%$ &
+		$3.1\text{ -- }4.9$ & $3.1\text{ -- }4.9$ \\
+		Muon spectrometer        & $\sigma_{p_T}/p_T$ & $10\%$ at $p_T=\unit{1}{\TeV}$ &
+		$<2.7$ & $<2.4$ \\
+	\end{tabular}
+	\caption{Performance goals of the ATLAS sub-detectors \cite{ATLAS-detector}. Energies 
+	and momenta are given in \GeV\xspace unless stated otherwise.}
+	\label{tab:atlas_targets}
+\end{table}
+
 \subsection{Tracking}
 
 \begin{figure}
@@ -73,7 +100,7 @@ both require an excellent spatial resolution, which is achieved through fine det
 granularity. The \ac{ID} covers the region $\mods{\eta} < 2.5$ and consists of three 
 complementary sub-detectors:
 \begin{description}
-	\item[Pixel detector] \hfill \\
+\item[Pixel detector] \hfill \\
 	The pixel detector is installed in three layers closest to the beam pipe, and 
 	therefore requires the highest granularity to deal with the large particle fluxes.
 	It consists of more than 80 million silicon pixels, each of size 
@@ -84,7 +111,7 @@ complementary sub-detectors:
 	A silicon particle detector consists of a reverse-biased p-n junction. When a charged
 	particle passes through the depletion region it creates an electron-hole pair, which 
 	travel to the respective electrodes and produce a signal current.
-	\item[\ac{SCT}] \hfill \\
+\item[\ac{SCT}] \hfill \\
 	The \ac{SCT} features 15,912 silicon strip sensors, each consisting of 770 strips 
 	with a pitch of \unit{80}{\micro\metre} and a length of \unit{6}{\centi\metre}. Pairs 
 	of sensors are sandwiched together (forming modules) with a stereo angle of 
@@ -93,7 +120,7 @@ complementary sub-detectors:
 	each track passes through four modules. 
 	The intrinsic accuracy is \unit{17}{\micro\metre}$\,\times\,$\unit{580}{\micro\metre} 
 	in $r\phi \mhyphen z$ ($r\phi \mhyphen r$) space for the barrel (end-cap).
-	\item[\ac{TRT}] \hfill \\
+\item[\ac{TRT}] \hfill \\
 	The \ac{TRT} features 370,000 drift chambers (straws) which simultaneously function 
 	as a straw tracker to enhance particle tracking and as a transition radiation 
 	detector to aid electron identification. Straws are aligned with the beam pipe in the 
@@ -104,7 +131,7 @@ complementary sub-detectors:
 	Kapton\textsuperscript{\circledR}\xspace wall with a conductive coating, which 
 	acts as a cathode at \unit{$-1530$}{\volt}, and a central tungsten wire anode. The 
 	straws are filled with a xenon-based gas mixture that is ionised by a traversing 
-	charged particle. The negative ions drift to the anode and produce a signal current. 
+	charged particle. The freed electrons drift to the anode and produce a signal current.
 	The drift time is used to measure the impact parameter of the incident charged 
 	particle relative to the anode and, since a track typically traverses 36 straws, this 
 	collective information yields an intrinsic accuracy of \unit{130}{\micro\metre} in 
@@ -122,19 +149,91 @@ complementary sub-detectors:
 
 \subsection{Calorimetry}
 
-\begin{figure}[b]
+Particle energies are measured with sampling calorimeters, which consist of alternating 
+layers of absorber and active material. The dense absorber causes energy deposition 
+via a particle shower, whilst the active material produces a signal proportional to the 
+sampled energy. The length scale of energy loss is the radiation length $X_0$ for 
+electrons and photons\footnote{
+	High-energy electrons (photons) mostly lose energy in matter by bremsstrahlung 
+	(\epluseminus pair production). In this regime, $X_0$ is (a) the mean distance in 
+	which an electron loses all but $\eexp{-1}$ of its energy, (b) $\tfrac{7}{9}$ of the 
+	mean free path of a photon, and (c) the characteristic scale of electromagnetic 
+	showers.
+} and the nuclear interaction length $\lambda$ for hadronic showers\footnote{
+	Hadrons lose energy in matter through inelastic hadronic interactions, forming hadronic showers (though neutral pions create electromagnetic showers). $\lambda$ is 
+	(a) the mean free path of a hadron, and (b) the characteristic scale of hadronic showers.
+}, while muons act as minimum ionising particles and escape the calorimeters. Since 
+punch-through into the muon system must be minimised, $X_0$ and $\lambda$ set the size of 
+the calorimeter. Conversely, limits to detector size constrain the materials that can be
+used.
+
+\begin{figure}
 	\includegraphics[width=\largefigwidth]{tex/experiment/calo_whole}
 	\caption{Cut-away view of the ATLAS calorimeter system \cite{ATLAS-detector}.}
 	\label{fig:calorimeters}
 \end{figure}
 
+The ATLAS calorimeter consists of an inner electromagnetic calorimeter (for electrons and 
+photons) and an outer hadronic calorimeter (for jets), as shown in 
+\Figure~\ref{fig:calorimeters}. They cover the regions $\mods{\eta} < 3.2$ and 
+$\mods{\eta} < 4.9$ respectively.
+\begin{description}
+\item[\ac{ECal}] \hfill \\
+	The \ac{ECal} uses a lead absorber and a liquid argon (LAr) active material arranged 
+	in an accordion geometry, which ensures uniform $\phi$-coverage. The LAr is ionised 
+	by charged particles, and the freed electrons produce a signal current in the readout 
+	electrodes. LAr was chosen for its linear behaviour, stability and radiation-hardness.
+
+	A fine granularity is required to make precise electron and photon measurements, and 
+	to distinguish single photons from $\HepProcess{\Ppizero \HepTo \Pphoton \Pphoton}$. 
+	Thus, the \ac{ECal} is typically segmented into three layers with a minimum 
+	$\Delta\eta\times\Delta\phi$ granularity of $0.025/8 \times 0.025$. The transition 
+	between the barrel and the end-cap, $1.37 < \mods{\eta} < 1.52$, is used for detector 
+	services. Since this material is difficult to model, this ``crack'' region is usually 
+	excluded when reconstructing electrons.
+\item[\ac{HCal}] \hfill \\
+	The \ac{HCal} consists of a tile calorimeter covering $\mods{\eta} < 1.7$, a Hadronic 
+	End-Cap (HEC) covering $1.5 < \mods{\eta} < 3.2$, and a Forward Calorimeter (FCal) 
+	covering $3.1 < \mods{\eta} < 4.9$. The \ac{HCal} has a coarser granularity than the
+	\ac{ECal} - it is typically segmented into three layers with a minimum 
+	$\Delta\eta\times\Delta\phi$ granularity of $0.1 \times 0.1$.
+
+	The tile calorimeter uses a steel absorber and scintillator tiles as the active 
+	material. The scintillation light is collected by optical fibres and turned into a 
+	signal by photomultiplier tubes. The HEC and FCal both use LAr active material.
+	However, the HEC uses a copper absorber, whereas the FCal uses copper in the first 
+	layer (for electromagnetic measurements) and tungsten in the two subsequent layers.
+\end{description}
+
 \subsection{Muon spectrometer}
 
 \begin{figure}
-	\includegraphics[width=\largefigwidth]{tex/experiment/ms_whole}
+	\includegraphics[width=\mediumfigwidth]{tex/experiment/ms_whole}
 	\caption{Cut-away view of the ATLAS muon spectrometer \cite{ATLAS-detector}.}
 	\label{fig:muon_spectrometer}
 \end{figure}
+
+The \ac{MS} provides precision tracking of muons that have exited the calorimeters. A 
+huge air-core toroid magnet system generates a \unit{0.5}{\tesla} (\unit{1}{\tesla}) 
+field in the barrel (end-caps), enabling momentum measurements from track curvature. Four 
+types of tracking chamber are installed in three layers around the calorimeters (see 
+\Figure~\ref{fig:muon_spectrometer}):
+\begin{description}
+\item[\acp{MDT} and \acp{CSC}] \hfill \\
+	\acp{MDT} and \acp{CSC} provide precision momentum measurement, with a resolution of 
+	about \unit{40}{\micro\metre} in the bending plane. \acp{MDT} cover the region 
+	$\mods{\eta} < 2.7$, but in the forward region ($2.0 < \mods{\eta} < 2.7$), the 
+	innermost layer is replaced with \acp{CSC} to withstand the higher particle flux. 
+	\acp{CSC} are multiwire proportional chambers with cathode planes segmented into 
+	strips in orthogonal directions.
+\item[\acp{RPC} and \acp{TGC}] \hfill \\
+	\acp{RPC} and \acp{TGC} provide less precise tracking, but at a faster readout speed 
+	needed for triggering. They also provide a coordinate in the direction 
+	orthogonal to that provided by the \acp{MDT} and \acp{CSC}. \acp{RPC} cover 
+	$\mods{\eta} < 1.05$ and \acp{TGC} cover $1.05 < \mods{\eta} < 2.7$.
+	\acp{RPC} are gas-filled parallel plate detectors operated in avalanche mode.
+	\acp{TGC} are multiwire proportional chambers operated in high-gain mode.
+\end{description}
 
 \subsection{Trigger and data acquisition}
 
