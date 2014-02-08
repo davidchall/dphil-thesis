@@ -79,6 +79,9 @@ The general performance goals of each detector sub-system are shown in
 	\label{tab:atlas_targets}
 \end{table}
 
+
+
+
 \subsection{Tracking}
 
 \begin{figure}
@@ -147,6 +150,9 @@ complementary sub-detectors:
 	discrimination.
 \end{description}
 
+
+
+
 \subsection{Calorimetry}
 
 Particle energies are measured with sampling calorimeters, which consist of alternating 
@@ -205,6 +211,9 @@ $\mods{\eta} < 4.9$ respectively.
 	layer (for electromagnetic measurements) and tungsten in the two subsequent layers.
 \end{description}
 
+
+
+
 \subsection{Muon spectrometer}
 
 \begin{figure}
@@ -232,8 +241,43 @@ types of tracking chamber are installed in three layers around the calorimeters 
 	orthogonal to that provided by the \acp{MDT} and \acp{CSC}. \acp{RPC} cover 
 	$\mods{\eta} < 1.05$ and \acp{TGC} cover $1.05 < \mods{\eta} < 2.7$.
 	\acp{RPC} are gas-filled parallel plate detectors operated in avalanche mode.
-	\acp{TGC} are multiwire proportional chambers operated in high-gain mode.
+	\acp{TGC} are multiwire proportional chambers operated in a quasi-saturated mode.
 \end{description}
+
+
+
 
 \subsection{Trigger and data acquisition}
 
+It is technically infeasible to record the detector readout (\unit{1.6}{\mega\bel} per 
+event) at the bunch crossing rate expected at the \ac{LHC} (\unit{40}{\mega\hertz}).
+Moreover, the majority of these events are uninteresting in terms of the \ac{LHC} physics 
+program. For these reasons, ATLAS has a trigger system to identify and retain interesting
+events for further analysis offline.
+
+The trigger is split into three levels: \ac{L1}, \ac{L2} and the \ac{EF}. These have 
+successively lower event rates, which is achieved by affording later levels a longer
+latency to apply more refined selection criteria, as shown in \Figure~\ref{fig:trigger}.
+The \ac{L2} and \ac{EF} triggers are collectively referred to as the \ac{HLT}, and are
+implemented on an off-detector computer farm.
+\begin{figure}
+	\includegraphics[width=\textwidth]{tex/experiment/trigger}
+	\caption{Schematic diagram of the ATLAS trigger and data acquisition (DAQ) system.
+	Typical values for event rates, data rates and trigger latencies during the 2012 run 
+	are taken from \cite{TriggerNumbers}.}
+	\label{fig:trigger}
+\end{figure}
+
+The \ac{L1} trigger searches for high-$p_T$ leptons, photons and jets, in addition to 
+events with significant total transverse energy or transverse energy imbalance. The 
+decision is made using muon trigger chamber information (\acp{RPC} and \acp{TGC}) and 
+reduced-granularity calorimeter information. Since the decision latency 
+(\unit{2.5}{\micro\second}) is longer than the bunch spacing (\unit{25}{\nano\second}),
+the \ac{L1} trigger stores event data in pipelines.
+
+The detector coordinates of interesting features identified by the \ac{L1} trigger, known 
+as Regions of Interest (ROIs), are passed on to the \ac{L2} trigger. The \ac{L2} trigger 
+then requests the full degree of detector information for these ROIs (\about 2\% of total
+event data), in order to make a more informed decision. Finally, the \ac{EF} trigger has
+access to the full event data, and further reduces the data rate such that it can be 
+written to tape.
