@@ -982,6 +982,7 @@ MACRO {sptp} {"Sov. Phys.-Tech. Phys."}
 MACRO {spu} {"Sov. Phys.-Usp."}
 MACRO {zp} {"Z. Phys."}
 MACRO {zpc} {"Z. Phys.~C"}
+MACRO {epjc} {"Eur. Phys. J.~C"}
 READ
 STRINGS { longest.label }
 INTEGERS { number.label longest.label.width }

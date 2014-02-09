@@ -31,20 +31,22 @@ boson production, the detectors must record a large integrated luminosity. This 
 considering the number of events produced for process $i$
 \begin{equation}
 	N_i = \sigma_i \! \int \! L \, \diff t
+	\label{eq:event_rate}
 \end{equation}
 where $\sigma_i$ is the cross section and $L$ is the instantaneous luminosity, a figure of 
 merit for a collider. The instantaneous luminosity can be increased by optimising the
 parameters of
 \begin{equation}
-	L = \frac{N_b^2 n_b f_{\text{rev}}}{4\pi \sigma_x \sigma_y} F
+	L = \frac{N_b^2 n_b f_{\text{rev}}}{4\pi \varSigma_x \varSigma_y} F
+	\label{eq:lumi_beam}
 \end{equation}
 where $N_b$ is the number or particles per bunch, $n_b$ is the number of bunches per beam, 
-$f_{\text{rev}}$ is the revolution frequency, $\sigma_x$ and $\sigma_y$ are the $x$ and $y$
-components of the beam size, and $F$ is a reduction factor due to the crossing angle at 
-the interaction point. The \ac{LHC} is designed to hold 2808 proton bunches, corresponding 
-to \unit{25}{\nano\second} bunch spacing, each containing $1.15\times10^{11}$ protons. The 
-other design parameters were \unit{$\sigma_{x,y} = 16.7$}{\micro\metre} and 
-\unit{$f_{\text{rev}} = 11.25$}{\kHz}, giving a design luminosity of 
+$f_{\text{rev}}$ is the revolution frequency, $\varSigma_x$ and $\varSigma_y$ are the $x$ 
+and $y$ components of the beam size, and $F$ is a reduction factor due to the crossing 
+angle at the interaction point. The \ac{LHC} is designed to hold 2808 proton bunches, 
+corresponding to \unit{25}{\nano\second} bunch spacing, each containing $1.15\times10^{11}$
+protons. The other design parameters were \unit{$\varSigma_{x,y} = 16.7$}{\micro\metre} 
+and \unit{$f_{\text{rev}} = 11.25$}{\kHz}, giving a design luminosity of 
 \unit{$L = 10^{34}$}{\lumiunits} \cite{LHC}.
 
 A trade-off for a large luminosity is a large number of additional proton-proton 
@@ -54,4 +56,4 @@ obscuring the interesting physics and degrading detector performance. Increasing
 gives more interactions within the same bunch crossing, known as in-time pile-up. For 
 large $n_b$, the bunch spacing can be shorter than the detector latency, and interactions 
 from other bunch crossings can affect the measurement - this is known as out-of-time 
-pile-up. Reducing $\sigma_{x,y}$ will increase both types of pile-up.
+pile-up. Reducing $\varSigma_{x,y}$ will increase both types of pile-up.
