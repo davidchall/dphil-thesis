@@ -12,10 +12,16 @@ used in this thesis.
 \subsection{Luminosity measurement}
 \label{sec:dataset:lumi}
 
+Beam losses incurred by the \pp collisions cause the luminosity to decay with time (a
+typical \ac{LHC} run lasts \about 10 hours). It is therefore necessary to measure 
+the instantaneous luminosity in real-time. The method is detailed in \cite{Lumi2011}, but 
+is briefly outlined below.
+
 At the \ac{LHC}, the number of inelastic \pp interactions per bunch crossing follows a 
 Poisson distribution, with a mean value $\mu$. As mentioned in \Section~\ref{sec:lhc}, 
 a large luminosity results in $\mu > 1$ (a condition known as pile-up). Thus, the 
-luminosity $L$ can be inferred ``online'' from a measurement of $\mu$, using
+luminosity $L$ can be monitored ``online'' by measuring the observed number of interactions
+per crossing $\mu_{\text{vis}}$, using
 \begin{equation}
 	L = \frac{\mu n_b f_{\text{rev}}}{\sigma_{\text{inel}}}
 	= \frac{\mu_{\text{vis}} n_b f_{\text{rev}}}{\sigma_{\text{vis}}}
@@ -36,43 +42,46 @@ LUCID consists of sixteen aluminium tubes of C$_4$F$_{10}$ gas, which radiate an
 Cherenkov photons when struck by charged particles.
 
 \ac{BCM} and LUCID are calibrated during dedicated van der Meer (vdM) scans, effectively 
-determining $\sigma_{\text{vis}}$ in (\ref{eq:lumi_measure}). In a vdM scan, event rates
+determining $\sigma_{\text{vis}}$ in (\ref{eq:lumi_measure}). In a vdM scan, event rates 
 are measured while the beams are separated in steps of known distance, allowing direct 
-measurement of $\varSigma_x$ and $\varSigma_y$. The absolute luminosity is then determined 
-through (\ref{eq:lumi_beam}). The uncertainty in the vdM calibration dominates the 
-uncertainty in the delivered luminosity \cite{Lumi2011}.
+measurement of beam sizes $\varSigma_x$ and $\varSigma_y$. The absolute luminosity is then 
+determined through (\ref{eq:lumi_beam}). The uncertainty in the vdM calibration dominates 
+the uncertainty in the delivered luminosity.
 
 
 
 \subsection{Run I dataset}
 \label{sec:dataset:dataset}
 
-Data-taking during run I of the LHC was incredibly successful. Some key beam parameters are
-displayed in \Table~\ref{tab:dataset} and the pile-up conditions are shown in 
-\Figure~\ref{fig:pileup}.
+Data-taking operations during run I of the LHC were incredibly successful, with impressive 
+improvements made to peak luminosity throughout this period. Some important parameters of 
+the run I dataset are summarised in \Table~\ref{tab:dataset}, and the pile-up conditions are shown in \Figure~\ref{fig:pileup}. These show that a larger dataset was obtained in 2012 compared with 2011, but at the expense of a higher pile-up environment.
 
 \begin{table}[h]
-	\begin{tabular}{lc@{\hskip 0.25in}c@{\hskip 0.25in}c}
-	& 2010 & 2011 & 2012 \\
+	\begin{tabular}{l@{\hskip 0.3in}c@{\hskip 0.3in}c@{\hskip 0.3in}c@{\hskip 0.3in}c}
+	& 2010 & 2011 & 2012 & Design \\
 	\hline
-	Centre-of-mass energy (\TeV)         & 7 & 7 & 8 \\
-	Minimum bunch spacing (\nano\second) & 150 & 50 & 50 \\
-	Peak luminosity (\unit{$10^{33}$}{\lumiunits}) & 0.2 & 3.6 & 7.7 \\
-	Delivered luminosity (\invfb)       & 0.047 & 5.46 & 22.8 \\
-	Recorded luminosity (\invfb)        & 0.044 & 5.08 & 21.3 \\
-	Analysed luminosity (\invfb)        & 0     & 5 & 21 \\
-	Luminosity uncertainty $\delta L/L$ & 3.5\% & 1.8\% & 2.8\% \\
+	Centre-of-mass energy (\TeV)         & 7 & 7 & 8 & 14 \\
+	Minimum bunch spacing (\nano\second) & 150 & 50 & 50 & 25 \\
+	Peak luminosity (\unit{$10^{33}$}{\lumiunits}) & 0.2 & 3.6 & 7.7 & 10 \\
+	Delivered luminosity (\invfb)       & 0.047 & 5.46 & 22.8 & -- \\
+	Recorded luminosity (\invfb)        & 0.044 & 5.08 & 21.3 & -- \\
+	Analysed luminosity (\invfb)        & 0.000 & 4.53 & 20.7 & -- \\
+	Luminosity uncertainty $\delta L/L$ & 3.5\% & 1.8\% & 2.8\% & -- \\
 	\end{tabular}
-	\caption{Summary of \pp collision data during run I of the \ac{LHC}. The integrated luminosity analysed in the \HWW search is also shown.}
+	\caption{Summary of \pp collision data during \ac{LHC} run I. The integrated 
+	luminosity analysed in the \HWW search is also shown. Luminosities use the offline 
+	calibration.}
 	\label{tab:dataset}
 \end{table}
 
 \begin{figure}[h]
 	\includegraphics[width=\mediumfigwidth]{tex/experiment/pileup}
-	\caption{The mean number of interactions per bunch crossing, $\mu$, for the 2011 (blue)
-	and 2012 (green) datasets. These were calculated with an inelastic \pp cross 
-	section of \unit{71.5}{\milli\barn} at \unit{$\sqrt{s} = 7$}{\TeV} and 
-	\unit{73.0}{\milli\barn} at \unit{$\sqrt{s} = 8$}{\TeV}.}
+	\caption{Mean number of interactions per bunch crossing $\mu$ for the 2011 (blue) and 
+	2012 (green) datasets, calculated with an inelastic \pp cross section of 
+	\unit{71.5}{\milli\barn} at \unit{$\sqrt{s} = 7$}{\TeV} and 
+	\unit{73.0}{\milli\barn} at \unit{$\sqrt{s} = 8$}{\TeV}.
+	Luminosities use the online calibration.}
 	\label{fig:pileup}
 \end{figure}
 

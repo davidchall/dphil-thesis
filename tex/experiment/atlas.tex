@@ -1,14 +1,12 @@
 %!TEX root = ../../thesis.tex
 
-ATLAS is a general purpose particle detector designed to probe hadron-hadron collisions, 
-from precise measurements of \ac{SM} predictions to searches for new physics.
-As such, it was designed to achieve a good performance in the reconstruction of all 
-physics objects interacting with the detector (electrons, muons, photons and jets), and 
-to infer the existence of non-interacting particles through transverse momentum imbalance.
-A good vertex resolution was needed for jet flavour tagging and the high pile-up 
-environment expected at the \ac{LHC}. Other requirements included a fast trigger system 
-to select interesting events to record.
-%, and the ability to function in an environment with large radiation doses.
+ATLAS is a general-purpose particle detector designed to probe hadron-hadron collisions, 
+from precise measurements of the \ac{SM} to searches for signatures of new physics.
+As such, it must achieve a good performance in the reconstruction of all physics objects 
+interacting with the detector (electrons, muons, photons and jets), and infer the 
+existence of non-interacting particles through transverse momentum imbalance. A good 
+vertex resolution is needed for jet flavour tagging and to distinguish pile-up events. 
+Other requirements include a fast trigger system to select interesting events to record.
 
 The design of ATLAS exhibits cylindrical and forward-backward symmetries with the nominal 
 interaction point at the centre.\footnote{
@@ -17,7 +15,7 @@ interaction point at the centre.\footnote{
 	$y$-axis points upwards, and the $z$-axis points along the beam line. Positions and 
 	directions within the detector are given in spherical coordinates $(r, \theta, \phi)$ 
 	where $r$ is the radial distance, $\theta$ is the polar angle and $\phi$ is the 
-	azimuthal angle. Usually the polar angle is converted to pseudorapidity 
+	azimuthal angle. Usually the polar angle is replaced with pseudorapidity 
 	$\eta = -\ln\tan(\theta/2)$. The distance between two positions in $\eta\mhyphen\phi$ 
 	space is $\Delta R = \sqrt{\Delta\eta^2 + \Delta\phi^2}$.
 	Observables labelled ``transverse'' are projected into the $x\mhyphen y$ plane.
@@ -29,7 +27,7 @@ on concentric cylinders around the beam axis, while end-cap components are on di
 perpendicular to the beam axis.
 
 \begin{figure}
-	\includegraphics[width=\textwidth]{tex/experiment/atlas_whole}
+	\includegraphics[width=\hugefigwidth]{tex/experiment/atlas_whole}
 	\caption{Cut-away view of the ATLAS detector \cite{ATLAS-detector}. It has a height 
 	of \unit{25}{\metre}, a length of \unit{44}{\metre} and weighs 7000~tonnes.}
 	\label{fig:atlas_whole}
@@ -38,47 +36,19 @@ perpendicular to the beam axis.
 \Figure~\ref{fig:atlas_wedge} shows how different particles interact with the various 
 parts of the detector. Next to the beam pipe is the inner detector which precisely tracks 
 the trajectories of charged particles. Then there are the electromagnetic and hadronic 
-calorimeters which absorb and measure the energy of interacting particles. Since muons are
-minimum ionising particles, they survive the calorimeters and are tracked by the muon 
+calorimeters which absorb and measure the energy of interacting particles. Since muons act
+as minimum ionising particles, they survive the calorimeters and are tracked by the muon 
 spectrometer. Superconducting solenoid and toroid magnets provide magnetic fields to the 
 inner detector and muon spectrometer respectively, allowing the momenta of charged 
 particles to be measured from the curvature of their tracks.
 
 \begin{figure}
-	\includegraphics[width=\hugefigwidth]{tex/experiment/atlas_wedge}
-	\caption{Schematic cross-sectional view of the ATLAS detector to show how a variety 
-	of different particles would interact with the sub-detectors on its trajectory from 
-	the interaction point. ATLAS Experiment \copyright\xspace 2013 CERN.}
+	\includegraphics[width=\largefigwidth]{tex/experiment/atlas_wedge}
+	\caption{Cross-sectional view of ATLAS, showing how different particles interact with 
+	the sub-detectors on their trajectories from the interaction point. ATLAS Experiment 
+	\copyright\xspace 2013 CERN.}
 	\label{fig:atlas_wedge}
 \end{figure}
-
-The general performance goals of each detector sub-system are shown in 
-\Table~\ref{tab:atlas_targets}.
-
-\begin{table}
-	\begin{tabular}{lr@{\;{=}\;}lcc}
-		\multirow{2}{*}{Detector component} & 
-		\multicolumn{2}{c}{\multirow{2}{*}{Required resolution}} & 
-		\multicolumn{2}{c}{$\mods{\eta}$ coverage} \\
-		& \multicolumn{2}{c}{} & Measurement & L1 trigger \\
-		\hline
-		Tracking                 & $\sigma_{p_T}/p_T$ & $0.05\% \times p_T \oplus 1\%$ &
-		$<2.5$ & -- \\
-		EM calorimetry           & $\sigma_{E}/E$ & $10\% / \sqrt{E} \oplus 0.7\%$ &
-		$<3.2$ & $<2.5$ \\
-		Hadronic calorimetry     & \multicolumn{2}{l}{} & & \\
-		\quad barrel and end-cap & $\sigma_{E}/E$ & $50\% / \sqrt{E} \oplus 3\%$ &
-		$<3.2$ & $<3.2$ \\
-		\quad   forward          & $\sigma_{E}/E$ & $100\% / \sqrt{E} \oplus 10\%$ &
-		$3.1\text{ -- }4.9$ & $3.1\text{ -- }4.9$ \\
-		Muon spectrometer        & $\sigma_{p_T}/p_T$ & $10\%$ at $p_T=\unit{1}{\TeV}$ &
-		$<2.7$ & $<2.4$ \\
-	\end{tabular}
-	\caption{Performance goals of the ATLAS sub-detectors \cite{ATLAS-detector}. Energies 
-	and momenta are given in \GeV\xspace unless stated otherwise.}
-	\label{tab:atlas_targets}
-\end{table}
-
 
 
 
@@ -106,7 +76,7 @@ complementary sub-detectors:
 \item[Pixel detector] \hfill \\
 	The pixel detector is installed in three layers closest to the beam pipe, and 
 	therefore requires the highest granularity to deal with the large particle fluxes.
-	It consists of more than 80 million silicon pixels, each of size 
+	It consists of more than 80 million silicon pixels, each of area 
 	\unit{$50 \times 400$}{\micro\metre\squared} and thickness \unit{250}{\micro\metre}. 
 	The intrinsic accuracy is \unit{10}{\micro\metre}$\,\times\,$\unit{115}{\micro\metre} 
 	in $r\phi \mhyphen z$ ($r\phi \mhyphen r$) space for the barrel (end-cap).
@@ -117,17 +87,17 @@ complementary sub-detectors:
 \item[\ac{SCT}] \hfill \\
 	The \ac{SCT} features 15,912 silicon strip sensors, each consisting of 770 strips 
 	with a pitch of \unit{80}{\micro\metre} and a length of \unit{6}{\centi\metre}. Pairs 
-	of sensors are sandwiched together (forming modules) with a stereo angle of 
-	\unit{40}{\milli\radian}, which enables the $z$-coordinate of the hit to be measured. 
-	There are four (nine) layers of modules in the barrel (end-cap), which ensures that 
-	each track passes through four modules. 
+	of sensors are sandwiched together into modules with a stereo angle of 
+	\unit{40}{\milli\radian}, enabling the coordinate parallel to the strip to be 
+	measured. There are four (nine) layers of modules in the barrel (end-cap), which 
+	ensures that each track passes through four modules. 
 	The intrinsic accuracy is \unit{17}{\micro\metre}$\,\times\,$\unit{580}{\micro\metre} 
 	in $r\phi \mhyphen z$ ($r\phi \mhyphen r$) space for the barrel (end-cap).
 \item[\ac{TRT}] \hfill \\
-	The \ac{TRT} features 370,000 drift chambers (straws) which simultaneously function 
-	as a straw tracker to enhance particle tracking and as a transition radiation 
-	detector to aid electron identification. Straws are aligned with the beam pipe in the 
-	barrel and radially in the end-caps. The \ac{TRT} covers the region 
+	The \ac{TRT} features 370,000 drift chambers, known as straws, which simultaneously 
+	function as a straw tracker to enhance particle tracking and as a transition 
+	radiation detector to aid electron identification. Straws are aligned with the beam 
+	pipe in the barrel and radially in the end-caps. The \ac{TRT} covers the region 
 	$\mods{\eta} < 2.0$.
 
 	Each \unit{4}{\milli\metre} diameter straw has a 
@@ -136,20 +106,19 @@ complementary sub-detectors:
 	straws are filled with a xenon-based gas mixture that is ionised by a traversing 
 	charged particle. The freed electrons drift to the anode and produce a signal current.
 	The drift time is used to measure the impact parameter of the incident charged 
-	particle relative to the anode and, since a track typically traverses 36 straws, this 
-	collective information yields an intrinsic accuracy of \unit{130}{\micro\metre} in 
-	$r\phi$ (much smaller than the straw diameter). However, tracking information 
+	particle relative to the anode and, since a track typically traverses 36 straws, 
+	collectively this information yields an intrinsic accuracy of \unit{130}{\micro\metre}
+	in $r\phi$ (much smaller than the straw diameter). However, tracking information 
 	parallel to the straw is lost.
 
 	The layers of straws are interleaved with polypropylene radiator fibres or foils, and 
 	the changes in refractive index cause charged particles to emit X-ray transition 
 	radiation (TR). The TR is absorbed by the xenon gas in the straws; TR signals are 
-	distinguished from tracking signals with a higher threshold. Since the probability of 
+	distinguished from tracking signals by a higher threshold. Since the probability of 
 	TR is proportional to the particle's $\gamma$-factor, for a given energy lighter 
 	particles produce more TR than heavier particles. This aids electron-pion 
 	discrimination.
 \end{description}
-
 
 
 
@@ -182,7 +151,9 @@ used.
 The ATLAS calorimeter consists of an inner electromagnetic calorimeter (for electrons and 
 photons) and an outer hadronic calorimeter (for jets), as shown in 
 \Figure~\ref{fig:calorimeters}. They cover the regions $\mods{\eta} < 3.2$ and 
-$\mods{\eta} < 4.9$ respectively.
+$\mods{\eta} < 4.9$ respectively. The total thickness of the electromagnetic calorimeter 
+corresponds to more than $22 X_0$ and the total thickness of the entire calorimeter 
+corresponds to more than $10 \lambda$.
 \begin{description}
 \item[\ac{ECal}] \hfill \\
 	The \ac{ECal} uses a lead absorber and a liquid argon (LAr) active material arranged 
@@ -204,13 +175,12 @@ $\mods{\eta} < 4.9$ respectively.
 	\ac{ECal} - it is typically segmented into three layers with a minimum 
 	$\Delta\eta\times\Delta\phi$ granularity of $0.1 \times 0.1$.
 
-	The tile calorimeter uses a steel absorber and scintillator tiles as the active 
+	The tile calorimeter uses a steel absorber with scintillator tiles as the active 
 	material. The scintillation light is collected by optical fibres and turned into a 
 	signal by photomultiplier tubes. The HEC and FCal both use LAr active material.
 	However, the HEC uses a copper absorber, whereas the FCal uses copper in the first 
 	layer (for electromagnetic measurements) and tungsten in the two subsequent layers.
 \end{description}
-
 
 
 
@@ -222,28 +192,24 @@ $\mods{\eta} < 4.9$ respectively.
 	\label{fig:muon_spectrometer}
 \end{figure}
 
-The \ac{MS} provides precision tracking of muons that have exited the calorimeters. A 
-huge air-core toroid magnet system generates a \unit{0.5}{\tesla} (\unit{1}{\tesla}) 
-field in the barrel (end-caps), enabling momentum measurements from track curvature. Four 
-types of tracking chamber are installed in three layers around the calorimeters (see 
-\Figure~\ref{fig:muon_spectrometer}):
+The \ac{MS} provides precise tracking of muons that have exited the calorimeters. A huge 
+air-core toroid magnet system generates a \unit{0.5}{\tesla} (\unit{1}{\tesla}) field in 
+the barrel (end-caps), enabling momentum measurements from track curvature. Four types of 
+tracking chamber are installed in three layers (see \Figure~\ref{fig:muon_spectrometer}):
 \begin{description}
 \item[\acp{MDT} and \acp{CSC}] \hfill \\
-	\acp{MDT} and \acp{CSC} provide precision momentum measurement, with a resolution of 
+	\acp{MDT} and \acp{CSC} provide precise momentum measurement, with a resolution of 
 	about \unit{40}{\micro\metre} in the bending plane. \acp{MDT} cover the region 
-	$\mods{\eta} < 2.7$, but in the forward region ($2.0 < \mods{\eta} < 2.7$), the 
-	innermost layer is replaced with \acp{CSC} to withstand the higher particle flux. 
-	\acp{CSC} are multiwire proportional chambers with cathode planes segmented into 
-	strips in orthogonal directions.
+	$\mods{\eta} < 2.7$, but the innermost end-cap is replaced with \acp{CSC} to 
+	withstand the higher particle flux. \acp{CSC} are multiwire proportional chambers 
+	with cathode planes segmented into strips in orthogonal directions.
 \item[\acp{RPC} and \acp{TGC}] \hfill \\
 	\acp{RPC} and \acp{TGC} provide less precise tracking, but at a faster readout speed 
-	needed for triggering. They also provide a coordinate in the direction 
-	orthogonal to that provided by the \acp{MDT} and \acp{CSC}. \acp{RPC} cover 
-	$\mods{\eta} < 1.05$ and \acp{TGC} cover $1.05 < \mods{\eta} < 2.7$.
+	needed for triggering. They also provide orthogonal coordinates to those of	the 
+	\acp{MDT} and \acp{CSC}. 
 	\acp{RPC} are gas-filled parallel plate detectors operated in avalanche mode.
-	\acp{TGC} are multiwire proportional chambers operated in a quasi-saturated mode.
+	\acp{TGC} are multiwire proportional chambers operated in quasi-saturated mode.
 \end{description}
-
 
 
 
@@ -256,11 +222,11 @@ program. For these reasons, ATLAS has a trigger system to identify and retain in
 events for further analysis offline.
 
 The trigger is split into three levels with successively lower event rates: \ac{L1}, 
-\ac{L2} and the \ac{EF}. This is achieved by affording later levels a longer latency to 
-apply more refined selection criteria, as shown in \Figure~\ref{fig:trigger}. The \ac{L2} 
-and \ac{EF} triggers are collectively referred to as the \ac{HLT}, and are implemented on 
-an off-detector computer farm.
-\begin{figure}
+\ac{L2} and the \ac{EF}. This is achieved by affording a longer latency for later levels 
+to apply more refined selection criteria, as shown in \Figure~\ref{fig:trigger}. The 
+\ac{L2} and \ac{EF} triggers are collectively referred to as the \ac{HLT}, and are 
+implemented on an off-detector computer farm.
+\begin{figure}[b]
 	\includegraphics[width=\textwidth]{tex/experiment/trigger}
 	\caption{Schematic diagram of the ATLAS trigger and data acquisition (DAQ) system.
 	Typical values for event rates, data rates and trigger latencies during the 2012 run 
@@ -273,11 +239,44 @@ events with significant total transverse energy or transverse energy imbalance. 
 decision is made using muon trigger chamber information (\acp{RPC} and \acp{TGC}) and 
 reduced-granularity calorimeter information. Since the decision latency 
 (\unit{2.5}{\micro\second}) is longer than the bunch spacing (\unit{25}{\nano\second}),
-the \ac{L1} trigger stores event data in pipelines.
+event data is stored in pipelines while a decision is made.
 
 The detector coordinates of interesting features identified by the \ac{L1} trigger, known 
 as Regions of Interest (ROIs), are passed on to the \ac{L2} trigger. The \ac{L2} trigger 
 then requests the full degree of detector information for these ROIs (\about 2\% of total
 event data), in order to make a more informed decision. Finally, the \ac{EF} trigger has
 access to the full event data, and further reduces the data rate such that it can be 
-written to tape.
+written to tape. The entire trigger system reduces the data rate from 
+\unit{64}{\tera\bel\per\second} to about \unit{1}{\giga\bel\per\second}.
+
+
+
+\subsection{Performance goals}
+
+The main performance goals of each detector sub-system are shown in 
+\Table~\ref{tab:atlas_targets}. It should be noted that, for high-$p_T$ muons, the \ac{MS}
+performance quoted is independent of the \ac{ID}.
+
+\begin{table}[h]
+	\begin{tabular}{lr@{\;{=}\;}lcc}
+		\multirow{2}{*}{Detector component} & 
+		\multicolumn{2}{c}{\multirow{2}{*}{Required resolution}} & 
+		\multicolumn{2}{c}{$\mods{\eta}$ coverage} \\
+		& \multicolumn{2}{c}{} & Measurement & L1 trigger \\
+		\hline
+		Tracking                 & $\sigma_{p_T}/p_T$ & $0.05\% \times p_T \oplus 1\%$ &
+		$<2.5$ & -- \\
+		EM calorimetry           & $\sigma_{E}/E$ & $10\% / \sqrt{E} \oplus 0.7\%$ &
+		$<3.2$ & $<2.5$ \\
+		Hadronic calorimetry     & \multicolumn{2}{l}{} & & \\
+		\quad barrel and end-cap & $\sigma_{E}/E$ & $50\% / \sqrt{E} \oplus 3\%$ &
+		$<3.2$ & $<3.2$ \\
+		\quad   forward          & $\sigma_{E}/E$ & $100\% / \sqrt{E} \oplus 10\%$ &
+		$3.1\text{ -- }4.9$ & $3.1\text{ -- }4.9$ \\
+		Muon spectrometer        & $\sigma_{p_T}/p_T$ & $10\%$ at $p_T=\unit{1}{\TeV}$ &
+		$<2.7$ & $<2.4$ \\
+	\end{tabular}
+	\caption{Performance goals of the ATLAS sub-detectors \cite{ATLAS-detector}. Energies 
+	and momenta are given in \GeV\xspace unless stated otherwise.}
+	\label{tab:atlas_targets}
+\end{table}
