@@ -9,22 +9,24 @@ unitarity \cite{Aitchison}.
 The solution was to introduce charged vector bosons (\PWpm bosons) to mediate the weak 
 interaction, similar to the exchange of photons in \ac{QED}. However, unlike \ac{QED}, 
 the weak interaction is short ranged and therefore its exchange bosons must be massive. 
-Since the propagator for a particle of mass $m$ and momentum $p$ contains 
+Since the propagator for a particle of mass $m$ and momentum $p$ contains a factor 
 $1 / (p^2 - m^2)$, in the low energy limit we can relate to Fermi's theory and identify
 \begin{equation}
 	G_F \sim g^2 / m_{\PW}^2
 \end{equation}
-where $g$ is the coupling of the vector boson. Thus, at low energies, the strength of the weak interaction is suppressed by the mass of the exchange boson.
+where $g$ is the coupling of the vector boson. Thus, at low energies, the strength of the 
+weak interaction is suppressed by the mass of the exchange boson.
 
 At this time, there were two key obstacles to unifying the electromagnetic and weak 
-interactions. Firstly, the discovery of parity violation in cobalt-60 $\beta$-decay 
+interactions. First, the discovery of parity violation in cobalt-60 $\beta$-decay 
 implied the weak interaction has a \VminusA structure, whereas \ac{QED} has a pure V 
 structure \cite{Wu:1957}.\footnote{
 	Five bilinear covariants can be constructed from the Dirac $\gamma$ matrices, which 
 	are named according to how they transform under parity: scalar, pseudoscalar, vector, 
 	axial vector and tensor.
 }
-Secondly, the \PWpm bosons are massive whilst photons are massless. This was a major problem because gauge bosons are inherently massless.\footnote{
+Second, the \PWpm bosons are massive whilst photons are massless. This was a major 
+problem because gauge bosons are inherently massless.\footnote{
 	Consider the gauge transformation of a Yang-Mills gauge field 
 	$\bvec{W}_{\mu} \rightarrow \bvec{W}_{\mu} - \partial_{\mu} \bvec{\alpha}(x)
 	- g \lbrack \bvec{\alpha}(x) \times \bvec{W}_{\mu} \rbrack$. Clearly the mass term 
@@ -35,7 +37,8 @@ but were known to exist.\footnote{
 	Consider a spinor as the sum of its left- and right-handed chiral states 
 	$\psi = \psi_L + \psi_R$. Then the Dirac mass term is $-m \bar{\psi} \psi = 
 	-m (\bar{\psi}_R \psi_L + \bar{\psi}_L \psi_R)$. For a chiral theory, $\psi_L$ and
-	$\psi_R$ behave differently under gauge transformations and thus the mass term is not gauge invariant.
+	$\psi_R$ behave differently under gauge transformations and thus the mass term is not 
+	gauge invariant.
 }
 
 Glashow's proposal of an \EWgroup group was a major step forward \cite{Glashow:1961}. 
@@ -51,9 +54,12 @@ fields are obtained through the mixing of these fields
 	A_{\mu} &= \sin\theta_W W^3_{\mu} + \cos\theta_W B_{\mu} \label{eq:Afield}
 \end{align}
 where
-\begin{align}
-	\cos\theta_W = g/\sqrt{g^2 + g'^2} && \sin\theta_W = g'/\sqrt{g^2 + g'^2} \,. \label{eq:weak_mixing}
-\end{align}
+\begin{equation}
+	\cos\theta_W = g/\sqrt{g^2 + g'^2}
+	\quad\quad \text{and} \quad\quad
+	\sin\theta_W = g'/\sqrt{g^2 + g'^2} \,. 
+	\label{eq:weak_mixing}
+\end{equation}
 We identify $W^{\pm}_{\mu}$ with the \PWpm bosons, $A_{\mu}$ with the photon 
 and $Z_{\mu}$ with a new neutral \PZ boson. Weak neutral currents were later confirmed 
 experimentally \cite{Gargamelle:1973}. 
@@ -67,7 +73,7 @@ $g$, the \PZ boson couples vectorially to $c_V$ and axially to $c_A$ with streng
 $g/(2\cos\theta_W)$, and the photon couples to electric charge $Q$ with strength 
 $e = g\sin\theta_W$, where
 \begin{align}
-	c_V &= T_3 - 2 Q \sin^2\theta_W \quad\quad c_A = T_3 \\
+	c_V &= T_3 - 2 Q \sin^2\theta_W \,,\quad\quad c_A = T_3 \\
 	Q   &= T_3 + \frac{Y}{2} \,.
 \end{align}
 
@@ -89,12 +95,13 @@ $e = g\sin\theta_W$, where
 		$\tfrac{1}{2}$ & $+\tfrac{1}{2}$ & $+\tfrac{1}{3}$ & $+\tfrac{2}{3}$ \\
 		& & & $\tfrac{1}{2}$ & $-\tfrac{1}{2}$ & $+\tfrac{1}{3}$ & $-\tfrac{1}{3}$ \\
 		$\Pup_R$ & $\Pcharm_R$ & $\Ptop_R$ & 0 & 0 & $+\tfrac{4}{3}$ & $+\tfrac{2}{3}$ \\
-		$\Pdown'_R$ & $\Pstrange'_R$ & $\Pbottom'_R$ & 0 & 0 & $-\tfrac{2}{3}$ & $-\tfrac{1}{3}$ \\
+		$\Pdown_R$ & $\Pstrange_R$ & $\Pbottom_R$ & 0 & 0 & $-\tfrac{2}{3}$ & $-\tfrac{1}{3}$ \\
 	\end{tabular}
-	\caption{The weak isospin $T$, weak hypercharge $Y$ and electric charge $Q$ quantum
-	numbers assigned to the fermions. Right-handed neutrinos are decoupled from the 
-	electroweak interaction, and were not originally included in the \ac{SM}. However, 
-	recent observations of neutrino oscillations suggest these might exist.}
+	\caption{The weak isospin $T$, weak hypercharge $Y$ and electric charge $Q$ of the 
+	fermions. In charged currents, the states that couple to \Pup-type 
+	quarks are superpositions of \Pdown-type quarks and are denoted with a prime. 
+	Although right-handed neutrinos are decoupled, recent observations of neutrino 
+	oscillations suggest these might exist.}
 	\label{tab:ew_fermions}
 \end{table}
 
@@ -179,9 +186,10 @@ when accompanied by a gauge transformation of the potential
 $A_{\mu} \rightarrow A_{\mu} + \tfrac{1}{q}\partial_{\mu} \alpha\parenths{x}$.
 
 We are free to choose the unitary gauge $\alpha\parenths{x} = -\theta\parenths{x}/v$,
-altering the photon field $A_{\mu} \rightarrow A_{\mu} - \tfrac{1}{qv}\partial_{\mu} 
-\theta\parenths{x}$ in the process. Ultimately, the final result is gauge-independent, 
-but other choices make the gauge boson propagators gauge-dependent. Since the 
+absorbing the $\theta$-mode into the photon field 
+$A_{\mu} \rightarrow A_{\mu} - \tfrac{1}{qv}\partial_{\mu} \theta\parenths{x}$. 
+Ultimately, the final result is gauge-independent, but other choices require the 
+Nambu-Goldstone bosons to be explicitly included in the Feynman rules. Since the 
 $\theta$-mode is `gauged away', excitations about the vacuum become
 \begin{equation}
 	\phi\parenths{x} = \frac{1}{\sqrt{2}} \sqbracs{v + h\parenths{x}}
@@ -189,9 +197,9 @@ $\theta$-mode is `gauged away', excitations about the vacuum become
 and the Lagrangian (\ref{eq:lagr:abelHiggs}) becomes
 \begin{equation}
 	\mathcal{L}
-	= \frac{1}{2} q^2 v^2 A_{\mu} A^{\mu}
-	- F_{\mu\nu}F^{\mu\nu}
-	+ \frac{1}{2} \partial_{\mu}h \partial^{\mu}h
+	= \tfrac{1}{2} q^2 v^2 A_{\mu} A^{\mu}
+	- \tfrac{1}{4} F_{\mu\nu}F^{\mu\nu}
+	+ \tfrac{1}{2} \partial_{\mu}h \partial^{\mu}h
 	- \mu^2 h^2
 	+ \dots
 \end{equation}
@@ -220,16 +228,16 @@ where $D_{\mu} = \partial_{\mu} + \tfrac{i}{2} g \bvec{\tau} \cdot \bvec{W}_{\mu
 \bvec{W}_{\nu}$ and $G_{\mu\nu} = \partial_{\mu}B_{\nu} - \partial_{\nu}B_{\mu}$ are the
 field tensors. In this case, $\phi$ is an \SUgroup{2} doublet of complex scalar fields
 \begin{equation}
-	\phi = \colvector{\phi^+\\\phi^0} = \colvector{\frac{1}{\sqrt{2}} \parenths{\phi_1 + i\phi_2}\\ \frac{1}{\sqrt{2}} \parenths{\phi_3 + i\phi_4}}.
+	\phi = \colvector{\phi^+\\\phi^0} = \frac{1}{\sqrt{2}} \colvector{ \phi_1 + i\phi_2\\ \phi_3 + i\phi_4}.
 \end{equation}
 
 Again, there are infinite degenerate vacua satisfying 
 $\parenths{\phi_1^2 + \phi_2^2 + \phi_3^2 + \phi_4^2} = \mu^2/\lambda$. In analogue with 
-the abelian Higgs mechanism, the unitary gauge sets the vacuum expectation values of 
-$\phi_1$, $\phi_2$ and $\phi_4$ to be zero. Considering excitations about the vacuum
+the abelian Higgs mechanism, the unitary gauge absorbs the $\phi_1$, $\phi_2$ and 
+$\phi_4$-modes into the gauge fields. Thus, considering excitations about the vacuum
 \begin{equation}
-	\phi\parenths{x} = \colvector{0\\ \frac{1}{\sqrt{2}} 
-	\sqbracs{v + h\parenths{x}}} \label{eq:higgs_doublet}
+	\phi\parenths{x} = \frac{1}{\sqrt{2}} \colvector{0\\  
+	v + h\parenths{x}} \label{eq:higgs_doublet}
 \end{equation}
 the Lagrangian (\ref{eq:lagr:ewHiggs}) becomes
 \begin{align}
@@ -239,9 +247,12 @@ the Lagrangian (\ref{eq:lagr:ewHiggs}) becomes
 	&\quad\quad {} + \tfrac{1}{8} v^2 \parenths{g^2 + g'^2} Z_{\mu} Z^{\mu} - \tfrac{1}{4} \parenths{\partial_{\mu}Z_{\nu} - \partial_{\nu}Z_{\mu}} \parenths{\partial^{\mu}Z^{\nu} - \partial^{\nu}Z^{\mu}} - \tfrac{1}{4} F_{\mu\nu} F^{\mu\nu} \nonumber \\
 	&\quad\quad {} + \tfrac{1}{2} \partial_{\mu}h \partial^{\mu}h - \mu^2 h^2 + \dots
 \end{align}
-where the dots denote terms neither kinetic nor mass, and the expression has been rewritten in terms of the physical gauge fields using (\ref{eq:Wfield}), (\ref{eq:Zfield})
-and (\ref{eq:Afield}). The \PWpm bosons acquire a mass $gv/2$ and the \PZ boson acquires a
-mass $v \sqrt{\parenths{g^2+g'^2}}/2$, while the photon is massless. Again, all Nambu-Goldstone bosons are gone and a Higgs boson has appeared as a by-product of the \ac{SSB}.
+where the dots denote terms neither kinetic nor mass, $F_{\mu\nu}$ is the field tensor of
+\ac{QED}, and the expression has been rewritten in terms of the physical gauge fields 
+using (\ref{eq:Wfield}), (\ref{eq:Zfield}) and (\ref{eq:Afield}). The \PWpm bosons 
+acquire a mass $gv/2$ and the \PZ boson acquires a mass $v \sqrt{\parenths{g^2+g'^2}}/2$, 
+while the photon is massless. Again, all Nambu-Goldstone bosons are gone and a Higgs 
+boson has appeared as a by-product of the \ac{SSB}.
 
 This theory predicts a striking relation between the gauge boson masses, using 
 (\ref{eq:weak_mixing})
@@ -249,20 +260,21 @@ This theory predicts a striking relation between the gauge boson masses, using
 	m_{\PW} = m_{\PZ} \cos\theta_W
 \end{equation}
 which was experimentally verified once the \PW and \PZ bosons were discovered 
-\cite{UA1:1989}. It also predicted a massive scalar Higgs boson, whose mass could not be 
-determined from the other parameters of the theory.
+\cite{UA1:Wboson,UA2:Wboson,UA1:Zboson,UA2:Zboson,UA1:1989}. It also predicted a massive 
+scalar Higgs boson, whose mass could not be determined from the other parameters of the 
+theory.
 
 Fermion masses can also be incorporated into \ac{EW} theory through Yukawa couplings.
 Consider a coupling between the electron-type \SUgroup{2} doublet (see 
 \Table~\ref{tab:ew_fermions}), the Higgs doublet $\phi$ given in 
 (\ref{eq:higgs_doublet}), and the electron \SUgroup{2} singlet
 \begin{align}
-	\mathcal{L}_{\Pe}^{\text{Yuk}} &= -g_{\Pe} \parenths{\Plepton_{\Pe L} \phi \Pe_{R} + \Pe_{R} \phi^{\dagger} \Plepton_{\Pe L}} \\
-	&= -\frac{g_{\Pe}}{\sqrt{2}} \sqbracs{v + h} \parenths{\Pe_{L} \Pe_{R} + \Pe_{R} \Pe_{L}}
+	\mathcal{L}_{\Pe}^{\text{Yuk}} &= -g_{\Pe} \parenths{\overline{\Plepton}_{\Pe L} \phi \Pe_{R} + \overline{\Pe}_{R} \phi^{\dagger} \Plepton_{\Pe L}} \\
+	&= -\frac{g_{\Pe}}{\sqrt{2}} \sqbracs{v + h} \parenths{\overline{\Pe}_{L} \Pe_{R} + \overline{\Pe}_{R} \Pe_{L}}
 \end{align}
 where $g_e$ is the electron Yukawa coupling. The electron has acquired a mass 
 $g_{\Pe}v/\sqrt{2}$ and the coupling of the Higgs boson to the electron is proportional 
-to that mass.
+to that mass (specifically $m_e/v$).
 
 Finally, we note a similar phenomenon in superconductors. There, the \Ugroup{1} symmetry 
 of \ac{QED} is spontaneously broken, as in \Section~\ref{sec:ewsb:higgs}, giving mass to 
@@ -272,5 +284,5 @@ major difference is that the bosonic field is a Bose-Einstein condensate of loos
 electron pairs (known as Cooper pairs), and therefore the \ac{SSB} is dynamic. This is 
 only possible due to lattice vibrations of the underlying solid. It is natural to ask 
 whether a similar dynamic mechanism could be used to break \ac{EW} symmetry, where the 
-Higgs boson is a composite particle. This is an active area of theoretical research, 
-though will not be explored here.
+Higgs boson is a composite particle. This is an active area of research, though will not 
+be explored here.
