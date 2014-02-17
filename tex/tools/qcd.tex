@@ -38,7 +38,7 @@ small scales (large distances), \alphaS is large and the theory is non-perturbat
 Though not analytically proven\footnote{
 	A mathematically rigorous proof of confinement is one of seven Millennium Prize 
 	Problems of the Clay Mathematics Institute, with a bounty of \$1,000,000.
-}, confinement has been verified by lattice \ac{QCD} in this regime \cite{Wilson:1974}. 
+}, confinement has been verified in this regime by lattice \ac{QCD} \cite{Wilson:1974}. 
 At high scales (small distances), \alphaS is small -- this is asymptotic freedom 
 \cite{Gross:1973,Politzer:1973}. Note that \alphaEM in \acs{QED} exhibits an opposing 
 trend, though remains perturbative at accessible energies.
@@ -59,35 +59,68 @@ asymptotically free. Thus, parton-level cross sections may be calculated with Fe
 diagrams as a convergent perturbative series in \alphaS
 \begin{equation}
 	\hat{\sigma} = \sum\limits_{m=0}^{\infty} \alpha_S^{k+m} \hat{\sigma}^{(m)}
+	\label{eq:qcd:partonic_xs}
 \end{equation}
 where the hat denotes a parton-level quantity, $k$ is the number of \ac{QCD} vertices at 
 tree-level, and $\hat{\sigma}^{(m)}$ is the $m$th order contribution to the cross section.
+A fixed order calculation truncates the series at $m=n$, with $n=0$ being a \ac{LO} 
+calculation, $n=1$ being a \ac{NLO} calculation, and so on.
 
 As mentioned above, the cross section $\hat{\sigma}$ is independent of the 
 renormalisation scale
 \begin{equation}
 	\frac{\d{\hat{\sigma}}}{\d{\mu_R}} = 0 \,.
-	\label{eq:xs_rge}
+	\label{eq:qcd:xs_rge}
 \end{equation}
 However, real-life calculations always truncate the series after $n$ terms, leaving a 
-residual $\mu_R$ dependence. Inserting the truncated series into (\ref{eq:xs_rge}), we 
-find that
+residual $\mu_R$ dependence. Inserting the truncated series into (\ref{eq:qcd:xs_rge}), 
+we find that
 \begin{equation}
 	\frac{\d{}}{\d{\mu_R}} \sum\limits_{m=0}^{n} \alpha_S^{k+m} \hat{\sigma}^{(m)}
-	= \ofOrder{\alpha_S^{k+n+1}}
+	= \ofOrder{\alpha_S^{k+n+1}} \,.
 \end{equation}
-and it follows that the residual $\mu_R$ dependence can be used to probe the effect of 
+It follows that the residual $\mu_R$ dependence can be exploited to probe the effect of 
 missing higher order terms in the series.
 
 In addition to the UV divergences handled by renormalisation, infrared (IR) divergences 
 arise from the soft and collinear emission of massless gluons. However, the 
-Kinoshita-Lee-Nauenberg theorem states that these will cancel with IR divergences in 
-corresponding loop diagrams \cite{Kinoshita:1962,Lee:1964}.
+KLN theorem asserts that these cancel with IR divergences in corresponding loop diagrams, 
+and the cross section remains finite \cite{Kinoshita:1962,Lee:1964}.
 
 
 
-\subsection{Parton shower}
+\subsection{Resummation of large logarithms}
 \label{sec:qcd:ps}
+
+Fixed order calculations are useful only when the perturbative series is converging. 
+However, when considering exclusive observables, there are regions of phase space in 
+which the missing higher order terms cannot be neglected. This often occurs when there is 
+a large separation in the scales of a process.
+
+For example, consider the emission of a gluon from an outgoing quark. The scale 
+separation of the hard scatter $Q$ from the soft emission $Q_1$ introduces Sudakov double 
+logarithmic contributions $\alpha_S^{k+m} L^{2m}$ to the perturbative series, where 
+$L \sim \ln\parenths{Q_1 / Q}$. The (schematic) structure of the perturbative series 
+becomes
+\begin{equation}
+	\hat{\sigma} \sim \alpha_S^k \braces{\alpha_S \parenths{L^2 + L + 1}
+	+ \alpha_S^2 \parenths{L^4 + L^3 + L^2 + L + 1} + \ofOrder{\alpha_S^3 L^6}} \,.
+	\label{eq:qcd:resum}
+\end{equation}
+In the soft/collinear limit we have $\alpha_S L^2 \approx 1$, and the logarithms can 
+overcome the \alphaS suppression. Thus, the perturbative nature of the series is spoiled 
+and the logarithmic terms must be resummed to all orders in \alphaS (through 
+exponentiation) in order to obtain a meaningful result. In (\ref{eq:qcd:resum}), terms 
+like $\alpha_S^m L^{2m}$ are called \acp{LL}, terms like $\alpha_S^{m} L^{2m-1}$ are 
+called \acp{NLL}, and so on.
+
+These soft and collinear parton emissions are very important to resum to all orders, 
+either analytically or using a parton shower Monte Carlo program. A parton shower 
+probabilistically generates emissions as it evolves partons from the hard scatter scale 
+down to a scale where non-perturbative effects of confinement dominate. Technically they 
+have \ac{LL} accuracy, though often contain some \ac{NLL} terms.
+
+
 
 \subsection{Parton distribution functions}
 \label{sec:qcd:pdf}
@@ -95,8 +128,8 @@ corresponding loop diagrams \cite{Kinoshita:1962,Lee:1964}.
 dependence on muF is DGLAP equation
 
 \begin{equation}
-	\sigma_{\HepProcess{\Pproton \Pproton \HepTo X}}\parenths{P_1, P_2} = 
+	\sigma\parenths{p_1, p_2} = 
 	\sum\limits_{a, b} \! \int \! \d{x_1} \d{x_2} \,
-	f_a \parenths{x_1, \mu_F^2} f_b \parenths{x_2, \mu_F^2} \,
-	\hat{\sigma}_{\HepProcess{ab \HepTo X}} \parenths{p_1, p_2, \alphaS\parenths{\mu_R^2}, \frac{Q^2}{\mu_F^2}, \frac{Q^2}{\mu_R^2}} 
+	f_a^{h_1} \parenths{x_1, \mu_F^2} f_b^{h_2} \parenths{x_2, \mu_F^2} \,
+	\hat{\sigma}_{ab} \parenths{x_1 p_1, x_2 p_2, \alphaS\parenths{\mu_R^2}, \frac{Q^2}{\mu_F^2}, \frac{Q^2}{\mu_R^2}} 
 \end{equation}
