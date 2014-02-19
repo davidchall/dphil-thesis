@@ -30,8 +30,8 @@ which loops are absorbed into renormalised quantities, and below which loops are
 calculated in perturbation theory. Clearly couplings and masses will depend upon $\mu_R$,
 though physical observables must not -- however, truncation of the perturbative series 
 results in a residual $\mu_R$ dependence. Usually $\mu_R$ is chosen to be the energy 
-scale $Q$ of the process under consideration, leading to the concept of a `running 
-coupling constant'.
+scale $Q$ of the process under consideration, leading to the concept of a \textit{running 
+coupling constant}.
 
 For \ac{QCD}, the coupling constant \alphaS is shown in \Figure~\ref{fig:alpha_s}. At 
 small scales (large distances), \alphaS is large and the theory is non-perturbative. 
@@ -63,8 +63,8 @@ diagrams as a convergent perturbative series in \alphaS
 \end{equation}
 where the hat denotes a parton-level quantity, $k$ is the number of \ac{QCD} vertices at 
 tree-level, and $\hat{\sigma}^{(m)}$ is the $m$th order contribution to the cross section.
-A fixed order calculation truncates the series at $m=n$, with $n=0$ being a \ac{LO} 
-calculation, $n=1$ being a \ac{NLO} calculation, and so on.
+A \textit{fixed order} calculation truncates the series at $m=n$, with $n=0$ being a 
+\ac{LO} calculation, $n=1$ being a \ac{NLO} calculation, and so on.
 
 As mentioned above, the cross section $\hat{\sigma}$ is independent of the 
 renormalisation scale
@@ -82,15 +82,15 @@ we find that
 It follows that the residual $\mu_R$ dependence can be exploited to probe the effect of 
 missing higher order terms in the series.
 
-In addition to the UV divergences handled by renormalisation, infrared (IR) divergences 
-arise from the soft and collinear emission of massless gluons. However, the 
-KLN theorem asserts that these cancel with IR divergences in corresponding loop diagrams, 
-and the cross section remains finite \cite{Kinoshita:1962,Lee:1964}.
+% In addition to the UV divergences handled by renormalisation, infrared (IR) divergences 
+% arise from the soft and collinear emission of massless gluons. However, the 
+% KLN theorem asserts that these cancel with IR divergences in corresponding loop 
+% diagrams, and the cross section remains finite \cite{Kinoshita:1962,Lee:1964}.
 
 
 
 \subsection{Resummation of large logarithms}
-\label{sec:qcd:ps}
+\label{sec:qcd:resum}
 
 Fixed order calculations are useful only when the perturbative series is converging. 
 However, when considering exclusive observables, there are regions of phase space in 
@@ -108,28 +108,49 @@ becomes
 	\label{eq:qcd:resum}
 \end{equation}
 In the soft/collinear limit we have $\alpha_S L^2 \approx 1$, and the logarithms can 
-overcome the \alphaS suppression. Thus, the perturbative nature of the series is spoiled 
-and the logarithmic terms must be resummed to all orders in \alphaS (through 
-exponentiation) in order to obtain a meaningful result. In (\ref{eq:qcd:resum}), terms 
-like $\alpha_S^m L^{2m}$ are called \acp{LL}, terms like $\alpha_S^{m} L^{2m-1}$ are 
-called \acp{NLL}, and so on.
+overcome the \alphaS suppression. Thus, the perturbative nature of the series is spoiled. 
+In (\ref{eq:qcd:resum}), terms like $\alpha_S^m L^{2m}$ are called \acp{LL}, terms like 
+$\alpha_S^{m} L^{2m-1}$ are called \acp{NLL}, and so on.
 
-These soft and collinear parton emissions are very important to resum to all orders, 
-either analytically or using a parton shower Monte Carlo program. A parton shower 
-probabilistically generates emissions as it evolves partons from the hard scatter scale 
-down to a scale where non-perturbative effects of confinement dominate. Technically they 
-have \ac{LL} accuracy, though often contain some \ac{NLL} terms.
+When sensitive to such large logarithms, they must be \textit{resummed} to all orders in 
+\alphaS to produce an accurate result. This is usually achieved analytically, but in the 
+case of these soft and collinear emissions a \textit{parton shower} Monte Carlo program 
+can be used. This probabilistically generates emissions as it evolves partons from the 
+hard scatter scale down to a scale where non-perturbative effects of confinement dominate.
+A parton shower is necessary to produce hadron-level predictions (see 
+\Section~\ref{sec:mc}). Technically they have \ac{LL} accuracy, though can include many 
+\ac{NLL} terms such as energy-momentum conservation and colour coherence.
 
 
 
 \subsection{Parton distribution functions}
 \label{sec:qcd:pdf}
 
-dependence on muF is DGLAP equation
-
+At the \acs{LHC}, the interactions are between hadrons (protons) rather than the partons 
+discussed above. Fortunately, the \textit{factorisation theorem} states that the soft 
+non-perturbative physics of the hadron can be treated independently of the hard scatter 
+\cite{Collins:1982}. Thus, a proton-proton cross section can be formulated as a 
+convolution of the partonic cross section with \acp{PDF} of the incoming protons. That is,
 \begin{equation}
 	\sigma\parenths{p_1, p_2} = 
-	\sum\limits_{a, b} \! \int \! \d{x_1} \d{x_2} \,
-	f_a^{h_1} \parenths{x_1, \mu_F^2} f_b^{h_2} \parenths{x_2, \mu_F^2} \,
+	\sum\limits_{a, b} \! \int_0^1 \! \d{x_1} \d{x_2} \,
+	f_a \parenths{x_1, \mu_F^2} f_b \parenths{x_2, \mu_F^2} \,
 	\hat{\sigma}_{ab} \parenths{x_1 p_1, x_2 p_2, \alphaS\parenths{\mu_R^2}, \frac{Q^2}{\mu_F^2}, \frac{Q^2}{\mu_R^2}} 
 \end{equation}
+where $f_a$ is the \ac{PDF} of parton type $a$ within the proton, $p_i$ is the momentum 
+of proton $i$, and $x_i$ is the momentum fraction of parton $i$. A sum is performed over 
+all possible parton types (quark flavours and the gluon).
+
+Echoing renormalisation, factorisation absorbs collinear divergences into universal 
+\acp{PDF} which are not \textit{a priori} calculable and must be experimentally 
+constrained. Again, an unphysical \textit{factorisation scale} $\mu_F$ is introduced, 
+below which emissions are absorbed into \acp{PDF}, and above which they are included in 
+the hard scatter. As with $\mu_R$, truncating the perturbative series introduces a 
+$\mu_F$ dependence, which can be exploited to estimate the effect of the missing higher 
+order terms. At \ac{LO}, $f_a \parenths{x, \mu_F}$ is the probability of finding a parton 
+of type $a$ with momentum fraction $x$, when probing the proton at a scale $\mu_F$.
+
+Crucially, the \ac{PDF} dependence upon $\mu_F$ is described by the DGLAP equations 
+\cite{Gribov:1972,Altarelli:1977,Dokshitser:1977}. This allows a $f_a \parenths{x}$ 
+ansatz to be made at low scale and then experimentally validated at higher scales (\eg 
+with deep inelastic scattering or jet data).

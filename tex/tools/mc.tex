@@ -1,18 +1,19 @@
 %!TEX root = ../../thesis.tex
 
-\cite{MCnet:general}
-
-Monte Carlo method
-
 \subsection{The anatomy of an event}
 
-\begin{figure}
-	\includegraphics[width=\largefigwidth]{tex/tools/event}
+\ac{MC} event generators provide fully-exclusive hadron-level simulation of \pp collision 
+events at the \acs{LHC} \cite{MCnet:general}. \Figure~\ref{fig:mcevent} shows how event 
+generation is factorised into several components, each describing a certain regime of 
+momentum transfer.
+
+\begin{figure}[b]
+	\includegraphics[width=\mediumfigwidth]{tex/tools/event}
 	\caption{Schematic diagram of a simulated \ttH event, showing how factorisation allows 
 	the physics at different scales of momentum transfer $Q$ to be treated independently 
 	\cite{MCnet:MatchingLectures}.
-	At high-$Q^2$ is the hard scatter (red circle). As the scale evolves down, partons are 
-	radiated in the initial state (blue) and final state (red). At low-$Q^2$, incoming 
+	At high-$Q$ is the hard scatter (red circle). As the scale evolves down, partons are 
+	radiated in the initial state (blue) and final state (red). At low-$Q$, incoming 
 	partons are confined to the beam protons, while outgoing partons hadronise (light 
 	green blobs). The underlying event contains multiple partonic interactions (purple 
 	blob) and beam remnants (light blue blobs). Photons (yellow) are also radiated.}
@@ -20,16 +21,31 @@ Monte Carlo method
 \end{figure}
 
 \begin{description}
-\item[Hard subprocess] \hfill \\
-	perturbative QCD, process dependent
-\item[\acp{PDF}] \hfill \\
-	non-perturbative
+\item[Hard scatter] \hfill \\
+	The high scale process is selected by the user (\eg Higgs boson production via 
+	gluon-gluon fusion). The relevant parton-level \acp{ME} are calculated using fixed 
+	order perturbative QCD, either by the event generator itself or an external program. 
+	These \acp{ME} are usually \ac{LO}, though possible improvements are discussed in 
+	\Section~\ref{sec:mc:merging} and \Section~\ref{sec:mc:matching}.
+\item[Parton Distribution Functions (PDFs)] \hfill \\
+	Incoming parton momenta are sampled from a proton \ac{PDF}, usually probed at the 
+	scale of the hard scatter $\mu_F = Q$. The LHAPDF interface \cite{LHAPDF} provides 
+	access to the \acp{PDF} of several fitting collaborations, such as CTEQ \cite{CTEQ} 
+	and MSTW \cite{MSTW}.
 \item[\ac{FSR}] \hfill \\
-	dumdeedoo
+	Soft and collinear radiation from outgoing partons is simulated by a universal parton 
+	shower, evolving the scale from the hard scatter to the hadronisation scale of 
+	\about\unit{1}{\GeV}. The successive emissions are ordered to avoid double-counting -- 
+	common order parameters are virtuality, transverse momentum and opening angle.
+
+	For the correct treatment of soft emissions, it is vital to preserve coherence. This 
+	is inherent in an angular ordered shower, but must be manually implemented otherwise. 
+	Alternatively, a \textit{dipole shower} considers emissions from colour-connected 
+	pairs of partons, and is also inherently coherent.
 \item[\ac{ISR}] \hfill \\
-	dumdeedoo
+	universal, soft collinear limit, perturbative, summed to all orders, backwards evolution
 \item[Hadronisation] \hfill \\
-	non-perturbative, cluster and Lund string models
+	universal, non-perturbative, cluster and Lund string models
 \item[Hadronic decay] \hfill \\
 	dumdeedoo
 \item[\ac{MPI}] \hfill \\
@@ -49,6 +65,8 @@ Monte Carlo method
 \end{description}
 
 \subsection{ME-PS merging}
+\label{sec:mc:merging}
+
 \begin{description}
 \item[CKKW] \hfill \\
 	dumdeedoo
@@ -57,6 +75,8 @@ Monte Carlo method
 \end{description}
 
 \subsection{NLO-PS matching}
+\label{sec:mc:matching}
+
 \begin{description}
 \item[\mcatnlo] \hfill \\
 	dumdeedoo
