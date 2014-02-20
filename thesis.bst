@@ -927,8 +927,8 @@ MACRO {ajp} {"Am. J. Phys."}
 MACRO {ao} {"Appl. Opt."}
 MACRO {apj} {"Astrophys. J."}
 MACRO {apl} {"Appl. Phys. Lett."}
-MACRO {arnps} {"Ann. Rev. Nucl. Sci."}
-MACRO {arns} {"Ann. Rev. Nucl. Part. Sci."}
+MACRO {arns} {"Ann. Rev. Nucl. Sci."}
+MACRO {arnps} {"Ann. Rev. Nucl. Part. Sci."}
 MACRO {baps} {"Bull. Am. Phys. Soc."}
 MACRO {cpc} {"Computer Phys. Comm."}
 MACRO {cppcf} {"Comments Plasma Phys. Controlled Fusion"}
@@ -983,6 +983,8 @@ MACRO {spu} {"Sov. Phys.-Usp."}
 MACRO {zp} {"Z. Phys."}
 MACRO {zpc} {"Z. Phys.~C"}
 MACRO {epjc} {"Eur. Phys. J.~C"}
+MACRO {jhep} {"JHEP"}
+MACRO {jinst} {"JINST"}
 READ
 STRINGS { longest.label }
 INTEGERS { number.label longest.label.width }
