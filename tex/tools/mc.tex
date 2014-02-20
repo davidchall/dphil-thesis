@@ -63,23 +63,32 @@ momentum transfer.
 	particles that are stable on a detector timescale, while observing conservation laws. 
 	Similarly, the \Ptau lepton must be decayed, hadronically or leptonically.
 \item[\ac{MPI}] \hfill \\
-	The \textit{underlying event} (UE) comprises additional hadronic activity caused by 
-	partons inactive in the hard scatter. This exists because the elastic parton-parton 
-	scattering cross section is sufficiently large to produce \textit{multiple partonic 
-	interactions} (MPI). This activity is correlated to the scale of the hard scatter. 
+	The \textit{underlying event} (UE) comprises additional soft hadronic activity caused 
+	by partons inactive in the hard scatter. This exists because the elastic 
+	parton-parton scattering cross section is sufficiently large to produce 
+	\textit{multiple partonic interactions} (MPI). This activity is correlated to the 
+	scale of the hard scatter. 
 
 	In order to calculate the number of additional interactions, the spatial distribution 
-	of partons within the proton must be modelled and the impact parameter of the \pp 
-	collision must be known. The spatial parton distributions are described by 
+	of partons within the proton must be modelled, the impact parameter of the \pp 
+	collision must be known, and an IR cut-off must be imposed. This requires 
 	non-perturbative models that must be tuned to experimental data.
 \item[\acs{QED} radiation] \hfill \\
 	Electrically charged particles can emit photons throughout the event generation.
 \end{description}
 
 \subsection{Summary of event generators}
+\label{sec:mc:generators}
+
+Three event generators are commonly used at the \acs{LHC}, mainly differing in their 
+choice of hadronisation and \ac{MPI} models and parton shower order parameter. Effort to 
+rewrite the older Fortran-based programs in \cpp has led to a generation of `out-of-date' 
+programs that are no longer actively developed. Even so, they are still in common usage, 
+and so are included in the descriptions below.
+
 \begin{description}
 \item[Herwig] \hfill \\
-	\fherwig or \herwigpp \cpp
+	\fherwig or \herwigpp 
 \item[Pythia] \hfill \\
 	\pythia{6} or \pythia{8}
 \item[\sherpa] \hfill \\

@@ -15,7 +15,15 @@ chapterData.addColumn('string', 'Chapter');
 chapterData.addColumn('number', 'Words');
 chapterData.addRows([
 ['Introduction', 0],
-['The', 0]
+['Theoretical motivation', 3043],
+['Computational tools for the LHC', 1676],
+['The ATLAS experiment', 2869],
+['Overview of the \HWW analysis', 0],
+['\ggH modelling', 0],
+['\WW measurement and modelling', 0],
+['Other backgrounds', 0],
+['Results', 0],
+['Conclusions', 53]
 ]);
 // Set chart options
 var chapterOptions = {'title':'Chapter word counts',
@@ -33,13 +41,7 @@ var timestampData = new google.visualization.DataTable();
 timestampData.addColumn('datetime', 'Commit Date');
 timestampData.addColumn('number', 'Words');
 timestampData.addRows([
-[new Date(2013, 4, 3, 18, 58, 10), 2],
-[new Date(2013, 4, 3, 19, 0, 6), 2],
-[new Date(2013, 4, 3, 19, 1, 9), 2],
-[new Date(2013, 4, 3, 23, 10, 42), 3],
-[new Date(2013, 4, 4, 0, 34, 47), 4],
-[new Date(2013, 7, 13, 0, 38, 17), 0],
-[new Date(2013, 7, 13, 0, 39, 7), 0]
+[new Date(2014, 2, 20, 11, 6, 35), 7857]
 ]);
 var timestampOptions = {'title':'Word count vs time',
 'width':500,

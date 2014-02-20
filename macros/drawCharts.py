@@ -8,9 +8,9 @@ fout = open("macros/wordcount.txt", "a")
 chapterWordCount = []
 for line in fin:
     # Get individual chapter word counts
-    if "Chapter" in line:
+    if "Chapter:" in line:
         words = line.split()
-        chapterWordCount.append("['" + words[4] + "', " + words[0] + "]")
+        chapterWordCount.append("['" + ' '.join(words[4:]) + "', " + words[0] + "]")
 
     # Write out timestamped total word count
     elif "Words:" in line:
