@@ -1,35 +1,40 @@
 %!TEX root = ../../thesis.tex
 
+\ac{MC} event generators provide a fully-exclusive hadron-level simulation of \pp 
+collision events at the \acs{LHC} \cite{MCnet:general}. This section will describe the 
+basic features of a simulated event, before discussing some more advanced techniques 
+that shall be used throughout the thesis.
+
+
+
 \subsection{The anatomy of an event}
 
-\ac{MC} event generators provide fully-exclusive hadron-level simulation of \pp collision 
-events at the \acs{LHC} \cite{MCnet:general}. \Figure~\ref{fig:mcevent} shows how event 
-generation is factorised into several components, each describing a certain regime of 
-momentum transfer.
+\Figure~\ref{fig:mcevent} shows how the \ac{MC} event generation is factorised into 
+several components, each describing a certain regime of momentum transfer.
 
-\begin{figure}[b]
-	\includegraphics[width=\mediumfigwidth]{tex/tools/event}
+\begin{figure}[t]
+	\includegraphics[width=\largefigwidth]{tex/tools/event}
 	\caption{Schematic diagram of a simulated \ttH event, showing how factorisation allows 
 	the physics at different scales of momentum transfer $Q$ to be treated independently 
 	\cite{MCnet:MatchingLectures}.
 	At high-$Q$ is the hard scatter (red circle). As the scale evolves down, partons are 
 	radiated in the initial state (blue) and final state (red). At low-$Q$, incoming 
 	partons are confined to the beam protons, while outgoing partons hadronise (light 
-	green blobs). The underlying event contains multiple partonic interactions (purple 
-	blob) and beam remnants (light blue blobs). Photons (yellow) are also radiated.}
+	green blobs). The underlying event comprises multiple partonic interactions (purple 
+	blob) and beam remnants (blue blobs). Photons (yellow) are also radiated.}
 	\label{fig:mcevent}
 \end{figure}
 
 \begin{description}
 \item[Hard scatter] \hfill \\
-	The high scale process is selected by the user (\eg Higgs boson production via 
+	The high scale process can be selected as desired (\eg Higgs boson production via 
 	gluon-gluon fusion). The relevant parton-level \acp{ME} are calculated using fixed 
 	order perturbative QCD, either by the event generator itself or an external program. 
 	These \acp{ME} are usually \ac{LO}, though possible improvements are discussed in 
 	\Section~\ref{sec:mc:merging} and \Section~\ref{sec:mc:matching}.
 \item[Parton Distribution Functions (PDFs)] \hfill \\
 	Incoming parton momenta are sampled from a proton \ac{PDF}, usually probed at the 
-	scale of the hard scatter $\mu_F = Q$. The LHAPDF interface \cite{LHAPDF} provides 
+	scale of the hard scatter ($\mu_F = Q$). The LHAPDF interface \cite{LHAPDF} provides 
 	access to the \acp{PDF} of several fitting collaborations, such as CTEQ \cite{CTEQ} 
 	and MSTW \cite{MSTW}.
 \item[\ac{FSR}] \hfill \\
@@ -56,25 +61,25 @@ momentum transfer.
 	energy to create \HepProcess{\Pquark \APquark} pairs, the hadrons `freeze out'. The 
 	\textit{cluster model} splits gluons into \HepProcess{\Pquark \APquark} pairs, which 
 	group into colourless clusters with a mass spectrum predicted by \ac{QCD}. These 
-	clusters then decay to the physical hadrons. These hadronisation models require 
-	tuning to experimental data.
+	clusters then decay to the physical hadrons. Note that all hadronisation models 
+	require tuning to experimental data.
 \item[Hadron and \Ptau decays] \hfill \\
 	Many of the hadrons produced during hadronisation are unstable, and must be decayed to
 	particles that are stable on a detector timescale, while observing conservation laws. 
 	Similarly, the \Ptau lepton must be decayed, hadronically or leptonically.
 \item[\ac{MPI}] \hfill \\
 	The \textit{underlying event} (UE) comprises additional soft hadronic activity caused 
-	by partons inactive in the hard scatter. This exists because the elastic 
-	parton-parton scattering cross section is sufficiently large to produce 
-	\textit{multiple partonic interactions} (MPI). This activity is correlated to the 
-	scale of the hard scatter. 
+	by partons inactive in the hard scatter. It exists because the elastic parton-parton 
+	cross section is large enough to produce 
+	\textit{multiple partonic interactions} (MPI). The size of the activity is correlated 
+	to the scale of the hard scatter. 
 
 	In order to calculate the number of additional interactions, the spatial distribution 
 	of partons within the proton must be modelled, the impact parameter of the \pp 
 	collision must be known, and an IR cut-off must be imposed. This requires 
 	non-perturbative models that must be tuned to experimental data.
 \item[\acs{QED} radiation] \hfill \\
-	Electrically charged particles can emit photons throughout the event generation.
+	Electrically charged particles can emit photons at any stage of the event generation.
 \end{description}
 
 
@@ -83,10 +88,10 @@ momentum transfer.
 \label{sec:mc:generators}
 
 Three event generators are commonly used at the \acs{LHC}, mainly differing in their 
-choice of hadronisation and \ac{MPI} models and parton shower order parameter. Efforts to 
-rewrite the older Fortran-based programs in \cpp has led to a generation of `out-of-date' 
-programs that are no longer actively developed. Even so, they are still in common usage, 
-and so are included in the descriptions below.
+choice of hadronisation and \ac{MPI} models and their parton shower order parameter. 
+Efforts to rewrite the older Fortran-based programs in \cpp has led to a generation of 
+`out-of-date' programs that are no longer actively developed. Even so, they are still in 
+common usage, and so are included in the descriptions below.
 
 \begin{description}
 \item[Herwig] \hfill \\
@@ -114,10 +119,8 @@ and so are included in the descriptions below.
 Although a parton shower excellently describes the emissions of large numbers of soft and 
 collinear partons, it fails to accurately model hard and isolated emissions. It can be 
 desirable to describe these using fixed order \acp{ME}, which are better suited to the 
-task.
-
-There are a couple of immediate issues that need resolving however. First, we require a 
-smooth transition from emissions of \iac{ME} to those of the parton shower. Second, each 
+task. In doing so, a couple of immediate issues arise. First, we require a smooth 
+transition from the emissions of \iac{ME} to those of the parton shower. Second, each 
 \ac{ME} is inclusive, and attempting to combine \acp{ME} of differing multiplicity 
 naturally leads to problems of double counting.
 
@@ -135,30 +138,33 @@ the \ac{ME} and parton shower descriptions of the emissions.
 It is also possible to match \iac{NLO} \ac{ME} to a parton shower, to improve the accuracy
 of both the normalisation and shape of observables \cite{Nason:2012}. Such a calculation 
 must include the \ac{LO}, virtual-loop and real-emission diagrams, while mapping smoothly 
-onto the parton shower for soft emissions. There are two valid prescriptions:
+onto the parton shower for soft emissions. There are currently two valid matching 
+prescriptions:
 
 \begin{description}
 \item[\mcatnlo] \hfill \\
-	Simply adding a parton shower to \iac{NLO} \ac{ME} introduces double counting. The 
-	\mcatnlo method compensates for this overlap in the \ac{NLO} calculation. This 
-	renders the \ac{ME} dependent upon the parton shower used in the \ac{MC} event 
-	generator. It also introduces the possibility of negatively weighted events.
+	Simply adding a parton shower to \iac{NLO} \ac{ME} introduces double counting of 
+	emissions. The \mcatnlo method compensates for this overlap in the \ac{NLO} 
+	calculation. This renders the \ac{ME} dependent upon the parton shower used in the 
+	\ac{MC} event generator. It also introduces the possibility of negatively weighted 
+	events.
 
-	Originally implemented in the program \mcatnlo for matching to \fherwig 
+	Originally implemented in the \mcatnlo program for matching to \fherwig 
 	\cite{MCatNLO-Herwig} and \herwigpp \cite{MCatNLO-Herwig++}, the method has now been 
-	automated within the \amcatnlo program and extended for use with \pythia{6} and 
-	\pythia{8} \cite{aMCatNLO,MCatNLO-Pythia}. A variant is also within \sherpa.
+	automated within the \amcatnlo program \cite{aMCatNLO} and extended for use with 
+	\pythia{6} and \pythia{8} \cite{MCatNLO-Pythia}. A variant is also included in 
+	\sherpa.
 \item[POWHEG] \hfill \\
 	The \powheg method requires that the hardest emission is always generated by the 
 	\ac{ME}. It achieves the correct hard and soft behaviour by convolving the \ac{LO} 
-	\ac{ME} with a modified Sudakov factor, and then reweights the differential cross 
+	\ac{ME} with a modified Sudakov factor, and then reweighting the differential cross 
 	section to the \ac{NLO} result. Thus the \ac{ME} is independent of the subsequent 
 	parton shower. However, if the parton shower is not transverse momentum ordered, it is
 	necessary to use truncated and vetoed parton showers to correctly fill the phase 
 	space.
 
 	Originally implemented in \powhegbox \cite{Powheg-method,Powheg-method2,PowhegBox}, 
-	variants are now included in \herwigpp and \sherpa.
+	variants are now also included in \herwigpp and \sherpa.
 \end{description}
 
 
@@ -181,7 +187,7 @@ onto the parton shower for soft emissions. There are two valid prescriptions:
 	simulation.
 
 	\textit{Digitisation} converts the energy deposition into readout voltages and 
-	currents. From this point, the events can be treated like experimental collision 
+	currents. Following this, the events can be treated like experimental collision 
 	events.
 \item[Pile-up simulation] \hfill \\
 	As described in \Chapter~\ref{chap:experiment}, each \acs{LHC} bunch crossing can 
