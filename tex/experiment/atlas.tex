@@ -1,12 +1,13 @@
 %!TEX root = ../../thesis.tex
 
-ATLAS is a general-purpose particle detector designed to probe hadron-hadron collisions, 
-from precise measurements of the \ac{SM} to searches for signatures of new physics.
-As such, it must achieve a good performance in the reconstruction of all physics objects 
-interacting with the detector (electrons, muons, photons and jets), and infer the 
-existence of non-interacting particles through transverse momentum imbalance. A good 
-vertex resolution is needed for jet flavour tagging and to distinguish pile-up events. 
-Other requirements include a fast trigger system to select interesting events to record.
+ATLAS is a general-purpose particle detector for probing hadron-hadron collisions 
+\cite{ATLAS-detector}, from precise measurements of \ac{SM} processes to searches for 
+signatures of new physics. As such, it must achieve a good performance in the 
+reconstruction of all physics objects interacting with the detector (leptons, photons and 
+jets), and infer the existence of non-interacting particles through transverse momentum 
+imbalance. A good vertex resolution is needed for jet flavour tagging and to distinguish 
+pile-up events. Other requirements include a fast trigger system to select interesting 
+events to record.
 
 The design of ATLAS exhibits cylindrical and forward-backward symmetries with the nominal 
 interaction point at the centre.\footnote{
@@ -36,11 +37,11 @@ perpendicular to the beam axis.
 \Figure~\ref{fig:atlas_wedge} shows how different particles interact with the various 
 parts of the detector. Next to the beam pipe is the inner detector which precisely tracks 
 the trajectories of charged particles. Then there are the electromagnetic and hadronic 
-calorimeters which absorb and measure the energy of interacting particles. Since muons act
-as minimum ionising particles, they survive the calorimeters and are tracked by the muon 
-spectrometer. Superconducting solenoid and toroid magnets provide magnetic fields to the 
-inner detector and muon spectrometer respectively, allowing the momenta of charged 
-particles to be measured from the curvature of their tracks.
+calorimeters which absorb and measure the energy of interacting particles. Since 
+high-$p_T$ muons act as minimum ionising particles, they survive the calorimeters and are 
+tracked by the muon spectrometer. Superconducting solenoid and toroid magnets provide 
+magnetic fields to the inner detector and muon spectrometer respectively, allowing the 
+momenta of charged particles to be measured from the curvature of their tracks.
 
 \begin{figure}
 	\includegraphics[width=\largefigwidth]{tex/experiment/atlas_wedge}
@@ -61,7 +62,7 @@ particles to be measured from the curvature of their tracks.
 	\caption{The ATLAS inner detector: (left) cut-away view and (right) cross-sectional 
 	view showing a trajectory through the three sub-detectors \cite{ATLAS-detector}. The 
 	inner detector has a length of \unit{6.2}{\metre} and a radius of \unit{1.1}{\metre}. 
-	The beam pipe has radius \unit{29}{\milli\metre}.}
+	The beam pipe radius is \unit{29}{\milli\metre}.}
 	\label{fig:inner_detector}
 \end{figure}
 
@@ -108,8 +109,8 @@ complementary sub-detectors:
 	The drift time is used to measure the impact parameter of the incident charged 
 	particle relative to the anode and, since a track typically traverses 36 straws, 
 	collectively this information yields an intrinsic accuracy of \unit{130}{\micro\metre}
-	in $r\phi$ (much smaller than the straw diameter). However, tracking information 
-	parallel to the straw is lost.
+	in $r\phi$ (much smaller than the straw diameter). However, there is no tracking 
+	information parallel to the straw.
 
 	The layers of straws are interleaved with polypropylene radiator fibres or foils, and 
 	the changes in refractive index cause charged particles to emit X-ray transition 
@@ -164,7 +165,7 @@ corresponds to more than $10 \lambda$.
 	A fine granularity is required to make precise electron and photon measurements, and 
 	to distinguish single photons from $\HepProcess{\Ppizero \HepTo \Pphoton \Pphoton}$. 
 	Thus, the \ac{ECal} is typically segmented into three layers with a minimum 
-	$\Delta\eta\times\Delta\phi$ granularity of $0.025/8 \times 0.025$. The transition 
+	$\Delta\eta\times\Delta\phi$ granularity of $0.003 \times 0.025$. The transition 
 	between the barrel and the end-cap, $1.37 < \mods{\eta} < 1.52$, is used for detector 
 	services. Since this material is difficult to model, this ``crack'' region is usually 
 	excluded when reconstructing electrons.
@@ -172,14 +173,14 @@ corresponds to more than $10 \lambda$.
 	The \ac{HCal} consists of a tile calorimeter covering $\mods{\eta} < 1.7$, a Hadronic 
 	End-Cap (HEC) covering $1.5 < \mods{\eta} < 3.2$, and a Forward Calorimeter (FCal) 
 	covering $3.1 < \mods{\eta} < 4.9$. The \ac{HCal} has a coarser granularity than the
-	\ac{ECal} - it is typically segmented into three layers with a minimum 
+	\ac{ECal}: it is typically segmented into three layers with a minimum 
 	$\Delta\eta\times\Delta\phi$ granularity of $0.1 \times 0.1$.
 
 	The tile calorimeter uses a steel absorber with scintillator tiles as the active 
 	material. The scintillation light is collected by optical fibres and turned into a 
 	signal by photomultiplier tubes. The HEC and FCal both use LAr active material.
-	However, the HEC uses a copper absorber, whereas the FCal uses copper in the first 
-	layer (for electromagnetic measurements) and tungsten in the two subsequent layers.
+	The HEC uses a copper absorber, whereas the FCal uses copper in the first layer (for 
+	electromagnetic measurements) and tungsten in the two subsequent layers.
 \end{description}
 
 
@@ -194,8 +195,9 @@ corresponds to more than $10 \lambda$.
 
 The \ac{MS} provides precise tracking of muons that have exited the calorimeters. A huge 
 air-core toroid magnet system generates a \unit{0.5}{\tesla} (\unit{1}{\tesla}) field in 
-the barrel (end-caps), enabling momentum measurements from track curvature. Four types of 
-tracking chamber are installed in three layers (see \Figure~\ref{fig:muon_spectrometer}):
+the barrel (end-caps), enabling momentum to be inferred from track curvature measurements.
+Four types of tracking chamber are installed in three layers (see 
+\Figure~\ref{fig:muon_spectrometer}):
 \begin{description}
 \item[\acp{MDT} and \acp{CSC}] \hfill \\
 	\acp{MDT} and \acp{CSC} provide precise momentum measurement, with a resolution of 
@@ -253,9 +255,12 @@ written to tape. The entire trigger system reduces the data rate from
 
 \subsection{Performance goals}
 
-The main performance goals of each detector sub-system are shown in 
-\Table~\ref{tab:atlas_targets}. It should be noted that, for high-$p_T$ muons, the \ac{MS}
-performance quoted is independent of the \ac{ID}.
+The performance goals of each sub-detector are shown in \Table~\ref{tab:atlas_targets}. 
+The $\sigma_{p_T}/p_T$ of the tracker has a term proportional to $p_T$ due to the 
+intrinsic spatial resolution of the detector, and a constant term due to multiple 
+scattering. The $\sigma_{E}/E$ of the calorimeters has a constant term due to 
+non-uniformities in the response, and a term proportional to $1/\sqrt{E}$ due to 
+statistical fluctuations in the hadronic shower (the \textit{stochastic term}). 
 
 \begin{table}[h]
 	\begin{tabular}{lr@{\;{=}\;}lcc}
@@ -264,11 +269,11 @@ performance quoted is independent of the \ac{ID}.
 		\multicolumn{2}{c}{$\mods{\eta}$ coverage} \\
 		& \multicolumn{2}{c}{} & Measurement & L1 trigger \\
 		\hline
-		Tracking                 & $\sigma_{p_T}/p_T$ & $0.05\% \times p_T \oplus 1\%$ &
+		Tracker                  & $\sigma_{p_T}/p_T$ & $0.05\% \times p_T \oplus 1\%$ &
 		$<2.5$ & -- \\
-		EM calorimetry           & $\sigma_{E}/E$ & $10\% / \sqrt{E} \oplus 0.7\%$ &
+		EM calorimeter           & $\sigma_{E}/E$ & $10\% / \sqrt{E} \oplus 0.7\%$ &
 		$<3.2$ & $<2.5$ \\
-		Hadronic calorimetry     & \multicolumn{2}{l}{} & & \\
+		Hadronic calorimeter     & \multicolumn{2}{l}{} & & \\
 		\quad barrel and end-cap & $\sigma_{E}/E$ & $50\% / \sqrt{E} \oplus 3\%$ &
 		$<3.2$ & $<3.2$ \\
 		\quad   forward          & $\sigma_{E}/E$ & $100\% / \sqrt{E} \oplus 10\%$ &
@@ -277,6 +282,8 @@ performance quoted is independent of the \ac{ID}.
 		$<2.7$ & $<2.4$ \\
 	\end{tabular}
 	\caption{Performance goals of the ATLAS sub-detectors \cite{ATLAS-detector}. Energies 
-	and momenta are given in \GeV\xspace unless stated otherwise.}
+	and momenta are given in \GeV. The quoted \ac{MS} performance is independent of the 
+	\ac{ID}. The contribution of electronic noise to $\sigma_{E}/E$ is neglected (a term 
+	proportional to $1/E$).}
 	\label{tab:atlas_targets}
 \end{table}

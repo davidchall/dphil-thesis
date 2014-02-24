@@ -12,34 +12,31 @@ used in this thesis.
 \subsection{Luminosity measurement}
 \label{sec:dataset:lumi}
 
-Beam losses incurred by the \pp collisions cause the luminosity to decay with time (a
-typical \ac{LHC} run lasts \about 10 hours). It is therefore necessary to measure 
-the instantaneous luminosity in real-time. The method is detailed in \cite{Lumi2011}, but 
-is briefly outlined below.
+Beam losses incurred by the collisions cause the luminosity to decay (a typical run lasts 
+${\approx}10$ hours). Thus, it is necessary to measure the instantaneous luminosity in 
+real-time.
 
 At the \ac{LHC}, the number of inelastic \pp interactions per bunch crossing follows a 
 Poisson distribution, with a mean value $\mu$. As mentioned in \Section~\ref{sec:lhc}, 
 a large luminosity results in $\mu > 1$ (a condition known as pile-up). Thus, the 
 luminosity $L$ can be monitored ``online'' by measuring the observed number of interactions
-per crossing $\mu_{\text{vis}}$, using
+per crossing $\mu_{\text{vis}}$, using \cite{Lumi2011}
 \begin{equation}
 	L = \frac{\mu n_b f_{\text{rev}}}{\sigma_{\text{inel}}}
 	= \frac{\mu_{\text{vis}} n_b f_{\text{rev}}}{\sigma_{\text{vis}}}
 	\label{eq:lumi_measure}
 \end{equation}
-where $n_b$ is the number of bunches per beam, $f_{\text{rev}}$ is the \ac{LHC} revolution 
-frequency, and $\sigma_{\text{inel}}$ is the inelastic \pp cross section. The 
-expression is rewritten in terms of ``visible'' quantities, owing to inefficiencies in the
-detector and algorithm used to measure $\mu$.
+where $\sigma_{\text{inel}}$ is the inelastic \pp cross section. The expression is 
+rewritten with ``visible'' quantities, owing to inefficiencies in the detector and 
+algorithm used to measure $\mu$.
 
 The \ac{BCM} and LUCID detectors, respectively situated \unit{2}{\metre} and 
-\unit{17}{\metre} down the beamline from the interaction point, each provide 
-bunch-by-bunch luminosity measurements. The \ac{BCM} consists of sixteen small diamond 
-sensors, and was primarily designed to issue beam-abort requests when beam losses risk 
-damaging the ATLAS detector. Diamond was chosen instead of silicon due to its 
-radiation-hardness and short time resolution (\unit{\about0.7}{\nano\second}).
-LUCID consists of sixteen aluminium tubes of C$_4$F$_{10}$ gas, which radiate and collect 
-Cherenkov photons when struck by charged particles.
+\unit{17}{\metre} down the beamline, each count the number of activated readout channels 
+per bunch crossing, which is highly correlated with $\mu_{\text{vis}}$. The \ac{BCM} 
+consists of 16 small diamond sensors, and was primarily designed to issue beam-abort 
+requests when beam losses risk damaging the ATLAS detector. LUCID comprises 16 tubes of 
+C$_4$F$_{10}$ gas, which radiate and collect Cherenkov photons when struck by charged 
+particles.
 
 \ac{BCM} and LUCID are calibrated during dedicated van der Meer (vdM) scans, effectively 
 determining $\sigma_{\text{vis}}$ in (\ref{eq:lumi_measure}). In a vdM scan, event rates 
@@ -48,14 +45,17 @@ measurement of beam sizes $\varSigma_x$ and $\varSigma_y$. The absolute luminosi
 determined through (\ref{eq:lumi_beam}). The uncertainty in the vdM calibration dominates 
 the uncertainty in the delivered luminosity.
 
+Additional methods, such as measuring average particle rates with the ATLAS calorimeters, 
+can be used to improve the luminosity estimation offline.
+
 
 
 \subsection{Run I dataset}
 \label{sec:dataset:dataset}
 
-Data-taking operations during run I of the LHC were incredibly successful, with impressive 
+Data-taking operations during Run I of the LHC were incredibly successful, with impressive 
 improvements made to peak luminosity throughout this period. Some important parameters of 
-the run I dataset are summarised in \Table~\ref{tab:dataset}, and the pile-up conditions are shown in \Figure~\ref{fig:pileup}. These show that a larger dataset was obtained in 2012 compared with 2011, but at the expense of a higher pile-up environment.
+the Run I dataset are summarised in \Table~\ref{tab:dataset}, and the pile-up conditions are shown in \Figure~\ref{fig:pileup}. These show that a larger dataset was obtained in 2012 compared with 2011, but at the expense of a higher pile-up environment.
 
 \begin{table}[h]
 	\begin{tabular}{l@{\hskip 0.3in}c@{\hskip 0.3in}c@{\hskip 0.3in}c@{\hskip 0.3in}c}
@@ -69,9 +69,9 @@ the run I dataset are summarised in \Table~\ref{tab:dataset}, and the pile-up co
 	Analysed luminosity (\invfb)        & 0.000 & 4.53 & 20.7 & -- \\
 	Luminosity uncertainty $\delta L/L$ & 3.5\% & 1.8\% & 2.8\% & -- \\
 	\end{tabular}
-	\caption{Summary of \pp collision data during \ac{LHC} run I. The integrated 
-	luminosity analysed in the \HWW search is also shown. Luminosities use the offline 
-	calibration.}
+	\caption{Summary of \pp collision data during \ac{LHC} Run I. Also shown is the 
+	integrated luminosity analysed for the \HWW search presented in this thesis. 
+	Luminosities use the offline calibration.}
 	\label{tab:dataset}
 \end{table}
 
