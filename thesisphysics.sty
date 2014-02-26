@@ -5,7 +5,7 @@
 \DeclareRobustCommand{\PV}{\HepGenParticle{V}{}{}\xspace}
 
 \DeclareRobustCommand{\HWW}{\HepProcess{\PHiggs \HepTo \PW \PW}\xspace}
-\DeclareRobustCommand{\HWWlvlv}{\HepProcess{\PHiggs \HepTo \PW \PW \HepTo \Plepton \Pneutrino \Plepton \Pneutrino}\xspace}
+\DeclareRobustCommand{\HWWlvlv}{\HepProcess{\HWW \HepTo \Plepton \Pneutrino \Plepton \Pneutrino}\xspace}
 \DeclareRobustCommand{\ggH}{\HepProcess{\Pgluon \Pgluon \HepTo \PHiggs}\xspace}
 \DeclareRobustCommand{\WH}{\HepProcess{\PW \PHiggs}\xspace}
 \DeclareRobustCommand{\ZH}{\HepProcess{\PZ \PHiggs}\xspace}
@@ -18,6 +18,7 @@
 \DeclareRobustCommand{\Zgstar}{\HepProcess{\PZ \Pgammastar}\xspace}
 \DeclareRobustCommand{\Wjets}{\HepProcess{\PW +}jets\xspace}
 \DeclareRobustCommand{\Zjets}{\HepProcess{\PZ +}jets\xspace}
+\DeclareRobustCommand{\ttbar}{\HepProcess{\Ptop \APtop}\xspace}
 
 \DeclareRobustCommand{\epluseminus}{\HepProcess{\Ppositron\Pelectron}\xspace}
 \DeclareRobustCommand{\pp}{\HepProcess{\Pproton\Pproton}\xspace}
@@ -29,10 +30,12 @@
 \DeclareRobustCommand{\mZ}{\thesismath{m_{\PZ}}\xspace}
 \DeclareRobustCommand{\mll}{\thesismath{m_{\Plepton\Plepton}}\xspace}
 \DeclareRobustCommand{\dphill}{\thesismath{\Delta\phi_{\Plepton\Plepton}}\xspace}
-
+\DeclareRobustCommand{\met}{\thesismath{E_{T}^{\text{miss}}}\xspace}
 
 
 %% MC generators
+\DeclareRobustCommand{\meps}[2]{#1\texttt{+}#2\xspace}
+
 \DeclareRobustCommand{\cpp}{C\texttt{++}\xspace}
 \DeclareRobustCommand{\mcfm}{\textsc{mcfm}\xspace}
 \DeclareRobustCommand{\fherwig}{\textsc{Herwig}\xspace}
