@@ -985,6 +985,7 @@ MACRO {zpc} {"Z. Phys.~C"}
 MACRO {epjc} {"Eur. Phys. J.~C"}
 MACRO {jhep} {"JHEP"}
 MACRO {jinst} {"JINST"}
+MACRO {jpcs} {"J. Phys.: Conf. Ser."}
 READ
 STRINGS { longest.label }
 INTEGERS { number.label longest.label.width }
