@@ -110,17 +110,6 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	outside the cluster. These simulated corrections depend on the longitudinal shower 
 	shape and energy deposited in the presampler. The EM energy scale was calibrated
 	using test beam and \textit{in situ} \HepProcess{\PZ \HepTo \Pe\Pe} measurements.
-
-	The electron reconstruction performance is measured with a \textit{tag-and-probe} 
-	method on \HepProcess{\PZ \HepTo \Pe\Pe} events \cite{ElectronPerf:2010,
-	ElectronPerf:2012}, and is shown in \Figure~\ref{fig:objects:el_recoeff}. This 
-	involves selecting an unbiased sample of events containing a well-identified 
-	\textit{tag} object and a loosely-identified \textit{probe} object, and measuring the 
-	selection efficiency of the probes. The sample must be clean (often enforced by a 
-	mass constraint) and backgrounds estimated (usually from side-bands or a template).
-	Here, the tag is a well-identified electron, the probe is an \ac{ECal} cluster, the 
-	selection is the reconstruction algorithm and the mass constraint is 
-	$\unit{80}{\GeV} < m_{\parenths{\text{tag, probe}}} < \unit{100}{\GeV}$.
 \item[Identification] \hfill \\
 	Electron identification is improved by applying cuts on track quality and shower 
 	shape. There are three reference operating points called \textit{loose}, 
@@ -128,7 +117,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	and lower signal efficiency.
 	
 	For $E_T > \unit{25}{\GeV}$ the medium criteria are used, comprising cuts on
-	\begin{itemize}
+	\begin{itemize}[noitemsep,nolistsep]
 		\item shower shape variables (lateral and longitudinal)
 		\item leakage to the \ac{HCal}
 		\item the number of pixel and \acs{SCT} hits
@@ -146,10 +135,6 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
  	variables to construct a likelihood discriminant, which may be cut upon (effectively 
  	choosing an operating point). The input variables are similar to those listed above, 
  	although track hits remain as cuts.
- 
- 	The electron identification performance is also measured using tag-and-probe of 
- 	\HepProcess{\PZ \HepTo \Pe\Pe} events \cite{ElectronPerf:2010,ElectronPerf:2012}, 
- 	and is shown in \Figure~\ref{fig:objects:el_ideff}.
 \item[Isolation] \hfill \\
 	Rejection of hadronic fakes or electrons from heavy flavour decays is improved by 
 	requiring the electron to be isolated from activity in the tracker and calorimeter. 
@@ -173,6 +158,21 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	$d_0$ is required to be within three standard deviations of zero. Also, the 
 	longitudinal impact parameter $z_0$ is constrained by $\mods{z_0 \sin\theta} < 
 	\unit{0.4}{\milli\metre}$.
+\item[Efficiency] \hfill \\
+	The efficiency of each selection step (reconstruction, identification, isolation and 
+	primary vertex association) is measured via \textit{tag-and-probe} of 
+	\HepProcess{\PZ \HepTo \Pe\Pe} events \cite{ElectronPerf:2010,ElectronPerf:2012}. 
+	This involves selecting an unbiased sample of events containing a well-identified 
+	\textit{tag} object and a loosely-identified \textit{probe} object, and measuring the 
+	selection efficiency of the probes. The sample must be clean (often enforced by a 
+	mass constraint) and backgrounds estimated (usually a side-bands or template fit).
+
+	The tag is a well-identified electron, the probe is an electron passing the previous 
+	step (or an \ac{ECal} cluster) and the constraint is $\unit{80}{\GeV} < 
+	m_{\parenths{\text{tag, probe}}} < \unit{100}{\GeV}$. The reconstruction and 
+	identification efficiencies are shown in \Figure~\ref{fig:objects:el_recoeff} and 
+	\Figure~\ref{fig:objects:el_ideff} respectively. Comparison with MC yields efficiency 
+	scale factors.
 \end{description}
 
 \begin{figure}
@@ -180,7 +180,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_eta}
 	\caption{The electron reconstruction efficiency versus (left) $E_T$ and (right) 
-	$\eta$, measured using a tag-and-probe method on \HepProcess{\PZ \HepTo \Pe\Pe} data 
+	$\eta$, measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pe\Pe} data 
 	and compared to MC \cite{ElectronPerf:2012}. In 2012, the implementation of GSF 
 	tracking gave significant performance improvement.}
 	\label{fig:objects:el_recoeff}
@@ -191,7 +191,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_npv}
 	\caption{The efficiency of a variety of electron identification operating points 
-	versus (left) $E_T$ and (right) \npv, measured using a tag-and-probe method on 
+	versus (left) $E_T$ and (right) \npv, measured using tag-and-probe of 
 	\HepProcess{\PZ \HepTo \Pe\Pe} data \cite{ElectronPerf:2012}. `Very tight likelihood' 
 	has similar efficiency to `tight', but improves background rejection. All operating 
 	points are fairly robust against pile-up.}
@@ -207,7 +207,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 		$> 20$   & $p_T^{\text{cone}}\parenths{0.3}/E_T < 0.10$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.28$ \\
 	\end{tabular}
 	\caption{The tracker and calorimeter isolation requirements of electrons. The cuts 
-	were optimised to maximise the sensitivity of the \HWWlvlv search.}
+	were chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
 	\label{tab:objects:el_iso}
 \end{table}
 
@@ -224,33 +224,66 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 \subsection{Muons}
 \label{sec:objects:muons}
 
+A muon will pass through the \ac{ID}, deposit minimal energy in the calorimeters and 
+continue through the \ac{MS}. Thus, they can be found via activity in the \ac{MS}, 
+optionally matched to an \ac{ID} track. Muons with $p_T > \unit{10}{\GeV}$ and 
+$\mods{\eta} < 2.5$ are selected.
 
 \begin{description}
 \item[Reconstruction] \hfill \\
-	statistical combination of ID and MS tracks => STACO
-	calibration
-	reconstruction efficiency
+	Muons are found by matching \ac{MS} tracks to \ac{ID} tracks\footnote{
+		A variety of muon reconstruction strategies are available: \textit{stand-alone} 
+		muons have only \ac{MS} tracks, \textit{combined} muons have both \ac{MS} and 
+		\ac{ID} tracks, \textit{segment-tagged} muons have \ac{ID} tracks that match to 
+		\iac{MS} track segment, and \textit{calorimeter-tagged} muons have \ac{ID} 
+		tracks matched to the calorimeter deposit of a minimum ionising particle (used to 
+		recover efficiency at $\eta \approx 0$, where detector services reduce the \ac{MS}
+		coverage). This thesis uses \textit{combined} muons, which perform best.
+	}
+	and their momenta are measured from track curvature \cite{ATLAS:ExpectPerf}.
+
+	First, the \textit{Muonboy} algorithm \cite{Muons:algorithms} identifies a 
+	$\Delta\eta \times \Delta\phi \approx 0.4 \times 0.4$ region of activity via the muon 
+	trigger chambers (see \Section~\ref{sec:atlas:ms}) and then reconstructs localised 
+	segments from nearby \acs{MDT} and \acs{CSC} hits. By scanning a potential momentum 
+	range, segments in different layers are combined to form a track. Finally, a global 
+	track fit using the full \ac{MS} hit information is performed, accounting for energy 
+	loss.
+
+	\ac{MS} tracks are extrapolated to the primary vertex, accounting for energy loss in 
+	the calorimeter, and matched to \ac{ID} tracks (see 
+	\Section~\ref{sec:objects:tracks}). The statistical combination of the two 
+	tracks is performed by the \textit{STACO} algorithm \cite{Muons:algorithms}, which
+	weights each track by its covariance matrix. The muon four-momentum is determined 
+	by this combined track (dominated by the \ac{ID} track at low-$p_T$ and by the 
+	\ac{MS} track at high-$p_T$), and is calibrated with \HepProcess{\PZ \HepTo \Pmu\Pmu}
+	events \cite{Muons:2012}.
 \item[Isolation] \hfill \\
-	\Table~\ref{tab:objects:mu_iso}
-
-	\textit{Tracker isolation:}
-
-	\textit{Calorimeter isolation:} pile-up correction (\npv)
+	Although the muon signature is much cleaner than that of electrons, hadronic fakes 
+	(\textit{punch-through}) and muons from heavy flavour decays must still be suppressed 
+	by isolation criteria, which are summarised in \Table~\ref{tab:objects:mu_iso}. The 
+	$p_T^{\text{cone}}\parenths{R_0}$ and $E_T^{\text{cone}}\parenths{R_0}$ variables are 
+	defined similarly to electrons, though the size of the subtracted calorimeter window 
+	is reduced for muons.
 \item[\ac{ID} track quality] \hfill \\
-	The track in the \ac{ID} is required to satisfy a number of quality criteria:
-	\begin{itemize}
+	The \ac{ID} track must satisfy quality criteria on the number of traversed sensors:
+	\begin{itemize}[noitemsep,nolistsep]
 		\item $n_{\text{pixel}}^{\text{hit}} + n_{\text{pixel}}^{\text{dead}} > 0$
 		\item $n_{\text{SCT}}^{\text{hit}} + n_{\text{SCT}}^{\text{dead}} > 4$
 		\item $n_{\text{pixel}}^{\text{hole}} + n_{\text{SCT}}^{\text{hole}} < 3$
 		\item $n_{\text{TRT}}^{\text{hit}} + n_{\text{TRT}}^{\text{outlier}} > 5$ and at 
 		least 10\% are hits (for $\mods{\eta} < 1.9$ only)
 	\end{itemize}
-	where a hole is an expected hit that is not measured.
+	where a hole is an expected hit that is not observed.
 \item[Primary vertex association] \hfill \\
 	To associate the muon with the primary vertex, the transverse impact parameter $d_0$ 
 	is required to be within three standard deviations of zero. Also, the longitudinal 
 	impact parameter $z_0$ is constrained by $\mods{z_0 \sin\theta} < 
 	\unit{1.0}{\milli\metre}$.
+\item[Efficiency] \hfill \\
+	The efficiency of each selection step is measured via \textit{tag-and-probe} of 
+	\HepProcess{\PZ \HepTo \Pmu\Pmu} events \cite{Muons:2012}. For example, the 
+	reconstruction efficiency is shown in \Figure~\ref{fig:objects:mu_recoeff}.
 \end{description}
 
 \begin{table}[h]
@@ -263,9 +296,23 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 		$> 25$   & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.30$ \\
 	\end{tabular}
 	\caption{The tracker and calorimeter isolation requirements of muons. The cuts were 
-	optimised to maximise the sensitivity of the \HWWlvlv search.}
+	chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
 	\label{tab:objects:mu_iso}
 \end{table}
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_pt}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_eta}
+	\caption{The muon reconstruction efficiency versus (left) $p_T$ and (right) 
+	$\eta$, measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pmu\Pmu} data 
+	and compared to MC \cite{Muons:2012}. Reductions in efficiency at $\eta \approx 0$ 
+	and $\eta \approx 1.2$ are due to partial \ac{MS} coverage (detector services and 
+	incomplete installation respectively). `Chain 1' refers to staco reconstruction.}
+	\label{fig:objects:mu_recoeff}
+\end{figure}
+
+
 
 \subsection{Jets}
 \label{sec:objects:jets}

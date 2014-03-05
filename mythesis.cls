@@ -16,6 +16,7 @@
 \RequirePackage{subcaption}
 \RequirePackage{amssymb}
 \RequirePackage{multirow}
+\RequirePackage{enumitem}
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
