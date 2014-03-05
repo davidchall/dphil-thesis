@@ -9,7 +9,7 @@ magnetic field. However, multiple scattering and energy losses in the detector m
 and bremsstrahlung can cause significant deviations from this path. Track reconstruction 
 is possible in the region $\mods{\eta} < 2.5$ (the extent of the \ac{ID}).
 
-The inputs to the track reconstruction are threefold; pixel hits, \acs{SCT} space-points 
+The inputs to the track reconstruction are threefold: pixel hits, \acs{SCT} space-points 
 (each module comprises two layers of strips with a small stereo angle, enabling precise 
 coordinate measurement), and \acs{TRT} drift circles. The \textit{inside-out} algorithm 
 \cite{Tracking,ATLAS:ExpectPerf} uses a Kalman filter to seed tracks from hits in the 
@@ -49,7 +49,8 @@ associated tracks.
 Secondary vertex reconstruction is highly constrained by the physics of the vertex 
 \cite{AllVertexFinding}. This can be enforced by mass or angular constraints, or in the 
 track selection. For example, photon conversions are found using oppositely charged 
-collinear track pairs associated with electrons (using \acs{TRT} identification).
+track pairs associated with electrons (using \acs{TRT} identification), with small 
+opening angle. 
 The \Pbottom-tagging of jets shall be described in \Section~\ref{sec:objects:bjets}.
 
 
@@ -61,58 +62,163 @@ An electron will pass through the \ac{ID} before being absorbed by the \ac{ECal}
 are therefore reconstructed by matching a track with an energy cluster in the \ac{ECal}. 
 Following reconstruction, the vast majority of electron objects are faked by hadrons, 
 whilst many others are from photon conversions or electrons from heavy flavour decay (see 
-\Figure~\ref{fig:electron_composition}). However, in the \HWWlvlv search, it is prompt 
+\Figure~\ref{fig:objects:el_composition}). However, in the \HWWlvlv search, it is prompt 
 electrons from the hard scatter that are of interest. Therefore identification and 
-isolation criteria are applied to reject these backgrounds and select prompt electrons.
+isolation criteria are applied to reject these backgrounds and select prompt electrons. 
+The criteria were chosen to optimise the analysis sensitivity: \eg a low $E_T$ threshold 
+of \unit{10}{\GeV} gives a large signal acceptance, but must be compensated by tight 
+identification requirements to reject the large \Wjets and QCD backgrounds.
+
+Electrons with $E_T > \unit{10}{\GeV}$ and $\mods{\eta} < 2.47$ are selected. Additionally, electrons with $1.37 < \mods{\eta} < 1.52$ are vetoed since they correspond
+to the crack region (see \Section~\ref{sec:atlas:calo}).
 
 \begin{figure}
-	\includegraphics[width=\mediumfigwidth]{tex/selection/electron_composition}
+	\includegraphics[width=\smallfigwidth]{tex/selection/electron_composition}
 	\caption{The composition of reconstructed electrons as a function of transverse 
 	energy, simulated by a \pythia{6} sample of di-jet, heavy flavour, prompt photon, \PW 
 	and \PZ processes \cite{ElectronPerf:Expect}. Non-isolated electrons are from heavy 
 	flavour decay. Background electrons are from photon conversions. Isolated electrons 
 	are prompt electrons from a \PW or \PZ boson, though appear below the y-axis range.}
-	\label{fig:electron_composition}
+	\label{fig:objects:el_composition}
 \end{figure}
 
 \begin{description}
 \item[Reconstruction] \hfill \\
 	Energy deposits in \ac{ECal} cells are clustered by a \textit{sliding window} 
-	algorithm \cite{ElectronPerf:Expect}. First, the calorimeter is divided into radial 
-	\textit{towers} of size $\Delta\eta \times \Delta\phi = 0.025 \times 0.025$, 
-	corresponding to the cell size of the middle layer. Then a window of 3 \cross 5 towers
-	in $\eta$-$\phi$ space scans the \ac{ECal} for local maxima with total transverse 
-	energy greater than a threshold of \unit{2.5}{\GeV}. These are the seed clusters.
+	algorithm \cite{ElectronPerf:Expect}. First, the calorimeter is divided into 
+	\textit{towers} of size $\Delta\eta \times \Delta\phi = 0.025 \times 0.025$ (the 
+	cell size of the middle layer). Then a window of $3 \times 5$ towers in $\eta$-$\phi$ 
+	space scans the \ac{ECal} for local maxima with $E_T > \unit{2.5}{\GeV}$.
 
-	For a seed cluster to be reconstructed as an electron, it must be matched to at least 
-	one track. If a track (extrapolated to the middle \ac{ECal} layer) is within 
-	$\Delta\eta < 0.05$ and $\Delta\phi < 0.1 (0.05)$ of the centre of the seed cluster, 
-	they are considered matched. The asymmetric $\Delta\phi$ requirement allows for 
-	increased bending due to bremsstrahlung. When multiple tracks are matched, that with 
-	the smallest $\Delta R$ is chosen.
-
-	Tracks associated to electron candidates are then refit using a Gaussian Sum Filter 
-	(GSF) \cite{Electron:GSF}. This is because the default fit described in 
+	Tracks within $\Delta R < 0.3$ of a cluster are then refit using a Gaussian Sum 
+	Filter (GSF) \cite{Electron:GSF}. The default fit described in 
 	\Section~\ref{sec:objects:tracks} uses a pion hypothesis to estimate material 
 	effects, and does not account for the significant bremsstrahlung experienced by 
-	electrons. The GSF is a non-linear fitter and can improve the accuracy of electron 
-	tracking by accounting for this.
+	electrons (which is highly $\eta$-dependent). The GSF is a non-linear fitter and 
+	improves the accuracy of electron tracking by accounting for this.
 
+	For a cluster to be reconstructed as an electron, it must be matched to a track. If a 
+	track is within $\Delta\eta < 0.05$ and $\Delta\phi < 0.1 (0.05)$ of the cluster 
+	centre, they are considered matched. The asymmetric $\Delta\phi$ requirement allows 
+	for increased bending due to bremsstrahlung. When multiple tracks are matched, that 
+	with the smallest $\Delta R$ is chosen.
 
-	final refit
-	efficiency from Z tag-and-probe \cite{ElectronPerf:2010,ElectronPerf:2012}
-	d0, z0 impact parameters
+	Finally, the cluster is rebuilt using a $3 \times 7$ ($5 \times 5$) sliding window 
+	in the barrel (end-cap), and the electron four-momentum is defined 
+	\cite{ElectronPerf:2010}. The direction is taken from the matched track and the 
+	energy is the cluster energy, corrected for losses in passive material and leakage 
+	outside the cluster. These simulated corrections depend on the longitudinal shower 
+	shape and energy deposited in the presampler. The EM energy scale was calibrated
+	using test beam and \textit{in situ} \HepProcess{\PZ \HepTo \Pe\Pe} measurements.
+
+	The electron reconstruction performance is measured with a \textit{tag-and-probe} 
+	method on \HepProcess{\PZ \HepTo \Pe\Pe} events \cite{ElectronPerf:2010,
+	ElectronPerf:2012}, and is shown in \Figure~\ref{fig:objects:el_recoeff}. This 
+	involves selecting an unbiased sample of events containing a well-identified 
+	\textit{tag} object and a loosely-identified \textit{probe} object, and measuring the 
+	selection efficiency of the probes. The sample must be clean (often enforced by a 
+	mass constraint) and backgrounds estimated (usually from side-bands or a template).
+	Here, the tag is a well-identified electron, the probe is an \ac{ECal} cluster, the 
+	selection is the reconstruction algorithm and the mass constraint is 
+	$\unit{80}{\GeV} < m_{\parenths{\text{tag, probe}}} < \unit{100}{\GeV}$.
 \item[Identification] \hfill \\
-	very tight likelihood, medium++ cut-based
-	efficiency from Z and J/Psi tag-and-probe \cite{ElectronPerf:2010,ElectronPerf:2012}
+	Electron identification is improved by applying cuts on track quality and shower 
+	shape. There are three reference operating points called \textit{loose}, 
+	\textit{medium} and \textit{tight}, with progressively greater background rejection 
+	and lower signal efficiency.
+	
+	For $E_T > \unit{25}{\GeV}$ the medium criteria are used, comprising cuts on
+	\begin{itemize}
+		\item shower shape variables (lateral and longitudinal)
+		\item leakage to the \ac{HCal}
+		\item the number of pixel and \acs{SCT} hits
+		\item the impact parameter with respect to the primary vertex
+		\item track-cluster matching
+		\item transition radiation
+	\end{itemize}
+	and additionally electrons with conversion vertices or without a hit in the first 
+	pixel layer are vetoed (to suppress the \Wgamma background).
+ 
+ 	For $E_T < \unit{25}{\GeV}$ the \Wjets and QCD backgrounds are much larger. Thus a 
+ 	multivariate \textit{very tight likelihood} identification is used, with similar 
+ 	signal efficiency to the cut-based tight criteria but improved background rejection. 
+ 	It uses the signal and background probability density functions of multiple input 
+ 	variables to construct a likelihood discriminant, which may be cut upon (effectively 
+ 	choosing an operating point). The input variables are similar to those listed above, 
+ 	although track hits remain as cuts.
+ 
+ 	The electron identification performance is also measured using tag-and-probe of 
+ 	\HepProcess{\PZ \HepTo \Pe\Pe} events \cite{ElectronPerf:2010,ElectronPerf:2012}, 
+ 	and is shown in \Figure~\ref{fig:objects:el_ideff}.
 \item[Isolation] \hfill \\
-	tracker and calo
-\item[Four-momentum definition] \hfill \\
-	energy from calo (EES EER calibration)
-	direction from tracker
-	pT > 10 GeV and cluster eta range (excl crack)
+	Rejection of hadronic fakes or electrons from heavy flavour decays is improved by 
+	requiring the electron to be isolated from activity in the tracker and calorimeter. 
+	The cuts are summarised in \Table~\ref{tab:objects:el_iso} and explained below.
+
+	\textit{Tracker isolation:} $p_T^{\text{cone}}\parenths{R_0}$ is the summed $p_T$ of 
+	all tracks of $p_T > \unit{0.4}{\GeV}$ within a cone of $\Delta R = R_0$, excluding 
+	the electron track itself. For robustness against pile-up, the tracks are required to 
+	originate from the primary vertex.
+
+	\textit{Calorimeter isolation:} Uncalibrated topological clusters (see 
+	\Section~\ref{sec:objects:jets}) are built from energy deposits in the \ac{ECal} 
+	and \ac{HCal}. These are more robust against pile-up than cell deposits as they 
+	suppress noise. $E_T^{\text{cone}}\parenths{R_0}$ is the summed $E_T$ of the 
+	topological clusters within a cone of $\Delta R = R_0$, excluding cells in a 
+	$5 \times 7$ window around the electron (see \Figure~\ref{fig:objects:el_iso}). 
+	Corrections are made for electron energy leakage and deposits from pile-up and the 
+	underlying event.
+\item[Primary vertex association] \hfill \\
+	To associate the electron with the primary vertex, the transverse impact parameter 
+	$d_0$ is required to be within three standard deviations of zero. Also, the 
+	longitudinal impact parameter $z_0$ is constrained by $\mods{z_0 \sin\theta} < 
+	\unit{0.4}{\milli\metre}$.
 \end{description}
 
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_et}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_eta}
+	\caption{The electron reconstruction efficiency versus (left) $E_T$ and (right) 
+	$\eta$, measured using a tag-and-probe method on \HepProcess{\PZ \HepTo \Pe\Pe} data 
+	and compared to MC \cite{ElectronPerf:2012}. In 2012, the implementation of GSF 
+	tracking gave significant performance improvement.}
+	\label{fig:objects:el_recoeff}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_et}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_npv}
+	\caption{The efficiency of a variety of electron identification operating points 
+	versus (left) $E_T$ and (right) \npv, measured using a tag-and-probe method on 
+	\HepProcess{\PZ \HepTo \Pe\Pe} data \cite{ElectronPerf:2012}. `Very tight likelihood' 
+	has similar efficiency to `tight', but improves background rejection. All operating 
+	points are fairly robust against pile-up.}
+	\label{fig:objects:el_ideff}
+\end{figure}
+
+\begin{table}[h]
+	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
+		$E_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
+		\hline
+		10 -- 15 & $p_T^{\text{cone}}\parenths{0.4}/E_T < 0.06$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.20$ \\
+		15 -- 20 & $p_T^{\text{cone}}\parenths{0.3}/E_T < 0.08$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.24$ \\
+		$> 20$   & $p_T^{\text{cone}}\parenths{0.3}/E_T < 0.10$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.28$ \\
+	\end{tabular}
+	\caption{The tracker and calorimeter isolation requirements of electrons. The cuts 
+	were optimised to maximise the sensitivity of the \HWWlvlv search.}
+	\label{tab:objects:el_iso}
+\end{table}
+
+\begin{figure}
+	\includegraphics[width=\smallfigwidth]{tex/selection/el_isolation}
+	\caption{Schematic diagram to illustrate calorimeter isolation. The pink cells are 
+	topological clusters, the yellow circle is the isolation cone ($R_0 = 0.4$ shown), 
+	the green $3 \times 7$ rectangle is the reconstructed electron cluster, and the white 
+	$5 \times 7$ rectangle is the area removed from the cone.}
+	\label{fig:objects:el_iso}
+\end{figure}
 
 
 \subsection{Muons}
@@ -122,12 +228,44 @@ isolation criteria are applied to reject these backgrounds and select prompt ele
 \begin{description}
 \item[Reconstruction] \hfill \\
 	statistical combination of ID and MS tracks => STACO
-	d0, z0 impact parameters
-	track quality
+	calibration
+	reconstruction efficiency
 \item[Isolation] \hfill \\
-	tracker and calo
+	\Table~\ref{tab:objects:mu_iso}
+
+	\textit{Tracker isolation:}
+
+	\textit{Calorimeter isolation:} pile-up correction (\npv)
+\item[\ac{ID} track quality] \hfill \\
+	The track in the \ac{ID} is required to satisfy a number of quality criteria:
+	\begin{itemize}
+		\item $n_{\text{pixel}}^{\text{hit}} + n_{\text{pixel}}^{\text{dead}} > 0$
+		\item $n_{\text{SCT}}^{\text{hit}} + n_{\text{SCT}}^{\text{dead}} > 4$
+		\item $n_{\text{pixel}}^{\text{hole}} + n_{\text{SCT}}^{\text{hole}} < 3$
+		\item $n_{\text{TRT}}^{\text{hit}} + n_{\text{TRT}}^{\text{outlier}} > 5$ and at 
+		least 10\% are hits (for $\mods{\eta} < 1.9$ only)
+	\end{itemize}
+	where a hole is an expected hit that is not measured.
+\item[Primary vertex association] \hfill \\
+	To associate the muon with the primary vertex, the transverse impact parameter $d_0$ 
+	is required to be within three standard deviations of zero. Also, the longitudinal 
+	impact parameter $z_0$ is constrained by $\mods{z_0 \sin\theta} < 
+	\unit{1.0}{\milli\metre}$.
 \end{description}
 
+\begin{table}[h]
+	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
+		$p_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
+		\hline
+		10 -- 15 & $p_T^{\text{cone}}\parenths{0.4}/p_T < 0.06$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.06$ \\
+		15 -- 20 & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.08$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ \\
+		20 -- 25 & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.18$ \\
+		$> 25$   & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.30$ \\
+	\end{tabular}
+	\caption{The tracker and calorimeter isolation requirements of muons. The cuts were 
+	optimised to maximise the sensitivity of the \HWWlvlv search.}
+	\label{tab:objects:mu_iso}
+\end{table}
 
 \subsection{Jets}
 \label{sec:objects:jets}
