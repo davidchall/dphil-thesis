@@ -432,11 +432,25 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 \subsection{\Pbottom-jets}
 \label{sec:objects:bjets}
 
-suppress top background
+To aid top background suppression, \textit{\Pbottom-tagging algorithms} exploit the long 
+lifetimes of \Pbottom-hadrons to identify jets originating from \Pbottom-quarks. The MV1 
+algorithm uses a neural network with inputs of jet $p_T$, $\eta$ and the weights output 
+by three other algorithms \cite{Btag:algorithms}:
+\begin{itemize}[noitemsep,nolistsep]
+	\item IP3D searches for significant impact parameters of jet tracks,
+	\item SV1 searches for secondary vertices associated with \Pbottom-hadron decays,
+	\item JetFitter reconstructs the decay chain topology (including the daughter 
+	\Pcharm-hadron).
+\end{itemize}
+An operating point is chosen to select 85\% of \Pbottom-jets, with a mis-tag rate of 
+\about 40\% for \Pcharm-jets, \about 35\% for \Ptau-jets and \about 10\% for light jets
+(initiated by \Pup, \Pdown, \Pstrange or \Pgluon).
 
-MV1 85\% operating point
-efficiency from dileptonic ttbar events with combined likelihood method (not tag-and-probe)
-b-tagging efficiency SF
+Modelling \Pbottom-tagging algorithms is very difficult; thus it is imperative to measure 
+their efficiency with experimental data. This was done with dileptonic \ttbar events, 
+using a combinatorial likelihood method \cite{Btag:llh}. Comparison with MC yields 
+efficiency scale factors.
+
 
 
 \subsection{Missing transverse momentum}
