@@ -200,7 +200,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 
 \begin{table}[h]
 	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
-		$E_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
+		Electron $E_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
 		\hline
 		10 -- 15 & $p_T^{\text{cone}}\parenths{0.4}/E_T < 0.06$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.20$ \\
 		15 -- 20 & $p_T^{\text{cone}}\parenths{0.3}/E_T < 0.08$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.24$ \\
@@ -219,6 +219,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	$5 \times 7$ rectangle is the area removed from the cone.}
 	\label{fig:objects:el_iso}
 \end{figure}
+
 
 
 \subsection{Muons}
@@ -283,12 +284,13 @@ $\mods{\eta} < 2.5$ are selected.
 \item[Efficiency] \hfill \\
 	The efficiency of each selection step is measured via \textit{tag-and-probe} of 
 	\HepProcess{\PZ \HepTo \Pmu\Pmu} events \cite{Muons:2012}. For example, the 
-	reconstruction efficiency is shown in \Figure~\ref{fig:objects:mu_recoeff}.
+	reconstruction efficiency is shown in \Figure~\ref{fig:objects:mu_recoeff}. 
+	Comparison with MC yields efficiency scale factors.
 \end{description}
 
 \begin{table}[h]
 	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
-		$p_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
+		Muon $p_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
 		\hline
 		10 -- 15 & $p_T^{\text{cone}}\parenths{0.4}/p_T < 0.06$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.06$ \\
 		15 -- 20 & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.08$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ \\
@@ -308,7 +310,8 @@ $\mods{\eta} < 2.5$ are selected.
 	$\eta$, measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pmu\Pmu} data 
 	and compared to MC \cite{Muons:2012}. Reductions in efficiency at $\eta \approx 0$ 
 	and $\eta \approx 1.2$ are due to partial \ac{MS} coverage (detector services and 
-	incomplete installation respectively). `Chain 1' refers to staco reconstruction.}
+	incomplete installation respectively). `Chain 1' refers to \textit{STACO} 
+	reconstruction.}
 	\label{fig:objects:mu_recoeff}
 \end{figure}
 
@@ -317,14 +320,110 @@ $\mods{\eta} < 2.5$ are selected.
 \subsection{Jets}
 \label{sec:objects:jets}
 
-topoclusters
-energy scale calibration
+A hadron will pass through the \ac{ID} (leaving hits if charged) before being absorbed by 
+the \ac{ECal} and \ac{HCal}. Due to the finite resolution of the calorimeter and the 
+large number of overlapping hadronic showers, it is impossible to reconstruct individual 
+hadrons. For this and more theoretical reasons outlined in \Section~\ref{sec:jets}, 
+energy deposits are used to reconstruct jets. The main challenge in identifying jets from 
+the hard scatter is calorimeter noise: both electronic and from pile-up.
+
+Jets are selected with $p_T > \unit{25}{\GeV}$ for central jets ($\mods{\eta} < 2.4$) and 
+with $p_T > \unit{30}{\GeV}$ for forward jets ($2.4 < \mods{\eta} < 4.5$). However, 
+occasionally it is useful to use jets with other $p_T$ thresholds (\eg the central jet 
+veto in the VBF search). It shall be clearly stated when this is the case.
+
+\begin{description}
+\item[Reconstruction] \hfill \\
+	To suppress contributions from calorimeter noise, energy deposits are grouped into 
+	topological clusters (\textit{topo-clusters}) \cite{Jets:Calib:2010,Jets:Calib:2011}. 
+	First, a seed cell is identified with signal-to-noise ratio $S/N > 4$. Surrounding 
+	cells with $S/N > 2$ are iteratively added. Finally, a single iteration of 
+	neighbouring cells with no $S/N$ cut are added. When localised maxima exist within a 
+	cluster, it may be split. Clearly, the robustness to noise is determined by $N$, 
+	which is taken to be the sum in quadrature of the electronic noise and the pile-up 
+	noise expected with $\mu = 30$.
+
+	The non-compensating calorimeter design gives differing responses to electromagnetic 
+	and hadronic showers.\footnote{
+		Significant hadronic shower energy is lost through slow neutrons, nuclear 
+		excitations and neutrinos.
+	}
+	Topo-clusters are reconstructed at the EM scale and thus need calibration to the 
+	\ac{JES}. An intermediate \textit{local cluster weighting} (LCW) classifies 
+	topo-clusters as electromagnetic or hadronic (via energy density and shower depth) 
+	and applies appropriate energy corrections.
+	
+	These topo-clusters are input to the \antikt jet algorithm with $R = 0.4$ (see 
+	\Section~\ref{sec:jets}), making the assumption that topo-clusters are massless.
+\item[Calibration] \hfill \\
+	There are four steps to the jet calibration, described below \cite{Jets:Calib:2011}.
+
+	First, the jet direction is adjusted such that it originates from the primary vertex, 
+	rather than the centre of the ATLAS coordinate system.
+
+	Second, energy contributed by pile-up is subtracted \cite{Jets:PileupCorrection:2012}.
+	This involves measuring the jet area $A$ (its susceptibility to additional soft 
+	particles) and the pile-up density $\rho$ of the event. Residual corrections for 
+	in-time pile-up (via \npv) and out-of-time pile-up (via $\mu$) are also made. Thus,
+	the correction is
+	\begin{equation}
+		p_T^{\text{corr}} = p_T - \rho A - \alpha \parenths{\npv - 1} - \beta \mu
+	\end{equation}
+	and its impact upon the robustness against pile-up is shown in 
+	\Figure~\ref{fig:objects:jet_pu_corr}.
+
+	Third, the energy is calibrated from the LCW scale to the \ac{JES}. The correction is 
+	derived from MC by comparing the energy of the reconstructed jet to that of the 
+	corresponding hadron-level jet (\ie before detector simulation).
+
+	Finally, a residual \textit{in situ} \ac{JES} calibration corrects for mismodelling, 
+	and is applied to jets in data events only. The calibration exploits the $p_T$ 
+	balance between a jet and a well-measured reference object, deriving the correction 
+	as the double-ratio
+	\begin{equation}
+		\angles{p_T^{\text{jet}} / p_T^{\text{ref}}}_{\text{\!MC}} \,\, \Big/ 
+		\angles{p_T^{\text{jet}} / p_T^{\text{ref}}}_{\text{\!data}} \,\,.
+	\end{equation}
+	The reference object is chosen to be a \PZ boson (decaying to \epluseminus or 
+	\HepProcess{\APmuon\Pmuon}) at low $p_T$, a photon at medium $p_T$, or a system of 
+	well-calibrated low-$p_T$ jets at high $p_T$. The contribution of each technique to 
+	the correction is shown in \Figure~\ref{fig:objects:jet_insitu}.
+\item[Quality] \hfill \\
+	`Looser' quality to reject calo noise faking jets by looking at cell pulse shapes (ATLAS-CONF-2012-020)
+\item[Primary vertex association] \hfill \\
+	JVF > 0.5 (central jets with $p_T < \unit{50}{\GeV}$ only)
+	effective pile-up suppression
+	efficiency SF
+\end{description}
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_npv}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_mu}
+	\caption{The dependence of jet $p_T$ on (left) in-time pile-up and (right) 
+	out-of-time pile-up, versus $\mods{\eta}$ \cite{Jets:PileupCorrection:2012}. The 
+	bands show the fits used in the correction.}
+	\label{fig:objects:jet_pu_corr}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\mediumfigwidth]{tex/selection/jet_insitu_corr}
+	\caption{The ratio of the jet response measured in data to the MC prediction versus 
+	jet $p_T$. This is the inverse of the \textit{in situ} JES correction (see text). The 
+	results of three $p_T$ balance studies and their combination (black line) are shown.}
+	\label{fig:objects:jet_insitu}
+\end{figure}
+
 
 
 \subsection{\Pbottom-jets}
 \label{sec:objects:bjets}
 
-MV1
+suppress top background
+
+MV1 85\% operating point
+efficiency from dileptonic ttbar events with combined likelihood method (not tag-and-probe)
+b-tagging efficiency SF
 
 
 \subsection{Missing transverse momentum}
