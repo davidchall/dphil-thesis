@@ -153,6 +153,9 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	$5 \times 7$ window around the electron (see \Figure~\ref{fig:objects:el_iso}). 
 	Corrections are made for electron energy leakage and deposits from pile-up and the 
 	underlying event.
+\item[Quality] \hfill \\
+	An electron is rejected if its cluster is affected by a localised detector problem 
+	(\eg a dead cell).
 \item[Primary vertex association] \hfill \\
 	To associate the electron with the primary vertex, the transverse impact parameter 
 	$d_0$ is required to be within three standard deviations of zero. Also, the 
@@ -266,7 +269,7 @@ $\mods{\eta} < 2.5$ are selected.
 	$p_T^{\text{cone}}\parenths{R_0}$ and $E_T^{\text{cone}}\parenths{R_0}$ variables are 
 	defined similarly to electrons, though the size of the subtracted calorimeter window 
 	is reduced for muons.
-\item[\ac{ID} track quality] \hfill \\
+\item[Quality] \hfill \\
 	The \ac{ID} track must satisfy quality criteria on the number of traversed sensors:
 	\begin{itemize}[noitemsep,nolistsep]
 		\item $n_{\text{pixel}}^{\text{hit}} + n_{\text{pixel}}^{\text{dead}} > 0$
@@ -367,7 +370,8 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	in-time pile-up (via \npv) and out-of-time pile-up (via $\mu$) are also made. Thus,
 	the correction is
 	\begin{equation}
-		p_T^{\text{corr}} = p_T - \rho A - \alpha \parenths{\npv - 1} - \beta \mu
+		p_T^{\text{corr}} = p_T - \rho A - \alpha \parenths{\npv - 1} 
+		- \beta \parenths{\mu}
 	\end{equation}
 	and its impact upon the robustness against pile-up is shown in 
 	\Figure~\ref{fig:objects:jet_pu_corr}.
@@ -389,11 +393,20 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	well-calibrated low-$p_T$ jets at high $p_T$. The contribution of each technique to 
 	the correction is shown in \Figure~\ref{fig:objects:jet_insitu}.
 \item[Quality] \hfill \\
-	`Looser' quality to reject calo noise faking jets by looking at cell pulse shapes (ATLAS-CONF-2012-020)
+	Quality criteria (known as \textit{Looser}) reject calorimeter noise based on cell 
+	pulse shapes \cite{Jets:Quality:2011}. The selection is more than 99.8\% efficient 
+	for jets with $p_T > \unit{20}{\GeV}$.
 \item[Primary vertex association] \hfill \\
-	JVF > 0.5 (central jets with $p_T < \unit{50}{\GeV}$ only)
-	effective pile-up suppression
-	efficiency SF
+	The \textit{jet vertex fraction} (JVF) is defined as the fraction of tracks 
+	associated to a jet that originate from the primary vertex ($\mods{z_0 \sin\theta} < 
+	\unit{1}{\milli\metre}$), weighted by track $p_T$ \cite{Jets:PileupCorrection:2012}. 
+	It is a powerful discriminant against pile-up jets that survive the $p_T$ selection 
+	despite the pile-up subtraction step in the calibration, but is only available for 
+	$\mods{\eta} < 2.4$.
+
+	Central jets with $p_T < \unit{50}{\GeV}$ are required to have $\text{JVF} > 0.5$ or 
+	zero associated tracks. The efficiency of this cut is measured \textit{in situ} with 
+	\Zjets events.
 \end{description}
 
 \begin{figure}
