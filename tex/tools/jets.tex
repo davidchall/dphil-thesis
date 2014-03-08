@@ -19,21 +19,21 @@ which iteratively combine the closest pair of particles according to some distan
 $d_{ij}$. 
 
 Consider an algorithm where all the inter-particle distances $d_{ij}$ and particle-beam 
-distances $d_{iB}$ are calculated. If the minimum is a $d_{ij}$, then particles $i$ and $j$
-are combined into single new particle. If the minimum is a $d_{iB}$, then particle $i$ is 
-declared a jet and removed from the list of particles. Then the algorithm restarts. We 
-define the distances
+distances $d_{i\text{B}}$ are calculated. If the minimum is a $d_{ij}$, then particles $i$ 
+and $j$ are combined into single new particle. If the minimum is a $d_{i\text{B}}$, then 
+particle $i$ is declared a jet and removed from the list of particles. Then the algorithm 
+restarts. We define the distances
 \begin{equation}
-	d_{ij} &= \min\parenths{p^{2m}_{Ti}, p^{2m}_{Tj}} \frac{\Delta R^2_{ij}}{R^2} \,,
+	d_{ij} &= \min\parenths{p^{2m}_{\text{T}i}, p^{2m}_{\text{T}j}} \frac{\Delta R^2_{ij}}{R^2} \,,
 	&& \Delta R^2_{ij} = \parenths{y_i - y_j}^2 + \parenths{\phi_i - \phi_j}^2 \\
-	d_{iB} &= p^{2m}_{Ti}
+	d_{i\text{B}} &= p^{2m}_{\text{T}i}
 \end{equation}
-where $p_{Ti}$, $y_i$ and $\phi_i$ are the transverse momentum, rapidity and azimuthal 
-angle of particle $i$ with respect to the beam axis, respectively. $R$ and $m$ are 
-parameters of the algorithm, with $R$ effectively determining the size of the jet.
+where $p_{\text{T}i}$, $y_i$ and $\phi_i$ are the transverse momentum, rapidity and 
+azimuthal angle of particle $i$ with respect to the beam axis, respectively. $R$ and $m$ 
+are parameters of the algorithm, with $R$ effectively determining the size of the jet.
 
-With $m=1$, known as the $k_t$ algorithm, combinations between soft particles are favoured.
-This follows the evolution of \ac{QCD}, but leads to rather irregular jet shapes. 
+With $m=1$, known as the $k_{\text{T}}$ algorithm, combinations between soft particles are 
+favoured. This follows the evolution of \ac{QCD}, but leads to rather irregular jet shapes.
 
 With $m=-1$, known as the \antikt algorithm \cite{antikt}, combinations between hard 
 particles are favoured. This means the jets grow outwards from a hard `seed', ultimately 

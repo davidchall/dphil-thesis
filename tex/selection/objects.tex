@@ -42,7 +42,7 @@ number of vertices, until the result stabilises.
 
 The total number of primary vertices \npv is used to assess the pile-up conditions of 
 the bunch crossing. The primary vertex of the hard scatter is chosen to be that with the 
-highest $\sum p_T^2$ of the constituent tracks, and is referred to as simply \textit{the} 
+highest $\sum p_{\text{T}}^2$ of the constituent tracks, and is referred to as simply \textit{the} 
 primary vertex. As an additional quality criterion, this vertex must have at least three 
 associated tracks.
 
@@ -65,11 +65,11 @@ whilst many others are from photon conversions or electrons from heavy flavour d
 \Figure~\ref{fig:objects:el_composition}). However, in the \HWWlvlv search, it is prompt 
 electrons from the hard scatter that are of interest. Therefore identification and 
 isolation criteria are applied to reject these backgrounds and select prompt electrons. 
-The criteria were chosen to optimise the analysis sensitivity: \eg a low $E_T$ threshold 
+The criteria were chosen to optimise the analysis sensitivity: \eg a low \et threshold 
 of \unit{10}{\GeV} gives a large signal acceptance, but must be compensated by tight 
 identification requirements to reject the large \Wjets and QCD backgrounds.
 
-Electrons with $E_T > \unit{10}{\GeV}$ and $\mods{\eta} < 2.47$ are selected. Additionally, electrons with $1.37 < \mods{\eta} < 1.52$ are vetoed since they correspond
+Electrons with $\et > \unit{10}{\GeV}$ and $\mods{\eta} < 2.47$ are selected. Additionally, electrons with $1.37 < \mods{\eta} < 1.52$ are vetoed since they correspond
 to the crack region (see \Section~\ref{sec:atlas:calo}).
 
 \begin{figure}
@@ -88,7 +88,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	algorithm \cite{ElectronPerf:Expect}. First, the calorimeter is divided into 
 	\textit{towers} of size $\Delta\eta \times \Delta\phi = 0.025 \times 0.025$ (the 
 	cell size of the middle layer). Then a window of $3 \times 5$ towers in $\eta$-$\phi$ 
-	space scans the \ac{ECal} for local maxima with $E_T > \unit{2.5}{\GeV}$.
+	space scans the \ac{ECal} for local maxima with $\et > \unit{2.5}{\GeV}$.
 
 	Tracks within $\Delta R < 0.3$ of a cluster are then refit using a Gaussian Sum 
 	Filter (GSF) \cite{Electron:GSF}. The default fit described in 
@@ -116,7 +116,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	\textit{medium} and \textit{tight}, with progressively greater background rejection 
 	and lower signal efficiency.
 	
-	For $E_T > \unit{25}{\GeV}$ the medium criteria are used, comprising cuts on
+	For $\et > \unit{25}{\GeV}$ the medium criteria are used, comprising cuts on
 	\begin{itemize}[noitemsep,nolistsep]
 		\item shower shape variables (lateral and longitudinal)
 		\item leakage to the \ac{HCal}
@@ -128,7 +128,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	and additionally electrons with conversion vertices or without a hit in the first 
 	pixel layer are vetoed (to suppress the \Wgamma background).
  
- 	For $E_T < \unit{25}{\GeV}$ the \Wjets and QCD backgrounds are much larger. Thus a 
+ 	For $\et < \unit{25}{\GeV}$ the \Wjets and QCD backgrounds are much larger. Thus a 
  	multivariate \textit{very tight likelihood} identification is used, with similar 
  	signal efficiency to the cut-based tight criteria but improved background rejection. 
  	It uses the signal and background probability density functions of multiple input 
@@ -140,15 +140,15 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	requiring the electron to be isolated from activity in the tracker and calorimeter. 
 	The cuts are summarised in \Table~\ref{tab:objects:el_iso} and explained below.
 
-	\textit{Tracker isolation:} $p_T^{\text{cone}}\parenths{R_0}$ is the summed $p_T$ of 
-	all tracks of $p_T > \unit{0.4}{\GeV}$ within a cone of $\Delta R = R_0$, excluding 
-	the electron track itself. For robustness against pile-up, the tracks are required to 
-	originate from the primary vertex.
+	\textit{Tracker isolation:} $p_{\text{T}}^{\text{cone}}\parenths{R_0}$ is the summed 
+	\pt of all tracks of $\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R = R_0$, 
+	excluding the electron track itself. For robustness against pile-up, the tracks are 
+	required to originate from the primary vertex.
 
 	\textit{Calorimeter isolation:} Uncalibrated topological clusters (see 
 	\Section~\ref{sec:objects:jets}) are built from energy deposits in the \ac{ECal} 
 	and \ac{HCal}. These are more robust against pile-up than cell deposits as they 
-	suppress noise. $E_T^{\text{cone}}\parenths{R_0}$ is the summed $E_T$ of the 
+	suppress noise. $E_{\text{T}}^{\text{cone}}\parenths{R_0}$ is the summed \et of the 
 	topological clusters within a cone of $\Delta R = R_0$, excluding cells in a 
 	$5 \times 7$ window around the electron (see \Figure~\ref{fig:objects:el_iso}). 
 	Corrections are made for electron energy leakage and deposits from pile-up and the 
@@ -182,7 +182,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_et}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_eta}
-	\caption{The electron reconstruction efficiency versus (left) $E_T$ and (right) 
+	\caption{The electron reconstruction efficiency versus (left) \et and (right) 
 	$\eta$, measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pe\Pe} data 
 	and compared to MC \cite{ElectronPerf:2012}. In 2012, the implementation of GSF 
 	tracking gave significant performance improvement.}
@@ -194,7 +194,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_npv}
 	\caption{The efficiency of a variety of electron identification operating points 
-	versus (left) $E_T$ and (right) \npv, measured using tag-and-probe of 
+	versus (left) \et and (right) \npv, measured using tag-and-probe of 
 	\HepProcess{\PZ \HepTo \Pe\Pe} data \cite{ElectronPerf:2012}. `Very tight likelihood' 
 	has similar efficiency to `tight', but improves background rejection. All operating 
 	points are fairly robust against pile-up.}
@@ -203,11 +203,11 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 
 \begin{table}[h]
 	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
-		Electron $E_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
+		Electron \et (\GeV) & Tracker isolation & Calorimeter isolation \\
 		\hline
-		10 -- 15 & $p_T^{\text{cone}}\parenths{0.4}/E_T < 0.06$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.20$ \\
-		15 -- 20 & $p_T^{\text{cone}}\parenths{0.3}/E_T < 0.08$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.24$ \\
-		$> 20$   & $p_T^{\text{cone}}\parenths{0.3}/E_T < 0.10$ & $E_T^{\text{cone}}\parenths{0.3}/E_T < 0.28$ \\
+		10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\et < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.20$ \\
+		15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.24$ \\
+		$> 20$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.10$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.28$ \\
 	\end{tabular}
 	\caption{The tracker and calorimeter isolation requirements of electrons. The cuts 
 	were chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
@@ -230,7 +230,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 
 A muon will pass through the \ac{ID}, deposit minimal energy in the calorimeters and 
 continue through the \ac{MS}. Thus, they can be found via activity in the \ac{MS}, 
-optionally matched to an \ac{ID} track. Muons with $p_T > \unit{10}{\GeV}$ and 
+optionally matched to an \ac{ID} track. Muons with $\pt > \unit{10}{\GeV}$ and 
 $\mods{\eta} < 2.5$ are selected.
 
 \begin{description}
@@ -259,16 +259,16 @@ $\mods{\eta} < 2.5$ are selected.
 	\Section~\ref{sec:objects:tracks}). The statistical combination of the two 
 	tracks is performed by the \textit{STACO} algorithm \cite{Muons:algorithms}, which
 	weights each track by its covariance matrix. The muon four-momentum is determined 
-	by this combined track (dominated by the \ac{ID} track at low-$p_T$ and by the 
-	\ac{MS} track at high-$p_T$), and is calibrated with \HepProcess{\PZ \HepTo \Pmu\Pmu}
+	by this combined track (dominated by the \ac{ID} track at low-\pt and by the 
+	\ac{MS} track at high-\pt), and is calibrated with \HepProcess{\PZ \HepTo \Pmu\Pmu}
 	events \cite{Muons:2012}.
 \item[Isolation] \hfill \\
 	Although the muon signature is much cleaner than that of electrons, hadronic fakes 
 	(\textit{punch-through}) and muons from heavy flavour decays must still be suppressed 
 	by isolation criteria, which are summarised in \Table~\ref{tab:objects:mu_iso}. The 
-	$p_T^{\text{cone}}\parenths{R_0}$ and $E_T^{\text{cone}}\parenths{R_0}$ variables are 
-	defined similarly to electrons, though the size of the subtracted calorimeter window 
-	is reduced for muons.
+	$p_{\text{T}}^{\text{cone}}\parenths{R_0}$ and 
+	$E_{\text{T}}^{\text{cone}}\parenths{R_0}$ variables are defined similarly to 
+	electrons, though the size of the subtracted calorimeter window is reduced for muons.
 \item[Quality] \hfill \\
 	The \ac{ID} track must satisfy quality criteria on the number of traversed sensors:
 	\begin{itemize}[noitemsep,nolistsep]
@@ -293,12 +293,12 @@ $\mods{\eta} < 2.5$ are selected.
 
 \begin{table}[h]
 	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
-		Muon $p_T$ (\GeV) & Tracker isolation & Calorimeter isolation \\
+		Muon \pt (\GeV) & Tracker isolation & Calorimeter isolation \\
 		\hline
-		10 -- 15 & $p_T^{\text{cone}}\parenths{0.4}/p_T < 0.06$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.06$ \\
-		15 -- 20 & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.08$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ \\
-		20 -- 25 & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.18$ \\
-		$> 25$   & $p_T^{\text{cone}}\parenths{0.3}/p_T < 0.12$ & $E_T^{\text{cone}}\parenths{0.3}/p_T < 0.30$ \\
+		10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\pt < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.06$ \\
+		15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ \\
+		20 -- 25 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.18$ \\
+		$> 25$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.30$ \\
 	\end{tabular}
 	\caption{The tracker and calorimeter isolation requirements of muons. The cuts were 
 	chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
@@ -309,7 +309,7 @@ $\mods{\eta} < 2.5$ are selected.
 	\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_pt}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_eta}
-	\caption{The muon reconstruction efficiency versus (left) $p_T$ and (right) 
+	\caption{The muon reconstruction efficiency versus (left) \pt and (right) 
 	$\eta$, measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pmu\Pmu} data 
 	and compared to MC \cite{Muons:2012}. Reductions in efficiency at $\eta \approx 0$ 
 	and $\eta \approx 1.2$ are due to partial \ac{MS} coverage (detector services and 
@@ -330,9 +330,9 @@ hadrons. For this and more theoretical reasons outlined in \Section~\ref{sec:jet
 energy deposits are used to reconstruct jets. The main challenge in identifying jets from 
 the hard scatter is calorimeter noise: both electronic and from pile-up.
 
-Jets are selected with $p_T > \unit{25}{\GeV}$ for central jets ($\mods{\eta} < 2.4$) and 
-with $p_T > \unit{30}{\GeV}$ for forward jets ($2.4 < \mods{\eta} < 4.5$). However, 
-occasionally it is useful to use jets with other $p_T$ thresholds (\eg the central jet 
+Jets are selected with $\pt > \unit{25}{\GeV}$ for central jets ($\mods{\eta} < 2.4$) and 
+with $\pt > \unit{30}{\GeV}$ for forward jets ($2.4 < \mods{\eta} < 4.5$). However, 
+occasionally it is useful to use jets with other \pt thresholds (\eg the central jet 
 veto in the VBF search). It shall be clearly stated when this is the case.
 
 \begin{description}
@@ -370,7 +370,7 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	in-time pile-up (via \npv) and out-of-time pile-up (via $\mu$) are also made. Thus,
 	the correction is
 	\begin{equation}
-		p_T^{\text{corr}} = p_T - \rho A - \alpha \parenths{\npv - 1} 
+		p_{\text{T}}^{\text{corr}} = \pt - \rho A - \alpha \parenths{\npv - 1} 
 		- \beta \parenths{\mu}
 	\end{equation}
 	and its impact upon the robustness against pile-up is shown in 
@@ -381,30 +381,32 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	corresponding hadron-level jet (\ie before detector simulation).
 
 	Finally, a residual \textit{in situ} \ac{JES} calibration corrects for mismodelling, 
-	and is applied to jets in data events only. The calibration exploits the $p_T$ 
+	and is applied to jets in data events only. The calibration exploits the \pt 
 	balance between a jet and a well-measured reference object, deriving the correction 
 	as the double-ratio
 	\begin{equation}
-		\angles{p_T^{\text{jet}} / p_T^{\text{ref}}}_{\text{\!MC}} \,\, \Big/ 
-		\angles{p_T^{\text{jet}} / p_T^{\text{ref}}}_{\text{\!data}} \,\,.
+		\angles{p_{\text{T}}^{\text{jet}} / p_{\text{T}}^{\text{ref}}}_{\text{\!MC}} 
+		\,\, \Big/ 
+		\angles{p_{\text{T}}^{\text{jet}} / p_{\text{T}}^{\text{ref}}}_{\text{\!data}} 
+		\,\,.
 	\end{equation}
 	The reference object is chosen to be a \PZ boson (decaying to \epluseminus or 
-	\HepProcess{\APmuon\Pmuon}) at low $p_T$, a photon at medium $p_T$, or a system of 
-	well-calibrated low-$p_T$ jets at high $p_T$. The contribution of each technique to 
+	\HepProcess{\APmuon\Pmuon}) at low \pt, a photon at medium \pt, or a system of 
+	well-calibrated low-\pt jets at high \pt. The contribution of each technique to 
 	the correction is shown in \Figure~\ref{fig:objects:jet_insitu}.
 \item[Quality] \hfill \\
 	Quality criteria (known as \textit{Looser}) reject calorimeter noise based on cell 
 	pulse shapes \cite{Jets:Quality:2011}. The selection is more than 99.8\% efficient 
-	for jets with $p_T > \unit{20}{\GeV}$.
+	for jets with $\pt > \unit{20}{\GeV}$.
 \item[Primary vertex association] \hfill \\
 	The \textit{jet vertex fraction} (JVF) is defined as the fraction of tracks 
 	associated to a jet that originate from the primary vertex ($\mods{z_0 \sin\theta} < 
-	\unit{1}{\milli\metre}$), weighted by track $p_T$ \cite{Jets:PileupCorrection:2012}. 
-	It is a powerful discriminant against pile-up jets that survive the $p_T$ selection 
+	\unit{1}{\milli\metre}$), weighted by track \pt \cite{Jets:PileupCorrection:2012}. 
+	It is a powerful discriminant against pile-up jets that survive the \pt selection 
 	despite the pile-up subtraction step in the calibration, but is only available for 
 	$\mods{\eta} < 2.4$.
 
-	Central jets with $p_T < \unit{50}{\GeV}$ are required to have $\text{JVF} > 0.5$ or 
+	Central jets with $\pt < \unit{50}{\GeV}$ are required to have $\text{JVF} > 0.5$ or 
 	zero associated tracks. The efficiency of this cut is measured \textit{in situ} with 
 	\Zjets events.
 \end{description}
@@ -413,7 +415,7 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_npv}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_mu}
-	\caption{The dependence of jet $p_T$ on (left) in-time pile-up and (right) 
+	\caption{The dependence of jet \pt on (left) in-time pile-up and (right) 
 	out-of-time pile-up, versus $\mods{\eta}$ \cite{Jets:PileupCorrection:2012}. The 
 	bands show the fits used in the correction.}
 	\label{fig:objects:jet_pu_corr}
@@ -422,8 +424,8 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 \begin{figure}
 	\includegraphics[width=\mediumfigwidth]{tex/selection/jet_insitu_corr}
 	\caption{The ratio of the jet response measured in data to the MC prediction versus 
-	jet $p_T$. This is the inverse of the \textit{in situ} JES correction (see text). The 
-	results of three $p_T$ balance studies and their combination (black line) are shown.}
+	jet \pt. This is the inverse of the \textit{in situ} JES correction (see text). The 
+	results of three \pt balance studies and their combination (black line) are shown.}
 	\label{fig:objects:jet_insitu}
 \end{figure}
 
@@ -434,7 +436,7 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 
 To aid top background suppression, \textit{\Pbottom-tagging algorithms} exploit the long 
 lifetimes of \Pbottom-hadrons to identify jets originating from \Pbottom-quarks. The MV1 
-algorithm uses a neural network with inputs of jet $p_T$, $\eta$ and the weights output 
+algorithm uses a neural network with inputs of jet \pt, $\eta$ and the weights output 
 by three other algorithms \cite{Btag:algorithms}:
 \begin{itemize}[noitemsep,nolistsep]
 	\item IP3D searches for significant impact parameters of jet tracks,
@@ -456,9 +458,30 @@ efficiency scale factors.
 \subsection{Missing transverse momentum}
 \label{sec:objects:met}
 
-hermetic design => incoming partons have very little transverse momentum => momentum conservation used to infer vector sum transverse momentum of non-interacting particles
-True MET (neutrinos), Fake MET (mismeasurement, noise, etc)
+The almost hermetic detector design enables information of non-interacting particles (\eg 
+neutrinos) to be inferred from measurements of interacting particles. Since the initial 
+state has no $\bvec{p}_{\text{T}}$, momentum conservation implies that the visible and 
+invisible $\bvec{p}_{\text{T}}$ in the final state must balance each other. Thus, the 
+negative sum of the visible $\bvec{p}_{\text{T}}$ is known as \textit{missing transverse 
+momentum}, and equals the sum of the invisible $\bvec{p}_{\text{T}}$.
 
-\subsubsection{Track-based \met}
+Multiple sources of fake momentum imbalance lead to a poor experimental resolution of 
+missing transverse momentum. In particular, pile-up has an adverse effect on performance. 
+Object mismeasurement can produce fake imbalance that is highly correlated to the event 
+kinematics.
 
 \subsubsection{Calorimeter-based \met}
+
+\begin{equation}
+	\bvec{E}_{\text{T}}^{\text{miss}} = - \braces{ \sum\limits_{\Pe} \bvec{p}_{\text{T}} 
+	+ \sum\limits_{\Pphoton} \bvec{p}_{\text{T}} 
+	+ \sum\limits_{\Ptau} \bvec{p}_{\text{T}} 
+	+ \sum\limits_{\text{jets}} \bvec{p}_{\text{T}} 
+	+ \sum\limits_{\text{soft}} \bvec{p}_{\text{T}}
+	+ \sum\limits_{\Pmu} \bvec{p}_{\text{T}}
+	}
+\end{equation}
+
+\cite{MET:2012} \cite{TES:2012}
+
+\subsubsection{Track-based \trackmet}

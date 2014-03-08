@@ -38,7 +38,7 @@ perpendicular to the beam axis.
 parts of the detector. Next to the beam pipe is the inner detector which precisely tracks 
 the trajectories of charged particles. Then there are the electromagnetic and hadronic 
 calorimeters which absorb and measure the energy of interacting particles. Since 
-high-$p_T$ muons act as minimum ionising particles, they survive the calorimeters and are 
+high-\pt muons act as minimum ionising particles, they survive the calorimeters and are 
 tracked by the muon spectrometer. Superconducting solenoid and toroid magnets provide 
 magnetic fields to the inner detector and muon spectrometer respectively, allowing the 
 momenta of charged particles to be measured from the curvature of their tracks.
@@ -242,7 +242,7 @@ implemented on an off-detector computer farm.
 	\label{fig:trigger}
 \end{figure}
 
-The \ac{L1} trigger searches for high-$p_T$ leptons, photons and jets, in addition to 
+The \ac{L1} trigger searches for high-\pt leptons, photons and jets, in addition to 
 events with significant total transverse energy or transverse energy imbalance. The 
 decision is made using muon trigger chamber information (\acp{RPC} and \acp{TGC}) and 
 reduced-granularity calorimeter information. Since the decision latency 
@@ -262,7 +262,7 @@ written to tape. The entire trigger system reduces the data rate from
 \subsection{Performance goals}
 
 The performance goals of each sub-detector are shown in \Table~\ref{tab:atlas_targets}. 
-The $\sigma_{p_T}/p_T$ of the tracker has a term proportional to $p_T$ due to the 
+The $\sigma_{\pt}/\pt$ of the tracker has a term proportional to \pt due to the 
 intrinsic spatial resolution of the detector, and a constant term due to multiple 
 scattering. The $\sigma_{E}/E$ of the calorimeters has a constant term due to 
 non-uniformities in the response, and a term proportional to $1/\sqrt{E}$ due to 
@@ -275,7 +275,7 @@ statistical fluctuations in the hadronic shower (the \textit{stochastic term}).
 		\multicolumn{2}{c}{$\mods{\eta}$ coverage} \\
 		& \multicolumn{2}{c}{} & Measurement & L1 trigger \\
 		\hline
-		Tracker                  & $\sigma_{p_T}/p_T$ & $0.05\% \times p_T \oplus 1\%$ &
+		Tracker                  & $\sigma_{\pt}/\pt$ & $0.05\% \times \pt \oplus 1\%$ &
 		$<2.5$ & -- \\
 		EM calorimeter           & $\sigma_{E}/E$ & $10\% / \sqrt{E} \oplus 0.7\%$ &
 		$<3.2$ & $<2.5$ \\
@@ -284,7 +284,7 @@ statistical fluctuations in the hadronic shower (the \textit{stochastic term}).
 		$<3.2$ & $<3.2$ \\
 		\quad   forward          & $\sigma_{E}/E$ & $100\% / \sqrt{E} \oplus 10\%$ &
 		$3.1\text{ -- }4.9$ & $3.1\text{ -- }4.9$ \\
-		Muon spectrometer        & $\sigma_{p_T}/p_T$ & $10\%$ at $p_T=\unit{1}{\TeV}$ &
+		Muon spectrometer        & $\sigma_{\pt}/\pt$ & $10\%$ at $\pt=\unit{1}{\TeV}$ &
 		$<2.7$ & $<2.4$ \\
 	\end{tabular}
 	\caption{Performance goals of the ATLAS sub-detectors \cite{ATLAS-detector}. Energies 

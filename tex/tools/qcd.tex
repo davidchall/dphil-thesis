@@ -26,11 +26,11 @@ compensating divergences, such that the physically measurable quantities are fin
 where $\delta g$ and $\delta m$ are the loop contributions. This procedure is known as 
 \textit{renormalisation}.
 
-It is necessary to introduce an unphysical \textit{renormalisation scale} $\mu_R$, above 
+It is necessary to introduce an unphysical \textit{renormalisation scale} \mur, above 
 which loops are absorbed into renormalised quantities, and below which loops are 
-calculated in perturbation theory. Clearly couplings and masses will depend upon $\mu_R$,
+calculated in perturbation theory. Clearly couplings and masses will depend upon \mur,
 though physical observables must not -- however, truncation of the perturbative series 
-will result in a residual $\mu_R$ dependence. Usually $\mu_R$ is chosen to be the energy 
+will result in a residual \mur dependence. Usually \mur is chosen to be the energy 
 scale $Q$ of the process under consideration, leading to the concept of a \textit{running 
 coupling constant}.
 
@@ -57,9 +57,9 @@ trend, though remains perturbative at all accessible energies.
 
 Most interesting \acs{LHC} processes involve a large momentum transfer, where the partons 
 are asymptotically free. Thus, parton-level cross sections may be calculated with Feynman 
-diagrams as a perturbative series in \alphaS (which converges since $\alpha_S \ll 1$)
+diagrams as a perturbative series in \alphaS (which converges since $\alphaS \ll 1$)
 \begin{equation}
-	\hat{\sigma} = \sum\limits_{m=0}^{\infty} \alpha_S^{k+m} \hat{\sigma}^{(m)}
+	\hat{\sigma} = \sum\limits_{m=0}^{\infty} \alpha_{\text{S}}^{k+m} \hat{\sigma}^{(m)}
 	\label{eq:qcd:partonic_xs}
 \end{equation}
 where the hat denotes a parton-level quantity, $k$ is the number of \ac{QCD} vertices at 
@@ -68,19 +68,19 @@ A \textit{fixed order} calculation truncates the series after $n$ terms, with $n
 a \ac{LO} calculation, $n=1$ being a \ac{NLO} calculation, and so on.
 
 As mentioned in \Section~\ref{sec:qcd:renormalisation}, the cross section $\hat{\sigma}$ 
-is independent of the renormalisation scale $\mu_R$
+is independent of the renormalisation scale \mur
 \begin{equation}
-	\frac{\d{\hat{\sigma}}}{\d{\mu_R}} = 0 \,.
+	\frac{\d{\hat{\sigma}}}{\d{\mur}} = 0 \,.
 	\label{eq:qcd:xs_rge}
 \end{equation}
 However, real-life calculations always truncate the series after $n$ terms, leaving a 
-residual $\mu_R$ dependence. Inserting the truncated series into (\ref{eq:qcd:xs_rge}), 
+residual \mur dependence. Inserting the truncated series into (\ref{eq:qcd:xs_rge}), 
 it follows that
 \begin{equation}
-	\frac{\d{}}{\d{\mu_R}} \sum\limits_{m=0}^{n} \alpha_S^{k+m} \hat{\sigma}^{(m)}
-	= \ofOrder{\alpha_S^{k+n+1}} \,.
+	\frac{\d{}}{\d{\mur}} \sum\limits_{m=0}^{n} \alpha_{\text{S}}^{k+m} \hat{\sigma}^{(m)}
+	= \ofOrder{\alpha_{\text{S}}^{k+n+1}} \,.
 \end{equation}
-Thus, the residual $\mu_R$ dependence can be exploited to probe the effect of missing 
+Thus, the residual \mur dependence can be exploited to probe the effect of missing 
 higher order terms in the series, and estimate the associated uncertainty.
 
 % In addition to the UV divergences handled by renormalisation, infrared (IR) divergences 
@@ -100,18 +100,19 @@ neglected. This often occurs when there is a large separation in the scales of a
 
 For example, consider the emission of a gluon from an outgoing quark. The scale 
 separation of the hard scatter $Q$ from the soft emission $Q_1$ introduces Sudakov double 
-logarithmic contributions $\alpha_S^{k+m} L^{2m}$ to the perturbative series, where 
-$L \sim \ln\parenths{Q_1 / Q}$. The (schematic) structure of the perturbative series 
-becomes
+logarithmic contributions $\alpha_{\text{S}}^{k+m} L^{2m}$ to the perturbative series, 
+where $L \sim \ln\parenths{Q_1 / Q}$. The (schematic) structure of the perturbative 
+series becomes
 \begin{equation}
-	\hat{\sigma} \sim \alpha_S^k \braces{\alpha_S \parenths{L^2 + L + 1}
-	+ \alpha_S^2 \parenths{L^4 + L^3 + L^2 + L + 1} + \ofOrder{\alpha_S^3 L^6}} \,.
+	\hat{\sigma} \sim \alpha_{\text{S}}^k \braces{\alphaS \parenths{L^2 + L + 1}
+	+ \alpha_{\text{S}}^2 \parenths{L^4 + L^3 + L^2 + L + 1} 
+	+ \ofOrder{\alpha_{\text{S}}^3 L^6}} \,.
 	\label{eq:qcd:resum}
 \end{equation}
-For soft or collinear emissions we have $\alpha_S L^2 \approx 1$, and the logarithms can 
+For soft or collinear emissions we have $\alphaS L^2 \approx 1$, and the logarithms can 
 overcome the \alphaS suppression. Thus, the perturbative nature of the series is spoiled. 
-In (\ref{eq:qcd:resum}), terms like $\alpha_S^{k+m} L^{2m}$ are called \acp{LL}, terms 
-like $\alpha_S^{k+m} L^{2m-1}$ are called \acp{NLL}, and so on.
+In (\ref{eq:qcd:resum}), terms like $\alpha_{\text{S}}^{k+m} L^{2m}$ are called \acp{LL}, 
+terms like $\alpha_{\text{S}}^{k+m} L^{2m-1}$ are called \acp{NLL}, and so on.
 
 When sensitive to such large logarithms, they must be \textit{resummed} to all orders in 
 \alphaS to produce an accurate result. This is usually achieved analytically, but in the 
@@ -138,8 +139,9 @@ convolution of the partonic cross section with \acp{PDF} of the incoming protons
 \begin{equation}
 	\sigma\parenths{p_1, p_2} = 
 	\sum\limits_{a, b} \! \int_0^1 \! \d{x_1} \d{x_2} \,
-	f_a \parenths{x_1, \mu_F^2} f_b \parenths{x_2, \mu_F^2} \,
-	\hat{\sigma}_{ab} \parenths{x_1 p_1, x_2 p_2, \alphaS\parenths{\mu_R^2}, \frac{Q^2}{\mu_F^2}, \frac{Q^2}{\mu_R^2}} 
+	f_a \parenths{x_1, \mu_{\text{F}}^2} f_b \parenths{x_2, \mu_{\text{F}}^2} \,
+	\hat{\sigma}_{ab} \parenths{x_1 p_1, x_2 p_2, \alphaS\parenths{\mu_{\text{R}}^2}, 
+	\frac{Q^2}{\mu_{\text{F}}^2}, \frac{Q^2}{\mu_{\text{R}}^2}} 
 \end{equation}
 where $f_a$ is the \ac{PDF} of parton type $a$ within the proton, $p_i$ is the momentum 
 of proton $i$, and $x_i$ is the momentum fraction of parton $i$. A sum is performed over 
@@ -147,15 +149,15 @@ all possible parton types (six quark flavours and the gluon).
 
 Echoing renormalisation, factorisation absorbs collinear divergences into universal 
 \acp{PDF} which are not \textit{a priori} calculable and must be experimentally 
-constrained. Again, an unphysical \textit{factorisation scale} $\mu_F$ is introduced, 
+constrained. Again, an unphysical \textit{factorisation scale} \muf is introduced, 
 below which emissions are absorbed into \acp{PDF}, and above which they are included in 
-the hard scatter. As with $\mu_R$, truncating the perturbative series introduces a 
-$\mu_F$ dependence, which can be exploited to estimate the effect of the missing higher 
-order terms. At \ac{LO}, $f_a \parenths{x, \mu_F}$ is simply the probability of finding a 
-parton of type $a$ with momentum fraction $x$, when probing the proton at a scale $\mu_F$.
+the hard scatter. As with \mur, truncating the perturbative series introduces a 
+\muf dependence, which can be exploited to estimate the effect of the missing higher 
+order terms. At \ac{LO}, $f_a \parenths{x, \muf}$ is simply the probability of finding a 
+parton of type $a$ with momentum fraction $x$, when probing the proton at a scale \muf.
 However, the interpretation at higher orders is more complex.
 
-Crucially, the \ac{PDF} dependence upon $\mu_F$ is described by the DGLAP equations 
+Crucially, the \ac{PDF} dependence upon \muf is described by the DGLAP equations 
 \cite{Gribov:1972,Altarelli:1977,Dokshitser:1977}. This allows a $f_a \parenths{x}$ 
 ansatz to be made at low scale and then experimentally validated at higher scales (\eg 
 with deep inelastic scattering or collider jet data).
