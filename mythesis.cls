@@ -20,6 +20,7 @@
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
+\DeclareRobustCommand{\cf}{\textit{c.f.\ }}
 
 % Line spacing
 \setfrontmatterspacing{double}

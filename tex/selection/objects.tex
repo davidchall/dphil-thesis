@@ -272,11 +272,11 @@ $\mods{\eta} < 2.5$ are selected.
 \item[Quality] \hfill \\
 	The \ac{ID} track must satisfy quality criteria on the number of traversed sensors:
 	\begin{itemize}[noitemsep,nolistsep]
-		\item $n_{\text{pixel}}^{\text{hit}} + n_{\text{pixel}}^{\text{dead}} > 0$
-		\item $n_{\text{SCT}}^{\text{hit}} + n_{\text{SCT}}^{\text{dead}} > 4$
-		\item $n_{\text{pixel}}^{\text{hole}} + n_{\text{SCT}}^{\text{hole}} < 3$
-		\item $n_{\text{TRT}}^{\text{hit}} + n_{\text{TRT}}^{\text{outlier}} > 5$ and at 
-		least 10\% are hits (for $\mods{\eta} < 1.9$ only)
+		\item $n_{\text{pixel}}^{\text{hit}} + n_{\text{pixel}}^{\text{dead}} \geq 1$
+		\item $n_{\text{SCT}}^{\text{hit}} + n_{\text{SCT}}^{\text{dead}} \geq 5$
+		\item $n_{\text{pixel}}^{\text{hole}} + n_{\text{SCT}}^{\text{hole}} \leq 2$
+		\item $n_{\text{TRT}}^{\text{hit}} + n_{\text{TRT}}^{\text{outlier}} \geq 6$ and 
+		at least 10\% are hits (for $\mods{\eta} < 1.9$ only)
 	\end{itemize}
 	where a hole is an expected hit that is not observed.
 \item[Primary vertex association] \hfill \\
@@ -470,18 +470,107 @@ missing transverse momentum. In particular, pile-up has an adverse effect on per
 Object mismeasurement can produce fake imbalance that is highly correlated to the event 
 kinematics.
 
-\subsubsection{Calorimeter-based \met}
+\begin{description}
+\item[Calorimeter-based \met] \hfill \\
+	One can reconstruct missing transverse momentum with calorimeter energy deposits 
+	\cite{MET:2012}. This is denoted \metvec, with magnitude \met, since it is 
+	calorimeter-based.
 
-\begin{equation}
-	\bvec{E}_{\text{T}}^{\text{miss}} = - \braces{ \sum\limits_{\Pe} \bvec{p}_{\text{T}} 
-	+ \sum\limits_{\Pphoton} \bvec{p}_{\text{T}} 
-	+ \sum\limits_{\Ptau} \bvec{p}_{\text{T}} 
-	+ \sum\limits_{\text{jets}} \bvec{p}_{\text{T}} 
-	+ \sum\limits_{\text{soft}} \bvec{p}_{\text{T}}
-	+ \sum\limits_{\Pmu} \bvec{p}_{\text{T}}
-	}
-\end{equation}
+	First, calorimeter cells are associated with and replaced by calibrated high-\pt 
+	objects. To avoid double counting, the association is done in a specific order: 
+	electrons, photons \cite{Photons:2011}, hadronically decaying \Ptau-leptons 
+	\cite{TES:2012}, jets and muons. Note that some object selection criteria are 
+	loosened with respect to the preceding descriptions. Importantly, the JVF criterion 
+	is removed from jets and their \pt threshold is lowered to \unit{20}{\GeV}. Also, 
+	segment-tagged muons are used in addition to combined muons.
 
-\cite{MET:2012} \cite{TES:2012}
+	The low-\pt component is reconstructed using topo-clusters of the remaining deposits 
+	(for noise suppression), which are calibrated to the LCW scale (see 
+	\Section~\ref{sec:objects:jets}). This is improved further by including unassociated 
+	tracks with \unit{$\pt > 400$}{\MeV}.
 
-\subsubsection{Track-based \trackmet}
+	Thus, the missing transverse momentum is defined with the following components
+	\begin{equation}
+		\metvec = - \braces{ 
+		\sum\limits_{\Pe} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\Pmu} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\Ptau} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\Pphoton} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\text{jets}} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\text{soft}} \bvec{p}_{\text{T}}
+		} \,.
+	\end{equation}
+	Unfortunately, \met is highly susceptible to pile-up because the starting points are 
+	calorimeter cells, which are not easily associated to the primary vertex. Performance 
+	can be improved by a JVF cut on jets and implementing a similar idea to the soft 
+	contributions. However, for the \HWWlvlv search, it was found that the best pile-up 
+	performance was achieved by using tracks as the starting points.
+
+\item[Track-based \trackmet] \hfill \\
+	One can alternatively reconstruct missing transverse momentum with \ac{ID} tracks. 
+	This is denoted \trackmetvec, with magnitude \trackmet, since it is track-based.
+
+	Tracks with \unit{$\pt > 500$}{\MeV} are selected if they have sufficiently small 
+	impact parameters with respect to the primary vertex 
+	(\unit{$\mods{d_0} < 1.5$}{\milli\metre} and 
+	\unit{$\mods{z_0\sin\theta} < 1.5$}{\milli\metre}). Quality criteria require 
+	$n_{\text{pixel}}^{\text{hit}} \geq 1$ and $n_{\text{SCT}}^{\text{hit}} \geq 6$. 
+	Additional tracks may be used if they are associated with a lepton with 
+	$\unit{$\mods{z_0\sin\theta} < 1.0$}{\milli\metre}$ (the electron identification 
+	criteria are loosened to medium \cf \Section~\ref{sec:objects:electrons}, and the 
+	muon \pt threshold is lowered to \unit{6}{\GeV} \cf \Section~\ref{sec:objects:muons}).
+
+	Occasionally, tracks are poorly reconstructed, which can have a significant impact 
+	upon \trackmet. Therefore, tracks with \unit{$\pt > 100$}{\GeV} and not associated to 
+	any physics object are removed from the selection. Similarly, a track within 
+	$\Delta R < 0.4$ of a jet with \unit{$\pt > 10$}{\GeV} is removed if 
+	$p_{\text{T}}^{\text{track}} > 1.4 \, p_{\text{T}}^{\text{jet}}$.
+
+	Bremsstrahlung from an electron can convert to \epluseminus pairs, resulting in 
+	additional tracks. For this reason, tracks within a cone of $\Delta R < 0.05$ of a 
+	reconstructed electron are collectively replaced with the calibrated electron \pt.
+	Muon \ac{ID} tracks are also replaced by the \pt of the reconstructed muon.
+
+	Thus, the missing transverse momentum is defined with the following components
+	\begin{equation}
+		\trackmetvec = - \braces{ 
+		\sum\limits_{\Pe} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\Pmu} \bvec{p}_{\text{T}} + 
+		\!\!\!\! \sum\limits_{\text{unassoc.}} \!\!\!\! \bvec{p}_{\text{T}}
+		} \,.
+	\end{equation}
+	\trackmet is very resilient to pile-up. However, its inability to include neutral 
+	hadrons significantly degrades the resolution.
+
+\item[Jet-corrected track-based \corrtrackmet] \hfill \\
+	It is possible to correct \trackmet for neutral hadrons by using calorimeter 
+	information. Tracks within a cone of $\Delta R < 0.4$ of a jet (as described in 
+	\Section~\ref{sec:objects:jets}) are collectively replaced by the calibrated jet \pt.
+
+	Thus, the missing transverse momentum is defined with the following components
+	\begin{equation}
+		\corrtrackmetvec = - \braces{ 
+		\sum\limits_{\Pe} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\Pmu} \bvec{p}_{\text{T}} + 
+		\sum\limits_{\text{jets}} \bvec{p}_{\text{T}} + 
+		\!\!\!\! \sum\limits_{\text{unassoc.}} \!\!\!\! \bvec{p}_{\text{T}}
+		} \,.
+	\end{equation}
+	This has the best resolution, but the use of calorimeter information does introduce 
+	some pile-up dependence.
+
+\item[Relative missing transverse momentum] \hfill \\
+	The effect of object mismeasurement upon missing transverse momentum can be reduced 
+	by considering the component transverse to the nearest reconstructed object. Thus, 
+	the relative \met is defined to be
+	\begin{equation}
+		\metrel = 
+		\begin{cases}
+			\met\sin\parenths{\Delta\phi} & \text{if~} \Delta\phi < \pi/2 \\
+			\met & \text{otherwise}
+		\end{cases}
+	\end{equation}
+	where $\Delta\phi$ is the angle between \metvec and the nearest electron, muon or jet.
+	Similar definitions exist for \trackmetrel and \corrtrackmetrel.
+
+\end{description}
