@@ -574,3 +574,17 @@ kinematics.
 	Similar definitions exist for \trackmetrel and \corrtrackmetrel.
 
 \end{description}
+
+
+
+\subsection{Object overlap removal}
+\label{sec:objects:overlap}
+
+In order to avoid double-counting calorimeter deposits and tracks as multiple physics 
+objects, overlapping objects are removed according to the following rules:
+\begin{equation*}
+	\Delta R \parenths{\Pe,\Pmu} < 0.1 &&& \text{remove electron} \\
+	\Delta R \parenths{\Pe,\Pe}  < 0.1 &&& \text{remove electron with lower \pt} \\
+	\Delta R \parenths{\Pe,j}    < 0.3 &&& \text{remove jet} \\
+	\Delta R \parenths{\Pmu,j}   < 0.3 &&& \text{remove muon} \\
+\end{equation*}

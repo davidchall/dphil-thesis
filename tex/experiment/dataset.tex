@@ -50,12 +50,13 @@ can be used to improve the luminosity estimation offline.
 
 
 
-\subsection{Run I dataset}
+\subsection{Run~I dataset}
 \label{sec:dataset:dataset}
 
-Data-taking operations during Run I of the LHC were incredibly successful, with impressive 
-improvements made to peak luminosity throughout this period. Some important parameters of 
-the Run I dataset are summarised in \Table~\ref{tab:dataset}, and the pile-up conditions are shown in \Figure~\ref{fig:pileup}. These show that a larger dataset was obtained in 2012 compared with 2011, but at the expense of a higher pile-up environment.
+Data-taking operations during Run~I of the LHC were incredibly successful, and some 
+important parameters of the \pp datasets are summarised in \Table~\ref{tab:dataset} and 
+\Figure~\ref{fig:dataset}. These show that a larger dataset was obtained in 2012 compared 
+with 2011, but at the expense of a higher pile-up environment.
 
 \begin{table}[h]
 	\begin{tabular}{l@{\hskip 0.3in}c@{\hskip 0.3in}c@{\hskip 0.3in}c@{\hskip 0.3in}c}
@@ -66,22 +67,33 @@ the Run I dataset are summarised in \Table~\ref{tab:dataset}, and the pile-up co
 	Peak luminosity (\unit{$10^{33}$}{\lumiunits}) & 0.2 & 3.6 & 7.7 & 10 \\
 	Delivered luminosity (\invfb)       & 0.047 & 5.46 & 22.8 & -- \\
 	Recorded luminosity (\invfb)        & 0.044 & 5.08 & 21.3 & -- \\
-	Analysed luminosity (\invfb)        & 0.000 & 4.53 & 20.7 & -- \\
 	Luminosity uncertainty $\delta L/L$ & 3.5\% & 1.8\% & 2.8\% & -- \\
 	\end{tabular}
-	\caption{Summary of \pp collision data during \ac{LHC} Run I. Also shown is the 
-	integrated luminosity analysed for the \HWW search presented in this thesis. 
-	Luminosities use the offline calibration.}
+	\caption{Summary of \pp collision data during \ac{LHC} Run~I. Luminosities use the 
+	offline calibration.}
 	\label{tab:dataset}
 \end{table}
 
 \begin{figure}[h]
-	\includegraphics[width=\mediumfigwidth]{tex/experiment/pileup}
-	\caption{Mean number of interactions per bunch crossing $\mu$ for the 2011 (blue) and 
+	\begin{subfigure}[b]{0.495\textwidth}
+		\includegraphics[width=\textwidth]{tex/experiment/luminosity}
+		\caption{Luminosity}
+		\label{fig:dataset:lumi}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.495\textwidth}
+		\includegraphics[width=\textwidth]{tex/experiment/pileup}
+		\caption{Pile-up}
+		\label{fig:dataset:pileup}
+	\end{subfigure}
+	\caption{(a) Cumulative luminosity delivered (green), recorded (yellow), and declared 
+	`good for physics' (blue) during 2011 and 2012. Luminosities use the offline 
+	calibration.
+	(b) Mean number of interactions per bunch crossing $\mu$ for the 2011 (blue) and 
 	2012 (green) datasets, calculated with an inelastic \pp cross section of 
 	\unit{71.5}{\milli\barn} at \unit{$\sqrt{s} = 7$}{\TeV} and 
 	\unit{73.0}{\milli\barn} at \unit{$\sqrt{s} = 8$}{\TeV}.
 	Luminosities use the online calibration.}
-	\label{fig:pileup}
+	\label{fig:dataset}
 \end{figure}
 
