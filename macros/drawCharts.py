@@ -74,8 +74,8 @@ string += chapterData
 string +="""
 // Set chart options
 var chapterOptions = {'title':'Chapter word counts',
-'width':500,
-'height':300
+'width':800,
+'height':500
 };
 
 // Instantiate and draw our chart, passing in some options.
@@ -86,8 +86,8 @@ chapterChart.draw(chapterData, chapterOptions);
 string += timestampData
 string += """
 var timestampOptions = {'title':'Word count vs time',
-'width':500,
-'height':300,
+'width':800,
+'height':500,
 legend:{position:'none'}
 };
 var timestampChart = new google.visualization.LineChart(document.getElementById('timestampChart_div'));
