@@ -75,7 +75,7 @@ string +="""
 // Set chart options
 var chapterOptions = {'title':'Chapter word counts',
 'width':800,
-'height':500
+'height':400
 };
 
 // Instantiate and draw our chart, passing in some options.

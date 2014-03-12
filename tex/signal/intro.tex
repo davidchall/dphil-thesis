@@ -1,28 +1,22 @@
 %!TEX root = ../../thesis.tex
 
-Correctly modelling signal and background processes is of utmost importance when designing 
-a search strategy; this allows differences to be exploited in order to optimise the 
-sensitivity. Whereas background modelling can often be experimentally verified (and in 
-some cases estimated by entirely data-driven methods), the signal processes must rely 
-purely upon theoretical models. When comparing a measured signal to that expected, the 
-normalisation of the prediction becomes important.
+Signal and background modelling is of utmost importance when designing a search strategy; 
+differences can be exploited to optimise the sensitivity. Whereas background modelling can 
+often be experimentally verified (and in some cases estimated by entirely data-driven 
+methods), the signal processes must rely purely upon theoretical models.
 
 \begin{figure}[b]
 	\includegraphics[width=\mediumfigwidth]{axodraw/ggf_WWlvlv.pdf}
-	\caption{Leading order Feynman diagram for gluon-gluon fusion.}
+	\caption{Leading order Feynman diagram for \acf{ggF}.}
 	\label{fig:sig:ggF}
 \end{figure}
 
-The analysis described in \Chapter~\ref{chap:selection} is designed to search for 
-\ggHWWlvlv, \ie the \ac{ggF} production mode (see \Figure~\ref{fig:sig:ggF}). This 
-proceeds via a heavy quark loop, dominated by the top quark, with two factors of \alphaS 
-at \ac{LO}. The perturbative series of \ac{ggF} converges poorly; the $K$-factor, defined 
-as the ratio to the \ac{LO} cross section $K = \sigma / \sigma_{\text{LO}}$, is typically 
-$K \approx 1.7\text{--}1.9$ at \ac{NLO} and $K \approx 2.0\text{--}2.2$ at \ac{NNLO}.
-This is believed to be mostly due to the nature of the gluon vertex, rather than 
-contributions from new diagrams accessible at higher orders \cite{Becher:2009}. As 
-explained in \Section~\ref{sec:qcd:pqcd}, such sizeable higher order corrections lead 
-to large theoretical uncertainties. Uncertainties due to \acp{PDF} are also significant, 
-since the low-$x$ gluon (which is instrumental in \ac{ggF}) is relatively poorly 
-constrained (see \Figure~\ref{fig:qcd:pdf}).
-
+The analysis described in \Chapter~\ref{chap:selection} is designed to search for the 
+\acsu{ggF} production mode (see \Figure~\ref{fig:sig:ggF}), which exhibits large 
+theoretical uncertainties. \Section~\ref{sec:ggf_inc} briefly outlines the current 
+knowledge of the inclusive \ac{ggF} cross section. The significant theoretical issues 
+introduced by jet vetoes are considered in \Section~\ref{sec:ggf_jetbin}. Since the \HWW 
+analysis is highly exclusive, \meps{\powheg}{\pythia{8}} is used to model the \ac{ggF} 
+signal. Uncertainties in the \ptOf{\PHiggs} distribution and the acceptance of the event 
+selection are described in \Section~\ref{sec:ggf_pt} and \Section~\ref{sec:ggf_acc} 
+respectively.

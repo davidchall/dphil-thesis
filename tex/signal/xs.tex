@@ -1,0 +1,42 @@
+%!TEX root = ../../thesis.tex
+
+The perturbative series of \ac{ggF} converges poorly; the $K$-factor, defined as 
+$K = \sigma / \sigma_{\text{LO}}$, is typically $K \approx 1.7\text{--}1.9$ at \ac{NLO} 
+and $K \approx 2.0\text{--}2.2$ at \ac{NNLO}. The large $K$-factor, with respect to 
+similar \HepProcess{\Pquark\APquark}-initiated processes, is thought to be related to the 
+larger colour factor of the gluon. Such sizeable higher order corrections lead to large 
+theoretical uncertainties (see \Section~\ref{sec:qcd:pqcd}). Uncertainties due to 
+\acp{PDF} are also significant, since the low-$x$ gluon (instrumental in \ac{ggF}) is 
+relatively poorly constrained (see \Figure~\ref{fig:qcd:pdf}). Calculations are also 
+sensitive to the treatment of quark masses in the loop.
+
+The state-of-the-art \ac{ggF} inclusive cross section calculation is detailed in 
+\Reference~\cite{YR3}. This is an \ac{NNLO} calculation improved by soft-gluon resummation 
+of \acp{NNLL}. Whilst terms up to NL accuracy treat \Ptop, \Pbottom and \Pcharm masses 
+exactly, beyond this the large-$m_{\Ptop}$ limit is used. Finally, two-loop \ac{EW} 
+corrections are also incorporated. The result is shown in blue in 
+\Figure~\ref{fig:higgs_xs} and is reproduced for a number of mass points in 
+\Table~\ref{tab:ggF:xs}.
+
+\begin{table}[b]
+	\begin{tabular}{ccccccc}
+		\multirow{2}{*}{\mH (\GeV)} & \multicolumn{3}{c}{\unit{$\sqrt{s} = 7$}{\TeV}} & \multicolumn{3}{c}{\unit{$\sqrt{s} = 8$}{\TeV}} \\
+		& $\sigma$ (\pico\barn) & Scale & PDF+\alphaS & $\sigma$ (\pico\barn) & Scale & PDF+\alphaS \\
+		\hline
+		115.0 & 17.89 & $^{+7.4\%}_{-8.0\%}$ & $^{+7.7\%}_{-7.0\%}$ 
+		      & 22.66 & $^{+7.4\%}_{-8.1\%}$ & $^{+7.6\%}_{-6.8\%}$ \\
+		125.0 & 15.13 & $^{+7.1\%}_{-7.8\%}$ & $^{+7.6\%}_{-7.1\%}$ 
+		      & 19.27 & $^{+7.2\%}_{-7.8\%}$ & $^{+7.5\%}_{-6.9\%}$ \\
+		150.0 & 10.51 & $^{+6.6\%}_{-7.4\%}$ & $^{+7.6\%}_{-7.5\%}$ 
+		      & 13.55 & $^{+6.7\%}_{-7.4\%}$ & $^{+7.4\%}_{-7.0\%}$ \\
+	\end{tabular}
+	\caption{\ac{ggF} cross sections at the \ac{LHC} for the \mH range favoured by 
+	electroweak fits, accompanied by corresponding QCD scale and PDF+\alphaS uncertainties 
+	\cite{YR3}.}
+	\label{tab:ggF:xs}
+\end{table}
+
+A dramatic improvement in perturbative convergence is claimed within effective field 
+theory via a technique called $\pi^2$-resummation \cite{Becher:2009}. However, this is 
+currently considered controversial for reasons outlined in \Section~2.5 of 
+\Reference~\cite{YR1}.

@@ -34,6 +34,8 @@
 
 %% Physics variables
 \DeclareRobustCommand{\pt}{\thesismath{p_{\text{T}}}\xspace}
+\DeclareRobustCommand{\ptOf}[1]{\thesismath{p_{\text{T,}#1}}\xspace}
+
 \DeclareRobustCommand{\et}{\thesismath{E_{\text{T}}}\xspace}
 \DeclareRobustCommand{\mt}[1]{\thesismath{m_{\text{T,}#1}}\xspace}
 \DeclareRobustCommand{\npv}{\thesismath{N_{\text{PV}}}\xspace}
@@ -66,7 +68,7 @@
 
 
 %% MC software
-\DeclareRobustCommand{\meps}[2]{#1\texttt{+}#2\xspace}
+\DeclareRobustCommand{\meps}[2]{#1{}\texttt{+}#2}
 
 \DeclareRobustCommand{\cpp}{C\texttt{++}\xspace}
 \DeclareRobustCommand{\mcfm}{\textsc{mcfm}\xspace}
