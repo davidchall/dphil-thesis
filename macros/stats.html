@@ -16,10 +16,10 @@ chapterData.addColumn('number', 'Words');
 chapterData.addRows([
 ['Introduction', 0],
 ['Theoretical motivation', 3043],
-['Computational tools for the LHC', 2808],
+['Computational tools for the LHC', 2834],
 ['The ATLAS experiment', 2929],
-['Overview of the \HWW analysis', 4263],
-['\ggH signal modelling', 18],
+['Overview of the \HWW analysis', 4262],
+['\ggH signal modelling', 214],
 ['\WW measurement and modelling', 0],
 ['Other backgrounds', 0],
 ['Results', 0],
@@ -41,6 +41,7 @@ var timestampData = new google.visualization.DataTable();
 timestampData.addColumn('datetime', 'Commit Date');
 timestampData.addColumn('number', 'Words');
 timestampData.addRows([
+[new Date(2014, 1, 1, 0, 0, 1), 0],
 [new Date(2014, 2, 20, 11, 6, 35), 7857],
 [new Date(2014, 2, 20, 18, 19, 27), 8305],
 [new Date(2014, 2, 20, 23, 19, 28), 8498],
@@ -58,7 +59,8 @@ timestampData.addRows([
 [new Date(2014, 3, 9, 18, 34, 19), 12732],
 [new Date(2014, 3, 10, 23, 40, 11), 13219],
 [new Date(2014, 3, 11, 12, 57, 6), 13339],
-[new Date(2014, 3, 11, 15, 9, 19), 13364]
+[new Date(2014, 3, 11, 15, 9, 19), 13364],
+[new Date(2014, 3, 12, 0, 16, 6), 13591]
 ]);
 var timestampOptions = {'title':'Word count vs time',
 'width':500,

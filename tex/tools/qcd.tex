@@ -34,7 +34,7 @@ will result in a residual \mur dependence. Usually \mur is chosen to be the ener
 scale $Q$ of the process under consideration, leading to the concept of a \textit{running 
 coupling constant}.
 
-The \ac{QCD} coupling constant \alphaS is shown in \Figure~\ref{fig:alpha_s}. At low 
+The \ac{QCD} coupling constant \alphaS is shown in \Figure~\ref{fig:qcd:alpha_s}. At low 
 scales (large distances), \alphaS is large and the theory is non-perturbative. 
 Though not analytically proven\footnote{
 	A mathematically rigorous proof of confinement is one of seven Millennium Prize 
@@ -47,7 +47,7 @@ trend, though remains perturbative at all accessible energies.
 	\includegraphics[width=\mediumfigwidth]{tex/tools/alpha_s}
 	\caption{The running of the strong coupling constant \alphaS with energy scale $Q$ 
 	\cite{PDG:2012}. Experimental measurements at various scales are also shown.}
-	\label{fig:alpha_s}
+	\label{fig:qcd:alpha_s}
 \end{figure}
 
 
@@ -157,7 +157,17 @@ order terms. At \ac{LO}, $f_a \parenths{x, \muf}$ is simply the probability of f
 parton of type $a$ with momentum fraction $x$, when probing the proton at a scale \muf.
 However, the interpretation at higher orders is more complex.
 
-Crucially, the \ac{PDF} dependence upon \muf is described by the DGLAP equations 
-\cite{Gribov:1972,Altarelli:1977,Dokshitser:1977}. This allows a $f_a \parenths{x}$ 
-ansatz to be made at low scale and then experimentally validated at higher scales (\eg 
-with deep inelastic scattering or collider jet data).
+The \ac{PDF} \muf scaling is described by the DGLAP equations 
+\cite{Gribov:1972,Altarelli:1977,Dokshitser:1977}. Thus, an $f_a \parenths{x}$ ansatz is 
+made at low \muf and then experimentally validated at higher scales (\eg with deep 
+inelastic scattering or collider jet data). \Figure~\ref{fig:qcd:pdf} shows some example 
+\acp{PDF}.
+
+\begin{figure}
+	\includegraphics[width=\largefigwidth]{tex/tools/pdf}
+	\caption{Parton distribution functions fit by the MSTW collaboration, evaluated at 
+	\unit{$\mu_{\text{F}}^2 = 10$}{\GeV\squared} (left) and 
+	\unit{$\mu_{\text{F}}^2 = 10^4$}{\GeV\squared} (right) \cite{MSTW}. Note that the 
+	gluon PDF is suppressed by a factor 10.}
+	\label{fig:qcd:pdf}
+\end{figure}

@@ -1,0 +1,40 @@
+\documentclass[12pt]{standalone}
+\usepackage{axodraw}
+\usepackage[italic]{hepparticles}
+\usepackage[italic]{hepnames}
+
+\begin{document}
+
+\begin{picture}(240,100)(-17,-10)
+	\SetScale{0.8}
+	\Gluon(0,20)(50,20){-3}{5}
+	\Gluon(0,80)(50,80){3}{5}
+	\ArrowLine(50,20)(50,80)
+	\ArrowLine(50,80)(100,50)
+	\ArrowLine(100,50)(50,20)
+	\DashLine(100,50)(150,50){5}
+	\Photon(150,50)(200,80){2}{5}
+	\Photon(150,50)(200,20){2}{5}
+	\ArrowLine(200,80)(250,95)
+	\ArrowLine(250,65)(200,80)
+	\ArrowLine(250,35)(200,20)
+	\ArrowLine(200,20)(250,5)
+	\Vertex(50,20){2}
+	\Vertex(50,80){2}
+	\Vertex(100,50){2}
+	\Vertex(150,50){2}
+	\Vertex(200,80){2}
+	\Vertex(200,20){2}
+	\put(97,45){$\PHiggs$}
+	\put(17,37){$\Ptop,\Pbottom$}
+	\put(-12,14){$\Pgluon$}
+	\put(-12,62){$\Pgluon$}
+	\put(125,55){$\PWminus$}
+	\put(125,15){$\PWplus$}
+	\put(205,72){$\Plepton$}
+	\put(205,48){$\APnulepton$}
+	\put(205,23){$\APlepton'$}
+	\put(205,0){$\Pnulepton_{'}$}
+\end{picture}
+
+\end{document}
