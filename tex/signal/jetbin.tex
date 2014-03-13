@@ -1,60 +1,222 @@
 %!TEX root = ../../thesis.tex
 
-The analysis is jet-binned because the background composition strongly depends upon jet 
+The analysis is jet-binned since the background composition strongly depends upon jet 
 multiplicity (see \Figure\todo{fig ref}). There are 0-jet and 1-jet bins, and a 
-\atleast{2}-jet bin that is split into \ac{ggF} and \acsu{VBF} signal regions (see 
-\Figure~\ref{fig:sig:jetbinning}). This means uncertainties should be evaluated separately 
-for the exclusive bins, and correlations accounted for when the bins are combined. In the 
-case of perturbative uncertainties (evaluated through scale variations), there are some 
-subtleties that must be carefully considered.
+\atleast{2}-jet bin split into \ac{ggF} and \acsu{VBF} signal regions (see 
+\Figure~\ref{fig:sig:jetbinning}). Uncertainties should be evaluated separately for each 
+bin, and correlations accounted for when the bins are combined. Perturbative 
+uncertainties require particular consideration, due to subtleties described below.
 
 \begin{figure}
 	\includegraphics[width=\mediumfigwidth]{tex/signal/signal_jetbins}
 	\caption{Schematic diagram of the \ac{ggF} and \ac{VBF} signal regions. Note that the 
 	exclusivity of the \ac{VBF} signal region is defined by a central jet veto, and thus 
-	for $\njets \geq 3$ the jet definition includes the restriction that $\eta$ is between 
-	$\eta_{j_1}$ and $\eta_{j_2}$.}
+	for $\njets \geq 3$ the jet definition includes the restriction that $\eta$ is 
+	between $\eta_{j_1}$ and $\eta_{j_2}$.}
 	\label{fig:sig:jetbinning}
 \end{figure}
 
 
 
-\subsection{Perturbative uncertainties in exclusive jet cross sections}
+\subsection{Perturbative uncertainties in jet-binned cross sections}
 
 Consider splitting a cross section into two parts: an exclusive $\sigma_0$ and an 
 inclusive $\sigma_{\geq1}$
 \begin{equation}
-	\sigma_{\total} = \sigma_0 \parenths{\ptveto} + \sigma_{\geq1} \parenths{\ptveto}
+	\sigma_{\total} = \sigma_0 \parenths{\ptcut} + \sigma_{\geq1} \parenths{\ptcut}
 \end{equation}
-where \ptveto is the jet \pt threshold \cite{YR2}. The requirement of a jet with 
-$\pt > \ptveto$ introduces Sudakov double logarithmic contributions 
-$\alpha_{\text{S}}^{k+m} L^{2m}$ to $\sigma_{\geq1}$, where 
-$L \sim \ln\parenths{\ptveto/Q}$ and $Q = \mH$ for \ac{ggF}.
-These are analogous to the logarithms introduced by soft gluon emission, described in 
-\Section~\ref{sec:qcd:resum}. 
+where \ptcut is the jet \pt threshold \cite{YR2}. In $\sigma_{\geq1}$, the requirement of 
+a jet with $\pt > \ptcut$ introduces Sudakov double logarithmic contributions 
+$\alpha_{\text{S}}^{k+m} L^{2m}$, where $L \sim \ln\parenths{\ptcut/Q}$ ($Q = \mH$ for 
+\ac{ggF}). These are analogous to the logarithms introduced by soft gluon emission, 
+described in \Section~\ref{sec:qcd:resum}. 
 
 The schematic structures of the two inclusive cross sections are
 \begin{equation}
 	\sigma_{\total} &\sim \alpha_{\text{S}}^k \{1 &+& \alphaS &+& \alpha_{\text{S}}^2 &+& \ofOrder{\alpha_{\text{S}}^3}\} \\
 \sigma_{\geq1}  &\sim \alpha_{\text{S}}^k \{&\phantom{{}=+}&\alphaS (L^2 + L + 1) &+& \alpha_{\text{S}}^2 (L^4 + L^3 + L^2 + L + 1) &+& \ofOrder{\alpha_{\text{S}}^3 L^6}\}
 \end{equation}
-and thus the exclusive cross section is
+and the exclusive cross section is $\sigma_0 = \sigma_{\total} - \sigma_{\geq1}$.
+Corrections to $\sigma_{\total}$ are large (see \Section~\ref{sec:ggf_inc}) and, when 
+$\ptcut \ll \mH$, the logarithms can overcome the \alphaS suppression and provide 
+significant corrections to $\sigma_{\geq1}$ too. Cancellations then occur between the two 
+series and the scale dependence of $\sigma_0$ is reduced. This effect is rather extreme 
+near \unit{$\ptcut = 25$}{\GeV} (see \Figure~\ref{fig:signal:ggf_sigma0_CI}), as used in 
+the \HWW analysis . Clearly na\"{i}ve scale variations are unsuitable for evaluating 
+perturbative uncertainties.
+
+When discussing uncertainties in jet-binned cross sections, it is convenient to consider 
+a general parametrisation of the covariance matrix. In the \braces{\sigma_0, 
+\sigma_{\geq1}} basis, the covariance matrix is decomposed into two uncertainty sources
 \begin{equation}
-	&\sigma_0 = \sigma_{\total} - \sigma_{\geq1} \label{eq:excl_xs_pert} \\
-	&\sim \alpha_{\text{S}}^k \braces{\sqbracs{1 + \alphaS + \alpha_{\text{S}}^2 + \ofOrder{\alpha_{\text{S}}^3}} - \sqbracs{\alphaS (L^2 + L + 1) + \alpha_{\text{S}}^2 (L^4 + L^3 + L^2 + L + 1) + \ofOrder{\alpha_{\text{S}}^3 L^6}}} \,. \nonumber
+	C &= C^{\text{yield}} + C^{\text{migration}} \\
+	&= \twomatrix{\parenths{\Delta^{\text{y}}_0}^2 & \Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1}}{\Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1} & \parenths{\Delta^{\text{y}}_{\geq1}}^2} + \parenths{\Delta_{0\rightarrow}^{\text{mig}}}^2\twomatrix{1 & -1}{-1 & 1} \,.
+\end{equation}
+The yield component is fully correlated, though can affect the two bins with different 
+magnitudes. The migration component is fully anti-correlated, and affects both bins 
+equally so that normalisation is conserved. In the limit setting procedure, these sources 
+are treated as nuisance parameters with uncertainty amplitudes
+\begin{equation}
+	\begin{array}{l@{}l@{}l}
+		\begin{array}{r}
+			\kappa^{\text{yield}}              : \Big( \\
+			\kappa^{\text{mig}}_{0\rightarrow} : \Big(
+		\end{array}
+		&
+		\begin{array}{@{}rrr@{}}
+			\Delta^{\text{y}}_0, & \Delta^{\text{y}}_{\geq1} \\
+			\Delta^{\text{mig}}_{0\rightarrow}, & -\Delta^{\text{mig}}_{0\rightarrow}
+		\end{array}
+		&
+		\begin{array}{l}
+			\Big) \\ \Big) \,.
+		\end{array}
+	\end{array}
+	\label{eq:ggF:2bin_np}
 \end{equation}
 
-Corrections to $\sigma_{\total}$ are known to be large (see \Section~\ref{sec:ggf_inc}) 
-and, when $\ptveto \ll \mH$, the logarithms can overcome the \alphaS suppression and 
-provide significant corrections to $\sigma_{\geq1}$ too. Cancellations then occur 
-between the two series in (\ref{eq:excl_xs_pert}) and the scale dependence of $\sigma_0$ 
-is reduced. In fact, a \ptveto should exist such that the cancellation is exact and the 
-scale uncertainty is zero. Clearly a na\"{i}ve scale variation is unsuitable.
+Note that so far we have remained fairly general and $\Delta^{\text{y}}_0$, 
+$\Delta^{\text{y}}_{\geq1}$ and $\Delta^{\text{mig}}_{0\rightarrow}$ remain undetermined. 
+We shall see that different methods of evaluating perturbative uncertainties shall 
+effectively determine these uncertainty amplitudes. For example, the na\"{i}ve method 
+described above is equivalent to choosing
+\begin{equation}
+	\text{Na\"{i}ve:} 
+	\quad\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{0},& 
+	\quad\quad \Delta^{\text{y}}_{\geq1} &= \Delta\sigma_{\geq1},&
+	\quad\quad \Delta^{\text{mig}}_{0\rightarrow} &= 0
+\end{equation}
+where uncertainties are evaluated at fixed order via scale variations.
 
-
+In the \HWW analysis, there is also a 1-jet exclusive bin. The second jet veto introduces 
+an additional source of migrations, now between the 1-jet and \atleast{2}-jet bins. 
+Therefore, in the \braces{\sigma_0, \sigma_1, \sigma_{\geq2}} basis, the covariance 
+matrix has three components
+\begin{equation}
+	C &= 
+	\threematrix{
+		\parenths{\Delta^{\text{y}}_0}^2 & 
+		\Delta^{\text{y}}_0 \Delta^{\text{y}}_1 & 
+		\Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq2}
+	}{
+		\Delta^{\text{y}}_0 \Delta^{\text{y}}_1 & 
+		\parenths{\Delta^{\text{y}}_1}^2 & 
+		\Delta^{\text{y}}_1 \Delta^{\text{y}}_{\geq2}
+	}{
+		\Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq2} & 
+		\Delta^{\text{y}}_1 \Delta^{\text{y}}_{\geq2} & 
+		\parenths{\Delta^{\text{y}}_{\geq2}}^2
+	}
+	\nonumber \\
+	&+ \parenths{\Delta^{\text{mig}}_{0\rightarrow}}^2
+	\threematrix{
+		1 & -\parenths{1-\rho} & -\rho
+	}{
+		-\parenths{1-\rho} & \parenths{1-\rho}^2 & \rho\parenths{1-\rho}
+	}{
+		-\rho & \rho\parenths{1-\rho} & \rho^2
+	}
+	+ \parenths{\Delta^{\text{mig}}_{1\rightarrow}}^2
+	\threematrix{
+		0 & 0 & 0
+	}{
+		0 & 1 & -1
+	}{
+		0 & -1 & 1
+	}
+\end{equation}
+where $\rho$ is the anti-correlation between the 0-jet bin and the \atleast{2}-jet bin. 
+In the 3-bin case, there are three nuisance parameters with uncertainty amplitudes
+\begin{equation}
+	\begin{array}{l@{}l@{}l}
+		\begin{array}{r}
+			\kappa^{\text{yield}}              : \Big( \\
+			\kappa^{\text{mig}}_{0\rightarrow} : \Big( \\
+			\kappa^{\text{mig}}_{1\rightarrow} : \Big(
+		\end{array}
+		&
+		\begin{array}{@{}rrr@{}}
+			\Delta^{\text{y}}_0, & \Delta^{\text{y}}_1, & \Delta^{\text{y}}_{\geq2} \\
+			\Delta^{\text{mig}}_{0\rightarrow}, & -\parenths{1-\rho} \Delta^{\text{mig}}_{0\rightarrow}, & -\rho \Delta^{\text{mig}}_{0\rightarrow} \\
+			0, & \Delta^{\text{mig}}_{1\rightarrow}, & -\Delta^{\text{mig}}_{1\rightarrow}
+		\end{array}
+		&
+		\begin{array}{l}
+			\Big) \\ \Big) \\ \Big) \,.
+		\end{array}
+	\end{array}
+	\label{eq:ggF:3bin_np}
+\end{equation}
+So it is $\Delta^{\text{y}}_0$, $\Delta^{\text{y}}_1$, $\Delta^{\text{y}}_{\geq2}$, 
+$\Delta^{\text{mig}}_{0\rightarrow}$, $\Delta^{\text{mig}}_{1\rightarrow}$ and $\rho$ 
+that must be determined. Two different methods for evaluating these shall now be examined.
 
 
 
 \subsection{Combined inclusive method}
+
+The \textit{combined inclusive} (CI) method\footnote{
+	The CI method is also called the Stewart-Tackmann method, after its original 
+	proponents.
+} \cite{Stewart-Tackmann:2012} uses scale variations of $\sigma_{\geq1}$ and 
+$\sigma_{\geq2}$ to probe the size of the higher order logarithmic corrections, and 
+identifies that they are related to the bin migration uncertainties. It therefore chooses
+\begin{equation}
+	\text{CI:}
+	\quad\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{\total},&
+	\quad\quad \Delta^{\text{y}}_1 &= 0,&
+	\quad\quad \Delta^{\text{y}}_{\geq2} &= 0, \nonumber \\
+	\quad\quad \Delta^{\text{mig}}_{0\rightarrow} &= \Delta\sigma_{\geq1},&
+	\quad\quad \Delta^{\text{mig}}_{1\rightarrow} &= \Delta\sigma_{\geq2},&
+	\quad\quad \rho &= 0
+\end{equation}
+where uncertainties are evaluated at fixed order via scale variations. Actually, 
+$\Delta\sigma_{\total}$ is taken from the calculations described in 
+\Section~\ref{sec:ggf_inc}, rather than fixed order.
+
+This is equivalent to assuming inclusive cross sections have uncorrelated uncertainties
+\begin{equation}
+	\text{CI:} \quad\quad
+	\sigma_N = \sigma_{\geq N} - \sigma_{\geq N+1}
+	\quad\quad\Rightarrow\quad\quad
+	\Delta\sigma_N^2 = \Delta\sigma_{\geq N}^2 + \Delta\sigma_{\geq N+1}^2 \,.
+\end{equation}
+Although this assumption is not believed to be exact, the CI method offers a practical 
+solution to the cancellations observed with the na\"{i}ve method (see 
+\Figure~\ref{fig:signal:ggf_sigma0_CI}). Uncertainties in $\sigma_{N}$ must be at least 
+as large as those in $\sigma_{\geq N}$, and the large-\ptcut limit is correct. 
+
+It should be noted that the CI method requires each inclusive cross section to be 
+evaluated at the same order in \alphaS (\eg $\sigma_{\total}^{\text{NNLO}}$, 
+$\sigma_{\geq1}^{\text{NLO}}$ and $\sigma_{\geq2}^{\text{LO}}$). In the case of \ac{ggF} 
+contamination to the \ac{VBF} signal region, the uncertainties are evaluated in a 
+significantly different region of phase space, and so are treated as uncorrelated.
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/signal/ggF_sigma0_naive}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/signal/ggF_sigma0_CI}
+	\caption{The 0-jet exclusive ggF cross section versus the jet \pt threshold 
+	\cite{YR2}. The band shows the perturbative uncertainties evaluated using the 
+	na\"{i}ve method (left) and the combined inclusive method (right).}
+	\label{fig:signal:ggf_sigma0_CI}
+\end{figure}
+
+
 \subsection{Jet veto efficiency method}
+
+The \textit{jet veto efficiency} (JVE) method \cite{JVE:NLL} takes quite a different 
+approach.
+
+\begin{equation}
+	\text{JVE:}
+	\quad\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{\total} \epsilon_0,&
+	\quad\quad \Delta^{\text{y}}_1 &= \Delta\sigma_{\total} \parenths{1-\epsilon_0} \epsilon_1,&
+	\quad\quad \Delta^{\text{y}}_{\geq2} &= \Delta\sigma_{\total} \parenths{1-\epsilon_0} \parenths{1-\epsilon_1}, \nonumber \\
+	\quad\quad \Delta^{\text{mig}}_{0\rightarrow} &= \Delta\epsilon_0 \sigma_{\total},&
+	\quad\quad \Delta^{\text{mig}}_{1\rightarrow} &= \Delta\epsilon_1 \sigma_{\total} \parenths{1-\epsilon_0},&
+	\quad\quad \rho &= 1-\epsilon_1
+\end{equation}
+
+
 \subsection{Comparison}
