@@ -27,7 +27,7 @@ for line in fin:
     timestamp = datetime.strptime(words[0]+" "+words[1], "%Y-%m-%d %H:%M:%S")
     timeWordCount.append("[new Date(" + 
                          str(timestamp.year)   + ", " +
-                         str(timestamp.month)  + ", " +
+                         str(timestamp.month - 1)  + ", " +
                          str(timestamp.day)    + ", " +
                          str(timestamp.hour)   + ", " +
                          str(timestamp.minute) + ", " +
