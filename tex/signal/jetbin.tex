@@ -2,7 +2,7 @@
 
 The analysis is jet-binned since the background composition strongly depends upon jet 
 multiplicity (see \Figure\todo{fig ref}). There are 0-jet and 1-jet bins, and a 
-\atleast{2}-jet bin split into \ac{ggF} and \acsu{VBF} signal regions (see 
+\twojet bin split into \ac{ggF} and \acsu{VBF} signal regions (see 
 \Figure~\ref{fig:sig:jetbinning}). Uncertainties should be evaluated separately for each 
 bin, and correlations accounted for when the bins are combined. Perturbative 
 uncertainties require particular consideration, due to subtleties described below.
@@ -19,6 +19,7 @@ uncertainties require particular consideration, due to subtleties described belo
 
 
 \subsection{Perturbative uncertainties in jet-binned cross sections}
+\label{sec:ggF:naive}
 
 Consider splitting a cross section into two parts: an exclusive $\sigma_0$ and an 
 inclusive $\sigma_{\geq1}$
@@ -89,7 +90,7 @@ described above is equivalent to choosing
 where uncertainties are evaluated at fixed order via scale variations.
 
 In the \HWW analysis, there is also a 1-jet exclusive bin. The second jet veto introduces 
-an additional source of migrations, now between the 1-jet and \atleast{2}-jet bins. 
+an additional source of migrations, now between the 1-jet and \twojet bins. 
 Therefore, in the \braces{\sigma_0, \sigma_1, \sigma_{\geq2}} basis, the covariance 
 matrix has three components
 \begin{equation}
@@ -125,8 +126,9 @@ matrix has three components
 		0 & -1 & 1
 	}
 \end{equation}
-where $\rho$ is the anti-correlation between the 0-jet bin and the \atleast{2}-jet bin. 
-In the 3-bin case, there are three nuisance parameters with uncertainty amplitudes
+where $\rho$ is the fraction of migrations from the 0-jet bin that enter the 
+\twojet bin. In the 3-bin case, there are three nuisance parameters with 
+uncertainty amplitudes
 \begin{equation}
 	\begin{array}{l@{}l@{}l}
 		\begin{array}{r}
@@ -154,6 +156,7 @@ that must be determined. Two different methods for evaluating these shall now be
 
 
 \subsection{Combined inclusive method}
+\label{sec:ggF:ci}
 
 The \textit{combined inclusive} (CI) method\footnote{
 	The CI method is also called the Stewart-Tackmann method, after its original 
@@ -186,16 +189,16 @@ solution to the cancellations observed with the na\"{i}ve method (see
 \Figure~\ref{fig:signal:ggf_sigma0_CI}). Uncertainties in $\sigma_{N}$ must be at least 
 as large as those in $\sigma_{\geq N}$, and the large-\ptcut limit is correct. 
 
-It should be noted that the CI method requires each inclusive cross section to be 
-evaluated at the same order in \alphaS (\eg $\sigma_{\total}^{\text{NNLO}}$, 
-$\sigma_{\geq1}^{\text{NLO}}$ and $\sigma_{\geq2}^{\text{LO}}$). In the case of \ac{ggF} 
-contamination to the \ac{VBF} signal region, the uncertainties are evaluated in a 
-significantly different region of phase space, and so are treated as uncorrelated.
+It should be noted that each inclusive cross section must be evaluated at the same order 
+in \alphaS (\eg $\sigma_{\total}^{\text{NNLO}}$, $\sigma_{\geq1}^{\text{NLO}}$ and 
+$\sigma_{\geq2}^{\text{LO}}$). In the case of \ac{ggF} contamination to the \ac{VBF} 
+signal region, the uncertainties are evaluated in a significantly different region of 
+phase space, and so are treated as uncorrelated.
 
 \begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/signal/ggF_sigma0_naive}
+	\includegraphics[width=0.495\textwidth]{tex/signal/sigma0_naive}
 	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/signal/ggF_sigma0_CI}
+	\includegraphics[width=0.495\textwidth]{tex/signal/sigma0_CI}
 	\caption{The 0-jet exclusive ggF cross section versus the jet \pt threshold 
 	\cite{YR2}. The band shows the perturbative uncertainties evaluated using the 
 	na\"{i}ve method (left) and the combined inclusive method (right).}
@@ -204,19 +207,49 @@ significantly different region of phase space, and so are treated as uncorrelate
 
 
 \subsection{Jet veto efficiency method}
+\label{sec:ggF:jve}
 
 The \textit{jet veto efficiency} (JVE) method \cite{JVE:NLL} takes quite a different 
-approach.
-
+approach. It considers each exclusive cross section as a product of the total cross 
+section and jet veto efficiencies
+\begin{equation}
+	\sigma_0 &= \sigma_{\total} \epsilon_0 \\
+	\sigma_1 &= \sigma_{\total} \parenths{1-\epsilon_0} \epsilon_1 \\
+	\sigma_{\geq2} &= \sigma_{\total} \parenths{1-\epsilon_0} \parenths{1-\epsilon_1}
+\end{equation}
+where $\epsilon_0 = \epsilon_0\parenths{\ptcut}$ and 
+$\epsilon_1 = \epsilon_1\parenths{p_{\text{T}}^{\text{sel}}, \ptcut}$ are the first and 
+second jet veto efficiencies. It then assumes that uncertainties in $\sigma_{\total}$ and 
+$\epsilon_N$ are uncorrelated, and therefore exclusive cross sections must have an 
+uncertainty at least as large as $\Delta\sigma_{\total}$. This is equivalent to
 \begin{equation}
 	\text{JVE:}
-	\quad\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{\total} \epsilon_0,&
-	\quad\quad \Delta^{\text{y}}_1 &= \Delta\sigma_{\total} \parenths{1-\epsilon_0} \epsilon_1,&
-	\quad\quad \Delta^{\text{y}}_{\geq2} &= \Delta\sigma_{\total} \parenths{1-\epsilon_0} \parenths{1-\epsilon_1}, \nonumber \\
+	\quad\quad \Delta^{\text{y}}_0 &= \frac{\Delta\sigma_{\total}}{\sigma_{\total}} \sigma_{0},&
+	\quad\quad \Delta^{\text{y}}_1 &= \frac{\Delta\sigma_{\total}}{\sigma_{\total}} \sigma_{1},&
+	\quad\quad \Delta^{\text{y}}_{\geq2} &= \frac{\Delta\sigma_{\total}}{\sigma_{\total}} \sigma_{\geq2}, \nonumber \\
 	\quad\quad \Delta^{\text{mig}}_{0\rightarrow} &= \Delta\epsilon_0 \sigma_{\total},&
-	\quad\quad \Delta^{\text{mig}}_{1\rightarrow} &= \Delta\epsilon_1 \sigma_{\total} \parenths{1-\epsilon_0},&
-	\quad\quad \rho &= 1-\epsilon_1
+	\quad\quad \Delta^{\text{mig}}_{1\rightarrow} &= \Delta\epsilon_1 \sigma_{\geq1},&
+	\quad\quad \rho &= 1-\epsilon_1 \,.
 \end{equation}
+Again, $\Delta\sigma_{\total}$ is taken from \Section~\ref{sec:ggf_inc}. However, 
+$\epsilon_N$ contains similar cancellations to those discussed in 
+\Section~\ref{sec:ggF:naive}, and so $\Delta\epsilon_N$ must be treated with care.
+
+There is an ambiguity in the definition of $\epsilon_N$ that is not present in fixed 
+order calculations. For example, at \ac{NNLO}, three alternative definitions of 
+$\epsilon_N$ may be identified
+\begin{equation}
+	\epsilon_N^{\parenths{\text{a}}} &= 1 - \frac{\sigma_{\geq N+1}^{\text{NLO}}}{\sigma_{\geq N}^{\text{NNLO}}} \\
+	\epsilon_N^{\parenths{\text{b}}} &= 1 - \frac{\sigma_{\geq N+1}^{\text{NLO}}}{\sigma_{\geq N}^{\text{NLO}}} \\
+	\epsilon_N^{\parenths{\text{c}}} &= 1 - \frac{\sigma_{\geq N+1}^{\text{NLO}}}{\sigma_{\geq N}^{\text{LO}}} + \parenths{\frac{\sigma_{\geq N}^{\text{NLO}}}{\sigma_{\geq N}^{\text{LO}}} - 1} \frac{\sigma_{\geq N+1}^{\text{LO}}}{\sigma_{\geq N}^{\text{LO}}} \,.
+\end{equation}
+Schemes (a), (b) and (c) differ by NNNLO terms, and therefore can be used to probe higher 
+order corrections. In processes where convergence is well behaved, \eg 
+\HepProcess{\Pquark\APquark \HepTo \PZ}, these schemes converge. Therefore, 
+$\epsilon_N^{\parenths{\text{a}}}$ is taken as the central value and $\Delta\epsilon_N$ 
+is taken as the difference between the schemes or the scale variations in 
+$\epsilon_N^{\parenths{\text{a}}}$, whichever is larger.
 
 
-\subsection{Comparison}
+
+\subsection{Results}

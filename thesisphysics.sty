@@ -31,20 +31,25 @@
 \DeclareRobustCommand{\me}{\HepProcess{\Pmu\Pe}\xspace}
 \DeclareRobustCommand{\ee}{\HepProcess{\Pe\Pe}\xspace}
 \DeclareRobustCommand{\mm}{\HepProcess{\Pmu\Pmu}\xspace}
+\DeclareRobustCommand{\twojet}{\thesismath{\geq\!2}-jet\xspace}
 
 %% Physics variables
 \DeclareRobustCommand{\pt}{\thesismath{p_{\text{T}}}\xspace}
 \DeclareRobustCommand{\ptOf}[1]{\thesismath{p_{\text{T,}#1}}\xspace}
 
 \DeclareRobustCommand{\et}{\thesismath{E_{\text{T}}}\xspace}
-\DeclareRobustCommand{\mt}[1]{\thesismath{m_{\text{T,}#1}}\xspace}
+\DeclareRobustCommand{\mt}{\thesismath{m_{\text{T}}}\xspace}
+\DeclareRobustCommand{\maxmtw}{\thesismath{\max m_{\text{T,\PW}}}\xspace}
 \DeclareRobustCommand{\npv}{\thesismath{N_{\text{PV}}}\xspace}
 \DeclareRobustCommand{\mH}{\thesismath{m_{\PHiggs}}\xspace}
 \DeclareRobustCommand{\mW}{\thesismath{m_{\PW}}\xspace}
 \DeclareRobustCommand{\mZ}{\thesismath{m_{\PZ}}\xspace}
 \DeclareRobustCommand{\mll}{\thesismath{m_{\Plepton\Plepton}}\xspace}
+\DeclareRobustCommand{\mtautau}{\thesismath{m_{\Ptau\Ptau}}\xspace}
+\DeclareRobustCommand{\mjj}{\thesismath{m_{jj}}\xspace}
 \DeclareRobustCommand{\dphill}{\thesismath{\Delta\phi_{\Plepton\Plepton}}\xspace}
 \DeclareRobustCommand{\dphillmet}{\thesismath{\Delta\phi_{\Plepton\Plepton\text{,MET}}}\xspace}
+\DeclareRobustCommand{\dyjj}{\thesismath{\Delta y_{jj}}\xspace}
 \DeclareRobustCommand{\ptleadlep}{\thesismath{p_{\text{T,\Plepton}}^{\text{lead}}}\xspace}
 \DeclareRobustCommand{\ptsubleadlep}{\thesismath{p_{\text{T,\Plepton}}^{\text{sublead}}}\xspace}
 \DeclareRobustCommand{\ptll}{\thesismath{p_{\text{T,}\Plepton\Plepton}}\xspace}
@@ -79,13 +84,14 @@
 \DeclareRobustCommand{\pythia}[1]{\textsc{Pythia\,#1}\xspace}
 \DeclareRobustCommand{\sherpa}{\textsc{Sherpa}\xspace}
 \DeclareRobustCommand{\mcatnlo}{\textsc{MC@NLO}\xspace}
-\DeclareRobustCommand{\amcatnlo}{a\textsc{MC@NLO}\xspace}
-\DeclareRobustCommand{\powheg}{\textsc{Powheg}\xspace}
-\DeclareRobustCommand{\powhegbox}{\textsc{Powheg-Box}\xspace}
+\DeclareRobustCommand{\amcatnlo}{\textsc{aMCatNLO}\xspace}
+\DeclareRobustCommand{\powhegmethod}{\textsc{Powheg}\xspace}
+\DeclareRobustCommand{\powhegbox}{\textsc{PowhegBox}\xspace}
 \DeclareRobustCommand{\geant}{\textsc{Geant4}\xspace}
 \DeclareRobustCommand{\atlfast}{\textsc{Atlfast-ii}\xspace}
 \DeclareRobustCommand{\fastjet}{\textsc{FastJet}\xspace}
 \DeclareRobustCommand{\jetvheto}{\textsc{JetVHeto}\xspace}
+\DeclareRobustCommand{\hqt}{\textsc{HqT}\xspace}
 
 %% Experiments
 \DeclareRobustCommand{\dzero}{D\O\xspace}
@@ -96,7 +102,6 @@
 \DeclareRobustCommand{\alphaS}{\thesismath{\alpha_{\text{S}}}\xspace}
 \DeclareRobustCommand{\alphaEM}{\thesismath{\alpha_{\text{EM}}}\xspace}
 \DeclareRobustCommand{\antikt}{anti-$k_{\text{T}}$\xspace}
-\DeclareRobustCommand{\atleast}[1]{\thesismath{\geq\!#1}\xspace}
 
 
 % Jet veto stuff
