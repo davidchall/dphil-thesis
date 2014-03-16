@@ -2,6 +2,7 @@
 
 \ac{ggF} is modelled by \meps{\powhegbox}{\pythia{8}}, including the exact mass 
 dependence of the \Ptop and \Pbottom quarks in the loop \cite{Powheg-ggF-quarkmasses}. 
+The CT10 PDF \cite{CTEQ} was used to model the incoming partons.
 The \powhegbox parameter \verb|hfact| controls the scale at which the emission 
 transitions from Sudakov-like to ME-like. This is tuned to $\mH/1.2$ in order to 
 reproduce the Higgs boson \pt distribution of \hqt \cite{HqT2} (NLO+NNLL accuracy). This 
@@ -26,14 +27,13 @@ the MC modelling and measuring the effect upon the acceptance. The selection cri
 very similar to those applied at detector-level, and are summarised in 
 \Table~\ref{tab:signal:acc_truthselection}.
 
-The hadron-level object definitions follow. The MC event record is used to identify 
-leptons and neutrinos which descend from the Higgs boson. An \metvec vector is 
-constructed from the neutrinos. Each lepton is `dressed' with the four-momenta of photons 
-within a cone of $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are 
-found using individual particles as inputs (\cf topo-clusters at detector-level). Muons 
-and neutrinos are excluded from jet finding since they interact weakly with the 
-calorimeter. Leptons and jets are required to pass the same \pt and $\eta$ criteria 
-applied at detector-level.
+Hadron-level object definitions follow. The MC event record is used to identify leptons 
+and neutrinos which descend from the Higgs boson. An \metvec vector is constructed from 
+the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a cone of 
+$\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found using 
+individual particles as inputs (\cf topo-clusters at detector-level). Muons and neutrinos 
+are excluded from jet finding since they interact weakly with the calorimeter. Objects 
+must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-level.
 
 \begin{table}
 	\begin{tabular}{ccc}
@@ -68,24 +68,111 @@ applied at detector-level.
 	\label{tab:signal:acc_truthselection}
 \end{table}
 
+Four sources of theoretical uncertainty are considered:
+\begin{itemize}[noitemsep,nolistsep]
+	\item higher order corrections,
+	\item \acp{PDF},
+	\item parton shower, hadronisation and underlying event models,
+	\item NLO-PS matching scheme.
+\end{itemize}
+
+Uncertainties due to higher order corrections are evaluated via independent variation of 
+renormalisation and factorisation scales in the range $\mH/2 \leq \mur,\muf \leq 2\mH$, 
+whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. In the \twojet bin, scale 
+uncertainties are evaluated \todo{H+2j scale uncertainties in acceptance} with \mcfm 
+\cite{MCFM:H2j}. This is necessary because \powhegbox is an NLO generator and therefore 
+cannot probe perturbative uncertainties in the \twojet bin.
+
+Uncertainties due to \acp{PDF} are evaluated in two ways. The acceptance is compared to 
+that predicted with the MSTW2008 PDF \cite{MSTW}. Also, the set of PDF eigenvectors 
+corresponding to 90\% \ac{CL} of the CT10 fit were used to evaluate an uncertainty, 
+which was then rescaled to 68\% \ac{CL}.
+
+Uncertainties due to the \ac{PS}, hadronisation and \ac{UE} models are evaluated by 
+comparing \powhegbox showered by \pythia{8} (nominal), \pythia{6} and \fherwig. 
+Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
+\meps{\powhegbox}{\fherwig} to \meps{\mcatnlo}{\herwigpp}.
+
+
 \begin{table}
-	\begin{tabular}{cc|ccccccc}
-		\multirow{2}{*}{Channel} & \multirow{2}{*}{Jet bin} & \multirow{2}{*}{Scale} & CT10 vs & CT10 & Py8 vs & Py8 vs & Powheg vs & \multirow{2}{*}{Total} \\
-		&  &  & MSTW & error sets & Py6 & Jimmy & MC$@$NLO \\
+	\begin{tabular}{r|ccccccc|c}
+		& \multirow{2}{*}{Stat.} & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{Match} & \multirow{2}{*}{Total} \\
+		& & & MSTW & 90\% CL & \pythia{6} & \fherwig & & \\
 		\hline
-		\ee/\mm &   0-jet & 1.4\% & +1.9\% & 5.3\% & $+1.6\%$ & $+6.4\%$ & $+5.1\%$ \\
-		\em/\me &   0-jet & 1.1\% & +1.9\% & 5.3\% & $-0.5\%$ & $+2.2\%$ & $+1.3\%$ \\
-		\ee/\mm &   1-jet & 1.9\% & +1.8\% & 4.6\% & $-0.7\%$ & $+2.1\%$ & $+2.3\%$ \\
-		\em/\me &   1-jet & 1.3\% & +1.8\% & 4.7\% & $+0.5\%$ & $+3.5\%$ & $+3.6\%$ \\
-		\ee/\mm & \twojet &       & +2.0\% & 3.7\% & $+0.8\%$ & $-1.0\%$ & $-5.6\%$ \\
-		\em/\me & \twojet &       & +2.0\% & 3.6\% & $-0.5\%$ & $+1.5\%$ & $-2.9\%$ \\
+		\multicolumn{9}{c}{\ee/\mm channels} \\
+		\hline
+		0-jet   & 0.6\% & 1.4\% & +1.9\% & 5.3\% & $+1.6\%$ & $+6.4\%$ & $-2.5\%$ & 9.1\% \\
+		1-jet   & 1.0\% & 1.9\% & +1.8\% & 4.6\% & $-0.7\%$ & $+2.1\%$ & $-1.1\%$ & 5.8\% \\
+		\twojet & 1.5\% &       & +2.0\% & 3.7\% & $+0.8\%$ & $-1.0\%$ & $-6.3\%$ &  \\
+		\hline
+		\multicolumn{9}{c}{\em/\me channels} \\
+		\hline
+		0-jet   & 0.5\% & 1.1\% & +1.9\% & 5.3\% & $-0.5\%$ & $+2.2\%$ & $-1.8\%$ & 6.4\% \\
+		1-jet   & 0.8\% & 1.3\% & +1.8\% & 4.7\% & $+0.5\%$ & $+3.5\%$ & $-1.1\%$ & 6.4\% \\
+		\twojet & 1.2\% &       & +2.0\% & 3.6\% & $-0.5\%$ & $+1.5\%$ & $-4.5\%$ &  \\
 	\end{tabular}
 	\caption{Theoretical uncertainties in the acceptance of ggF in each signal 
 	region, split by opposite/same flavour channels and jet bins. PDF uncertainties are
 	evaluated for acceptances relative to the inclusive cross section, whereas others are
 	calculated within jet bins.}
-	\label{tab:signal:acc_unc_small}
+	\label{tab:signal:acc_unc_summary}
 \end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{ccc|cccccc}
+		& \ptsubleadlep & \mll & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{Match} \\
+		& (\GeV) & (\GeV) & & MSTW & 90\% CL & \pythia{6} & \fherwig & \\
+		\hline
+		\multicolumn{9}{c}{\ee/\mm channels} \\
+		\hline
+		\multirow{2}{*}{0-jet}
+		&   $>10$ & 12--30 & 2.5\% & +1.9\% & 5.3\% & $+1.8\%$ & $+7.2\%$ & $-4.2\%$ \\
+		&   $>10$ & 30--55 & 1.1\% & +1.9\% & 5.4\% & $+1.3\%$ & $+5.6\%$ & $-0.6\%$ \\
+		\hline
+		\multirow{2}{*}{1-jet}
+		&   $>10$ & 12--30 & 2.5\% & +1.8\% & 4.5\% & $-0.5\%$ & $+3.9\%$ & $-3.0\%$ \\
+		&   $>10$ & 30--55 & 1.2\% & +1.8\% & 4.7\% & $-0.9\%$ & $+0.2\%$ & $+1.1\%$ \\
+		\hline
+		\multirow{2}{*}{\twojet}
+		&   $>10$ & 12--30 &       & +2.0\% & 3.7\% & $+2.9\%$ & $-0.6\%$ & $-6.5\%$ \\
+		&   $>10$ & 30--55 &       & +2.1\% & 3.7\% & $-1.8\%$ & $-1.4\%$ & $-6.1\%$ \\
+		\hline
+		\multicolumn{9}{c}{\em/\me channels} \\
+		\hline
+		\multirow{6}{*}{0-jet}
+	    & 10--15 & 10--30 & 2.6\% & +1.8\% & 5.3\% & $-1.7\%$ & $+5.7\%$ & $-3.5\%$ \\
+		& 15--20 & 10--30 & 1.3\% & +1.9\% & 5.2\% & $+2.2\%$ & $+4.9\%$ & $-2.8\%$ \\
+		&  $>20$ & 10--30 & 1.0\% & +1.9\% & 5.2\% & $-2.2\%$ & $-0.6\%$ & $-0.5\%$ \\
+		& 10--15 & 30--55 & 1.5\% & +1.8\% & 5.5\% & $+0.8\%$ & $+5.5\%$ & $-3.8\%$ \\
+		& 15--20 & 30--55 & 1.5\% & +1.9\% & 5.4\% & $-0.1\%$ & $+2.0\%$ & $-2.5\%$ \\
+		&  $>20$ & 30--55 & 3.5\% & +1.9\% & 5.4\% & $-1.9\%$ & $-2.4\%$ & $<0.1\%$ \\
+		\hline
+		\multirow{6}{*}{1-jet}
+	    & 10--15 & 10--30 & 3.2\% & +1.7\% & 4.7\% & $+2.1\%$ & $+11\%$  & $-4.4\%$ \\
+		& 15--20 & 10--30 & 2.9\% & +1.8\% & 4.6\% & $+0.8\%$ & $+1.8\%$ & $+1.7\%$ \\
+		&  $>20$ & 10--30 & 3.5\% & +1.8\% & 4.4\% & $<0.1\%$ & $+0.4\%$ & $-0.3\%$ \\
+		& 10--15 & 30--55 & 5.8\% & +1.7\% & 5.0\% & $+1.2\%$ & $+11\%$  & $-6.2\%$ \\
+		& 15--20 & 30--55 & 1.0\% & +1.8\% & 4.8\% & $+2.5\%$ & $+13\%$  & $+6.7\%$  \\
+		&  $>20$ & 30--55 & 1.3\% & +1.8\% & 4.6\% & $-0.7\%$ & $-2.1\%$ & $<0.1\%$ \\
+		\hline
+		\multirow{6}{*}{\twojet}
+	    & 10--15 & 10--30 &       & +2.0\% & 3.7\% & $+0.8\%$ & $+14\%$  & $-9.8\%$ \\
+		& 15--20 & 10--30 &       & +2.0\% & 3.5\% & $+5.7\%$ & $+23\%$  & $-3.5\%$  \\
+		&  $>20$ & 10--30 &       & +2.0\% & 3.6\% & $-0.8\%$ & $-4.7\%$ & $-4.7\%$ \\
+		& 10--15 & 30--55 &       & +1.9\% & 3.8\% & $-5.9\%$ & $+1.0\%$ & $+8.2\%$ \\
+		& 15--20 & 30--55 &       & +2.0\% & 3.6\% & $-6.6\%$ & $+0.5\%$ & $-1.4\%$ \\
+		&  $>20$ & 30--55 &       & +1.9\% & 3.6\% & $+0.3\%$ & $-0.9\%$ & $-5.2\%$ \\
+	\end{tabular}
+	\caption{Theoretical uncertainties in the acceptance of each signal region binned in 
+	subleading lepton $p_T$ and $m_{ll}$, split into opposite/same flavour channels and into jet bins.
+	PDF uncertainties are evaluated for acceptances relative to the inclusive cross section, whereas 
+	others are calculated within jet bins.}
+	\label{tab:ggf_acc_unc_binned}
+\end{table}
+
+
+
 
 
 \subsection{\mt shape modelling}
