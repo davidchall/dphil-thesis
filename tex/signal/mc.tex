@@ -18,14 +18,11 @@ tuning is further discussed in \Section~4.9 of \Reference \cite{YR2}.
 \subsection{Event selection acceptance}
 
 In \Section~\ref{sec:ggf_jetbin}, perturbative uncertainties in the jet binning were 
-considered. The jet bin fractions predicted by MC were found to be in agreement with the 
-dedicated jet-binned cross section calculations. 
-
-We now consider uncertainties in the acceptance of the event selection. These are 
-evaluated at hadron-level (\ie before detector simulation) by changing some aspect of 
-the MC modelling and measuring the effect upon the acceptance. The selection criteria are 
-very similar to those applied at detector-level, and are summarised in 
-\Table~\ref{tab:signal:acc_truthselection}.
+considered. We now consider uncertainties in the acceptance of the event selection. These 
+are evaluated at hadron-level (\ie before detector simulation) by changing some aspect of 
+the MC modelling and measuring the effect upon the acceptance within each jet bin. 
+The selection criteria are similar to those applied at detector-level (see 
+\Table~\ref{tab:signal:acc_truthselection}).
 
 Hadron-level object definitions follow. The MC event record is used to identify leptons 
 and neutrinos which descend from the Higgs boson. An \metvec vector is constructed from 
@@ -86,89 +83,94 @@ cannot probe perturbative uncertainties in the \twojet bin.
 Uncertainties due to \acp{PDF} are evaluated in two ways. The acceptance is compared to 
 that predicted with the MSTW2008 PDF \cite{MSTW}. Also, the set of PDF eigenvectors 
 corresponding to 90\% \ac{CL} of the CT10 fit were used to evaluate an uncertainty, 
-which was then rescaled to 68\% \ac{CL}.
+which was then rescaled to 68\% \ac{CL}. PDF uncertainties are calculated relative to the 
+inclusive cross section, in order to include uncertainties in the jet binning.
 
 Uncertainties due to the \ac{PS}, hadronisation and \ac{UE} models are evaluated by 
 comparing \powhegbox showered by \pythia{8} (nominal), \pythia{6} and \fherwig. 
 Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
 \meps{\powhegbox}{\fherwig} to \meps{\mcatnlo}{\herwigpp}.
 
+The uncertainties in each signal region are shown in 
+\Table~\ref{tab:signal:acc_unc_summary}. In the fitting procedure, the signal regions are 
+further split into bins of \ptsubleadlep and \mll in order to exploit the different 
+background compositions. The uncertainties in these split signal regions are shown in 
+\Table~\ref{tab:signal:acc_unc_binned}.
 
-\begin{table}
+\begin{table}[b]
 	\begin{tabular}{r|ccccccc|c}
-		& \multirow{2}{*}{Stat.} & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{Match} & \multirow{2}{*}{Total} \\
-		& & & MSTW & 90\% CL & \pythia{6} & \fherwig & & \\
+		& \multirow{2}{*}{Stat.} & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{NLO-PS} & \multirow{2}{*}{Total} \\
+		& & & MSTW & 68\% CL & \pythia{6} & \fherwig & & \\
 		\hline
 		\multicolumn{9}{c}{\ee/\mm channels} \\
 		\hline
-		0-jet   & 0.6\% & 1.4\% & +1.9\% & 5.3\% & $+1.6\%$ & $+6.4\%$ & $-2.5\%$ & 9.1\% \\
-		1-jet   & 1.0\% & 1.9\% & +1.8\% & 4.6\% & $-0.7\%$ & $+2.1\%$ & $-1.1\%$ & 5.8\% \\
-		\twojet & 1.5\% &       & +2.0\% & 3.7\% & $+0.8\%$ & $-1.0\%$ & $-6.3\%$ &  \\
+		0-jet   & 0.6\% & 1.4\% & +1.9\% & 3.2\% & $+1.6\%$ & $+6.4\%$ & $-2.5\%$ & 8.1\% \\
+		1-jet   & 1.0\% & 1.9\% & +1.8\% & 2.8\% & $-0.7\%$ & $+2.1\%$ & $-1.1\%$ & 4.6\% \\
+		\twojet & 1.5\% &       & +2.0\% & 2.3\% & $+0.8\%$ & $-1.0\%$ & $-6.3\%$ &  \\
 		\hline
 		\multicolumn{9}{c}{\em/\me channels} \\
 		\hline
-		0-jet   & 0.5\% & 1.1\% & +1.9\% & 5.3\% & $-0.5\%$ & $+2.2\%$ & $-1.8\%$ & 6.4\% \\
-		1-jet   & 0.8\% & 1.3\% & +1.8\% & 4.7\% & $+0.5\%$ & $+3.5\%$ & $-1.1\%$ & 6.4\% \\
-		\twojet & 1.2\% &       & +2.0\% & 3.6\% & $-0.5\%$ & $+1.5\%$ & $-4.5\%$ &  \\
+		0-jet   & 0.5\% & 1.1\% & +1.9\% & 3.2\% & $-0.5\%$ & $+2.2\%$ & $-1.8\%$ & 4.8\% \\
+		1-jet   & 0.8\% & 1.3\% & +1.8\% & 2.8\% & $+0.5\%$ & $+3.5\%$ & $-1.1\%$ & 5.1\% \\
+		\twojet & 1.2\% &       & +2.0\% & 2.2\% & $-0.5\%$ & $+1.5\%$ & $-4.5\%$ &  \\
 	\end{tabular}
-	\caption{Theoretical uncertainties in the acceptance of ggF in each signal 
-	region, split by opposite/same flavour channels and jet bins. PDF uncertainties are
-	evaluated for acceptances relative to the inclusive cross section, whereas others are
-	calculated within jet bins.}
+	\caption{Theoretical uncertainties in the ggF acceptance for each signal region. PDF 
+	uncertainties are relative to the inclusive cross section, whereas others are 
+	calculated within jet bins. Statistical uncertainties are shown for reference.}
 	\label{tab:signal:acc_unc_summary}
 \end{table}
 
 \begin{table}
 	\centering
 	\begin{tabular}{ccc|cccccc}
-		& \ptsubleadlep & \mll & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{Match} \\
-		& (\GeV) & (\GeV) & & MSTW & 90\% CL & \pythia{6} & \fherwig & \\
+		& \ptsubleadlep & \mll & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{NLO-PS} \\
+		& (\GeV) & (\GeV) & & MSTW & 68\% CL & \pythia{6} & \fherwig & \\
 		\hline
 		\multicolumn{9}{c}{\ee/\mm channels} \\
 		\hline
 		\multirow{2}{*}{0-jet}
-		&   $>10$ & 12--30 & 2.5\% & +1.9\% & 5.3\% & $+1.8\%$ & $+7.2\%$ & $-4.2\%$ \\
-		&   $>10$ & 30--55 & 1.1\% & +1.9\% & 5.4\% & $+1.3\%$ & $+5.6\%$ & $-0.6\%$ \\
+		&  $>10$ & 12--30 & 2.5\% & +1.9\% & 3.2\% & $+1.8\%$ & $+7.2\%$ & $-4.2\%$ \\
+		&  $>10$ & 30--55 & 1.1\% & +1.9\% & 3.3\% & $+1.3\%$ & $+5.6\%$ & $-0.6\%$ \\
 		\hline
 		\multirow{2}{*}{1-jet}
-		&   $>10$ & 12--30 & 2.5\% & +1.8\% & 4.5\% & $-0.5\%$ & $+3.9\%$ & $-3.0\%$ \\
-		&   $>10$ & 30--55 & 1.2\% & +1.8\% & 4.7\% & $-0.9\%$ & $+0.2\%$ & $+1.1\%$ \\
+		&  $>10$ & 12--30 & 2.5\% & +1.8\% & 2.7\% & $-0.5\%$ & $+3.9\%$ & $-3.0\%$ \\
+		&  $>10$ & 30--55 & 1.2\% & +1.8\% & 2.8\% & $-0.9\%$ & $+0.2\%$ & $+1.1\%$ \\
 		\hline
 		\multirow{2}{*}{\twojet}
-		&   $>10$ & 12--30 &       & +2.0\% & 3.7\% & $+2.9\%$ & $-0.6\%$ & $-6.5\%$ \\
-		&   $>10$ & 30--55 &       & +2.1\% & 3.7\% & $-1.8\%$ & $-1.4\%$ & $-6.1\%$ \\
+		&  $>10$ & 12--30 &       & +2.0\% & 2.2\% & $+2.9\%$ & $-0.6\%$ & $-6.5\%$ \\
+		&  $>10$ & 30--55 &       & +2.1\% & 2.3\% & $-1.8\%$ & $-1.4\%$ & $-6.1\%$ \\
 		\hline
 		\multicolumn{9}{c}{\em/\me channels} \\
 		\hline
 		\multirow{6}{*}{0-jet}
-	    & 10--15 & 10--30 & 2.6\% & +1.8\% & 5.3\% & $-1.7\%$ & $+5.7\%$ & $-3.5\%$ \\
-		& 15--20 & 10--30 & 1.3\% & +1.9\% & 5.2\% & $+2.2\%$ & $+4.9\%$ & $-2.8\%$ \\
-		&  $>20$ & 10--30 & 1.0\% & +1.9\% & 5.2\% & $-2.2\%$ & $-0.6\%$ & $-0.5\%$ \\
-		& 10--15 & 30--55 & 1.5\% & +1.8\% & 5.5\% & $+0.8\%$ & $+5.5\%$ & $-3.8\%$ \\
-		& 15--20 & 30--55 & 1.5\% & +1.9\% & 5.4\% & $-0.1\%$ & $+2.0\%$ & $-2.5\%$ \\
-		&  $>20$ & 30--55 & 3.5\% & +1.9\% & 5.4\% & $-1.9\%$ & $-2.4\%$ & $<0.1\%$ \\
+	    & 10--15 & 10--30 & 2.6\% & +1.8\% & 3.2\% & $-1.7\%$ & $+5.7\%$ & $-3.5\%$ \\
+		& 15--20 & 10--30 & 1.3\% & +1.9\% & 3.2\% & $+2.2\%$ & $+4.9\%$ & $-2.8\%$ \\
+		&  $>20$ & 10--30 & 1.0\% & +1.9\% & 3.2\% & $-2.2\%$ & $-0.6\%$ & $-0.5\%$ \\
+		& 10--15 & 30--55 & 1.5\% & +1.8\% & 3.3\% & $+0.8\%$ & $+5.5\%$ & $-3.8\%$ \\
+		& 15--20 & 30--55 & 1.5\% & +1.9\% & 3.3\% & $-0.1\%$ & $+2.0\%$ & $-2.5\%$ \\
+		&  $>20$ & 30--55 & 3.5\% & +1.9\% & 3.3\% & $-1.9\%$ & $-2.4\%$ & $<0.1\%$ \\
 		\hline
 		\multirow{6}{*}{1-jet}
-	    & 10--15 & 10--30 & 3.2\% & +1.7\% & 4.7\% & $+2.1\%$ & $+11\%$  & $-4.4\%$ \\
-		& 15--20 & 10--30 & 2.9\% & +1.8\% & 4.6\% & $+0.8\%$ & $+1.8\%$ & $+1.7\%$ \\
-		&  $>20$ & 10--30 & 3.5\% & +1.8\% & 4.4\% & $<0.1\%$ & $+0.4\%$ & $-0.3\%$ \\
-		& 10--15 & 30--55 & 5.8\% & +1.7\% & 5.0\% & $+1.2\%$ & $+11\%$  & $-6.2\%$ \\
-		& 15--20 & 30--55 & 1.0\% & +1.8\% & 4.8\% & $+2.5\%$ & $+13\%$  & $+6.7\%$  \\
-		&  $>20$ & 30--55 & 1.3\% & +1.8\% & 4.6\% & $-0.7\%$ & $-2.1\%$ & $<0.1\%$ \\
+	    & 10--15 & 10--30 & 3.2\% & +1.7\% & 2.9\% & $+2.1\%$ & $+11\%$  & $-4.4\%$ \\
+		& 15--20 & 10--30 & 2.9\% & +1.8\% & 2.9\% & $+0.8\%$ & $+1.8\%$ & $+1.7\%$ \\
+		&  $>20$ & 10--30 & 3.5\% & +1.8\% & 2.7\% & $<0.1\%$ & $+0.4\%$ & $-0.3\%$ \\
+		& 10--15 & 30--55 & 5.8\% & +1.7\% & 3.0\% & $+1.2\%$ & $+11\%$  & $-6.2\%$ \\
+		& 15--20 & 30--55 & 1.0\% & +1.8\% & 3.3\% & $+2.5\%$ & $+13\%$  & $+6.7\%$  \\
+		&  $>20$ & 30--55 & 1.3\% & +1.8\% & 2.8\% & $-0.7\%$ & $-2.1\%$ & $<0.1\%$ \\
 		\hline
 		\multirow{6}{*}{\twojet}
-	    & 10--15 & 10--30 &       & +2.0\% & 3.7\% & $+0.8\%$ & $+14\%$  & $-9.8\%$ \\
-		& 15--20 & 10--30 &       & +2.0\% & 3.5\% & $+5.7\%$ & $+23\%$  & $-3.5\%$  \\
-		&  $>20$ & 10--30 &       & +2.0\% & 3.6\% & $-0.8\%$ & $-4.7\%$ & $-4.7\%$ \\
-		& 10--15 & 30--55 &       & +1.9\% & 3.8\% & $-5.9\%$ & $+1.0\%$ & $+8.2\%$ \\
-		& 15--20 & 30--55 &       & +2.0\% & 3.6\% & $-6.6\%$ & $+0.5\%$ & $-1.4\%$ \\
-		&  $>20$ & 30--55 &       & +1.9\% & 3.6\% & $+0.3\%$ & $-0.9\%$ & $-5.2\%$ \\
+	    & 10--15 & 10--30 &       & +2.0\% & 2.3\% & $+0.8\%$ & $+14\%$  & $-9.8\%$ \\
+		& 15--20 & 10--30 &       & +2.0\% & 2.3\% & $+5.7\%$ & $+23\%$  & $-3.5\%$  \\
+		&  $>20$ & 10--30 &       & +2.0\% & 2.2\% & $-0.8\%$ & $-4.7\%$ & $-4.7\%$ \\
+		& 10--15 & 30--55 &       & +1.9\% & 2.3\% & $-5.9\%$ & $+1.0\%$ & $+8.2\%$ \\
+		& 15--20 & 30--55 &       & +2.0\% & 2.3\% & $-6.6\%$ & $+0.5\%$ & $-1.4\%$ \\
+		&  $>20$ & 30--55 &       & +1.9\% & 2.2\% & $+0.3\%$ & $-0.9\%$ & $-5.2\%$ \\
 	\end{tabular}
-	\caption{Theoretical uncertainties in the acceptance of each signal region binned in 
-	subleading lepton $p_T$ and $m_{ll}$, split into opposite/same flavour channels and into jet bins.
-	PDF uncertainties are evaluated for acceptances relative to the inclusive cross section, whereas 
-	others are calculated within jet bins.}
-	\label{tab:ggf_acc_unc_binned}
+	\caption{Theoretical uncertainties in the ggF acceptance for each signal region, 
+	split into bins of \ptsubleadlep and \mll as used in the fitting procedure. PDF 
+	uncertainties are relative to the inclusive cross section, whereas others are 
+	calculated within jet bins.}
+	\label{tab:signal:acc_unc_binned}
 \end{table}
 
 
