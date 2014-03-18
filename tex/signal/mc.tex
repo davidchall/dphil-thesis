@@ -207,6 +207,26 @@ between \pythia{8} and \fherwig, though remain small.
 
 \subsection{ME-PS matching}
 
+When studying the uncertainties described above, a discrepancy was observed at high jet 
+multiplicity between \meps{\powhegbox}{\pythia{8}} and \meps{\powhegbox}{\pythia{6}} (see 
+green and black lines in \Figure~\ref{fig:signal:matching}). Its effect is properly 
+accounted for in the above uncertainties, but the discrepancy is interesting in itself.
+It was also observed in other electroweak processes.
+
+The hadronisation and \ac{UE} models of standalone \pythia{8} have been tuned to ATLAS 
+\ac{UE} data with a variety of \ac{PDF} sets (known as AU2 tunes) \cite{ATLAS:tune:2012}.
+However, the parton shower was not tuned since the default settings gave good agreement. 
+
+When modelling ggF with \powhegbox, the AU2-CT10 tune was used in order to match the 
+\acp{PDF} used in the matrix element calculation. Technically speaking, a dedicated 
+\meps{\powhegbox}{\pythia{8}} tune should have been used, but this was unavailable. 
+Unfortunately, a couple of issues had a negative impact on the NLO-PS matching. First, 
+the parton shower evolves \alphaS at LO while NLO \acp{PDF} were used in the shower. 
+Second, there was a mismatch between the \alphaS used in \powhegbox, 
+$\alphaS\parenths{\mZ} = 0.118$, and the default value in the parton shower, 
+$\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in 
+\Figure~\ref{fig:signal:matching}.
+
 \begin{figure}
 	\includegraphics[width=\smallfigwidth]{tex/signal/matching}
 	\caption{Jet multiplicity produced by \meps{\powhegbox}{\pythia{8}} with a selection 
@@ -217,5 +237,6 @@ between \pythia{8} and \fherwig, though remain small.
 	\label{fig:signal:matching}
 \end{figure}
 
-Identification of poor matching between \powhegbox and the \pythia{8} parton shower 
-program has led to improvements in the latest round of MC tuning \cite{ATLAS:tune:2013}.
+Identification of this poor matching has led to improvements in the latest round of MC 
+tuning, where dedicated \meps{\powhegbox}{\pythia{8}} tunes are fit using an adjusted 
+parton shower \cite{ATLAS:tune:2013}.

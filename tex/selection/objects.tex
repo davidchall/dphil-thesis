@@ -1,6 +1,10 @@
 %!TEX root = ../../thesis.tex
 
-\todo[inline]{difficult to reconstruct physics objects from detector signals, algorithms}
+Relating raw detector output to physical particles in an incredibly difficult task,
+particularly in a high pile-up environment. Sophisticated algorithms were developed for 
+this task, and are outlined below.
+
+
 
 \subsection{Tracks}
 \label{sec:objects:tracks}
@@ -112,6 +116,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	outside the cluster. These simulated corrections depend on the longitudinal shower 
 	shape and energy deposited in the presampler. The EM energy scale was calibrated
 	using test beam and \textit{in situ} \HepProcess{\PZ \HepTo \Pe\Pe} measurements.
+
 \item[Identification] \hfill \\
 	Electron identification is improved by applying cuts on track quality and shower 
 	shape. There are three reference operating points called \textit{loose}, 
@@ -120,12 +125,12 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	
 	For $\et > \unit{25}{\GeV}$ the medium criteria are used, comprising cuts on
 	\begin{itemize}[noitemsep,nolistsep]
-		\item shower shape variables (lateral and longitudinal)
-		\item leakage to the \ac{HCal}
-		\item the number of pixel and \acs{SCT} hits
-		\item the impact parameter with respect to the primary vertex
-		\item track-cluster matching
-		\item transition radiation
+		\item shower shape variables (lateral and longitudinal),
+		\item leakage to the \ac{HCal},
+		\item the number of pixel and \acs{SCT} hits,
+		\item the impact parameter with respect to the primary vertex,
+		\item track-cluster matching,
+		\item transition radiation,
 	\end{itemize}
 	and additionally electrons with conversion vertices or without a hit in the first 
 	pixel layer are vetoed (to suppress the \Wgamma background).
@@ -137,10 +142,24 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
  	variables to construct a likelihood discriminant, which may be cut upon (effectively 
  	choosing an operating point). The input variables are similar to those listed above, 
  	although track hits remain as cuts.
+
 \item[Isolation] \hfill \\
 	Rejection of hadronic fakes or electrons from heavy flavour decays is improved by 
 	requiring the electron to be isolated from activity in the tracker and calorimeter. 
 	The cuts are summarised in \Table~\ref{tab:objects:el_iso} and explained below.
+
+	\begin{table}[b]
+		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
+			Electron \et (\GeV) & Tracker isolation & Calorimeter isolation \\
+			\hline
+			10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\et < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.20$ \\
+			15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.24$ \\
+			$> 20$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.10$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.28$ \\
+		\end{tabular}
+		\caption{Tracker and calorimeter isolation requirements of electrons. The cuts 
+		were chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
+		\label{tab:objects:el_iso}
+	\end{table}
 
 	\textit{Tracker isolation:} $p_{\text{T}}^{\text{cone}}\parenths{R_0}$ is the summed 
 	\pt of all tracks of $\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R = R_0$, 
@@ -155,14 +174,26 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	$5 \times 7$ window around the electron (see \Figure~\ref{fig:objects:el_iso}). 
 	Corrections are made for electron energy leakage and deposits from pile-up and the 
 	underlying event.
+
+	\begin{figure}
+		\includegraphics[width=0.8\smallfigwidth]{tex/selection/el_isolation}
+		\caption{Schematic of calorimeter isolation. Pink cells are topological clusters, 
+		the yellow circle is the isolation cone ($R_0 = 0.4$ shown), the green 
+		$3 \times 7$ rectangle is the reconstructed electron cluster, 
+		and the white $5 \times 7$ rectangle is the area removed from the cone.}
+		\label{fig:objects:el_iso}
+	\end{figure}
+
 \item[Quality] \hfill \\
 	An electron is rejected if its cluster is affected by a localised detector problem 
 	(\eg a dead cell).
+
 \item[Primary vertex association] \hfill \\
 	To associate the electron with the primary vertex, the transverse impact parameter 
 	$d_0$ is required to be within three standard deviations of zero. Also, the 
 	longitudinal impact parameter $z_0$ is constrained by $\mods{z_0 \sin\theta} < 
 	\unit{0.4}{\milli\metre}$.
+
 \item[Efficiency] \hfill \\
 	The efficiency of each selection step (reconstruction, identification, isolation and 
 	primary vertex association) is measured via \textit{tag-and-probe} of 
@@ -178,51 +209,31 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	identification efficiencies are shown in \Figure~\ref{fig:objects:el_recoeff} and 
 	\Figure~\ref{fig:objects:el_ideff} respectively. Comparison with MC yields efficiency 
 	scale factors.
+
+	\begin{figure}
+		\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_et}
+		\hfill
+		\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_eta}
+		\caption{Electron reconstruction efficiency versus \et (left) and $\eta$ (right), 
+		measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pe\Pe} data and compared 
+		to MC \cite{ElectronPerf:2012}. In 2012, the implementation of GSF tracking gave 
+		significant performance improvement.}
+		\label{fig:objects:el_recoeff}
+	\end{figure}
+
+	\begin{figure}
+		\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_et}
+		\hfill
+		\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_npv}
+		\caption{Efficiency of a variety of electron identification operating points 
+		versus \et (left) and \npv (right), measured using tag-and-probe of 
+		\HepProcess{\PZ \HepTo \Pe\Pe} data \cite{ElectronPerf:2012}. `Very tight 
+		likelihood' has similar efficiency to `tight', but improves background rejection. 
+		All operating points are fairly robust against pile-up.}
+		\label{fig:objects:el_ideff}
+	\end{figure}
+
 \end{description}
-
-\begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_et}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/el_recoeff_eta}
-	\caption{Electron reconstruction efficiency versus \et (left) and $\eta$ (right), measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pe\Pe} data and compared to 
-	MC \cite{ElectronPerf:2012}. In 2012, the implementation of GSF tracking gave 
-	significant performance improvement.}
-	\label{fig:objects:el_recoeff}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_et}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/el_ideff_npv}
-	\caption{Efficiency of a variety of electron identification operating points versus 
-	\et (left) and \npv (right), measured using tag-and-probe of 
-	\HepProcess{\PZ \HepTo \Pe\Pe} data \cite{ElectronPerf:2012}. `Very tight likelihood' 
-	has similar efficiency to `tight', but improves background rejection. All operating 
-	points are fairly robust against pile-up.}
-	\label{fig:objects:el_ideff}
-\end{figure}
-
-\begin{table}[h]
-	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
-		Electron \et (\GeV) & Tracker isolation & Calorimeter isolation \\
-		\hline
-		10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\et < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.20$ \\
-		15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.24$ \\
-		$> 20$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.10$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.28$ \\
-	\end{tabular}
-	\caption{Tracker and calorimeter isolation requirements of electrons. The cuts 
-	were chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
-	\label{tab:objects:el_iso}
-\end{table}
-
-\begin{figure}
-	\includegraphics[width=\smallfigwidth]{tex/selection/el_isolation}
-	\caption{Schematic diagram to illustrate calorimeter isolation. The pink cells are 
-	topological clusters, the yellow circle is the isolation cone ($R_0 = 0.4$ shown), 
-	the green $3 \times 7$ rectangle is the reconstructed electron cluster, and the white 
-	$5 \times 7$ rectangle is the area removed from the cone.}
-	\label{fig:objects:el_iso}
-\end{figure}
 
 
 
@@ -263,6 +274,7 @@ $\mods{\eta} < 2.5$ are selected.
 	by this combined track (dominated by the \ac{ID} track at low-\pt and by the 
 	\ac{MS} track at high-\pt), and is calibrated with \HepProcess{\PZ \HepTo \Pmu\Pmu}
 	events \cite{Muons:2012}.
+
 \item[Isolation] \hfill \\
 	Although the muon signature is much cleaner than that of electrons, hadronic fakes 
 	(\textit{punch-through}) and muons from heavy flavour decays must still be suppressed 
@@ -270,6 +282,21 @@ $\mods{\eta} < 2.5$ are selected.
 	$p_{\text{T}}^{\text{cone}}\parenths{R_0}$ and 
 	$E_{\text{T}}^{\text{cone}}\parenths{R_0}$ variables are defined similarly to 
 	electrons, though the size of the subtracted calorimeter window is reduced for muons.
+
+	\begin{table}
+		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
+			Muon \pt (\GeV) & Tracker isolation & Calorimeter isolation \\
+			\hline
+			10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\pt < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.06$ \\
+			15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ \\
+			20 -- 25 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.18$ \\
+			$> 25$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.30$ \\
+		\end{tabular}
+		\caption{Tracker and calorimeter isolation requirements of muons. The cuts were 
+		chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
+		\label{tab:objects:mu_iso}
+	\end{table}
+
 \item[Quality] \hfill \\
 	The \ac{ID} track must satisfy quality criteria on the number of traversed sensors:
 	\begin{itemize}[noitemsep,nolistsep]
@@ -280,44 +307,33 @@ $\mods{\eta} < 2.5$ are selected.
 		at least 10\% are hits (for $\mods{\eta} < 1.9$ only)
 	\end{itemize}
 	where a hole is an expected hit that is not observed.
+
 \item[Primary vertex association] \hfill \\
 	To associate the muon with the primary vertex, the transverse impact parameter $d_0$ 
 	is required to be within three standard deviations of zero. Also, the longitudinal 
 	impact parameter $z_0$ is constrained by $\mods{z_0 \sin\theta} < 
 	\unit{1.0}{\milli\metre}$.
+
 \item[Efficiency] \hfill \\
 	The efficiency of each selection step is measured via tag-and-probe of 
 	\HepProcess{\PZ \HepTo \Pmu\Pmu} events \cite{Muons:2012}. For example, the 
 	reconstruction efficiency is shown in \Figure~\ref{fig:objects:mu_recoeff}. 
 	Comparison with MC yields efficiency scale factors.
+
+	\begin{figure}
+		\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_pt}
+		\hfill
+		\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_eta}
+		\caption{Muon reconstruction efficiency versus \pt (left) and $\eta$ (right), 
+		measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pmu\Pmu} data and 
+		compared to MC \cite{Muons:2012}. Reductions in efficiency at $\eta \approx 0$ 
+		and $\eta \approx 1.2$ are due to partial \ac{MS} coverage (detector services and 
+		incomplete installation respectively). `Chain 1' refers to \textit{STACO} 
+		reconstruction.}
+		\label{fig:objects:mu_recoeff}
+	\end{figure}
+
 \end{description}
-
-\begin{table}[h]
-	\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
-		Muon \pt (\GeV) & Tracker isolation & Calorimeter isolation \\
-		\hline
-		10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\pt < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.06$ \\
-		15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ \\
-		20 -- 25 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.18$ \\
-		$> 25$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.30$ \\
-	\end{tabular}
-	\caption{Tracker and calorimeter isolation requirements of muons. The cuts were 
-	chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
-	\label{tab:objects:mu_iso}
-\end{table}
-
-\begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_pt}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_eta}
-	\caption{Muon reconstruction efficiency versus \pt (left) and $\eta$ (right), 
-	measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pmu\Pmu} data and compared to 
-	MC \cite{Muons:2012}. Reductions in efficiency at $\eta \approx 0$ and 
-	$\eta \approx 1.2$ are due to partial \ac{MS} coverage (detector services and 
-	incomplete installation respectively). `Chain 1' refers to \textit{STACO} 
-	reconstruction.}
-	\label{fig:objects:mu_recoeff}
-\end{figure}
 
 
 
@@ -359,6 +375,7 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	
 	These topo-clusters are input to the \antikt jet algorithm with $R = 0.4$ (see 
 	\Section~\ref{sec:jets}), making the assumption that topo-clusters are massless.
+
 \item[Calibration] \hfill \\
 	There are four steps to the jet calibration, described below \cite{Jets:Calib:2011}.
 
@@ -376,6 +393,16 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	\end{equation}
 	and its impact upon the robustness against pile-up is shown in 
 	\Figure~\ref{fig:objects:jet_pu_corr}.
+
+	\begin{figure}
+		\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_npv}
+		\hfill
+		\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_mu}
+		\caption{Dependence of jet \pt on in-time pile-up (left) and out-of-time pile-up 
+		(right), versus $\mods{\eta}$ \cite{Jets:PileupCorrection:2012}. The bands show 
+		the fits used in the correction.}
+		\label{fig:objects:jet_pu_corr}
+	\end{figure}
 
 	Third, the energy is calibrated from the LCW scale to the \ac{JES}. The correction is 
 	derived from MC by comparing the energy of the reconstructed jet to that of the 
@@ -395,10 +422,21 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	\HepProcess{\APmuon\Pmuon}) at low \pt, a photon at medium \pt, or a system of 
 	well-calibrated low-\pt jets at high \pt. The contribution of each technique to 
 	the correction is shown in \Figure~\ref{fig:objects:jet_insitu}.
+
+	\begin{figure}
+		\includegraphics[width=\mediumfigwidth]{tex/selection/jet_insitu_corr}
+		\caption{The ratio of the jet response measured in data to the MC prediction 
+		versus jet \pt. This is the inverse of the \textit{in situ} JES correction (see 
+		text). The results of three \pt balance studies and their combination (black line)
+		are shown.}
+		\label{fig:objects:jet_insitu}
+	\end{figure}
+
 \item[Quality] \hfill \\
 	Quality criteria (known as \textit{Looser}) reject calorimeter noise based on cell 
 	pulse shapes \cite{Jets:Quality:2011}. The selection is more than 99.8\% efficient 
 	for jets with $\pt > \unit{20}{\GeV}$.
+
 \item[Primary vertex association] \hfill \\
 	The \textit{jet vertex fraction} (JVF) is defined as the fraction of tracks 
 	associated to a jet that originate from the primary vertex ($\mods{z_0 \sin\theta} < 
@@ -410,25 +448,8 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	Central jets with $\pt < \unit{50}{\GeV}$ are required to have $\text{JVF} > 0.5$ or 
 	zero associated tracks. The efficiency of this cut is measured \textit{in situ} with 
 	\Zjets events.
+
 \end{description}
-
-\begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_npv}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/jet_pu_mu}
-	\caption{Dependence of jet \pt on in-time pile-up (left) and out-of-time pile-up 
-	(right), versus $\mods{\eta}$ \cite{Jets:PileupCorrection:2012}. The bands show the 
-	fits used in the correction.}
-	\label{fig:objects:jet_pu_corr}
-\end{figure}
-
-\begin{figure}
-	\includegraphics[width=\mediumfigwidth]{tex/selection/jet_insitu_corr}
-	\caption{The ratio of the jet response measured in data to the MC prediction versus 
-	jet \pt. This is the inverse of the \textit{in situ} JES correction (see text). The 
-	results of three \pt balance studies and their combination (black line) are shown.}
-	\label{fig:objects:jet_insitu}
-\end{figure}
 
 
 
