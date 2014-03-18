@@ -175,9 +175,33 @@ background compositions. The uncertainties in these split signal regions are sho
 
 
 
-
-
 \subsection{\mt shape modelling}
+
+Theoretical uncertainties in the shape of the \mt distribution were also investigated, 
+as they could have an impact on the fit. Scale uncertainties are presented in 
+\Figure~\ref{fig:signal:mT_scale}, and \Figure~\ref{fig:signal:mT_psue} shows those due 
+to the PS/hadronisation/UE model and NLO-PS matching. They are driven by differences 
+between \pythia{8} and \fherwig, though remain small.
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/signal/mT_0jet_scale}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/signal/mT_1jet_scale}
+	\caption{Scale uncertainties in the shape of the ggF \mt distribution, for the 0-jet 
+	(left) and 1-jet (right) signal regions. The nominal scale is $\mu_0 = \mH$.}
+	\label{fig:signal:mT_scale}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/signal/mT_0jet_psue}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/signal/mT_1jet_psue}
+	\caption{Uncertainties due to the PS/hadronisation/UE model and NLO-PS matching scheme
+	in the shape of the ggF \mt distribution, for the 0-jet (left) and 1-jet (right) 
+	signal regions. When unstated, the matrix element is provided by \powhegbox. 
+	NLO-PS uncertainties are evaluated by comparing the red and blue lines.}
+	\label{fig:signal:mT_psue}
+\end{figure}
 
 
 
