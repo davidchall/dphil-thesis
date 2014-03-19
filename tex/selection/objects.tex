@@ -15,12 +15,16 @@ magnetic field. However, multiple scattering and energy losses in the detector m
 and bremsstrahlung can cause significant deviations from this path. Track reconstruction 
 is possible in the region $\mods{\eta} < 2.5$ (the extent of the \ac{ID}).
 
-The inputs to the track reconstruction are threefold: pixel hits, \acs{SCT} space-points 
-(each module comprises two layers of strips with a small stereo angle, enabling precise 
-coordinate measurement), and \acs{TRT} drift circles. The \textit{inside-out} algorithm 
+The inputs to the track reconstruction are threefold: pixel hits, \acs{SCT} 
+space-points\footnote{
+	Each SCT module comprises two layers of silicon strips with a small stereo angle, 
+	enabling the three-dimensional position, or \textit{space-point}, to be precisely 
+	measured (see \Section~\ref{sec:atlas:id}).
+}
+and \acs{TRT} drift circles. The \textit{inside-out} algorithm 
 \cite{Tracking,ATLAS:ExpectPerf} uses a Kalman filter to seed tracks from hits in the 
 three pixel layers and the first \acs{SCT} layer. The seeds are then extended and fitted 
-through the \acs{SCT} and the \acs{TRT}, whilst resolving ambiguities and applying 
+into the \acs{SCT} and the \acs{TRT}, whilst resolving ambiguities and applying 
 quality criteria. Finally, the \textit{outside-in} algorithm \cite{Tracking} considers 
 unused track segments in the \acs{TRT}, and extrapolates them into the \acs{SCT} and 
 pixel detector. This improves the tracking of secondary particles with a displaced vertex.
@@ -42,7 +46,7 @@ algorithm to simultaneously perform both steps \cite{PrimVertexFinding,AllVertex
 First, tracks originating from the interaction region 
 (\unit{$\Delta z \approx 5.6$}{\centi\metre} and 
 \unit{$\Delta r \approx 15$}{\micro\metre}) are identified and used to seed and fit a 
-single vertex. Those tracks considered outliers are then used to seed a new vertex, and a 
+single vertex. Tracks considered outliers are then used to seed a new vertex, and a 
 second fit of the two vertices is performed. The algorithm iterates, increasing the 
 number of vertices, until the result stabilises.
 
@@ -55,9 +59,9 @@ associated tracks.
 Secondary vertex reconstruction is highly constrained by the physics of the vertex 
 \cite{AllVertexFinding}. This can be enforced by mass or angular constraints, or in the 
 track selection. For example, photon conversions are found using oppositely charged 
-track pairs associated with electrons (using \acs{TRT} identification), with small 
+track pairs associated with electrons (via \acs{TRT} identification), with small 
 opening angle. 
-The \Pbottom-tagging of jets shall be described in \Section~\ref{sec:objects:bjets}.
+Flavour tagging of jets shall be described in \Section~\ref{sec:objects:bjets}.
 
 
 
@@ -73,7 +77,7 @@ electrons from the hard scatter that are of interest. Therefore identification a
 isolation criteria are applied to reject these backgrounds and select prompt electrons. 
 The criteria were chosen to optimise the analysis sensitivity: \eg a low \et threshold 
 of \unit{10}{\GeV} gives a large signal acceptance, but must be compensated by tight 
-identification requirements to reject the large \Wjets and QCD backgrounds.
+identification requirements to reject the large \Wjets and di-jet backgrounds.
 
 Electrons with $\et > \unit{10}{\GeV}$ and $\mods{\eta} < 2.47$ are selected. Additionally, electrons with $1.37 < \mods{\eta} < 1.52$ are vetoed since they correspond
 to the crack region (see \Section~\ref{sec:atlas:calo}).
@@ -140,13 +144,14 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
  	signal efficiency to the cut-based tight criteria but improved background rejection. 
  	It uses the signal and background probability density functions of multiple input 
  	variables to construct a likelihood discriminant, which may be cut upon (effectively 
- 	choosing an operating point). The input variables are similar to those listed above, 
- 	although track hits remain as cuts.
+ 	choosing an operating point). The input variables are similar to those used in 
+ 	medium identification, although track hits remain as cuts.
 
 \item[Isolation] \hfill \\
-	Rejection of hadronic fakes or electrons from heavy flavour decays is improved by 
-	requiring the electron to be isolated from activity in the tracker and calorimeter. 
-	The cuts are summarised in \Table~\ref{tab:objects:el_iso} and explained below.
+	Rejection of hadronic fakes or electrons from heavy flavour decays is further 
+	improved by requiring the electron to be isolated from activity in the tracker and 
+	calorimeter. The cuts are summarised in \Table~\ref{tab:objects:el_iso} and explained 
+	below.
 
 	\begin{table}[b]
 		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
@@ -156,13 +161,13 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 			15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.24$ \\
 			$> 20$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.10$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.28$ \\
 		\end{tabular}
-		\caption{Tracker and calorimeter isolation requirements of electrons. The cuts 
+		\caption{Tracker and calorimeter isolation criteria for electrons. The cuts 
 		were chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
 		\label{tab:objects:el_iso}
 	\end{table}
 
 	\textit{Tracker isolation:} $p_{\text{T}}^{\text{cone}}\parenths{R_0}$ is the summed 
-	\pt of all tracks of $\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R = R_0$, 
+	\pt of all tracks of $\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R < R_0$, 
 	excluding the electron track itself. For robustness against pile-up, the tracks are 
 	required to originate from the primary vertex.
 
@@ -170,7 +175,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	\Section~\ref{sec:objects:jets}) are built from energy deposits in the \ac{ECal} 
 	and \ac{HCal}. These are more robust against pile-up than cell deposits as they 
 	suppress noise. $E_{\text{T}}^{\text{cone}}\parenths{R_0}$ is the summed \et of the 
-	topological clusters within a cone of $\Delta R = R_0$, excluding cells in a 
+	topological clusters within a cone of $\Delta R < R_0$, excluding cells in a 
 	$5 \times 7$ window around the electron (see \Figure~\ref{fig:objects:el_iso}). 
 	Corrections are made for electron energy leakage and deposits from pile-up and the 
 	underlying event.
@@ -271,7 +276,7 @@ $\mods{\eta} < 2.5$ are selected.
 	\Section~\ref{sec:objects:tracks}). The statistical combination of the two 
 	tracks is performed by the \textit{STACO} algorithm \cite{Muons:algorithms}, which
 	weights each track by its covariance matrix. The muon four-momentum is determined 
-	by this combined track (dominated by the \ac{ID} track at low-\pt and by the 
+	from this combined track (dominated by the \ac{ID} track at low-\pt and by the 
 	\ac{MS} track at high-\pt), and is calibrated with \HepProcess{\PZ \HepTo \Pmu\Pmu}
 	events \cite{Muons:2012}.
 
@@ -292,7 +297,7 @@ $\mods{\eta} < 2.5$ are selected.
 			20 -- 25 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.18$ \\
 			$> 25$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.30$ \\
 		\end{tabular}
-		\caption{Tracker and calorimeter isolation requirements of muons. The cuts were 
+		\caption{Tracker and calorimeter isolation criteria for muons. The cuts were 
 		chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
 		\label{tab:objects:mu_iso}
 	\end{table}
@@ -341,11 +346,11 @@ $\mods{\eta} < 2.5$ are selected.
 \label{sec:objects:jets}
 
 A hadron will pass through the \ac{ID} (leaving hits if charged) before being absorbed by 
-the \ac{ECal} and \ac{HCal}. Due to the finite resolution of the calorimeter and the 
-large number of overlapping hadronic showers, it is impossible to reconstruct individual 
-hadrons. For this and more theoretical reasons outlined in \Section~\ref{sec:jets}, 
-energy deposits are used to reconstruct jets. The main challenge in identifying jets from 
-the hard scatter is calorimeter noise: both electronic and from pile-up.
+the \ac{ECal} and \ac{HCal}. The finite resolution of the calorimeter and the 
+large number of overlapping hadronic showers make it impossible to reconstruct individual 
+hadrons. For this reason, and more theoretical ones outlined in \Section~\ref{sec:jets}, 
+jets are reconstructed from energy deposits. The main challenge in identifying jets from 
+the hard scatter is calorimeter noise: electronic and resulting from pile-up.
 
 Jets are selected with $\pt > \unit{25}{\GeV}$ for central jets ($\mods{\eta} < 2.4$) and 
 with $\pt > \unit{30}{\GeV}$ for forward jets ($2.4 < \mods{\eta} < 4.5$). However, 
@@ -363,35 +368,36 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	which is taken to be the sum in quadrature of the electronic noise and the pile-up 
 	noise expected with $\mu = 30$.
 
-	The non-compensating calorimeter design gives differing responses to electromagnetic 
+	The non-compensating calorimeter design yields different responses to electromagnetic 
 	and hadronic showers.\footnote{
 		Significant hadronic shower energy is lost through slow neutrons, nuclear 
 		excitations and neutrinos.
 	}
-	Topo-clusters are reconstructed at the EM scale and thus need calibration to the 
-	\ac{JES}. An intermediate \textit{local cluster weighting} (LCW) classifies 
-	topo-clusters as electromagnetic or hadronic (via energy density and shower depth) 
-	and applies appropriate energy corrections.
+	Topo-clusters are reconstructed at the EM scale and thus require calibration to the 
+	\ac{JES}. An intermediate \textit{local cluster weighting} (LCW) classifies each
+	topo-cluster as electromagnetic or hadronic (via energy density and shower depth) 
+	and applies an appropriate energy correction.
 	
-	These topo-clusters are input to the \antikt jet algorithm with $R = 0.4$ (see 
-	\Section~\ref{sec:jets}), making the assumption that topo-clusters are massless.
+	These topo-clusters are then input to the \antikt jet algorithm with $R = 0.4$ (see 
+	\Section~\ref{sec:jets}), making the assumption that the topo-clusters are massless.
 
 \item[Calibration] \hfill \\
-	There are four steps to the jet calibration, described below \cite{Jets:Calib:2011}.
+	There are four steps to the jet calibration \cite{Jets:Calib:2011}, described below.
 
 	First, the jet direction is adjusted such that it originates from the primary vertex, 
-	rather than the centre of the ATLAS coordinate system.
+	rather than the centre of the ATLAS coordinate system (a remnant of the jet 
+	algorithm).
 
 	Second, energy contributed by pile-up is subtracted \cite{Jets:PileupCorrection:2012}.
-	This involves measuring the jet area $A$ (its susceptibility to additional soft 
-	particles) and the pile-up density $\rho$ of the event. Residual corrections for 
-	in-time pile-up (via \npv) and out-of-time pile-up (via $\mu$) are also made. Thus,
-	the correction is
+	This involves measuring the jet area $A$ (its susceptibility to additional particles 
+	with infinitesimal \pt) and the pile-up density $\rho$ of the event. Residual 
+	corrections for in-time pile-up (via \npv) and out-of-time pile-up (via $\mu$) are 
+	also made. Thus, the correction is
 	\begin{equation}
 		p_{\text{T}}^{\text{corr}} = \pt - \rho A - \alpha \parenths{\npv - 1} 
 		- \beta \parenths{\mu}
 	\end{equation}
-	and its impact upon the robustness against pile-up is shown in 
+	and the improved robustness to pile-up that it provides is shown in 
 	\Figure~\ref{fig:objects:jet_pu_corr}.
 
 	\begin{figure}
@@ -405,7 +411,7 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	\end{figure}
 
 	Third, the energy is calibrated from the LCW scale to the \ac{JES}. The correction is 
-	derived from MC by comparing the energy of the reconstructed jet to that of the 
+	derived from MC by comparing the energy of a reconstructed jet to that of the 
 	corresponding hadron-level jet (\ie before detector simulation).
 
 	Finally, a residual \textit{in situ} \ac{JES} calibration corrects for mismodelling, 
@@ -433,7 +439,7 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	\end{figure}
 
 \item[Quality] \hfill \\
-	Quality criteria (known as \textit{Looser}) reject calorimeter noise based on cell 
+	Quality criteria (known as \textit{looser}) reject calorimeter noise based on 
 	pulse shapes \cite{Jets:Quality:2011}. The selection is more than 99.8\% efficient 
 	for jets with $\pt > \unit{20}{\GeV}$.
 
@@ -441,13 +447,12 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	The \textit{jet vertex fraction} (JVF) is defined as the fraction of tracks 
 	associated to a jet that originate from the primary vertex ($\mods{z_0 \sin\theta} < 
 	\unit{1}{\milli\metre}$), weighted by track \pt \cite{Jets:PileupCorrection:2012}. 
-	It is a powerful discriminant against pile-up jets that survive the \pt selection 
-	despite the pile-up subtraction step in the calibration, but is only available for 
+	It is a powerful discriminant against pile-up jets, but is only available for 
 	$\mods{\eta} < 2.4$.
 
-	Central jets with $\pt < \unit{50}{\GeV}$ are required to have $\text{JVF} > 0.5$ or 
-	zero associated tracks. The efficiency of this cut is measured \textit{in situ} with 
-	\Zjets events.
+	Central jets with $\pt < \unit{50}{\GeV}$ are required to have either 
+	$\text{JVF} > 0.5$ or zero associated tracks. The efficiency of this cut is measured 
+	\textit{in situ} with \Zjets events.
 
 \end{description}
 
@@ -466,7 +471,7 @@ by three other algorithms \cite{Btag:algorithms}:
 	\item JetFitter reconstructs the decay chain topology (including the daughter 
 	\Pcharm-hadron).
 \end{itemize}
-An operating point is chosen to select 85\% of \Pbottom-jets, with a mis-tag rate of 
+An operating point is chosen to tag 85\% of \Pbottom-jets, with a mis-tag rate of 
 \about 40\% for \Pcharm-jets, \about 35\% for \Ptau-jets and \about 10\% for light jets
 (initiated by \Pup, \Pdown, \Pstrange or \Pgluon).
 
@@ -480,7 +485,7 @@ efficiency scale factors.
 \subsection{Missing transverse momentum}
 \label{sec:objects:met}
 
-The almost hermetic detector design enables information of non-interacting particles (\eg 
+The near-hermetic detector design enables information of non-interacting particles (\eg 
 neutrinos) to be inferred from measurements of interacting particles. Since the initial 
 state has no $\bvec{p}_{\text{T}}$, momentum conservation implies that the visible and 
 invisible $\bvec{p}_{\text{T}}$ in the final state must balance each other. Thus, the 
@@ -489,7 +494,7 @@ momentum}, and equals the sum of the invisible $\bvec{p}_{\text{T}}$.
 
 Multiple sources of fake momentum imbalance lead to a poor experimental resolution of 
 missing transverse momentum. In particular, pile-up has an adverse effect on performance. 
-Object mismeasurement can produce fake imbalance that is highly correlated to the event 
+Object mismeasurement can produce a fake imbalance that is highly correlated to the event 
 kinematics.
 
 \begin{description}
@@ -524,7 +529,7 @@ kinematics.
 	\end{equation}
 	Unfortunately, \met is highly susceptible to pile-up because the starting points are 
 	calorimeter cells, which are not easily associated to the primary vertex. Performance 
-	can be improved by a JVF cut on jets and implementing a similar idea to the soft 
+	can be improved by a JVF cut on jets and implementing a similar idea on the soft 
 	contributions. However, for the \HWWlvlv search, it was found that the best pile-up 
 	performance was achieved by using tracks as the starting points.
 
@@ -543,9 +548,9 @@ kinematics.
 	muon \pt threshold is lowered to \unit{6}{\GeV} \cf \Section~\ref{sec:objects:muons}).
 
 	Occasionally, tracks are poorly reconstructed, which can have a significant impact 
-	upon \trackmet. Therefore, tracks with \unit{$\pt > 100$}{\GeV} and not associated to 
-	any physics object are removed from the selection. Similarly, a track within 
-	$\Delta R < 0.4$ of a jet with \unit{$\pt > 10$}{\GeV} is removed if 
+	upon \trackmet. Therefore, tracks with \unit{$\pt > 100$}{\GeV} that are not 
+	associated to any physics object are removed from the selection. Similarly, a track 
+	within $\Delta R < 0.4$ of a jet with \unit{$\pt > 10$}{\GeV} is removed if 
 	$p_{\text{T}}^{\text{track}} > 1.4 \, p_{\text{T}}^{\text{jet}}$.
 
 	Bremsstrahlung from an electron can convert to \epluseminus pairs, resulting in 
@@ -565,9 +570,9 @@ kinematics.
 	hadrons significantly degrades the resolution.
 
 \item[Jet-corrected track-based \corrtrackmet] \hfill \\
-	It is possible to correct \trackmet for neutral hadrons by using calorimeter 
-	information. Tracks within a cone of $\Delta R < 0.4$ of a jet (as described in 
-	\Section~\ref{sec:objects:jets}) are collectively replaced by the calibrated jet \pt.
+	It is possible to correct \trackmet for neutral hadrons with calorimeter information. 
+	Tracks within a cone of $\Delta R < 0.4$ of a jet are collectively replaced by the 
+	calibrated jet \pt.
 
 	Thus, the missing transverse momentum is defined with the following components
 	\begin{equation}

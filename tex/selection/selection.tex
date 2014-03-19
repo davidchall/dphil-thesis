@@ -1,5 +1,9 @@
 %!TEX root = ../../thesis.tex
 
+\todo[inline]{intro}
+
+
+
 \subsection{Data quality}
 \label{sec:selection:quality}
 
@@ -12,9 +16,10 @@ considered `good for physics' (see \Figure~\ref{fig:dataset:lumi}).\footnote{
 	ATLAS good runs list: \texttt{data12\symbol{95}8TeV.periodAllYear\symbol{95}DetStatus-v61-pro14-02\symbol{95}DQDefects-00-01
 	-00\symbol{95}PHYS\symbol{95}StandardGRL\symbol{95}All\symbol{95}Good.xml}
 } 
-This corresponds to a total integrated luminosity of \unit{20.3}{\invfb}.
+For the 2012 dataset, this corresponds to a total integrated luminosity of 
+\unit{20.3}{\invfb}.
 
-Individual events are vetoed if certain data quality criteria are failed:
+Individual events are also vetoed if certain data quality criteria are failed by:
 \begin{itemize}[noitemsep,nolistsep]
 	\item a noise burst in the LAr calorimeter,
 	\item data corruption caused by a restart of the synchronisation system,
@@ -63,8 +68,8 @@ triggers, because the backgrounds are much smaller.
 Events are required to pass at least one trigger listed in \Table~\ref{tab:sel:triggers}. 
 The single lepton triggers include a tighter low-\pt trigger and a looser high-\pt 
 trigger in order to maximise the efficiency. Dilepton triggers are then used to increase 
-the efficiency during the turn-on \pt of the single lepton triggers. These triggers 
-collectively support a \pt threshold of \unit{22}{\GeV} on the leading lepton (in the 
+the efficiency during the turn-on of the single lepton triggers. Together, these triggers 
+support a \pt threshold of \unit{22}{\GeV} on the leading lepton (in the 
 offline analysis), whilst operating on the plateau.
 
 \begin{table}
