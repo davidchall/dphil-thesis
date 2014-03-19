@@ -1,6 +1,10 @@
 %!TEX root = ../../thesis.tex
 
-\todo[inline]{intro}
+\Section~\ref{sec:signature} outlined the basic experimental signature of the search as 
+two oppositely charged leptons and significant \met. Thus, the initial stages of the 
+event selection are tasked with finding this signature. Subsequent criteria, or 
+\textit{cuts}, target specific backgrounds. Their aim is improve the analysis sensitivity 
+by suppressing backgrounds whilst retaining a sufficient number of signal events.
 
 
 
@@ -28,7 +32,7 @@ Individual events are also vetoed if certain data quality criteria are failed by
 \end{itemize}
 A further quality criterion requires that the primary vertex considered as the hard 
 scatter (that with the highest $\sum p_{\text{T}}^2$) must be associated with at least 
-three tracks.
+three tracks. This reduces the cosmic ray background to negligible levels.
 
 
 
@@ -106,17 +110,64 @@ $\pt > \unit{15}{\GeV}$.
 
 
 
-\subsection{Inclusive preselection}
+\subsection{Preselection of dilepton + \met signature}
 \label{sec:selection:presel}
+
+Following the trigger selection, events are required to have two oppositely charged 
+leptons passing the offline selection (see \Section~\ref{sec:objects}). The lepton with 
+the highest \pt, called the \textit{leading lepton}, must have 
+\unit{$\ptleadlep > 22$}{\GeV} in order to operate on the trigger plateau. The 
+\textit{subleading lepton} must have \unit{$\ptsubleadlep > 10$}{\GeV}, as specified in 
+\Section~\ref{sec:objects}. Events containing a third lepton are vetoed in order to 
+reject backgrounds with three or more leptons in the final state, such as \WZ production.
+
+At this point, it is possible to split the dilepton final state into four channels 
+according to the flavours of the two leptons: \ee, \mm, \em, \me (where the first flavour 
+is that of the leading lepton). This is very useful because the background compositions 
+of the channels are dramatically different. For example, the \DY background is much 
+larger in the same flavour channels (\ee/\mm) than the different flavour channels 
+(\em/\me).
+
+Low mass hadronic resonances with dileptonic decays (\eg \PJpsi) are removed from the 
+\ee/\mm channels by requiring the mass of the dilepton system \unit{$\mll > 12$}{\GeV}. 
+This also greatly suppresses the low mass \DY background. For the \em/\me channels, 
+a cut of \unit{$\mll > 10$}{\GeV} suppresses leptons from heavy flavour decays. The 
+\ee/\mm channels are hugely dominated by the \DY background (see 
+\Figure~\ref{fig:sel:mll}), but a large fraction of these events can be rejected by 
+vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMll_Mll_mh125_log}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutMll_Mll_mh125_log}
+	\caption{Dilepton mass distribution directly preceding the \PZ mass veto, in the 
+	\em/\me (left) and \ee/\mm (right) channels. \todo[inline]{update and add cut lines}}
+	\label{fig:sel:mll}
+\end{figure}
+
+
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMETRel_m_jet_n_upTo7_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutMETRel_m_jet_n_upTo7_mh125_lin}
+	\caption{Jet multiplicity distribution directly preceding jet binning, in the 
+	\em/\me (left) and \ee/\mm (right) channels.}
+	\label{fig:sel:njets}
+\end{figure}
+
 
 \subsection{0-jet selection}
 \label{sec:selection:0j}
 
-\subsection{1-jet bin}
+\subsection{1-jet selection}
 \label{sec:selection:1j}
 
-\subsection{$\geq 2$-jet bin}
+\subsection{\twojet selection}
 \label{sec:selection:2j}
+
+\subsection{Summary}
+\label{sec:selection:summary}
 
 \begin{table}
 	\begin{tabular}{cc}

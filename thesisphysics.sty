@@ -19,6 +19,9 @@
 \DeclareRobustCommand{\Zgstar}{\HepProcess{\PZ \Pgammastar}\xspace}
 \DeclareRobustCommand{\Wjets}{\HepProcess{\PW +}jets\xspace}
 \DeclareRobustCommand{\Zjets}{\HepProcess{\PZ +}jets\xspace}
+\DeclareRobustCommand{\DY}{\HepProcess{\PZ/\Pgammastar}\xspace}
+\DeclareRobustCommand{\DYll}{\HepProcess{\PZ/\Pgammastar \HepTo \Plepton\Plepton}\xspace}
+\DeclareRobustCommand{\DYtt}{\HepProcess{\PZ/\Pgammastar \HepTo \Ptau\Ptau}\xspace}
 \DeclareRobustCommand{\Wgamma}{\HepProcess{\PW \Pphoton}\xspace}
 \DeclareRobustCommand{\ttbar}{\HepProcess{\Ptop \APtop}\xspace}
 
@@ -47,12 +50,12 @@
 \DeclareRobustCommand{\mll}{\thesismath{m_{\Plepton\Plepton}}\xspace}
 \DeclareRobustCommand{\mtautau}{\thesismath{m_{\Ptau\Ptau}}\xspace}
 \DeclareRobustCommand{\mjj}{\thesismath{m_{jj}}\xspace}
-\DeclareRobustCommand{\dphill}{\thesismath{\Delta\phi_{\Plepton\Plepton}}\xspace}
-\DeclareRobustCommand{\dphillmet}{\thesismath{\Delta\phi_{\Plepton\Plepton\text{,MET}}}\xspace}
+\DeclareRobustCommand{\dphill}{\thesismath{\Delta\phi\parenths{\Plepton,\Plepton}}\xspace}
+\DeclareRobustCommand{\dphillmet}{\thesismath{\Delta\phi\parenths{\Plepton\Plepton,\met}}\xspace}
 \DeclareRobustCommand{\dyjj}{\thesismath{\Delta y_{jj}}\xspace}
 \DeclareRobustCommand{\ptleadlep}{\thesismath{p_{\text{T,\Plepton}}^{\text{lead}}}\xspace}
 \DeclareRobustCommand{\ptsubleadlep}{\thesismath{p_{\text{T,\Plepton}}^{\text{sublead}}}\xspace}
-\DeclareRobustCommand{\ptll}{\thesismath{p_{\text{T,}\Plepton\Plepton}}\xspace}
+\DeclareRobustCommand{\ptll}{\thesismath{p_{\text{T,\Plepton\Plepton}}}\xspace}
 \DeclareRobustCommand{\frecoil}{\thesismath{f_{\text{recoil}}}\xspace}
 \DeclareRobustCommand{\njets}{\thesismath{N_{\text{jets}}}\xspace}
 \DeclareRobustCommand{\nbjets}{\thesismath{N_{\text{\Pbottom-jets}}}\xspace}

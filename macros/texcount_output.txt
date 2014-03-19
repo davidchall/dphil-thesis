@@ -2,14 +2,14 @@
 248 words in Chapter
 0 words in Chapter: Introduction
 3043 words in Chapter: Theoretical motivation
-2834 words in Chapter: Computational tools for the LHC
+2831 words in Chapter: Computational tools for the LHC
 2929 words in Chapter: The ATLAS experiment
-4399 words in Chapter: Overview of the \HWW analysis
+4706 words in Chapter: Overview of the \HWW analysis
 2049 words in Chapter: Signal modelling
 0 words in Chapter: \WW measurement and modelling
 0 words in Chapter: Other backgrounds
-0 words in Chapter: Results
+0 words in Chapter: Experimental results
 61 words in Chapter: Conclusions
 ::: Total :::
-Words: 15563
+Words: 15867
 Formulae: 46
