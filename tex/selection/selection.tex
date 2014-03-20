@@ -110,7 +110,7 @@ $\pt > \unit{15}{\GeV}$.
 
 
 
-\subsection{Preselection of dilepton + \met signature}
+\subsection{Pre-selection of dilepton + \met signature}
 \label{sec:selection:presel}
 
 Following the trigger selection, events are required to have two oppositely charged 
@@ -133,7 +133,7 @@ Low mass hadronic resonances with dileptonic decays (\eg \PJpsi) are removed fro
 This also greatly suppresses the low mass \DY background. For the \em/\me channels, 
 a cut of \unit{$\mll > 10$}{\GeV} suppresses leptons from heavy flavour decays. The 
 \ee/\mm channels are hugely dominated by the \DY background (see 
-\Figure~\ref{fig:sel:mll}), but a large fraction of these events can be rejected by 
+\Figure~\ref{fig:sel:mll}), but most of these events can be rejected by 
 vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 
 \begin{figure}
@@ -141,11 +141,41 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutMll_Mll_mh125_log}
 	\caption{Dilepton mass distribution directly preceding the \PZ mass veto, in the 
-	\em/\me (left) and \ee/\mm (right) channels. \todo[inline]{update and add cut lines}}
+	\em/\me (left) and \ee/\mm (right) channels.}
 	\label{fig:sel:mll}
 \end{figure}
 
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_0jet_MET_TrackHWW_Clj_mh125_log}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutZVeto_0jet_METRel_mh125_log}
+	\\
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_1jet_MET_TrackHWW_Clj_mh125_log}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutZVeto_1jet_METRel_mh125_log}
+	\\
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_2jetincl_MET_TrackHWW_Clj_mh125_log}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutZVeto_2jetincl_MET_mh125_log}
+	\caption{The \met distribution cut upon in the 0-jet (top), 1-jet (middle) and 
+	\twojet (bottom) bins, for the \em/\me (left) and \ee/\mm (right) channels.}
+	\label{fig:sel:met}
+\end{figure}
 
+Requiring significant \met suppresses the \DYll and di-jet backgrounds (see 
+\Figure~\ref{fig:sel:met}). Since fake \met is strongly correlated to event kinematics, 
+the 0-jet, 1-jet and \twojet bins are considered separately. In the \ee/\mm channels, we 
+require \unit{$\metrel > 40$}{\GeV} in the 0-jet and 1-jet bins, and 
+\unit{$\met > 45$}{\GeV} in the \twojet bin (where \metrel gives poorer signal 
+discrimination). In the \em/\me channels, the \met cut is relaxed because the \DYll 
+background is smaller. We require \unit{$\corrtrackmet > 20$}{\GeV} in the 0-jet and 
+\twojet bins, and \unit{$\corrtrackmet > 10$}{\GeV} in the 1-jet bin.
+
+Following the selection of dilepton events with significant \met, the \em/\me channels 
+are dominated by top background and the \ee/\mm channels are dominated by \DYll. 
+However, the background composition of all channels is highly dependent upon the number 
+of jets (see \Figure~\ref{fig:sel:njets}). Thus, at this stage the analysis is binned 
+according to jet multiplicity, so that backgrounds can be targeted individually.
 
 \begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMETRel_m_jet_n_upTo7_mh125_lin}
@@ -157,8 +187,64 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 \end{figure}
 
 
+
+\subsection{\HWWlvlv decay topology}
+\label{sec:selection:higgs_decay}
+
+The discrimination of \HWW signal from backgrounds that also feature a \WW pair is a 
+problem common to all jet bins. Thus, the topology of the \HWWlvlv decay is discussed 
+before continuing with the event selection.
+
+Firstly, the spin-0 nature of the Higgs boson and the \VminusA structure of the weak 
+interaction (see \Section~\ref{sec:ewsb}) imply that a small opening angle between the 
+two leptons is preferred. This follows from spin conservation and the extremely small 
+masses of the neutrinos. Consequently, the mass of the dilepton system, \mll, is also 
+small. This follows from $m_{\Plepton\Plepton}^2 \simeq m_{\Plepton_1}^2 + 
+m_{\Plepton_2}^2 + 2 E_{\Plepton_1} E_{\Plepton_2} \parenths{1 - \cos\vartheta}$, where 
+$\vartheta$ is the opening angle. Thus, signal events shall be selected with the criteria 
+$\dphill < 1.8$ and \unit{$\mll < 55$}{\GeV}.
+
+Secondly, the invariant mass of the dilepton and dineutrino system should correspond to 
+\mH (modified by a Breit-Wigner distribution). Unfortunately, as discussed above, it is 
+only possible to infer the \textit{transverse} component of the dineutrino system 
+momentum. We therefore construct a transverse mass variable
+\begin{equation}
+	\mt = \sqrt{\parenths{\etll + \corrtrackmet}^2 - \mods{\ptllvec + \corrtrackmetvec}^2}
+\end{equation}
+where $\parenths{\etll}^2 = \mods{\ptllvec}^2 + \parenths{\mll}^2$ and \corrtrackmetvec 
+is used as it has the best resolution (see \Section~\ref{sec:objects:met}). At 
+hadron-level this is an event-by-event lower bound on \mH, though at detector-level the 
+sharp cut-off is smeared by the poor \corrtrackmet resolution. \mt is used in the 
+statistical fitting procedure.
+
+
+
 \subsection{0-jet selection}
 \label{sec:selection:0j}
+
+The 0-jet bin is dominated by \DY and \WW backgrounds. A small number of pathological 
+events where \metvec is near \ptllvec are rejected by requiring $\dphillmet > \pi/2$.
+
+Considering the \DYll background, the boson \pt will generally be less than the \pt 
+threshold used in jet selection, since no jet has been found. Thus, the \DY background is 
+greatly reduced by requiring \unit{$\ptll > 30$}{\GeV} (see 
+\Figure~\ref{fig:sel:0j:ptll}). In the \ee/\mm channels only, the \DYll background is 
+also suppressed by an additional cut \unit{$\corrtrackmet > 40$}{\GeV}.
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutDPhillMET_0jet_Ptll_mh125_log}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutDPhillMET_0jet_Ptll_mh125_log}
+	\caption{The \ptll distribution directly before it is cut upon, in the \em/\me (left) 
+	and \ee/\mm (right) channels.}
+	\label{fig:sel:0j:ptll}
+\end{figure}
+
+As detailed in \Section~\ref{sec:selection:higgs_decay}, signal topologies are selected 
+via the criteria $\dphill < 1.8$ and \unit{$\mll < 55$}{\GeV}.
+
+\todo[inline]{explain \frecoil cut}
+
 
 \subsection{1-jet selection}
 \label{sec:selection:1j}
@@ -169,39 +255,46 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 \subsection{Summary}
 \label{sec:selection:summary}
 
-\begin{table}
-	\begin{tabular}{cc}
-		\em/\me & \ee/\mm \\
-		\hline
-		\multicolumn{2}{c}{\ptleadlep $>$ \unit{22}{\GeV}} \\
-		\mll $>$ \unit{10}{\GeV} & \mll $>$ \unit{12}{\GeV} \\
-		-- & $\mods{\mll - \mZ} > $ \unit{15}{\GeV} \\
-		\hline
-		% 0 JET
-		\multicolumn{2}{c}{0-jet selection} \\
-		\hline
-		\corrtrackmet $>$ \unit{20}{\GeV} & \metrel $>$ \unit{40}{\GeV} \\
-		\multicolumn{2}{c}{\njets $=$ 0} \\
-		\multicolumn{2}{c}{\dphillmet $> \pi/2$} \\
-		\multicolumn{2}{c}{\ptll $>$ \unit{30}{\GeV}} \\
-		\multicolumn{2}{c}{\mll $<$ \unit{55}{\GeV}} \\
-		-- & \trackmet $>$ \unit{40}{\GeV} \\
-		\multicolumn{2}{c}{\dphill $<$ 1.8} \\
-		-- & \frecoil $<$ 0.1 \\
-		\hline
-		% 1 JET
-		\multicolumn{2}{c}{1-jet selection} \\
-		\hline
-		\corrtrackmet $>$ \unit{10}{\GeV} & \metrel $>$ \unit{40}{\GeV} \\
-		\multicolumn{2}{c}{\njets $=$ 1} \\
-		\multicolumn{2}{c}{\nbjets $=$ 0} \\
-		$\max\parenths{\mt{\Plepton_1}, \mt{\Plepton_2}} >$ \unit{50}{\GeV} & -- \\
-		$m_{\Ptau\Ptau} < \mZ - \unit{25}{\GeV}$ & -- \\
-		\multicolumn{2}{c}{\mll $<$ \unit{55}{\GeV}} \\
-		-- & \trackmet $>$ \unit{35}{\GeV} \\
-		\multicolumn{2}{c}{\dphill $<$ 1.8} \\
-		-- & \frecoil $<$ 0.1 \\
-	\end{tabular}
-	\caption{Summary}
-	\label{tab:selection}
-\end{table}
+
+\begin{sidewaystable}
+	\centering
+	\begin{tabularx}{1.05\textwidth}{l *{6}{Y}}
+		\toprule
+		&&& \multicolumn{2}{c}{All jet bins} \\
+		\cmidrule(lr){4-5}
+		&&& \em/\me & \ee/\mm \\
+		\cmidrule(lr){2-7}
+		\ldelim\{{3}{2.5cm}[Pre-selection] 
+		& \multicolumn{6}{c}{$\ptleadlep > 22$ and $\ptsubleadlep > 10$} \\
+		&&& $\mll > 12$ & $\mll > 10$ \\
+		&&& -- & $\mods{\mll - \mZ} > 15$ \\ [1ex]
+		\cmidrule(lr){2-7}
+		&\multicolumn{2}{c}{0-jet bin} & \multicolumn{2}{c}{1-jet bin} & \multicolumn{2}{c}{\twojet bin} \\
+		\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+		& \em/\me & \ee/\mm & \em/\me & \ee/\mm & \em/\me & \ee/\mm \\
+		\cmidrule(lr){2-7}
+		\ldelim\{{4}{2.5cm}[Reject \DY] 
+		& $\corrtrackmet > 20$ & $\metrel > 40$ & $\corrtrackmet > 10$ & $\metrel > 40$ & $\corrtrackmet > 20$ & $\met > 45$ \\
+		& \multicolumn{2}{c}{$\ptll > 30$} & $\mtautau < \mZ - 25$ & -- \\
+		& -- & $\trackmetrel > 40$ & -- & $\trackmetrel > 35$ \\
+		& -- & $\frecoil < 0.1$ & -- & $\frecoil < 0.1$ \\
+		Reject fakes
+		& \multicolumn{2}{c}{$\dphillmet > \pi/2$} & $\maxmtw > 50$ & -- \\
+		Reject top 
+		& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{$\nbjets = 0$} & \multicolumn{2}{c}{$\nbjets = 0$} \\ [1ex]
+		\cmidrule(lr){2-7}
+		&&& \multicolumn{2}{c}{All jet bins} \\
+		\cmidrule(lr){4-5}
+		&&& \em/\me & \ee/\mm \\
+		\cmidrule(lr){2-7}
+		\ldelim\{{2}{2.5cm}[Select signal]
+		&&& \multicolumn{2}{c}{$\mll < 55$} \\
+		&&& \multicolumn{2}{c}{$\dphill < 1.8$} \\
+		\bottomrule
+	\end{tabularx}
+	\label{tab:event_selection}
+	\caption{Summary of event selection. Cuts on energy, momentum and mass are given in 
+	\GeV, and angular cuts are given in radians.}
+\end{sidewaystable}
+
+

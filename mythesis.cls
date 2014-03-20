@@ -17,6 +17,9 @@
 \RequirePackage{amssymb}
 \RequirePackage{multirow}
 \RequirePackage{enumitem}
+\RequirePackage{rotating}
+\RequirePackage{bigdelim}
+\RequirePackage{tabularx}
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
@@ -41,3 +44,6 @@
 		\def\ggH{ggH}%
 	}%
 }{}
+
+% tabularx centred column
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
