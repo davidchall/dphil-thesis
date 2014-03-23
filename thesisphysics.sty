@@ -31,14 +31,15 @@
 \DeclareRobustCommand{\ppbar}{\HepProcess{\Pproton\APproton}\xspace}
 
 %% Channels
-\DeclareRobustCommand{\em}{\HepProcess{\Pe\Pmu}\xspace}
-\DeclareRobustCommand{\me}{\HepProcess{\Pmu\Pe}\xspace}
-\DeclareRobustCommand{\ee}{\HepProcess{\Pe\Pe}\xspace}
-\DeclareRobustCommand{\mm}{\HepProcess{\Pmu\Pmu}\xspace}
+\DeclareRobustCommand{\emch}{\HepProcess{\Pe\Pmu}\xspace}
+\DeclareRobustCommand{\mech}{\HepProcess{\Pmu\Pe}\xspace}
+\DeclareRobustCommand{\eech}{\HepProcess{\Pe\Pe}\xspace}
+\DeclareRobustCommand{\mmch}{\HepProcess{\Pmu\Pmu}\xspace}
 \DeclareRobustCommand{\twojet}{\thesismath{\geq\!2\text{-jet}}\xspace}
 
 %% Physics variables
 \DeclareRobustCommand{\pt}{\thesismath{p_{\text{T}}}\xspace}
+\DeclareRobustCommand{\ptvec}{\thesismath{\bvec{p}_{\text{T}}}\xspace}
 \DeclareRobustCommand{\ptOf}[1]{\thesismath{p_{\text{T,}#1}}\xspace}
 
 \DeclareRobustCommand{\et}{\thesismath{E_{\text{T}}}\xspace}
@@ -53,7 +54,7 @@
 \DeclareRobustCommand{\mjj}{\thesismath{m_{jj}}\xspace}
 \DeclareRobustCommand{\dphill}{\thesismath{\Delta\phi\parenths{\Plepton,\Plepton}}\xspace}
 \DeclareRobustCommand{\dphillmet}{\thesismath{\Delta\phi\parenths{\Plepton\Plepton,\met}}\xspace}
-\DeclareRobustCommand{\dyjj}{\thesismath{\Delta y_{jj}}\xspace}
+\DeclareRobustCommand{\dyjj}{\thesismath{\Delta y\parenths{j,j}}\xspace}
 \DeclareRobustCommand{\ptleadlep}{\thesismath{p_{\text{T,\Plepton}}^{\text{lead}}}\xspace}
 \DeclareRobustCommand{\ptsubleadlep}{\thesismath{p_{\text{T,\Plepton}}^{\text{sublead}}}\xspace}
 \DeclareRobustCommand{\ptll}{\thesismath{p_{\text{T,\HepProcess{\Plepton\Plepton}}}}\xspace}
@@ -62,6 +63,7 @@
 \DeclareRobustCommand{\frecoil}{\thesismath{f_{\text{recoil}}}\xspace}
 \DeclareRobustCommand{\ptllj}{\thesismath{p_{\text{T,\HepProcess{\Plepton\Plepton}}j}}\xspace}
 \DeclareRobustCommand{\ptlljvec}{\thesismath{\bvec{p}_{\text{T,\HepProcess{\Plepton\Plepton}}j}}\xspace}
+\DeclareRobustCommand{\pttot}{\thesismath{p_{\text{T,tot}}}\xspace}
 \DeclareRobustCommand{\njets}{\thesismath{N_{\text{jets}}}\xspace}
 \DeclareRobustCommand{\nbjets}{\thesismath{N_{\text{\Pbottom-jets}}}\xspace}
 

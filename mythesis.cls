@@ -20,6 +20,7 @@
 \RequirePackage{rotating}
 \RequirePackage{bigdelim}
 \RequirePackage{tabularx}
+\RequirePackage{listliketab}
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
@@ -47,3 +48,4 @@
 
 % tabularx centred column
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
+

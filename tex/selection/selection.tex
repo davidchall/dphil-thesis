@@ -27,7 +27,8 @@ Individual events are also vetoed if certain data quality criteria are failed by
 \begin{itemize}[noitemsep,nolistsep]
 	\item a noise burst in the LAr calorimeter,
 	\item data corruption caused by a restart of the synchronisation system,
-	\item a \textit{looser} jet is reconstructed with \pt $>$ \unit{20}{\GeV} (indicative of an HCal spike),
+	\item a \textit{looser} jet is reconstructed with \unit{$\pt > 20$}{\GeV} (indicative 
+	of an HCal spike),
 	\item a jet is reconstructed near a `hot' HCal tile (1st -- 8th May 2012 only).
 \end{itemize}
 A further quality criterion requires that the primary vertex considered as the hard 
@@ -122,17 +123,18 @@ the highest \pt, called the \textit{leading lepton}, must have
 reject backgrounds with three or more leptons in the final state, such as \WZ production.
 
 At this point, it is possible to split the dilepton final state into four channels 
-according to the flavours of the two leptons: \ee, \mm, \em, \me (where the first flavour 
-is that of the leading lepton). This is very useful because the background compositions 
-of the channels are dramatically different. For example, the \DY background is much 
-larger in the same flavour channels (\ee/\mm) than the different flavour channels 
-(\em/\me).
+according to the flavours of the two leptons: \eech, \mmch, \emch, \mech (where the first 
+flavour is that of the leading lepton). This is very useful because the background 
+compositions of the channels are dramatically different. For example, the \DY background 
+is much larger in the same flavour channels (\eech/\mmch) than the different flavour 
+channels (\emch/\mech).
 
 Low mass hadronic resonances with dileptonic decays (\eg \PJpsi) are removed from the 
-\ee/\mm channels by requiring the mass of the dilepton system \unit{$\mll > 12$}{\GeV}. 
-This also greatly suppresses the low mass \DY background. For the \em/\me channels, 
+\eech/\mmch channels by requiring the mass of the dilepton system 
+\unit{$\mll > 12$}{\GeV}. 
+This also greatly suppresses the low mass \DY background. For the \emch/\mech channels, 
 a cut of \unit{$\mll > 10$}{\GeV} suppresses leptons from heavy flavour decays. The 
-\ee/\mm channels are hugely dominated by the \DY background (see 
+\eech/\mmch channels are hugely dominated by the \DY background (see 
 \Figure~\ref{fig:sel:mll}), but most of these events can be rejected by 
 vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 
@@ -141,7 +143,7 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutMll_Mll_mh125_log}
 	\caption{Dilepton mass distribution directly preceding the \PZ mass veto, in the 
-	\em/\me (left) and \ee/\mm (right) channels.}
+	\emch/\mech (left) and \eech/\mmch (right) channels.}
 	\label{fig:sel:mll}
 \end{figure}
 
@@ -157,30 +159,31 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_2jetincl_MET_TrackHWW_Clj_mh125_log}
 	\hfill\null
 	\caption{The \met distribution cut upon in the 0-jet (top), 1-jet (middle) and 
-	\twojet (bottom) bins, for the \em/\me (left) and \ee/\mm (right) channels.}
+	\twojet (bottom) bins, for the \emch/\mech (left) and \eech/\mmch (right) channels.}
 	\label{fig:sel:met}
 \end{figure}
 
 Requiring significant \met suppresses the \DYll and di-jet backgrounds (see 
 \Figure~\ref{fig:sel:met}). Since fake \met is strongly correlated to event kinematics, 
-the 0-jet, 1-jet and \twojet bins are considered separately. In the \ee/\mm channels, we 
-require \unit{$\metrel > 40$}{\GeV} in the 0-jet and 1-jet bins (the \ee/\mm channels 
-are not used in the \twojet bin). In the \em/\me channels, the \met cut is relaxed 
-because the \DYll background is smaller. We require \unit{$\corrtrackmet > 20$}{\GeV} in 
-the 0-jet and \twojet bins, and \unit{$\corrtrackmet > 10$}{\GeV} in the 1-jet bin.
+the 0-jet, 1-jet and \twojet bins are considered separately. In the \eech/\mmch channels, 
+we require \unit{$\metrel > 40$}{\GeV} in the 0-jet and 1-jet bins (the \eech/\mmch 
+channels are not used in the \twojet bin). In the \emch/\mech channels, the \met cut is 
+relaxed because the \DYll background is smaller. We require 
+\unit{$\corrtrackmet > 20$}{\GeV} in the 0-jet and \twojet bins, and 
+\unit{$\corrtrackmet > 10$}{\GeV} in the 1-jet bin.
 
-Following the selection of dilepton events with significant \met, the \em/\me channels 
-are dominated by top background and the \ee/\mm channels are dominated by \DYll. 
-However, the background composition of all channels is highly dependent upon the number 
-of jets (see \Figure~\ref{fig:sel:njets}). Thus, at this stage the analysis is binned 
-according to jet multiplicity, so that backgrounds can be targeted individually.
+Following the selection of dilepton events with significant \met, the \emch/\mech 
+channels are dominated by top background and the \eech/\mmch channels are dominated by 
+\DYll. However, the background composition of all channels is highly dependent upon the 
+number of jets (see \Figure~\ref{fig:sel:njets}). Thus, at this stage the analysis is 
+binned according to jet multiplicity, so that backgrounds can be targeted individually.
 
 \begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMETRel_m_jet_n_upTo7_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutMETRel_m_jet_n_upTo7_mh125_lin}
 	\caption{Jet multiplicity distribution directly preceding jet binning, in the 
-	\em/\me (left) and \ee/\mm (right) channels.}
+	\emch/\mech (left) and \eech/\mmch (right) channels.}
 	\label{fig:sel:njets}
 \end{figure}
 
@@ -228,7 +231,7 @@ events where \metvec is near \ptllvec are rejected by requiring $\dphillmet > \p
 Considering the \DYll background, the boson \pt will generally be less than the \pt 
 threshold used in jet selection, since no jet has been found. Thus, the \DY background is 
 greatly reduced by requiring \unit{$\ptll > 30$}{\GeV} (see 
-\Figure~\ref{fig:sel:0j:ptll}). In the \ee/\mm channels only, the \DYll background is 
+\Figure~\ref{fig:sel:0j:ptll}). In the \eech/\mmch channels only, the \DYll background is 
 also suppressed by an additional cut \unit{$\corrtrackmet > 40$}{\GeV} (see 
 \Figure~\ref{fig:sel:0j:sf_cuts}).
 
@@ -236,14 +239,15 @@ also suppressed by an additional cut \unit{$\corrtrackmet > 40$}{\GeV} (see
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutDPhillMET_0jet_Ptll_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutDPhillMET_0jet_Ptll_mh125_log}
-	\caption{The \ptll distribution directly before it is cut upon, in the \em/\me (left) 
-	and \ee/\mm (right) channels.}
+	\caption{The \ptll distribution directly before it is cut upon, in the \emch/\mech (left) 
+	and \eech/\mmch (right) channels.}
 	\label{fig:sel:0j:ptll}
 \end{figure}
 
 After the signal topology selection (see \Section~\ref{sec:selection:higgs_decay}), a 
-large \DYll background remains in the \ee/\mm channels, despite the significant \met 
-requirements. This can be further suppressed by searching for soft hadronic activity to balance the dilepton system. First, jets with \unit{$\pt > 10$}{\GeV} and $\mods{\eta} < 
+large \DYll background remains in the \eech/\mmch channels, despite the significant \met 
+requirements. This can be further suppressed by searching for soft hadronic activity to 
+balance the dilepton system. First, jets with \unit{$\pt > 10$}{\GeV} and $\mods{\eta} < 
 4.5$ are found (as detailed in \Section~\ref{sec:objects:jets}, minus the JVF cut). 
 Then a discriminant is defined
 \begin{equation}
@@ -253,7 +257,7 @@ Then a discriminant is defined
 where $\wedge$ is the detector quadrant centred on $-\ptllvec$. This is essentially the 
 fraction of \ptll that can be balanced by soft hadronic activity in the opposing quadrant,
 and so is larger in \DYll than processes with neutrinos. We require $\frecoil < 0.1$ in 
-the \ee/\mm channels (see \Figure~\ref{fig:sel:0j:sf_cuts}). \frecoil is also 
+the \eech/\mmch channels (see \Figure~\ref{fig:sel:0j:sf_cuts}). \frecoil is also 
 instrumental in estimating the \DYll background, and shall be revisited in 
 \Section~\ref{sec:dy}.
 
@@ -262,7 +266,7 @@ instrumental in estimating the \DYll background, and shall be revisited in
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoDPhill_0jet_f_recoil_mh125_lin}
 	\caption{The \corrtrackmetrel (left) and \frecoil (right) distributions directly 
-	before they are cut upon in the \ee/\mm channels.}
+	before they are cut upon in the \eech/\mmch channels.}
 	\label{fig:sel:0j:sf_cuts}
 \end{figure}
 
@@ -273,8 +277,8 @@ and the \mt distributions of the selected events are shown in \Figure~\ref{fig:s
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFRecoil_0jet_MT_TrackHWW_Clj_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutFRecoil_0jet_MT_TrackHWW_Clj_mh125_lin}
-	\caption{The \mt distribution of the selected 0-jet events, in the \em/\me (left) and 
-	\ee/\mm (right) channels.}
+	\caption{The \mt distribution of the selected 0-jet events, in the \emch/\mech (left) and 
+	\eech/\mmch (right) channels.}
 	\label{fig:sel:0j:mt}
 \end{figure}
 
@@ -288,7 +292,7 @@ The 1-jet bin is initially dominated by the \DY and top backgrounds (see
 events containing a \Pbottom-tagged jet with \unit{$\pt > 20$}{\GeV} (see 
 \Section~\ref{sec:objects:bjets}).
 
-The \em/\me pre-selection has a loose \corrtrackmet cut in order to maximise the 
+The \emch/\mech pre-selection has a loose \corrtrackmet cut in order to maximise the 
 signal acceptance. However, this yields a sizeable di-jet background, which has a large 
 uncertainty. For this reason, two single-lepton transverse mass variables are constructed
 \begin{equation}
@@ -303,11 +307,11 @@ Their maximum, \maxmtw, tends to peak at lower values for processes with fake \m
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMaxMTlep_1jet_Mtt_TrackHWW_Clj_mh125_lin}
 	\caption{The \maxmtw (left) and \mtautau (right) distributions directly 
-	before they are cut upon in the \em/\me channels.}
+	before they are cut upon in the \emch/\mech channels.}
 	\label{fig:sel:1j:df_cuts}
 \end{figure}
 
-At this stage, the \DYtt background dominates the \em/\me channels. To aid 
+At this stage, the \DYtt background dominates the \emch/\mech channels. To aid 
 discrimination, a di-tau mass is constructed
 \begin{equation}
 	\mtautau = 
@@ -323,19 +327,19 @@ $\Delta\phi\parenths{\Plepton,\HepProcess{\Pnut\Pnulepton}} = 0$.
 This approximation is reasonable since each \Ptau has large \pt. We require 
 \unit{$\mtautau < \mZ - 25$}{\GeV} (see \Figure~\ref{fig:sel:1j:df_cuts}).
 
-After the signal topology selection, the \DYll background is suppressed in the \ee/\mm 
-channels by requiring \unit{$\trackmetrel > 35$}{\GeV} and $\frecoil < 0.1$ (see 
-\Figure~\ref{fig:sel:1j:sf_cuts}). In the 1-jet bin, the \frecoil definition is altered 
-with respect to (\ref{eq:frecoil}): the quadrant $\wedge$ is centred upon $-\ptlljvec$ 
-and the denominator becomes \ptllj. This is because a hard jet has been found, and so it 
-is the dilepton + jet system that must be balanced by the hard recoil.
+After the signal topology selection, the \DYll background is suppressed in the 
+\eech/\mmch channels by requiring \unit{$\trackmetrel > 35$}{\GeV} and $\frecoil < 0.1$ 
+(see \Figure~\ref{fig:sel:1j:sf_cuts}). In the 1-jet bin, the \frecoil definition is 
+altered with respect to (\ref{eq:frecoil}): the quadrant $\wedge$ is centred upon 
+$-\ptlljvec$ and the denominator becomes \ptllj. This is because a hard jet has been 
+found, and so it is the dilepton + jet system that must be balanced by the hard recoil.
 
 \begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoMll_1jet_METRel_TrackHWW_Clj_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoDPhill_1jet_f_recoil_ext_mh125_lin}
 	\caption{The \corrtrackmetrel (left) and \frecoil (right) distributions directly 
-	before they are cut upon in the \ee/\mm channels.}
+	before they are cut upon in the \eech/\mmch channels.}
 	\label{fig:sel:1j:sf_cuts}
 \end{figure}
 
@@ -346,17 +350,72 @@ and the \mt distributions of the selected events are shown in \Figure~\ref{fig:s
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFRecoil_1jet_MT_TrackHWW_Clj_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutFRecoil_1jet_MT_TrackHWW_Clj_mh125_lin}
-	\caption{The \mt distribution of the selected 1-jet events, in the \em/\me (left) and 
-	\ee/\mm (right) channels.}
+	\caption{The \mt distribution of the selected 1-jet events, in the \emch/\mech (left) and 
+	\eech/\mmch (right) channels.}
 	\label{fig:sel:1j:mt}
 \end{figure}
 
 
 
-
-
 \subsection{\twojet selection}
 \label{sec:selection:2j}
+
+Only the \emch/\mech channels are used in the \twojet bin, which is dominated by top 
+background (see \Figure~\ref{fig:sel:njets}). Note that variable definitions using only 
+two jets refer to the two hardest jets. As in the 1-jet bin, the top background is 
+greatly suppressed by vetoing events with a \Pbottom-tagged jet with 
+\unit{$\pt > 20$}{\GeV}. Also, the \DYtt background is again suppressed by the 
+requirement \unit{$\mtautau < \mZ - 25$}{\GeV}.
+
+At this point, it is necessary to contextualise the analysis. Although this thesis 
+describes the search for the ggF production mode, searches for the other production modes 
+(see \Section~\ref{sec:properties}) are also performed by the ATLAS collaboration. To 
+simplify the statistical combination of these searches, it is helpful to avoid overlap 
+between their signal regions. This is particularly important for the \twojet bin.
+
+The VBF production mode features two outgoing quarks at LO (see 
+\Figure~\ref{fig:feyn:VBF}). 
+Therefore the \twojet bin is the starting point for the VBF selection. However, the 
+absence of colour exchange between the quarks leads to dramatically different event 
+topologies compared to ggF events in the \twojet bin; VBF events feature two high-\pt 
+jets, separated by a large rapidity gap devoid of hadronic activity. Thus, events 
+containing a softer jet with \unit{$\pt > 20$}{\GeV} within this rapidity gap are removed 
+from the VBF selection. This is the \textit{central jet veto} (CJV). The VBF selection 
+also requires that the leptons lie within this rapidity gap, since the Higgs boson is 
+generally produced centrally. This is the \textit{outside lepton veto} (OLV). Finally, a 
+boosted decision tree (BDT) \cite{TMVA} is trained to discriminate VBF events based upon 
+eight input variables:
+
+\begin{listliketab}
+	\begin{tabular}{Ll@{\hskip 0.3in}llll}
+		\textbullet & VBF topology:    & \mjj, &\dyjj, &$\eta_{\Plepton}$ centrality, &$\sum_{\Plepton, j} m_{\Plepton j}$ \\
+		\textbullet & \HWW decay:      & \mll, &\dphill, &\mt \\
+		\textbullet & top suppression: & \pttot \\
+	\end{tabular}
+\end{listliketab}
+
+\noindent
+$\eta_{\Plepton}$ centrality characterises how close the leptons are to the jets. 
+$\sum_{\Plepton, j} m_{\Plepton j}$ sums the masses of the four lepton-jet systems 
+possible with the two hardest jets, which is higher in VBF events due to the large 
+separations involved. \pttot is the sum of \corrtrackmetvec and the \ptvec of each lepton 
+and jet, capturing the soft hadronic recoil, which is larger in top background events. 
+The BDT scores events between 100\% signal-like ($+1$) and 100\% background-like ($-1$), 
+where ggF is considered a background. Events with a score $> -0.48$ are selected (see 
+\Figure~\todo{VBF BDT plot}).
+
+Another search considers the \WH and \ZH production modes, where the vector boson decays 
+hadronically (see \Figure~\ref{fig:feyn:VH}). Again, the \twojet bin is the starting 
+point for this selection. As with VBF, the jet kinematics can be used to distinguish this 
+from ggF. First, the criterion $\dyjj < 1.2$ requires small jet separation, since the 
+vector boson is likely to be produced with significant momentum. Second, the di-jet 
+system must have a mass corresponding to a \PW or \PZ boson, 
+\unit{$\mods{\mjj - 85}$}{\GeV}.
+
+To maintain orthogonality with the VBF and \VH analyses, the ggF analysis requires events 
+in the \twojet bin to fail at least one cut from each selection. That is, an event must 
+fail either the CJV, the OLV \textbf{or} the BDT score cut \textbf{and} it must fail 
+either the \dyjj \textbf{or} the \mjj cut.
 
 
 
@@ -364,9 +423,10 @@ and the \mt distributions of the selected events are shown in \Figure~\ref{fig:s
 \label{sec:selection:summary}
 
 The entire event selection is concisely summarised in \Table~\ref{tab:event_selection}. 
-In total, there are 10 different signal regions: $\braces{\em,\me,\ee,\mm} \otimes 
-\braces{\text{0-jet,1-jet}} \oplus \braces{\em,\me} \otimes \twojet$. The events in these 
-signal regions shall be input to the fitting procedure in \Chapter~\ref{chap:results}.
+In total, there are 10 different signal regions: $\braces{\emch,\mech,\eech,\mmch} 
+\otimes \braces{\text{0-jet,1-jet}} \oplus \braces{\emch,\mech} \otimes \twojet$. The 
+events in these signal regions shall be input to the fitting procedure in 
+\Chapter~\ref{chap:results}.
 
 \begin{sidewaystable}
 	\centering
@@ -374,7 +434,7 @@ signal regions shall be input to the fitting procedure in \Chapter~\ref{chap:res
 		\toprule
 		&&& \multicolumn{2}{c}{All jet bins} \\
 		\cmidrule(lr){4-5}
-		&&& \em/\me & \ee/\mm \\
+		&&& \emch/\mech & \eech/\mmch \\
 		\cmidrule(lr){2-7}
 		\ldelim\{{3}{2.5cm}[Pre-selection] 
 		& \multicolumn{6}{c}{$\ptleadlep > 22$ and $\ptsubleadlep > 10$} \\
@@ -383,7 +443,7 @@ signal regions shall be input to the fitting procedure in \Chapter~\ref{chap:res
 		\cmidrule(lr){2-7}
 		&\multicolumn{2}{c}{0-jet bin} & \multicolumn{2}{c}{1-jet bin} & \multicolumn{2}{c}{\twojet bin} \\
 		\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
-		& \em/\me & \ee/\mm & \em/\me & \ee/\mm & \multicolumn{2}{c}{\em/\me} \\
+		& \emch/\mech & \eech/\mmch & \emch/\mech & \eech/\mmch & \multicolumn{2}{c}{\emch/\mech} \\
 		\cmidrule(lr){2-7}
 		\ldelim\{{4}{2.5cm}[Reject \DY] 
 		& $\corrtrackmet > 20$ & $\metrel > 40$ & $\corrtrackmet > 10$ & $\metrel > 40$ & \multicolumn{2}{c}{$\corrtrackmet > 20$} \\
@@ -401,7 +461,7 @@ signal regions shall be input to the fitting procedure in \Chapter~\ref{chap:res
 		\cmidrule(lr){2-7}
 		&&& \multicolumn{2}{c}{All jet bins} \\
 		\cmidrule(lr){4-5}
-		&&& \em/\me & \ee/\mm \\
+		&&& \emch/\mech & \eech/\mmch \\
 		\cmidrule(lr){2-7}
 		\ldelim\{{2}{2.5cm}[Select signal]
 		&&& \multicolumn{2}{c}{$\mll < 55$} \\

@@ -466,7 +466,7 @@ lifetimes of \Pbottom-hadrons to identify jets originating from \Pbottom-quarks.
 algorithm uses a neural network with inputs of jet \pt, $\eta$ and the weights output 
 by three other algorithms \cite{Btag:algorithms}:
 \begin{itemize}[noitemsep,nolistsep]
-	\item IP3D searches for significant impact parameters of jet tracks,
+	\item IP3D searches for significant impact parameters of jet tracks, \storeliststyle{}
 	\item SV1 searches for secondary vertices associated with \Pbottom-hadron decays,
 	\item JetFitter reconstructs the decay chain topology (including the daughter 
 	\Pcharm-hadron).
@@ -520,12 +520,12 @@ kinematics.
 	Thus, the missing transverse momentum is defined with the following components
 	\begin{equation}
 		\metvec = - \braces{ 
-		\sum\limits_{\Pe} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\Pmu} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\Ptau} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\Pphoton} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\text{jets}} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\text{soft}} \bvec{p}_{\text{T}}
+		\sum\limits_{\Pe} \ptvec + 
+		\sum\limits_{\Pmu} \ptvec + 
+		\sum\limits_{\Ptau} \ptvec + 
+		\sum\limits_{\Pphoton} \ptvec + 
+		\sum\limits_{\text{jets}} \ptvec + 
+		\sum\limits_{\text{soft}} \ptvec
 		} \,.
 	\end{equation}
 	Unfortunately, \met is highly susceptible to pile-up because the starting points are 
@@ -562,9 +562,9 @@ kinematics.
 	Thus, the missing transverse momentum is defined with the following components
 	\begin{equation}
 		\trackmetvec = - \braces{ 
-		\sum\limits_{\Pe} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\Pmu} \bvec{p}_{\text{T}} + 
-		\!\!\!\! \sum\limits_{\text{unassoc.}} \!\!\!\! \bvec{p}_{\text{T}}
+		\sum\limits_{\Pe} \ptvec + 
+		\sum\limits_{\Pmu} \ptvec + 
+		\!\!\!\! \sum\limits_{\text{unassoc.}} \!\!\!\! \ptvec
 		} \,.
 	\end{equation}
 	\trackmet is very resilient to pile-up. However, its inability to include neutral 
@@ -578,10 +578,10 @@ kinematics.
 	Thus, the missing transverse momentum is defined with the following components
 	\begin{equation}
 		\corrtrackmetvec = - \braces{ 
-		\sum\limits_{\Pe} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\Pmu} \bvec{p}_{\text{T}} + 
-		\sum\limits_{\text{jets}} \bvec{p}_{\text{T}} + 
-		\!\!\!\! \sum\limits_{\text{unassoc.}} \!\!\!\! \bvec{p}_{\text{T}}
+		\sum\limits_{\Pe} \ptvec + 
+		\sum\limits_{\Pmu} \ptvec + 
+		\sum\limits_{\text{jets}} \ptvec + 
+		\!\!\!\! \sum\limits_{\text{unassoc.}} \!\!\!\! \ptvec
 		} \,.
 	\end{equation}
 	This has the best resolution, but the use of calorimeter information does introduce 
@@ -610,9 +610,13 @@ kinematics.
 
 In order to avoid double-counting calorimeter deposits and tracks as multiple physics 
 objects, overlapping objects are removed according to the following rules:
-\begin{equation*}
-	\Delta R \parenths{\Pe,\Pmu} < 0.1 &&& \text{remove electron} \\
-	\Delta R \parenths{\Pe,\Pe}  < 0.1 &&& \text{remove electron with lower \pt} \\
-	\Delta R \parenths{\Pe,j}    < 0.3 &&& \text{remove jet} \\
-	\Delta R \parenths{\Pmu,j}   < 0.3 &&& \text{remove muon} \\
-\end{equation*}
+
+\begin{listliketab}
+	\begin{tabular}{Ll@{\hskip 0.3in}l}
+		\textbullet & $\Delta R \parenths{\Pe,\Pmu} < 0.1$ & remove electron \\
+		\textbullet & $\Delta R \parenths{\Pe,\Pe}  < 0.1$ & remove electron with lower \pt \\
+		\textbullet & $\Delta R \parenths{\Pe,j}    < 0.3$ & remove jet \\
+		\textbullet & $\Delta R \parenths{\Pmu,j}   < 0.3$ & remove muon \\
+	\end{tabular}
+\end{listliketab}
+
