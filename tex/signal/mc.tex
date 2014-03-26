@@ -34,30 +34,32 @@ must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-
 
 \begin{table}
 	\begin{tabular}{ccc}
+		\toprule
 		Jet binning & \eech/\mmch & \emch/\mech \\
-		\hline
+		\midrule
 		Inclusive & \multicolumn{2}{c}{Exactly 2 opposite-sign leptons} \\
 		& \multicolumn{2}{c}{\unit{$\ptleadlep > 22$}{\GeV}} \\
 		& \unit{$\mll > 12$}{\GeV} & \unit{$\mll > 10$}{\GeV} \\
 		& \unit{$\mods{\mll - \mZ} > 15$}{\GeV} & -- \\
-		\hline
+		\midrule
 		0-jet & \unit{$\metrel > 40$}{\GeV} & \unit{$\met > 20$}{\GeV} \\
 		& \multicolumn{2}{c}{$\dphillmet > 1.57$} \\
 		& \multicolumn{2}{c}{\unit{$\ptll > 30$}{\GeV}} \\
 		& \multicolumn{2}{c}{\unit{$\mll < 55$}{\GeV}} \\
 		& \multicolumn{2}{c}{$\dphill < 1.8$} \\
-		\hline
+		\midrule
 		1-jet & \unit{$\metrel > 40$}{\GeV} & \unit{$\met > 10$}{\GeV} \\
 		& -- & \unit{$\maxmtw > 50$}{\GeV} \\
 		& -- & \unit{$\mtautau < 66$}{\GeV} \\
 		& \multicolumn{2}{c}{\unit{$\mll < 55$}{\GeV}} \\
 		& \multicolumn{2}{c}{$\dphill < 1.8$} \\
-		\hline
+		\midrule
 		\twojet & \unit{$\met > 45$}{\GeV} & \unit{$\met > 20$}{\GeV} \\
 		& \multicolumn{2}{c}{\unit{$\mtautau < 66$}{\GeV}} \\
 		& \multicolumn{2}{c}{Fails $\dyjj > 3.6$ or \unit{$\mjj > 600$}{\GeV} or CJV or OLV} \\
 		& \multicolumn{2}{c}{\unit{$\mll < 55$}{\GeV}} \\
 		& \multicolumn{2}{c}{$\dphill < 1.8$} \\
+		\bottomrule
 	\end{tabular}
 	\caption{Hadron-level event selection used to calculate ggF acceptance uncertainties. 
 	The CJV and OLV are the central jet veto and outside lepton veto, respectively. See 
@@ -99,20 +101,22 @@ background compositions. The uncertainties in these split signal regions are sho
 
 \begin{table}[b]
 	\begin{tabular}{r|ccccccc|c}
+		\toprule
 		& \multirow{2}{*}{Stat.} & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{NLO-PS} & \multirow{2}{*}{Total} \\
 		& & & MSTW & 68\% CL & \pythia{6} & \fherwig & & \\
-		\hline
+		\midrule
 		\multicolumn{9}{c}{\eech/\mmch channels} \\
-		\hline
+		\midrule
 		0-jet   & 0.6\% & 1.4\% & +1.9\% & 3.2\% & $+1.6\%$ & $+6.4\%$ & $-2.5\%$ & 8.1\% \\
 		1-jet   & 1.0\% & 1.9\% & +1.8\% & 2.8\% & $-0.7\%$ & $+2.1\%$ & $-1.1\%$ & 4.6\% \\
 		\twojet & 1.5\% &       & +2.0\% & 2.3\% & $+0.8\%$ & $-1.0\%$ & $-6.3\%$ &  \\
-		\hline
+		\midrule
 		\multicolumn{9}{c}{\emch/\mech channels} \\
-		\hline
+		\midrule
 		0-jet   & 0.5\% & 1.1\% & +1.9\% & 3.2\% & $-0.5\%$ & $+2.2\%$ & $-1.8\%$ & 4.8\% \\
 		1-jet   & 0.8\% & 1.3\% & +1.8\% & 2.8\% & $+0.5\%$ & $+3.5\%$ & $-1.1\%$ & 5.1\% \\
 		\twojet & 1.2\% &       & +2.0\% & 2.2\% & $-0.5\%$ & $+1.5\%$ & $-4.5\%$ &  \\
+		\bottomrule
 	\end{tabular}
 	\caption{Theoretical uncertainties in the ggF acceptance for each signal region. PDF 
 	uncertainties are relative to the inclusive cross section, whereas others are 
@@ -123,25 +127,26 @@ background compositions. The uncertainties in these split signal regions are sho
 \begin{table}
 	\centering
 	\begin{tabular}{ccc|cccccc}
+		\toprule
 		& \ptsubleadlep & \mll & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{NLO-PS} \\
 		& (\GeV) & (\GeV) & & MSTW & 68\% CL & \pythia{6} & \fherwig & \\
-		\hline
+		\midrule
 		\multicolumn{9}{c}{\eech/\mmch channels} \\
-		\hline
+		\midrule
 		\multirow{2}{*}{0-jet}
 		&  $>10$ & 12--30 & 2.5\% & +1.9\% & 3.2\% & $+1.8\%$ & $+7.2\%$ & $-4.2\%$ \\
 		&  $>10$ & 30--55 & 1.1\% & +1.9\% & 3.3\% & $+1.3\%$ & $+5.6\%$ & $-0.6\%$ \\
-		\hline
+		\midrule
 		\multirow{2}{*}{1-jet}
 		&  $>10$ & 12--30 & 2.5\% & +1.8\% & 2.7\% & $-0.5\%$ & $+3.9\%$ & $-3.0\%$ \\
 		&  $>10$ & 30--55 & 1.2\% & +1.8\% & 2.8\% & $-0.9\%$ & $+0.2\%$ & $+1.1\%$ \\
-		\hline
+		\midrule
 		\multirow{2}{*}{\twojet}
 		&  $>10$ & 12--30 &       & +2.0\% & 2.2\% & $+2.9\%$ & $-0.6\%$ & $-6.5\%$ \\
 		&  $>10$ & 30--55 &       & +2.1\% & 2.3\% & $-1.8\%$ & $-1.4\%$ & $-6.1\%$ \\
-		\hline
+		\midrule
 		\multicolumn{9}{c}{\emch/\mech channels} \\
-		\hline
+		\midrule
 		\multirow{6}{*}{0-jet}
 	    & 10--15 & 10--30 & 2.6\% & +1.8\% & 3.2\% & $-1.7\%$ & $+5.7\%$ & $-3.5\%$ \\
 		& 15--20 & 10--30 & 1.3\% & +1.9\% & 3.2\% & $+2.2\%$ & $+4.9\%$ & $-2.8\%$ \\
@@ -149,7 +154,7 @@ background compositions. The uncertainties in these split signal regions are sho
 		& 10--15 & 30--55 & 1.5\% & +1.8\% & 3.3\% & $+0.8\%$ & $+5.5\%$ & $-3.8\%$ \\
 		& 15--20 & 30--55 & 1.5\% & +1.9\% & 3.3\% & $-0.1\%$ & $+2.0\%$ & $-2.5\%$ \\
 		&  $>20$ & 30--55 & 3.5\% & +1.9\% & 3.3\% & $-1.9\%$ & $-2.4\%$ & $<0.1\%$ \\
-		\hline
+		\midrule
 		\multirow{6}{*}{1-jet}
 	    & 10--15 & 10--30 & 3.2\% & +1.7\% & 2.9\% & $+2.1\%$ & $+11\%$  & $-4.4\%$ \\
 		& 15--20 & 10--30 & 2.9\% & +1.8\% & 2.9\% & $+0.8\%$ & $+1.8\%$ & $+1.7\%$ \\
@@ -157,7 +162,7 @@ background compositions. The uncertainties in these split signal regions are sho
 		& 10--15 & 30--55 & 5.8\% & +1.7\% & 3.0\% & $+1.2\%$ & $+11\%$  & $-6.2\%$ \\
 		& 15--20 & 30--55 & 1.0\% & +1.8\% & 3.3\% & $+2.5\%$ & $+13\%$  & $+6.7\%$  \\
 		&  $>20$ & 30--55 & 1.3\% & +1.8\% & 2.8\% & $-0.7\%$ & $-2.1\%$ & $<0.1\%$ \\
-		\hline
+		\midrule
 		\multirow{6}{*}{\twojet}
 	    & 10--15 & 10--30 &       & +2.0\% & 2.3\% & $+0.8\%$ & $+14\%$  & $-9.8\%$ \\
 		& 15--20 & 10--30 &       & +2.0\% & 2.3\% & $+5.7\%$ & $+23\%$  & $-3.5\%$  \\
@@ -165,6 +170,7 @@ background compositions. The uncertainties in these split signal regions are sho
 		& 10--15 & 30--55 &       & +1.9\% & 2.3\% & $-5.9\%$ & $+1.0\%$ & $+8.2\%$ \\
 		& 15--20 & 30--55 &       & +2.0\% & 2.3\% & $-6.6\%$ & $+0.5\%$ & $-1.4\%$ \\
 		&  $>20$ & 30--55 &       & +1.9\% & 2.2\% & $+0.3\%$ & $-0.9\%$ & $-5.2\%$ \\
+		\bottomrule
 	\end{tabular}
 	\caption{Theoretical uncertainties in the ggF acceptance for each signal region, 
 	split into bins of \ptsubleadlep and \mll as used in the fitting procedure. PDF 
