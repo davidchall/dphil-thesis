@@ -1,0 +1,25 @@
+\documentclass[12pt]{standalone}
+\usepackage{axodraw}
+\usepackage[italic]{hepparticles}
+\usepackage[italic]{hepnames}
+\DeclareRobustCommand{\PV}{\HepGenParticle{V}{}{}\xspace}
+
+\begin{document}
+
+\unitlength 1pt \SetScale{1}
+\begin{picture}(120,100)(5,-10)
+	\ArrowLine(20, 5)(60,20)
+	\ArrowLine(60,60)(20,75)
+	\ArrowLine(60,20)(60,60)
+	\Photon(100,5)(60,20){2}{5}
+	\Photon(60,60)(100,75){2}{5}
+	\Vertex(60,60){2}
+	\Vertex(60,20){2}
+	\put(  8, 2){${\Pquark}$}
+	\put(  8,72){${\APquark'}$}
+	\put( 46,37){${\Pquark}''$}
+	\put(105,72){${\PW}$}
+	\put(105,2){${\PW}$}
+\end{picture}
+
+\end{document}
