@@ -7,6 +7,7 @@
 \DeclareRobustCommand{\HWW}{\HepProcess{\PHiggs \HepTo \PW \PW}\xspace}
 \DeclareRobustCommand{\HWWlvlv}{\HepProcess{\HWW \HepTo \Plepton \Pneutrino \Plepton \Pneutrino}\xspace}
 \DeclareRobustCommand{\ggHWWlvlv}{\HepProcess{\Pgluon\Pgluon \HepTo \HWWlvlv}\xspace}
+\DeclareRobustCommand{\ggHWW}{\HepProcess{\Pgluon\Pgluon \HepTo \HWW}\xspace}
 \DeclareRobustCommand{\ggH}{\HepProcess{\Pgluon \Pgluon \HepTo \PHiggs}\xspace}
 \DeclareRobustCommand{\WH}{\HepProcess{\PW \PHiggs}\xspace}
 \DeclareRobustCommand{\ZH}{\HepProcess{\PZ \PHiggs}\xspace}
@@ -78,6 +79,10 @@
 \DeclareRobustCommand{\metrel}{\thesismath{E_{\text{T,rel}}^{\text{miss}}}\xspace}
 \DeclareRobustCommand{\trackmetrel}{\thesismath{p_{\text{T,rel}}^{\text{miss}}}\xspace}
 \DeclareRobustCommand{\corrtrackmetrel}{\thesismath{p_{\text{T,rel}}^{\text{miss,corr}}}\xspace}
+
+\DeclareRobustCommand{\etcone}[1]{\thesismath{E_{\text{T}}^{\text{cone}}\parenths{#1}}\xspace}
+\DeclareRobustCommand{\ptcone}[1]{\thesismath{p_{\text{T}}^{\text{cone}}\parenths{#1}}\xspace}
+
 
 \DeclareRobustCommand{\mur}{\thesismath{\mu_{\text{R}}}\xspace}
 \DeclareRobustCommand{\muf}{\thesismath{\mu_{\text{F}}}\xspace}

@@ -158,9 +158,9 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 			\toprule
 			Electron \et (\GeV) & Tracker isolation & Calorimeter isolation \\
 			\midrule
-			10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\et < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.20$ \\
-			15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.24$ \\
-			$> 20$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.10$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\et < 0.28$ \\
+			10 -- 15 & $\ptcone{0.4}/\et < 0.06$ & $\etcone{0.3}/\et < 0.20$ \\
+			15 -- 20 & $\ptcone{0.3}/\et < 0.08$ & $\etcone{0.3}/\et < 0.24$ \\
+			$> 20$   & $\ptcone{0.3}/\et < 0.10$ & $\etcone{0.3}/\et < 0.28$ \\
 			\bottomrule
 		\end{tabular}
 		\caption{Tracker and calorimeter isolation criteria for electrons. The cuts 
@@ -168,26 +168,25 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 		\label{tab:objects:el_iso}
 	\end{table}
 
-	\textit{Tracker isolation:} $p_{\text{T}}^{\text{cone}}\parenths{R_0}$ is the summed 
-	\pt of all tracks of $\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R < R_0$, 
-	excluding the electron track itself. For robustness against pile-up, the tracks are 
-	required to originate from the primary vertex.
+	\textit{Tracker isolation:} $\ptcone{R_0}$ is the summed \pt of all tracks of 
+	$\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R < R_0$, excluding the electron 
+	track itself. For robustness against pile-up, the tracks are required to originate 
+	from the primary vertex.
 
 	\textit{Calorimeter isolation:} Uncalibrated topological clusters (see 
 	\Section~\ref{sec:objects:jets}) are built from energy deposits in the \ac{ECal} 
 	and \ac{HCal}. These are more robust against pile-up than cell deposits as they 
-	suppress noise. $E_{\text{T}}^{\text{cone}}\parenths{R_0}$ is the summed \et of the 
-	topological clusters within a cone of $\Delta R < R_0$, excluding cells in a 
-	$5 \times 7$ window around the electron (see \Figure~\ref{fig:objects:el_iso}). 
-	Corrections are made for electron energy leakage and deposits from pile-up and the 
-	underlying event.
+	suppress noise. $\etcone{R_0}$ is the summed \et of the topological clusters within a 
+	cone of $\Delta R < R_0$, excluding cells in a $5 \times 7$ window around the 
+	electron (see \Figure~\ref{fig:objects:el_iso}). Corrections are made for electron 
+	energy leakage and deposits from pile-up and the underlying event.
 
 	\begin{figure}
 		\includegraphics[width=0.8\smallfigwidth]{tex/selection/el_isolation}
-		\caption{Schematic of calorimeter isolation. Pink cells are topological clusters, 
-		the yellow circle is the isolation cone ($R_0 = 0.4$ shown), the green 
-		$3 \times 7$ rectangle is the reconstructed electron cluster, 
-		and the white $5 \times 7$ rectangle is the area removed from the cone.}
+		\caption{Schematic of calorimeter isolation. Pink cells constitute topological 
+		clusters, the yellow circle is the isolation cone ($R_0 = 0.4$ shown), the green 
+		$3 \times 7$ rectangle is the reconstructed electron cluster, and the white 
+		$5 \times 7$ rectangle is the area removed from the cone.}
 		\label{fig:objects:el_iso}
 	\end{figure}
 
@@ -286,19 +285,18 @@ $\mods{\eta} < 2.5$ are selected.
 	Although the muon signature is much cleaner than that of electrons, hadronic fakes 
 	(\textit{punch-through}) and muons from heavy flavour decays must still be suppressed 
 	by isolation criteria, which are summarised in \Table~\ref{tab:objects:mu_iso}. The 
-	$p_{\text{T}}^{\text{cone}}\parenths{R_0}$ and 
-	$E_{\text{T}}^{\text{cone}}\parenths{R_0}$ variables are defined similarly to 
-	electrons, though the size of the subtracted calorimeter window is reduced for muons.
+	$\ptcone{R_0}$ and $\etcone{R_0}$ variables are defined similarly to electrons, 
+	though the size of the subtracted calorimeter window is reduced for muons.
 
 	\begin{table}
 		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
 			\toprule
 			Muon \pt (\GeV) & Tracker isolation & Calorimeter isolation \\
 			\midrule
-			10 -- 15 & $p_{\text{T}}^{\text{cone}}\parenths{0.4}/\pt < 0.06$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.06$ \\
-			15 -- 20 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.08$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ \\
-			20 -- 25 & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.18$ \\
-			$> 25$   & $p_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.12$ & $E_{\text{T}}^{\text{cone}}\parenths{0.3}/\pt < 0.30$ \\
+			10 -- 15 & $\ptcone{0.4}/\pt < 0.06$ & $\etcone{0.3}/\pt < 0.06$ \\
+			15 -- 20 & $\ptcone{0.3}/\pt < 0.08$ & $\etcone{0.3}/\pt < 0.12$ \\
+			20 -- 25 & $\ptcone{0.3}/\pt < 0.12$ & $\etcone{0.3}/\pt < 0.18$ \\
+			$> 25$   & $\ptcone{0.3}/\pt < 0.12$ & $\etcone{0.3}/\pt < 0.30$ \\
 			\bottomrule
 		\end{tabular}
 		\caption{Tracker and calorimeter isolation criteria for muons. The cuts were 

@@ -1,1 +1,129 @@
 %!TEX root = ../../thesis.tex
+
+This section describes the \WW cross section measurement using the 
+\unit{$\sqrt{s} = 7$}{\TeV} dataset, which is published in \Reference~\cite{WW-7TeV}.
+
+\WW has the same basic experimental signature as \HWW, and therefore shares many of its 
+backgrounds. However, there are two key differences between the analyses. 
+
+\begin{enumerate}
+	\item The analysis described in \Chapter~\ref{chap:selection} is optimised for low 
+	mass (\unit{$\mH \approx 125$}{\GeV}) resonant \WW production. It therefore requires 
+	at least one \PW boson to be off-shell, and consequently employs low lepton 
+	thresholds (\unit{$\pt > 10$}{\GeV}). Conversely, the search for non-resonant \WW 
+	production is optimised for on-shell \PW bosons, and so raises the lepton thresholds 
+	to \unit{$\pt > 20$}{\GeV}. This reduces fake leptons, and obviates the need to split 
+	the different flavour channel into \emch and \mech parts.
+
+	\item The total \WW cross section at \unit{$\sqrt{s} = 7$}{\TeV} is 
+	\unit{$44.7^{+2.1}_{-1.9}$}{\pico\barn}, which is much larger than than of \ggHWW 
+	(\unit{$3.3 \pm 0.4$}{\pico\barn} for \unit{$\mH = 125$}{\GeV}). This enables use of 
+	tighter criteria to reduce backgrounds, whilst retaining a large number of signal 
+	events. For example, only the 0-jet bin is used.
+\end{enumerate}
+
+
+
+\subsection{Reconstruction of physics objects}
+
+Beam conditions in 2011 were quite different to 2012; in particular, the pile-up 
+environment was much less difficult (see \Figure~\ref{fig:dataset:pileup}). Consequently, 
+the reconstruction of physics objects is slightly different to that described in 
+\Section~\ref{sec:objects}.
+
+\begin{description}
+\item[Electrons] \hfill \\
+	The Gaussian Sum Filter was not implemented in the 2011 reconstruction, and so the 
+	efficiency is lower (see \Figure~\ref{fig:objects:el_recoeff}). To reduce fakes, the 
+	cut-based \textit{tight} identification criteria are used. The reduced pile-up allows
+	tighter calorimeter isolation to be applied, $\etcone{0.3}/\et < 0.14$, and this in 
+	turn allows for looser tracker isolation $\ptcone{0.3}/\et < 0.13$. Finally, the 
+	association with the primary vertex is relaxed, with the transverse impact parameter 
+	$d_0$ required to be within ten standard deviations of zero. The threshold is raised 
+	to \unit{$\pt > 20$}{\GeV}.
+
+\item[Muons] \hfill \\
+	Differences to muon reconstruction are minimal. Slightly tighter quality criteria are 
+	applied to the ID tracks. The isolation criteria are $\etcone{0.3}/\pt < 0.14$ and 
+	$\ptcone{0.3}/\pt < 0.15$. The threshold is raised to \unit{$\pt > 20$}{\GeV}.
+
+\item[Jets] \hfill \\
+	A lower pile-up noise threshold is used in topo-clustering, corresponding to 
+	$\mu = 8$. Local cluster weighting (LCW) is not performed on topo-clusters, and so 
+	jets are corrected directly from the EM scale to the Jet Energy Scale (JES). In 2011, 
+	the pile-up subtraction step of the calibration is less sophisticated, and is 
+	averaged over \npv and $\mu$ rather than as an event-by-event correction 
+	\cite{Jets:PileupCorrection:2011}. The jet vertex fraction criterion is also removed. 
+	Finally, a unified threshold of \unit{$\pt > 25$}{\GeV} is used over the entire 
+	range $\mods{\eta} < 4.5$.
+
+\item[Missing transverse momentum] \hfill \\
+	Calorimeter-based \met is used exclusively throughout the analysis.
+
+\end{description}
+
+
+
+\subsection{Event selection criteria}
+
+As mentioned above, the event selection of the \WW measurement can be tighter than that 
+of the \HWW search, and does not require such stringent optimisation.
+
+\begin{description}
+\item[Data quality] \hfill \\
+	The 2011 \pp dataset (see \Section~\ref{sec:dataset:dataset}) is subject to data 
+	quality criteria as in 2012, though some criteria are specific to the data-taking 
+	conditions of 2011. The selected dataset corresponds to an integrated luminosity of 
+	\unit{4.6}{\invfb}.
+
+\item[Trigger] \hfill \\
+	The lowest unprescaled single lepton triggers were used to support 
+	\unit{$\ptleadlep > 25$}{\GeV} in the offline analysis, whilst operating on the 
+	plateau. These changed throughout the year as data-taking conditions changed, and 
+	are displayed in \Table~\ref{tab:ww:triggers}.
+
+	\begin{table}
+		\begin{tabular}{ll@{\hskip 0.3in}r@{\;{--}\;}l}
+			\toprule
+			\multirow{3}{*}{\Pe}  & \verb|EF_e20_medium|     & 14th Apr & 4th Aug \\
+			                      & \verb|EF_e22_medium|     & 4th Aug & 22nd Aug \\
+			                      & \verb|EF_e22vh_medium1|  & 7th Sep & 30th Oct \\
+			\midrule
+			\multirow{2}{*}{\Pmu} & \verb|EF_mu18_MG|        & 14th Apr & 29th Jul \\
+			                      & \verb|EF_mu18_MG_medium| & 30th Jul & 30th Oct \\
+			\bottomrule
+		\end{tabular}
+		\caption{Single lepton triggers employed in the 2011 \WW cross section 
+		measurement. Trigger names are explained in \Table~\ref{tab:sel:triggers}.}
+		\label{tab:ww:triggers}
+	\end{table}
+
+\item[Event selection] \hfill \\
+	The event selection is shown in \Table~\ref{tab:ww:sel} and is similar to the 0-jet 
+	\HWW selection in \Table~\ref{tab:event_selection}, although the topological cuts of 
+	the Higgs boson decay are obviously not applied. The major differences are the raised 
+	lepton thresholds, the raised \met cuts, and the lack of \dphillmet and \frecoil cuts.
+
+	\begin{table}[b]
+		\begin{tabularx}{0.5\textwidth}{YY}
+			\toprule
+			\emch & \eech/\mmch \\
+			\midrule
+			\multicolumn{2}{c}{$\ptleadlep > 25$ and $\ptsubleadlep > 20$} \\
+			$\mll > 15$    & $\mll > 10$ \\
+			--             & $\mods{\mll - \mZ} > 15$ \\
+			$\metrel > 25$ & $\metrel > 45$ \\
+			\multicolumn{2}{c}{$\njets = 0$} \\
+			\multicolumn{2}{c}{$\ptll > 30$} \\
+			\bottomrule
+		\end{tabularx}
+		\caption{Summary of \WW event selection. Cuts are given in \GeV.}
+		\label{tab:ww:sel}
+	\end{table}
+\end{description}
+
+
+
+
+
+
