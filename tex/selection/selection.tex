@@ -57,7 +57,7 @@ latency and bandwidth require a compromise to be found. The lowest unprescaled\f
 	some statistical power is lost.
 }
 single lepton triggers available in 2012 had nominal \pt thresholds of \unit{24}{\GeV}. 
-Fortunately, it is possible to recover trigger efficiency at low-\pt by using dilepton 
+Fortunately, it is possible to recover trigger efficiency at lower \pt by using dilepton 
 triggers, because the backgrounds are much smaller.
 
 \begin{figure}
@@ -97,7 +97,7 @@ offline analysis), whilst operating on the plateau.
 	\label{tab:sel:triggers}
 \end{table}
 
-Trigger efficiencies are measured via tag-and-probe of 
+Lepton trigger efficiencies are measured via tag-and-probe of 
 \HepProcess{\PZ \HepTo \Plepton\Plepton} events, where the tag and probe have both 
 passed the offline lepton selection and the tag has successfully matched to a triggered 
 lepton object. For example, single lepton trigger efficiencies are displayed in 
@@ -165,7 +165,7 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 	\label{fig:sel:met}
 \end{figure}
 
-Requiring significant \met suppresses the \DYll and di-jet backgrounds (see 
+Requiring significant \met suppresses the \DYll and dijet backgrounds (see 
 \Figure~\ref{fig:sel:met}). Since fake \met is strongly correlated to event kinematics, 
 the 0-jet, 1-jet and \twojet bins are considered separately. In the \eech/\mmch channels, 
 we require \unit{$\metrel > 40$}{\GeV} in the 0-jet and 1-jet bins (the \eech/\mmch 
@@ -207,7 +207,7 @@ m_{\Plepton_2}^2 + 2 E_{\Plepton_1} E_{\Plepton_2} \parenths{1 - \cos\vartheta}$
 $\vartheta$ is the opening angle. Thus, signal events are selected with the criteria 
 $\dphill < 1.8$ and \unit{$\mll < 55$}{\GeV}.
 
-Secondly, the invariant mass of the dilepton and dineutrino system should correspond to 
+Secondly, the invariant mass of the dilepton + dineutrino system should correspond to 
 \mH (modified by a Breit-Wigner distribution). Unfortunately, as discussed above, it is 
 only possible to infer the \textit{transverse} component of the dineutrino system 
 momentum. We therefore construct a transverse mass variable
@@ -294,9 +294,10 @@ The 1-jet bin is initially dominated by the \DY and top backgrounds (see
 events containing a \Pbottom-tagged jet with \unit{$\pt > 20$}{\GeV} (see 
 \Section~\ref{sec:objects:bjets}).
 
-The \emch/\mech pre-selection has a loose \corrtrackmet cut in order to maximise the 
-signal acceptance. However, this yields a sizeable di-jet background, which has a large 
-uncertainty. For this reason, two single-lepton transverse mass variables are constructed
+Although the signal acceptance in the \emch/\mech channels is maximised by using a looser 
+\corrtrackmet cut in the 1-jet pre-selection, this does yield a sizeable dijet 
+background, which has a large uncertainty. For this reason, two single-lepton transverse 
+mass variables are constructed
 \begin{equation}
 	m_{\text{T,}\Plepton_i} = \sqrt{2 \, p_{\text{T,}\Plepton_i} \, \corrtrackmet 
 	\sqbracs{1 - \cos\Delta\phi\parenths{\Plepton_i, \corrtrackmet}}} \,.
@@ -314,7 +315,7 @@ Their maximum, \maxmtw, tends to peak at lower values for processes with fake \m
 \end{figure}
 
 At this stage, the \DYtt background dominates the \emch/\mech channels. To aid 
-discrimination, a di-tau mass is constructed
+discrimination, a ditau mass is constructed
 \begin{equation}
 	\mtautau = 
 		\begin{cases}
@@ -327,14 +328,15 @@ cannot be directly measured using individual neutrino momenta, \corrtrackmet is 
 assuming the \Ptau decays collinearly, \ie 
 $\Delta\phi\parenths{\Plepton,\HepProcess{\Pnut\Pnulepton}} = 0$. 
 This approximation is reasonable since each \Ptau has large \pt. We require 
-\unit{$\mtautau < \mZ - 25$}{\GeV} (see \Figure~\ref{fig:sel:1j:df_cuts}).
+\unit{$\mtautau < \mZ - 25$}{\GeV} (see \Figure~\ref{fig:sel:1j:df_cuts}). In rare cases 
+where the ditau system is poorly reconstructed ($x_i < 0$), the event is accepted.
 
 After the signal topology selection, the \DYll background is suppressed in the 
 \eech/\mmch channels by requiring \unit{$\trackmetrel > 35$}{\GeV} and $\frecoil < 0.1$ 
 (see \Figure~\ref{fig:sel:1j:sf_cuts}). In the 1-jet bin, the \frecoil definition is 
 altered with respect to (\ref{eq:frecoil}): the quadrant $\wedge$ is centred upon 
 $-\ptlljvec$ and the denominator becomes \ptllj. This is because a hard jet has been 
-found, and so it is the dilepton + jet system that must be balanced by the hard recoil.
+found, and so it is the dilepton + jet system that must be balanced by the soft recoil.
 
 \begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoMll_1jet_METRel_TrackHWW_Clj_mh125_log}
@@ -398,25 +400,25 @@ eight input variables:
 
 \noindent
 $\eta_{\Plepton}$ centrality characterises how close the leptons are to the jets. 
-$\sum_{\Plepton, j} m_{\Plepton j}$ sums the masses of the four lepton-jet systems 
+$\sum_{\Plepton, j} m_{\Plepton j}$ sums the masses of the four lepton + jet systems 
 possible with the two hardest jets, which is higher in VBF events due to the large 
 separations involved. \pttot is the sum of \corrtrackmetvec and the \ptvec of each lepton 
 and jet, capturing the soft hadronic recoil, which is larger in top background events. 
 The BDT scores events between 100\% signal-like ($+1$) and 100\% background-like ($-1$), 
-where ggF is considered a background. Events with a score $> -0.48$ are selected (see 
-\Figure~\todo{VBF BDT plot}).
+where ggF is considered a background. Events with a score $> -0.48$ are selected for the 
+VBF analysis (see \Figure~\todo{VBF BDT plot}).
 
-Another search considers the \WH and \ZH production modes, where the vector boson decays 
-hadronically (see \Figure~\ref{fig:feyn:VH}). Again, the \twojet bin is the starting 
-point for this selection. As with VBF, the jet kinematics can be used to distinguish this 
-from ggF. First, the criterion $\dyjj < 1.2$ requires small jet separation, since the 
-vector boson is likely to be produced with significant momentum. Second, the di-jet 
-system must have a mass corresponding to a \PW or \PZ boson, 
+Another search considers the \WH and \ZH production modes (collectively known as \VH), 
+where the vector boson decays hadronically (see \Figure~\ref{fig:feyn:VH}). Again, the 
+\twojet bin is the starting point for this selection. As with VBF, the jet kinematics can 
+be used to distinguish this from ggF. First, the criterion $\dyjj < 1.2$ requires small 
+jet separation, since the vector boson is likely to be produced with significant momentum.
+Second, the dijet system must have a mass corresponding to a \PW or \PZ boson, 
 \unit{$\mods{\mjj - 85}$}{\GeV}.
 
-To maintain orthogonality with the VBF and \VH analyses, the ggF analysis requires events 
-in the \twojet bin to fail at least one cut from each selection. That is, an event must 
-fail either the CJV, the OLV \textbf{or} the BDT score cut \textbf{and} it must fail 
+To maintain orthogonality with the VBF and \VH analyses, the ggF analysis requires that 
+events in the \twojet bin fail at least one cut from each selection. That is, an event 
+must fail either the CJV, the OLV \textbf{or} the BDT score cut \textbf{and} it must fail 
 either the \dyjj \textbf{or} the \mjj cut.
 
 
@@ -426,9 +428,13 @@ either the \dyjj \textbf{or} the \mjj cut.
 
 The entire event selection is concisely summarised in \Table~\ref{tab:event_selection}. 
 In total, there are 10 different signal regions: $\braces{\emch,\mech,\eech,\mmch} 
-\otimes \braces{\text{0-jet,1-jet}} \oplus \braces{\emch,\mech} \otimes \twojet$. The 
-events in these signal regions shall be input to the fitting procedure in 
-\Chapter~\ref{chap:results}.
+\otimes \braces{\text{0-jet,1-jet}} \oplus \braces{\emch,\mech} \otimes \twojet$. As 
+shall be fully described in \Chapter~\ref{chap:results}, experimental limits are obtained 
+by comparing the observed events to the expected events in each signal region. In the 
+\twojet bin a simple \mt fit is used. For the \eech/\mmch channels in the 0-jet and 1-jet 
+bins, the \mt and \mll distributions are fit simultaneously. For the \emch/\mech channels 
+in the 0-jet and 1-jet bins, a three dimensional fit of \mt, \mll and \ptsubleadlep is 
+performed. The various fits enable maximal sensitivity to be extracted from the data.
 
 \begin{sidewaystable}
 	\centering
