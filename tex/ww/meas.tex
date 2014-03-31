@@ -1,10 +1,9 @@
 %!TEX root = ../../thesis.tex
 
 This section describes the \WW cross section measurement using the 
-\unit{$\sqrt{s} = 7$}{\TeV} dataset, which is published in \Reference~\cite{WW-7TeV}.
-
-\WW has the same basic experimental signature as \HWW, and therefore shares many of its 
-backgrounds. However, there are two key differences between the analyses. 
+\unit{$\sqrt{s} = 7$}{\TeV} dataset, published in \Reference~\cite{WW-7TeV}.
+As the experimental signature is the same as \HWW, many backgrounds are shared.
+However, there are two key differences between the analyses. 
 
 \begin{enumerate}
 	\item The analysis described in \Chapter~\ref{chap:selection} is optimised for low 
@@ -16,7 +15,7 @@ backgrounds. However, there are two key differences between the analyses.
 	the different flavour channel into \emch and \mech parts.
 
 	\item The total \WW cross section at \unit{$\sqrt{s} = 7$}{\TeV} is 
-	\unit{$44.7^{+2.1}_{-1.9}$}{\pico\barn}, which is much larger than than of \ggHWW 
+	\unit{$44.7^{+2.1}_{-1.9}$}{\pico\barn}, which is much larger than that of \ggHWW 
 	(\unit{$3.3 \pm 0.4$}{\pico\barn} for \unit{$\mH = 125$}{\GeV}). This enables use of 
 	tighter criteria to reduce backgrounds, whilst retaining a large number of signal 
 	events. For example, only the 0-jet bin is used.
@@ -120,8 +119,81 @@ of the \HWW search, and does not require such stringent optimisation.
 		\caption{Summary of \WW event selection. Cuts are given in \GeV.}
 		\label{tab:ww:sel}
 	\end{table}
+
 \end{description}
 
+
+
+\subsection{Analysis strategy}
+
+In contrast to the \HWW search, the signal region of the \WW measurement has a high 
+signal-to-background ratio. Thus, it is sufficient to simply count the number of events 
+passing the selection, rather than fit a discriminating observable like \mt.
+
+In order to measure the total \WW cross section, it is necessary to estimate the signal 
+acceptance of the event selection (see \Section~\ref{sec:ww:signal}). This extrapolation 
+from the measured phase space to the inclusive phase space introduces theoretical 
+uncertainties. It is helpful to separate these theoretical uncertainties from the others, 
+by measuring an intermediate cross section in a \textit{fiducial region} of phase space, 
+chosen to be similar to that used in the detector-level selection in order to minimise 
+the extrapolation.
+
+The fiducial region is defined by the criteria in \Table~\ref{tab:ww:sel} applied to 
+hadron-level objects, which are now described. The MC event record is used to identify 
+leptons and neutrinos which descend from the \PW bosons. An \metvec vector is constructed 
+from the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a 
+cone of $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found 
+using individual particles as inputs (\cf topo-clusters at detector-level). Muons and 
+neutrinos are excluded from jet finding since they interact weakly with the calorimeter. 
+Objects must pass the same \pt, $\eta$ and overlap removal criteria applied at 
+detector-level.
+
+The fiducial cross section is extracted from measurements using
+\begin{equation}
+	\sigma_{\WW}^{\text{fid}} = \frac{N_{\text{obs}} - N_{\text{bkg}}}{C_{\WW} \times L}
+	\label{eq:ww:fid_xs}
+\end{equation}
+where $N_{\text{obs}}$ is the observed number of events passing the event selection, 
+$N_{\text{bkg}}$ is the expected number of background events (see 
+\Section~\ref{sec:ww:bkg}), $L$ is the luminosity of the dataset, and $C_{\WW}$ is the 
+ratio of the expected number of signal events passing the detector-level selection to 
+those passing the fiducial selection. $C_{\WW}$ accounts for detector effects such as 
+lepton trigger and reconstruction efficiencies and object mismeasurement due to the 
+finite resolution of the detector.
+
+Then the total cross section can be extracted using
+\begin{equation}
+	\sigma_{\WW} = \frac{N_{\text{obs}} - N_{\text{bkg}}}{C_{\WW} \times A_{\WW} \times \text{BR} \times L}
+	\label{eq:ww:total_xs}
+\end{equation}
+where $A_{\WW}$ is the ratio of the expected number of signal events passing the fiducial 
+selection to the total expected number of signal events. $A_{\WW}$ accounts for the 
+signal acceptance of the event selection criteria. BR incorporates the branching ratios 
+of both \PW bosons for the channel in question, 
+$\text{BR}\parenths{\HepProcess{\WW \HepTo \Plepton \Pnu \Plepton' \Pnu'}}$, and includes 
+contributions from leptonic \Ptau decays.
+
+It is clear from (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) that both signal and 
+background modelling are important inputs in measuring a cross section. Within the 
+broader context of the \HWW analysis, we are more interested in the signal modelling 
+though.
+
+
+
+\subsection{Signal modelling}
+\label{sec:ww:signal}
+
+The \WW process is modelled at NLO by \meps{\mcatnlo}{\fherwig}, and NNLO contributions 
+from \ggWW diagrams are modelled by \meps{\ggtoww}{\fherwig} \cite{gg2ww}.
+
+
+\subsection{Background modelling}
+\label{sec:ww:bkg}
+
+
+
+\subsection{Experimental results}
+\label{sec:ww:results}
 
 
 
