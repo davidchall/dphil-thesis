@@ -109,7 +109,7 @@ of the \HWW search, and does not require such stringent optimisation.
 			\emch & \eech/\mmch \\
 			\midrule
 			\multicolumn{2}{c}{$\ptleadlep > 25$ and $\ptsubleadlep > 20$} \\
-			$\mll > 15$    & $\mll > 10$ \\
+			$\mll > 10$    & $\mll > 15$ \\
 			--             & $\mods{\mll - \mZ} > 15$ \\
 			$\metrel > 25$ & $\metrel > 45$ \\
 			\multicolumn{2}{c}{$\njets = 0$} \\
@@ -169,22 +169,169 @@ Then the total cross section can be extracted using
 where $A_{\WW}$ is the ratio of the expected number of signal events passing the fiducial 
 selection to the total expected number of signal events. $A_{\WW}$ accounts for the 
 signal acceptance of the event selection criteria. BR incorporates the branching ratios 
-of both \PW bosons for the channel in question, 
-$\text{BR}\parenths{\HepProcess{\WW \HepTo \Plepton \Pnu \Plepton' \Pnu'}}$, and includes 
-contributions from leptonic \Ptau decays.
+of both \PW bosons for the channel in question, and includes contributions from leptonic 
+\Ptau decays.
 
 It is clear from (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) that both signal and 
 background modelling are important inputs in measuring a cross section. Within the 
-broader context of the \HWW analysis, we are more interested in the signal modelling 
-though.
+broader context of the \HWW analysis, the signal modelling is of most interest though.
 
 
 
 \subsection{Signal modelling}
 \label{sec:ww:signal}
 
-The \WW process is modelled at NLO by \meps{\mcatnlo}{\fherwig}, and NNLO contributions 
-from \ggWW diagrams are modelled by \meps{\ggtoww}{\fherwig} \cite{gg2ww}.
+The \WW process is modelled at NLO by \meps{\mcatnlo}{\fherwig}. The NNLO \ggWW diagrams 
+contribute \about3\% to the total cross section, due to the large gluon luminosities at 
+the LHC, and are modelled by \meps{\ggtoww}{\fherwig} \cite{gg2ww}. The signal 
+acceptances $C_{\WW}$ and $A_{\WW}$ are evaluated using these MC simulations.
+
+The jet veto in the event selection is responsible for the dominant uncertainties in both 
+$C_{\WW}$ and $A_{\WW}$. Uncertainties in the jet energy scale (JES) and jet energy 
+resolution (JER) lead to large uncertainties in $C_{\WW}$, since the leading jet \pt is a 
+rapidly falling distribution. As discussed in \Section~\ref{sec:ggf_jetbin}, restricting 
+QCD emissions via a jet veto introduces large theoretical uncertainties to $A_{\WW}$, 
+though these are expected to be smaller in \WW than ggF as the perturbative corrections 
+are smaller.
+
+For this reason, a data-driven correction factor is included within $C_{\WW}$ in order to 
+improve the modelling of the jet veto acceptance $\epsilon_{\WW}$. This correction 
+factor is derived using \HepProcess{\PZ \HepTo \Plepton \Plepton} events. Thus, the 
+predicted jet veto acceptance is
+\begin{equation}
+	\epsilon^{\text{pred}}_{\WW} = \epsilon^{\text{MC}}_{\WW} \times \frac{\epsilon^{\text{data}}_{\PZ}}{\epsilon^{\text{MC}}_{\PZ}} \,.
+\end{equation}
+Application of this correction factor effectively calibrates the MC generator to data 
+(thus the MC generators used to model $\epsilon^{\text{MC}}_{\WW}$ and 
+$\epsilon^{\text{MC}}_{\PZ}$ must be the same). As shown in 
+\Table~\ref{tab:ww:jetveto_contrib}, this enables the experimental uncertainty due to the 
+jet veto acceptance to be reduced, at the expense of introducing a theoretical 
+uncertainty to $C_{\WW}$. However, in the product $C_{\WW} \times A_{\WW}$ the 
+theoretical uncertainty is also reduced.
+
+Correction factors $\epsilon^{\text{data}}_{\PZ} / \epsilon^{\text{MC}}_{\PZ}$ are 
+measured in control regions with high \HepProcess{\PZ \HepTo \Plepton \Plepton} purity. 
+Events are selected with \unit{$\ptleadlep > 25$}{\GeV}, \unit{$\ptsubleadlep > 20$}{\GeV}
+and \unit{$\mods{\mll - \mZ} < 15$}{\GeV} in the \eech and \mmch channels. The correction 
+factor for the \emch channel is taken as the average of the other two. This gave 
+correction factors of 0.957, 0.954 and 0.956 for the \eech, \mmch and \emch channels 
+respectively. Statistical uncertainties were found to be negligible compared to the 
+experimental and theoretical uncertainties.
+
+\begin{table}[b]
+	\begin{tabularx}{\textwidth}{c|YY|YY}
+		\toprule
+		\multirow{2}{*}{Contribution to} & \multicolumn{2}{c|}{No correction factor} & \multicolumn{2}{c}{Jet veto correction factor} \\
+		& Exper. & Theor. & Exper. & Theor. \\
+		\midrule
+		$C_{\WW}$ & $\Delta\epsilon^{\text{MC}}_{\WW}$ & -- & $\Delta\parenths{\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ}}$ & $\Delta\epsilon^{\text{MC}}_{\PZ}$ \\
+		$A_{\WW}$ & -- & $\Delta\epsilon^{\text{MC}}_{\WW}$ & -- & $\Delta\epsilon^{\text{MC}}_{\WW}$ \\
+		$C_{\WW} \times A_{\WW}$ & $\Delta\epsilon^{\text{MC}}_{\WW}$ & $\Delta\epsilon^{\text{MC}}_{\WW}$ & $\Delta\parenths{\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ}}$ & $\Delta\parenths{\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ}}$ \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Summary of how the experimental and theoretical uncertainties on the jet 
+	veto acceptance $\epsilon$ contribute to $C_{\WW}$, $A_{\WW}$ and their product. 
+	Strategies with and without the jet veto correction factor are considered.}
+	\label{tab:ww:jetveto_contrib}
+\end{table}
+
+Uncertainties in $\epsilon^{\text{MC}}_{\WW}$ and $\epsilon^{\text{MC}}_{\PZ}$ due to the 
+JES are evaluated by increasing and decreasing jet energies by one standard deviation, 
+and using the average of the deviations. The JES uncertainty is determined during the 
+\textit{in situ} calibration \cite{Jets:Calib:2011}. Similarly, uncertainties due to the 
+JER are evaluated by increasing the JER by one standard deviation. The JER uncertainty is 
+determined using other \textit{in situ} techniques \cite{Jets:JER:2011}. These 
+uncertainties are displayed in \Table~\ref{tab:ww:jetveto_unc}.
+
+Theoretical uncertainties are evaluated at hadron-level by changing some aspect of the MC 
+modelling and measuring the effect upon the jet veto acceptance. These uncertainties are 
+displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described below.
+
+\begin{table}
+	\begin{tabular}{r|ccccc|cc}
+		\toprule
+		& \multicolumn{5}{c|}{Uncertainty sources} & \multicolumn{2}{c}{Total} \\
+		& JES & JER & Scale & PDF & PS/UE & Exper. & Theor. \\
+		\midrule
+		\multicolumn{8}{c}{\eech channel} \\
+		\midrule
+		$\epsilon^{\text{MC}}_{\WW} = 0.652$ 
+		& 4.8\% & 2.0\% & 5.3\% & 1.6\% & 0.5\% & 5.2\% & 5.6\% \\
+		$\epsilon^{\text{MC}}_{\PZ} = 0.798$ 
+		& 3.7\% & 2.4\% & 2.4\% & 0.8\% & 0.4\% & 4.4\% & 2.6\% \\
+		$\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ} = 0.817$ 
+		& 1.1\% & 0.4\% & 3.4\% & 0.9\% & 0.1\% & 1.2\% & 3.5\% \\
+		\midrule
+		\multicolumn{8}{c}{\mmch channel} \\
+		\midrule
+		$\epsilon^{\text{MC}}_{\WW} = 0.655$ 
+		& 4.8\% & 2.1\% & 5.3\% & 1.6\% & 0.5\% & 5.2\% & 5.6\% \\
+		$\epsilon^{\text{MC}}_{\PZ} = 0.788$ 
+		& 4.0\% & 2.8\% & 2.4\% & 0.8\% & 0.4\% & 4.9\% & 2.6\% \\
+		$\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ} = 0.831$ 
+		& 0.8\% & 0.7\% & 3.4\% & 0.9\% & 0.1\% & 1.0\% & 3.5\% \\
+		\midrule
+		\multicolumn{8}{c}{\emch channel} \\
+		\midrule
+		$\epsilon^{\text{MC}}_{\WW} = 0.662$ 
+		& 4.6\% & 2.4\% & 5.3\% & 1.6\% & 0.5\% & 5.1\% & 5.6\% \\
+		$\epsilon^{\text{MC}}_{\PZ} = 0.793$ 
+		& 3.8\% & 2.6\% & 2.4\% & 0.8\% & 0.4\% & 4.6\% & 2.6\% \\
+		$\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ} = 0.835$ 
+		& 0.7\% & 0.2\% & 3.4\% & 0.9\% & 0.1\% & 0.7\% & 3.5\% \\
+		\bottomrule
+	\end{tabular}
+	\caption{Relative uncertainties in the \WW and \PZ jet veto acceptances, and in their 
+	ratio. Results for the \eech, \mmch and \emch channels are shown separately, with 
+	$\epsilon^{\text{MC}}_{\PZ}$ for the \emch channel taken as average of the other two.}
+	\label{tab:ww:jetveto_unc}
+\end{table}
+
+Uncertainties due to higher order corrections are evaluated using the combined inclusive 
+method described in \Section~\ref{sec:ggF:ci}. The renormalisation and factorisation 
+scales are independently varied in the range $\mu_0/2 \leq \mur,\muf \leq 2\mu_0$, where 
+$\mu_0$ is the default scale for the process in question\footnote{
+	The default scales used by \mcatnlo are determined by 
+	$\mu_0^2 = m_{\Plepton\Plepton}^2 + p_{\text{T,\HepProcess{\Plepton\Plepton}}}^2$ 
+	for \PZ production and 
+	$\mu_0^2 = (m_{\Plepton\Pnu}^2 + p_{\text{T,\HepProcess{\Plepton\Pnu}}}^2 + 
+	m_{\Plepton'\Pnu'}^2 + p_{\text{T,\HepProcess{\Plepton'\Pnu'}}}^2) / 2$
+	for \WW production.
+}, whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. The largest deviation is 
+used as the uncertainty.
+
+Uncertainties due to \acp{PDF} are evaluated in two ways. The jet veto acceptance 
+predicted with the CT10 PDF is compared to that predicted with the MSTW2008 PDF 
+\cite{MSTW}. Also, the set of PDF eigenvectors corresponding to 90\% \ac{CL} of the CT10 
+fit were used to evaluate an uncertainty.
+
+Uncertainties due to the \ac{PS}, hadronisation and \ac{UE} models are evaluated by 
+comparing \powhegbox events showered by \fherwig and \pythia{6}.
+
+By substituting uncertainties from \Table~\ref{tab:ww:jetveto_unc} into the two 
+strategies outlined in \Table~\ref{tab:ww:jetveto_contrib}, it is clear that the jet veto 
+correction factor offers a significant reduction in uncertainty. Considering the 
+$\sigma_{\WW}$ extraction from the \eech channel, the contribution of the experimental 
+uncertainty in $\epsilon_{\WW}$ reduces from 5.2\% to 1.2\%, while the theoretical 
+uncertainty reduces from 5.6\% to 3.5\%. However, it does introduce a theoretical 
+uncertainty to $\sigma^{\text{fid}}_{\WW}$ of 2.6\%.
+
+\begin{table}
+	\begin{tabular}{cc@{\hskip 0.3in}c@{\hskip 0.3in}c}
+		\toprule
+		Channel & $C_{\WW}$ (\%) & $A_{\WW}$ (\%) & $C_{\WW} \times A_{\WW}$ (\%) \\
+		\midrule
+		\emch & $50.5\pm0.2\pm1.6$ & $15.9\pm0.1\pm0.9$ & $8.0\pm0.1\pm0.3$ \\
+		\eech & $40.3\pm0.5\pm1.7$ & $\phantom{1}7.5\pm0.1\pm0.4$ & $3.0\pm0.1\pm0.1$ \\
+		\mmch & $68.7\pm0.5\pm2.1$ & $\phantom{1}8.1\pm0.1\pm0.5$ & $5.6\pm0.1\pm0.2$ \\
+		\bottomrule
+	\end{tabular}
+	\caption{The split signal acceptances $C_{\WW}$ and $A_{\WW}$, and their product. 
+	These are used in the \WW cross section measurement. The statistical and systematic 
+	uncertainties are shown first and second, respectively.}
+	\label{tab:ww:cww_aww}
+\end{table}
+
 
 
 \subsection{Background modelling}
