@@ -35,35 +35,30 @@ must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-
 \begin{table}
 	\begin{tabular}{ccc}
 		\toprule
-		Jet binning & \eech/\mmch & \emch/\mech \\
+		Jet binning & \emch/\mech & \eech/\mmch \\
 		\midrule
-		Inclusive & \multicolumn{2}{c}{Exactly 2 opposite-sign leptons} \\
-		& \multicolumn{2}{c}{\unit{$\ptleadlep > 22$}{\GeV}} \\
-		& \unit{$\mll > 12$}{\GeV} & \unit{$\mll > 10$}{\GeV} \\
-		& \unit{$\mods{\mll - \mZ} > 15$}{\GeV} & -- \\
-		\midrule
-		0-jet & \unit{$\metrel > 40$}{\GeV} & \unit{$\met > 20$}{\GeV} \\
-		& \multicolumn{2}{c}{$\dphillmet > 1.57$} \\
-		& \multicolumn{2}{c}{\unit{$\ptll > 30$}{\GeV}} \\
-		& \multicolumn{2}{c}{\unit{$\mll < 55$}{\GeV}} \\
+		Inclusive & \multicolumn{2}{c}{$\ptleadlep > 22$ and $\ptsubleadlep > 10$} \\
+		& $\mll > 10$ & $\mll > 12$ \\
+		& -- & $\mods{\mll - \mZ} > 15$ \\
+		& $\met > 20$ & $\metrel > 40$ \\
+		& \multicolumn{2}{c}{$\mll < 55$} \\
 		& \multicolumn{2}{c}{$\dphill < 1.8$} \\
 		\midrule
-		1-jet & \unit{$\metrel > 40$}{\GeV} & \unit{$\met > 10$}{\GeV} \\
-		& -- & \unit{$\maxmtw > 50$}{\GeV} \\
-		& -- & \unit{$\mtautau < 66$}{\GeV} \\
-		& \multicolumn{2}{c}{\unit{$\mll < 55$}{\GeV}} \\
-		& \multicolumn{2}{c}{$\dphill < 1.8$} \\
+		0-jet & \multicolumn{2}{c}{$\dphillmet > \pi/2$} \\
+		& \multicolumn{2}{c}{$\ptll > 30$} \\
 		\midrule
-		\twojet & \unit{$\met > 45$}{\GeV} & \unit{$\met > 20$}{\GeV} \\
-		& \multicolumn{2}{c}{\unit{$\mtautau < 66$}{\GeV}} \\
-		& \multicolumn{2}{c}{Fails $\dyjj > 3.6$ or \unit{$\mjj > 600$}{\GeV} or CJV or OLV} \\
-		& \multicolumn{2}{c}{\unit{$\mll < 55$}{\GeV}} \\
-		& \multicolumn{2}{c}{$\dphill < 1.8$} \\
+		1-jet & $\maxmtw > 50$ & -- \\
+		& $\mtautau < \mZ - 25$ & -- \\
+		\midrule
+		\twojet & $\mtautau < \mZ - 25$ & -- \\
+		& \multicolumn{2}{c}{Fail $\dyjj > 3.6$ or $\mjj > 600$ or CJV or OLV} \\
 		\bottomrule
 	\end{tabular}
 	\caption{Hadron-level event selection used to calculate ggF acceptance uncertainties. 
-	The CJV and OLV are the central jet veto and outside lepton veto, respectively. See 
-	\Chapter~\ref{chap:selection} for a detailed explanation of the criteria.}
+	Cuts on energy, momentum and mass are given in \GeV, and angular cuts are given in 
+	radians. The CJV and OLV are the central jet veto and outside lepton veto, 
+	respectively. See \Chapter~\ref{chap:selection} for a detailed explanation of the 
+	criteria.}
 	\label{tab:signal:acc_truthselection}
 \end{table}
 
@@ -93,90 +88,54 @@ comparing \powhegbox showered by \pythia{8} (nominal), \pythia{6} and \fherwig.
 Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
 \meps{\powhegbox}{\fherwig} to \meps{\mcatnlo}{\herwigpp}.
 
-The uncertainties in each signal region are shown in 
-\Table~\ref{tab:signal:acc_unc_summary}. In the fitting procedure, the signal regions are 
-further split into bins of \ptsubleadlep and \mll in order to exploit the different 
-background compositions. The uncertainties in these split signal regions are shown in 
-\Table~\ref{tab:signal:acc_unc_binned}.
-
-\begin{table}[b]
-	\begin{tabular}{r|ccccccc|c}
-		\toprule
-		& \multirow{2}{*}{Stat.} & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{NLO-PS} & \multirow{2}{*}{Total} \\
-		& & & MSTW & 68\% CL & \pythia{6} & \fherwig & & \\
-		\midrule
-		\multicolumn{9}{c}{\eech/\mmch channels} \\
-		\midrule
-		0-jet   & 0.6\% & 1.4\% & +1.9\% & 3.2\% & $+1.6\%$ & $+6.4\%$ & $-2.5\%$ & 8.1\% \\
-		1-jet   & 1.0\% & 1.9\% & +1.8\% & 2.8\% & $-0.7\%$ & $+2.1\%$ & $-1.1\%$ & 4.6\% \\
-		\twojet & 1.5\% &       & +2.0\% & 2.3\% & $+0.8\%$ & $-1.0\%$ & $-6.3\%$ &  \\
-		\midrule
-		\multicolumn{9}{c}{\emch/\mech channels} \\
-		\midrule
-		0-jet   & 0.5\% & 1.1\% & +1.9\% & 3.2\% & $-0.5\%$ & $+2.2\%$ & $-1.8\%$ & 4.8\% \\
-		1-jet   & 0.8\% & 1.3\% & +1.8\% & 2.8\% & $+0.5\%$ & $+3.5\%$ & $-1.1\%$ & 5.1\% \\
-		\twojet & 1.2\% &       & +2.0\% & 2.2\% & $-0.5\%$ & $+1.5\%$ & $-4.5\%$ &  \\
-		\bottomrule
-	\end{tabular}
-	\caption{Theoretical uncertainties in the ggF acceptance for each signal region. PDF 
-	uncertainties are relative to the inclusive cross section, whereas others are 
-	calculated within jet bins. Statistical uncertainties are shown for reference.}
-	\label{tab:signal:acc_unc_summary}
-\end{table}
+The acceptance uncertainties for each signal region used in the fitting procedure are 
+shown in \Table~\ref{tab:signal:acc_unc}.
 
 \begin{table}
 	\centering
 	\begin{tabular}{ccc|cccccc}
 		\toprule
-		& \ptsubleadlep & \mll & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{NLO-PS} \\
+		& \mll & \ptsubleadlep & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/Had./UE} & \multirow{2}{*}{NLO-PS} \\
 		& (\GeV) & (\GeV) & & MSTW & 68\% CL & \pythia{6} & \fherwig & \\
 		\midrule
 		\multicolumn{9}{c}{\eech/\mmch channels} \\
 		\midrule
-		\multirow{2}{*}{0-jet}
-		&  $>10$ & 12--30 & 2.5\% & +1.9\% & 3.2\% & $+1.8\%$ & $+7.2\%$ & $-4.2\%$ \\
-		&  $>10$ & 30--55 & 1.1\% & +1.9\% & 3.3\% & $+1.3\%$ & $+5.6\%$ & $-0.6\%$ \\
-		\midrule
-		\multirow{2}{*}{1-jet}
-		&  $>10$ & 12--30 & 2.5\% & +1.8\% & 2.7\% & $-0.5\%$ & $+3.9\%$ & $-3.0\%$ \\
-		&  $>10$ & 30--55 & 1.2\% & +1.8\% & 2.8\% & $-0.9\%$ & $+0.2\%$ & $+1.1\%$ \\
-		\midrule
-		\multirow{2}{*}{\twojet}
-		&  $>10$ & 12--30 &       & +2.0\% & 2.2\% & $+2.9\%$ & $-0.6\%$ & $-6.5\%$ \\
-		&  $>10$ & 30--55 &       & +2.1\% & 2.3\% & $-1.8\%$ & $-1.4\%$ & $-6.1\%$ \\
+		0-jet & 12--55 & $>10$ & 1.4\% & +1.9\% & 3.2\% &   $+1.6\%$ & $+6.4\%$ &   $-2.5\%$ \\
+		1-jet & 12--55 & $>10$ & 1.9\% & +1.8\% & 2.8\% & $(-)1.5\%$ & $+2.1\%$ & $(-)1.4\%$ \\
 		\midrule
 		\multicolumn{9}{c}{\emch/\mech channels} \\
 		\midrule
 		\multirow{6}{*}{0-jet}
-	    & 10--15 & 10--30 & 2.6\% & +1.8\% & 3.2\% & $-1.7\%$ & $+5.7\%$ & $-3.5\%$ \\
-		& 15--20 & 10--30 & 1.3\% & +1.9\% & 3.2\% & $+2.2\%$ & $+4.9\%$ & $-2.8\%$ \\
-		&  $>20$ & 10--30 & 1.0\% & +1.9\% & 3.2\% & $-2.2\%$ & $-0.6\%$ & $-0.5\%$ \\
-		& 10--15 & 30--55 & 1.5\% & +1.8\% & 3.3\% & $+0.8\%$ & $+5.5\%$ & $-3.8\%$ \\
-		& 15--20 & 30--55 & 1.5\% & +1.9\% & 3.3\% & $-0.1\%$ & $+2.0\%$ & $-2.5\%$ \\
-		&  $>20$ & 30--55 & 3.5\% & +1.9\% & 3.3\% & $-1.9\%$ & $-2.4\%$ & $<0.1\%$ \\
-		\midrule
+		& \multirow{3}{*}{10--30}
+	    &  10--15 & 2.6\% & +1.8\% & 3.2\% &   $-1.7\%$ &   $+5.7\%$ &   $-3.5\%$ \\
+		&& 15--20 & 1.3\% & +1.9\% & 3.2\% & $(+)2.4\%$ &   $+4.9\%$ &   $-2.9\%$ \\
+		&&  $>20$ & 1.0\% & +1.9\% & 3.2\% &   $-2.2\%$ & $(-)1.6\%$ & $(-)1.4\%$ \\
+		\cmidrule(lr){2-9}
+		& \multirow{3}{*}{30--55}
+		&  10--15 & 1.5\% & +1.8\% & 3.3\% & $(+)2.0\%$ &   $+5.5\%$ &   $-3.8\%$ \\
+		&& 15--20 & 1.5\% & +1.9\% & 3.3\% & $(-)2.5\%$ & $(+)2.4\%$ &   $-2.5\%$ \\
+		&&  $>20$ & 3.5\% & +1.9\% & 3.3\% &   $-1.9\%$ &   $-2.4\%$ & $(-)1.3\%$ \\
+		\cmidrule(lr){1-9}
 		\multirow{6}{*}{1-jet}
-	    & 10--15 & 10--30 & 3.2\% & +1.7\% & 2.9\% & $+2.1\%$ & $+11\%$  & $-4.4\%$ \\
-		& 15--20 & 10--30 & 2.9\% & +1.8\% & 2.9\% & $+0.8\%$ & $+1.8\%$ & $+1.7\%$ \\
-		&  $>20$ & 10--30 & 3.5\% & +1.8\% & 2.7\% & $<0.1\%$ & $+0.4\%$ & $-0.3\%$ \\
-		& 10--15 & 30--55 & 5.8\% & +1.7\% & 3.0\% & $+1.2\%$ & $+11\%$  & $-6.2\%$ \\
-		& 15--20 & 30--55 & 1.0\% & +1.8\% & 3.3\% & $+2.5\%$ & $+13\%$  & $+6.7\%$  \\
-		&  $>20$ & 30--55 & 1.3\% & +1.8\% & 2.8\% & $-0.7\%$ & $-2.1\%$ & $<0.1\%$ \\
-		\midrule
-		\multirow{6}{*}{\twojet}
-	    & 10--15 & 10--30 &       & +2.0\% & 2.3\% & $+0.8\%$ & $+14\%$  & $-9.8\%$ \\
-		& 15--20 & 10--30 &       & +2.0\% & 2.3\% & $+5.7\%$ & $+23\%$  & $-3.5\%$  \\
-		&  $>20$ & 10--30 &       & +2.0\% & 2.2\% & $-0.8\%$ & $-4.7\%$ & $-4.7\%$ \\
-		& 10--15 & 30--55 &       & +1.9\% & 2.3\% & $-5.9\%$ & $+1.0\%$ & $+8.2\%$ \\
-		& 15--20 & 30--55 &       & +2.0\% & 2.3\% & $-6.6\%$ & $+0.5\%$ & $-1.4\%$ \\
-		&  $>20$ & 30--55 &       & +1.9\% & 2.2\% & $+0.3\%$ & $-0.9\%$ & $-5.2\%$ \\
+		& \multirow{3}{*}{10--30}
+	    &  10--15 & 3.2\% & +1.7\% & 2.9\% &   $+2.9\%$ &  $+10.8\%$ &   $-3.8\%$ \\
+		&& 15--20 & 2.9\% & +1.8\% & 2.9\% & $(+)3.8\%$ & $(+)3.9\%$ & $(+)3.6\%$ \\
+		&&  $>20$ & 3.5\% & +1.8\% & 2.7\% & $(+)2.1\%$ & $(+)2.0\%$ & $(-)1.9\%$ \\
+		\cmidrule(lr){2-9}
+		& \multirow{3}{*}{30--55}
+		&  10--15 & 5.8\% & +1.7\% & 3.0\% & $(+)3.2\%$ &  $+11.4\%$ &   $-6.8\%$ \\
+		&& 15--20 & 1.0\% & +1.8\% & 3.3\% & $(+)2.6\%$ &  $+13.5\%$ &   $+6.7\%$ \\
+		&&  $>20$ & 1.3\% & +1.8\% & 2.8\% & $(-)1.9\%$ & $(-)1.8\%$ & $(+)1.7\%$ \\
+		\cmidrule(lr){1-9}
+		\twojet & 10--55 & $>10$ &  18\% & +2.0\% & 2.2\% & $(-)1.7\%$ & $(+)1.7\%$ & $-4.5\%$ \\
 		\bottomrule
 	\end{tabular}
-	\caption{Theoretical uncertainties in the ggF acceptance for each signal region, 
-	split into bins of \ptsubleadlep and \mll as used in the fitting procedure. PDF 
-	uncertainties are relative to the inclusive cross section, whereas others are 
-	calculated within jet bins.}
-	\label{tab:signal:acc_unc_binned}
+	\caption{Theoretical uncertainties in the ggF acceptance for each signal region used 
+	in the fitting procedure. PDF uncertainties are relative to the inclusive cross 
+	section, whereas others are calculated within jet bins. When the uncertainty is 
+	statistically insignificant, the statistical uncertainty on the generator difference 
+	is given, and the sign of the generator difference is parenthesised.}
+	\label{tab:signal:acc_unc}
 \end{table}
 
 

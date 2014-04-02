@@ -150,35 +150,25 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 \end{figure}
 
 \begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_0jet_MET_TrackHWW_Clj_mh125_log}
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_MET_TrackHWW_Clj_mh125_log}
 	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutZVeto_0jet_METRel_mh125_log}
-	\\
-	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_1jet_MET_TrackHWW_Clj_mh125_log}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutZVeto_1jet_METRel_mh125_log}
-	\\
-	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_2jetincl_MET_TrackHWW_Clj_mh125_log}
-	\hfill\null
-	\caption{The \met distribution cut upon in the 0-jet (top), 1-jet (middle) and 
-	\twojet (bottom) bins, for the \emch/\mech (left) and \eech/\mmch (right) channels.}
+	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutZVeto_METRel_mh125_log}
+	\caption{The \met distribution cut upon, in the \emch/\mech (left) and \eech/\mmch 
+	(right) channels.}
 	\label{fig:sel:met}
 \end{figure}
 
 Requiring significant \met suppresses the \DYll and dijet backgrounds (see 
-\Figure~\ref{fig:sel:met}). Since fake \met is strongly correlated to event kinematics, 
-the 0-jet, 1-jet and \twojet bins are considered separately. In the \eech/\mmch channels, 
-we require \unit{$\metrel > 40$}{\GeV} in the 0-jet and 1-jet bins (the \eech/\mmch 
-channels are not used in the \twojet bin). In the \emch/\mech channels, the \met cut is 
-relaxed because the \DYll background is smaller. We require 
-\unit{$\corrtrackmet > 20$}{\GeV} in the 0-jet and \twojet bins, and 
-\unit{$\corrtrackmet > 10$}{\GeV} in the 1-jet bin.
+\Figure~\ref{fig:sel:met}). We require \unit{$\corrtrackmet > 20$}{\GeV} in the 
+\emch/\mech channels and \unit{$\metrel > 40$}{\GeV} in the \eech/\mmch channels. In the 
+\emch/\mech channels, the \met cut is relaxed because the \DYll background is smaller. 
 
 Following the selection of dilepton events with significant \met, the \emch/\mech 
 channels are dominated by top background and the \eech/\mmch channels are dominated by 
 \DYll. However, the background composition of all channels is highly dependent upon the 
 number of jets (see \Figure~\ref{fig:sel:njets}). Thus, at this stage the analysis is 
 binned according to jet multiplicity, so that backgrounds can be targeted individually.
+Note that only the \emch/\mech channels are used in the \twojet bin.
 
 \begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMETRel_m_jet_n_upTo7_mh125_lin}
@@ -294,10 +284,8 @@ The 1-jet bin is initially dominated by the \DY and top backgrounds (see
 events containing a \Pbottom-tagged jet with \unit{$\pt > 20$}{\GeV} (see 
 \Section~\ref{sec:objects:bjets}).
 
-Although the signal acceptance in the \emch/\mech channels is maximised by using a looser 
-\corrtrackmet cut in the 1-jet pre-selection, this does yield a sizeable dijet 
-background, which has a large uncertainty. For this reason, two single-lepton transverse 
-mass variables are constructed
+In order to reduce the dijet background, which has a large uncertainty, two single-lepton 
+transverse mass variables are constructed
 \begin{equation}
 	m_{\text{T,}\Plepton_i} = \sqrt{2 \, p_{\text{T,}\Plepton_i} \, \corrtrackmet 
 	\sqbracs{1 - \cos\Delta\phi\parenths{\Plepton_i, \corrtrackmet}}} \,.
@@ -431,10 +419,10 @@ In total, there are 10 different signal regions: $\braces{\emch,\mech,\eech,\mmc
 \otimes \braces{\text{0-jet,1-jet}} \oplus \braces{\emch,\mech} \otimes \twojet$. As 
 shall be fully described in \Chapter~\ref{chap:results}, experimental limits are obtained 
 by comparing the observed events to the expected events in each signal region. In the 
-\twojet bin a simple \mt fit is used. For the \eech/\mmch channels in the 0-jet and 1-jet 
-bins, the \mt and \mll distributions are fit simultaneously. For the \emch/\mech channels 
-in the 0-jet and 1-jet bins, a three dimensional fit of \mt, \mll and \ptsubleadlep is 
-performed. The various fits enable maximal sensitivity to be extracted from the data.
+\twojet bin and the \eech/\mmch channels, a simple \mt fit is used. For the \emch/\mech 
+channels in the 0-jet and 1-jet bins, a three dimensional fit of \mt, \mll and 
+\ptsubleadlep is performed. The different fits enable maximal sensitivity to be extracted 
+from the data.
 
 \begin{sidewaystable}
 	\centering
@@ -444,17 +432,17 @@ performed. The various fits enable maximal sensitivity to be extracted from the 
 		\cmidrule(lr){4-5}
 		&&& \emch/\mech & \eech/\mmch \\
 		\cmidrule(lr){2-7}
-		\ldelim\{{3}{2.5cm}[Pre-selection] 
+		\ldelim\{{4}{2.5cm}[Pre-selection] 
 		& \multicolumn{6}{c}{$\ptleadlep > 22$ and $\ptsubleadlep > 10$} \\
 		&&& $\mll > 12$ & $\mll > 10$ \\
-		&&& -- & $\mods{\mll - \mZ} > 15$ \\ [1ex]
+		&&& -- & $\mods{\mll - \mZ} > 15$ \\ 
+		&&& $\corrtrackmet > 20$ & $\metrel > 40$ \\ [1ex]
 		\cmidrule(lr){2-7}
 		&\multicolumn{2}{c}{0-jet bin} & \multicolumn{2}{c}{1-jet bin} & \multicolumn{2}{c}{\twojet bin} \\
 		\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
 		& \emch/\mech & \eech/\mmch & \emch/\mech & \eech/\mmch & \multicolumn{2}{c}{\emch/\mech} \\
 		\cmidrule(lr){2-7}
-		\ldelim\{{4}{2.5cm}[Reject \DY] 
-		& $\corrtrackmet > 20$ & $\metrel > 40$ & $\corrtrackmet > 10$ & $\metrel > 40$ & \multicolumn{2}{c}{$\corrtrackmet > 20$} \\
+		\ldelim\{{3}{2.5cm}[Reject \DY] 
 		& \multicolumn{2}{c}{$\ptll > 30$} & $\mtautau < \mZ - 25$ & -- & \multicolumn{2}{c}{$\mtautau < \mZ - 25$} \\
 		& -- & $\trackmetrel > 40$ & -- & $\trackmetrel > 35$ & \multicolumn{2}{c}{--} \\
 		& -- & $\frecoil < 0.1$ & -- & $\frecoil < 0.1$ & \multicolumn{2}{c}{--} \\
