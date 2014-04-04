@@ -6,11 +6,11 @@
 2929 words in Chapter: The ATLAS experiment
 6235 words in Chapter: Overview of the \HWW analysis
 2023 words in Chapter: Signal modelling
-1734 words in Chapter: \WW measurement and modelling
+2558 words in Chapter: \WW measurement and modelling
 0 words in Chapter: Other backgrounds
 0 words in Chapter: Experimental results
 61 words in Chapter: Conclusions
 0 words in Chapter: Event yields of \HWW selection
 ::: Total :::
-Words: 19104
-Formulae: 52
+Words: 19928
+Formulae: 57

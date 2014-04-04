@@ -253,6 +253,15 @@ displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described 
 		& \multicolumn{5}{c|}{Uncertainty sources} & \multicolumn{2}{c}{Total} \\
 		& JES & JER & Scale & PDF & PS/UE & Exper. & Theor. \\
 		\midrule
+		\multicolumn{8}{c}{\emch channel} \\
+		\midrule
+		$\epsilon^{\text{MC}}_{\WW} = 0.662$ 
+		& 4.6\% & 2.4\% & 5.3\% & 1.6\% & 0.5\% & 5.1\% & 5.6\% \\
+		$\epsilon^{\text{MC}}_{\PZ} = 0.793$ 
+		& 3.8\% & 2.6\% & 2.4\% & 0.8\% & 0.4\% & 4.6\% & 2.6\% \\
+		$\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ} = 0.835$ 
+		& 0.7\% & 0.2\% & 3.4\% & 0.9\% & 0.1\% & 0.7\% & 3.5\% \\
+		\midrule
 		\multicolumn{8}{c}{\eech channel} \\
 		\midrule
 		$\epsilon^{\text{MC}}_{\WW} = 0.652$ 
@@ -270,15 +279,6 @@ displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described 
 		& 4.0\% & 2.8\% & 2.4\% & 0.8\% & 0.4\% & 4.9\% & 2.6\% \\
 		$\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ} = 0.831$ 
 		& 0.8\% & 0.7\% & 3.4\% & 0.9\% & 0.1\% & 1.0\% & 3.5\% \\
-		\midrule
-		\multicolumn{8}{c}{\emch channel} \\
-		\midrule
-		$\epsilon^{\text{MC}}_{\WW} = 0.662$ 
-		& 4.6\% & 2.4\% & 5.3\% & 1.6\% & 0.5\% & 5.1\% & 5.6\% \\
-		$\epsilon^{\text{MC}}_{\PZ} = 0.793$ 
-		& 3.8\% & 2.6\% & 2.4\% & 0.8\% & 0.4\% & 4.6\% & 2.6\% \\
-		$\epsilon^{\text{MC}}_{\WW} / \epsilon^{\text{MC}}_{\PZ} = 0.835$ 
-		& 0.7\% & 0.2\% & 3.4\% & 0.9\% & 0.1\% & 0.7\% & 3.5\% \\
 		\bottomrule
 	\end{tabular}
 	\caption{Relative uncertainties in the \WW and \PZ jet veto acceptances, and in their 
@@ -306,29 +306,57 @@ predicted with the CT10 PDF is compared to that predicted with the MSTW2008 PDF
 fit were used to evaluate an uncertainty.
 
 Uncertainties due to the \ac{PS}, hadronisation and \ac{UE} models are evaluated by 
-comparing \powhegbox events showered by \fherwig and \pythia{6}.
+recomputing the jet veto acceptances with \powhegbox events, and comparing the result 
+when showered by \fherwig and \pythia{6}.
 
 By substituting uncertainties from \Table~\ref{tab:ww:jetveto_unc} into the two 
 strategies outlined in \Table~\ref{tab:ww:jetveto_contrib}, it is clear that the jet veto 
 correction factor offers a significant reduction in uncertainty. Considering the 
-$\sigma_{\WW}$ extraction from the \eech channel, the contribution of the experimental 
-uncertainty in $\epsilon_{\WW}$ reduces from 5.2\% to 1.2\%, while the theoretical 
+$\sigma_{\WW}$ extraction from the \emch channel, the contribution of the experimental 
+uncertainty in $\epsilon_{\WW}$ reduces from 5.1\% to 0.7\%, while the theoretical 
 uncertainty reduces from 5.6\% to 3.5\%. However, it does introduce a theoretical 
 uncertainty to $\sigma^{\text{fid}}_{\WW}$ of 2.6\%.
 
+The signal acceptances $A_{\WW}$, $C_{\WW}$ and $C_{\WW} \times A_{\WW}$ are displayed in 
+\Table~\ref{tab:ww:cww_aww}. The \mmch channel has the best reconstruction efficiency and 
+the event selection of the \emch channel has the highest yield. The uncertainties arising 
+from different systematic sources are also shown, with those associated with the jet veto 
+separated for clarity. For simplicity, the JES/JER uncertainty in the jet veto acceptance 
+are treated as uncorrelated with those of the other cuts. The same is true of the 
+theoretical uncertainties in $A_{\WW}$. 
+
 \begin{table}
-	\begin{tabular}{cc@{\hskip 0.3in}c@{\hskip 0.3in}c}
+	\begin{tabular}{lc@{\hskip 0.3in}c@{\hskip 0.3in}c}
 		\toprule
-		Channel & $C_{\WW}$ (\%) & $A_{\WW}$ (\%) & $C_{\WW} \times A_{\WW}$ (\%) \\
+		& \emch & \eech & \mmch \\
 		\midrule
-		\emch & $50.5\pm0.2\pm1.6$ & $15.9\pm0.1\pm0.9$ & $8.0\pm0.1\pm0.3$ \\
-		\eech & $40.3\pm0.5\pm1.7$ & $\phantom{1}7.5\pm0.1\pm0.4$ & $3.0\pm0.1\pm0.1$ \\
-		\mmch & $68.7\pm0.5\pm2.1$ & $\phantom{1}8.1\pm0.1\pm0.5$ & $5.6\pm0.1\pm0.2$ \\
+		$C_{\WW}$ & $0.505\pm0.016$ & $0.403\pm0.017$ & $0.687\pm0.021$ \\
+		\quad Trigger efficiency & 0.3\% & 0.1\% & 0.6\% \\
+		\quad Lepton efficiency  & 1.4\% & 2.9\% & 0.7\% \\
+		\quad Lepton \pt scale and resolution & 0.6\% & 0.9\% & 0.8\% \\
+		\quad Jet energy scale and resolution \\
+		\quad\quad Jet veto   & 0.7\% & 1.2\% & 1.0\% \\
+		\quad\quad Other cuts & 0.5\% & 0.6\% & 0.5\% \\
+		\quad \met modelling  & 0.4\% & 0.5\% & 0.2\% \\
+		\quad PDFs, \mur and \muf scales \\
+		\quad\quad Acceptance & 0.3\% & 0.7\% & 0.7\% \\
+		\quad\quad Jet veto correction factor & 2.6\% & 2.6\% & 2.6\% \\
+		\midrule
+		$A_{\WW}$ & $0.159\pm0.009$ & $0.075\pm0.004$ & $0.081\pm0.005$ \\
+		\quad PDFs, \mur and \muf scales \\
+		\quad\quad Jet veto   & 5.6\% & 5.6\% & 5.6\% \\
+		\quad\quad Other cuts & 1.1\% & 1.0\% & 1.0\% \\
+		\midrule
+		$C_{\WW} \times A_{\WW}$ & $0.080\pm0.003$ & $0.030\pm0.001$ & $0.056\pm0.002$ \\
+		\quad PDFs, \mur and \muf scales \\
+		\quad\quad Jet veto   & 3.5\% & 3.5\% & 3.5\% \\
 		\bottomrule
 	\end{tabular}
-	\caption{The split signal acceptances $C_{\WW}$ and $A_{\WW}$, and their product. 
-	These are used in the \WW cross section measurement. The statistical and systematic 
-	uncertainties are shown first and second, respectively.}
+	\caption{The signal acceptances $C_{\WW}$, $A_{\WW}$ and $C_{\WW} \times A_{\WW}$. 
+	A breakdown of relative uncertainties from different sources is also shown. The 
+	contribution to $\Delta C_{\WW} \times A_{\WW}$ of the theoretical uncertainty in the 
+	jet veto is also stated, in order to explicitly exhibit the cancellations between 
+	$\Delta C_{\WW}$ and $\Delta A_{\WW}$.}
 	\label{tab:ww:cww_aww}
 \end{table}
 
@@ -336,6 +364,134 @@ uncertainty to $\sigma^{\text{fid}}_{\WW}$ of 2.6\%.
 
 \subsection{Background modelling}
 \label{sec:ww:bkg}
+
+The background estimation techniques of the \HWW search are more sophisticated than those 
+of the \WW measurement at \unit{$\sqrt{s} = 7$}{\TeV}. For this reason, the techniques 
+used in the \WW measurement are only described briefly here, whereas those of the \HWW 
+search shall be discussed in detail in \Section~\ref{sec:ww_as_bkg} and 
+\Chapter~\ref{chap:backgrounds}.
+
+Although many backgrounds are modelled by a data-driven technique, there is often some 
+underlying dependence upon MC. For this reason, \Table~\ref{tab:ww:mc_samples} states the 
+MC generators used to model each process.\todo{add dijet MC?}
+
+\begin{table}
+	\begin{tabular}{c@{\hskip 0.3in}c}
+		\toprule
+		Process & MC generator \\
+		\midrule
+		\ttbar               & \meps{\mcatnlo}{\fherwig} \\
+		single top           & \meps{\acermc}{\pythia{6}} \\
+		\Wjets, \DY, \Wgamma & \meps{\alpgen}{\fherwig} \\
+		\Wgstar              & \meps{\madgraph}{\pythia{6}} \\
+		\WZ, \ZZ             & \fherwig \\
+		\bottomrule
+	\end{tabular}
+	\caption{MC generators used to model backgrounds to the \WW measurement.}
+	\label{tab:ww:mc_samples}
+\end{table}
+
+\begin{description}
+\item[\Wjets and dijet] \hfill \\
+	The \Wjets background comprises events where a jet is misidentified as a lepton. The 
+	fake rate is poorly modelled by MC, and so a data-driven \textit{fake factor method} 
+	is used. The dijet background, where two jets fake leptons, is very small and is 
+	simultaneously estimated by this method.
+
+	A \Wjets anti-ID region (AR) is defined similarly to the signal region (SR), but 
+	where one of the leptons is replaced with an anti-identified lepton. The anti-ID 
+	lepton objects are ensured to be highly contaminated with jets by loosening the 
+	selection criteria and vetoing leptons passing the full identification. Anti-ID 
+	electrons have looser calorimeter isolation criteria and do not have to pass the 
+	\textit{tight} identification criteria. Anti-ID muons have looser calorimeter 
+	isolation criteria and the tracker isolation removed completely. The predicted \Wjets 
+	background is the measured number of events in the AR, scaled by a fake factor 
+	$f_{\Plepton}$:
+	\begin{equation}
+		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pe}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\text{id \Pe + anti-id \Pe}} \\
+		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pmu\Pmu}}} &= f_{\Pmu} \cdot N^{\text{data,AR}}_{\text{id \Pmu + anti-id \Pmu}} \\
+		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pmu}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\text{id \Pmu + anti-id \Pe}} + f_{\Pmu} \cdot N^{\text{data,AR}}_{\text{id \Pe + anti-id \Pmu}} \,.
+	\end{equation}
+	The fake factor $f_{\Plepton}$ is defined as the ratio of efficiencies for jets 
+	passing the lepton ID criteria to passing the anti-ID criteria ($f_{\Pe} \ll f_{\Pmu}$
+	since the electron anti-ID accepts more jets). Each fake factor is measured from 
+	dijet events as a function of \pt and $\eta$
+	\begin{equation}
+		f_{\Plepton} = \frac{N_{\text{id \Plepton}}^{\text{data}}}{N_{\text{anti-id \Plepton}}^{\text{data}}} \,.
+	\end{equation}
+	To avoid bias, the dijet events were selected with a very loose (but prescaled) 
+	trigger, without identification or isolation criteria applied. A \PZ veto 
+	(\unit{$\mods{\mll - \mZ} > 15$}{\GeV}) and a \PW veto (\unit{$\mt > 30$}{\GeV}) 
+	reject most of the true leptons, and residual electroweak contamination is subtracted 
+	using MC.
+
+	The dominant source of uncertainty stems from the fact that the fake factor is 
+	derived from dijet events but applied to \Wjets events. This process dependence is 
+	estimated with MC. It would be preferable to measure the fake factor from \Zjets 
+	events, though this was statistically limited in the \unit{$\sqrt{s} = 7$}{\TeV} 
+	dataset. This point shall be revisited in \Section~\ref{sec:wjets} when considering 
+	the \Wjets background to the \HWW search.
+
+	% The fake factor method yields a \Wjets background of \statsyst{70}{2}{31}, \statsyst{21}{1}{11} and \statsyst{6.6}{1.0}{2.8} events in the \emch, \eech and \mmch channels respectively. 
+
+\item[Top] \hfill \\
+	The jet veto is effective at rejecting the top background. The number of surviving 
+	top events are estimated by a data-driven \textit{template method}, which attempts to 
+	constrain the jet multiplicity distribution within a top control region (CR).
+
+	An inclusive signal region (ISR) is defined without the jet veto and \ptll cut. The 
+	top CR is a subset of the ISR, requiring at least one \Pbottom-tagged jet with 
+	\unit{$\pt > 20$}{\GeV}. The \njets distribution $\mathcal{T}$ is measured in the CR, 
+	and is extrapolated to the ISR by top MC. However, non-top contributions to the CR 
+	must be subtracted beforehand, which are estimated by an \njets template from MC 
+	scaled by a data-driven normalisation factor $K_{\text{non-top}}^{\text{data}}$. 
+	Thus, the predicted top \njets distribution in the ISR is
+	\begin{equation}
+		\mathcal{T}_{\text{top}}^{\text{pred,ISR}} = \frac{\mathcal{T}_{\text{top}}^{\text{MC,ISR}}}{\mathcal{T}_{\text{top}}^{\text{MC,CR}}} \parenths{\mathcal{T}^{\text{data,CR}} - K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,CR}}} \,.
+	\end{equation}
+	$K_{\text{non-top}}^{\text{data}}$ is assumed to be the same in the CR and the ISR, 
+	and is constrained by an \njets fit in the ISR, \ie
+	\begin{equation}
+		\mathcal{T}^{\text{data,ISR}} = \mathcal{T}_{\text{top}}^{\text{pred,ISR}} + K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,ISR}} \,.
+	\end{equation}
+	The fit yields $K_{\text{non-top}}^{\text{data}} = 1.07 \pm 0.03$.
+	Finally, once the 0-jet bin of $\mathcal{T}_{\text{top}}^{\text{pred,ISR}}$ is 
+	selected, the acceptance of the \ptll cut is modelled by top MC.
+
+	The small number of 0-jet events in the top CR leads to a large statistical 
+	uncertainty in this background. The systematic uncertainty is dominated by 
+	uncertainties in the (mis)tag efficiency of the \Pbottom-tagging algorithm.
+
+	% The template method yields an expected top background of \statsyst{87}{23}{13}, \statsyst{22}{12}{3} and \statsyst{32}{14}{5} events in the \emch, \eech and \mmch channels respectively. 
+
+\item[\DY] \hfill \\
+	The \DY background is suppressed by the \PZ mass veto and the \met and \ptll cuts, 
+	though remains a significant background to the \eech and \mmch channels. Since MC 
+	might mismodel the fake \met distribution, this background is data-normalised in a 
+	control region (CR) that includes the \met cut.
+
+	The \DY CR is defined similarly to the signal region (SR), with the \ptll cut 
+	inverted. The number of events in the CR is measured, the non-\DY contamination is 
+	subtracted via MC, and the result is extrapolated to the SR using MC:
+	\begin{equation}
+		N_{\text{\DY}}^{\text{pred,SR}} = \frac{N_{\text{\DY}}^{\text{MC,SR}}}{N_{\text{\DY}}^{\text{MC,CR}}} \parenths{N_{\text{\DY}}^{\text{data,CR}} - N_{\text{non-\DY}}^{\text{MC,CR}}} \,.
+	\end{equation}
+
+	The dominant uncertainties are due to the small number of events in the CR and the 
+	energy scale of the soft terms in the \met (see \Section~\ref{sec:objects:met}).
+
+	% This method yields an expected \DY background of \statsyst{5.2}{1.6}{1.1}, \statsyst{11.9}{3.0}{2.5} and \statsyst{34}{6}{10} events in the \emch, \eech and \mmch channels respectively. 
+
+\item[Non-\WW diboson] \hfill \\
+	The non-\WW diboson backgrounds (\WZ, \Wgstar, \ZZ, \Wgamma) are estimated purely 
+	from MC simulation (see \Table~\ref{tab:ww:mc_samples}). The cross section of each 
+	process is calculated at NLO with \mcfm.  The dominant uncertainties are theoretical 
+	uncertainties in the cross section and JES uncertainties.
+
+	% The total expected number of non-\WW diboson events is \statsyst{44.1}{1.8}{6.1}, \statsyst{12.7}{1.0}{1.9} and \statsyst{21.0}{0.9}{2.3} in the \emch, \eech and \mmch channels respectively.
+
+\end{description}
+
 
 
 

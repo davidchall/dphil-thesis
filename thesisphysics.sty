@@ -1,5 +1,10 @@
 \ProvidesPackage{thesisphysics}
 
+% Displaying values with uncertainties
+\DeclareRobustCommand{\stat}[2]{\thesismath{#1 \pm #2\,\text{(stat)}}\xspace}
+\DeclareRobustCommand{\syst}[2]{\thesismath{#1 \pm #2\,\text{(syst)}}\xspace}
+\DeclareRobustCommand{\statsyst}[3]{\thesismath{#1 \pm #2\,\text{(stat)} \pm #3\,\text{(syst)}}\xspace}
+
 %% Physics processes
 \DeclareRobustCommand{\Pgammastar}{\HepParticle{\gamma}{}{*}\xspace}
 \DeclareRobustCommand{\PV}{\HepGenParticle{V}{}{}\xspace}
@@ -21,8 +26,8 @@
 \DeclareRobustCommand{\ZZ}{\HepProcess{\PZ \PZ}\xspace}
 \DeclareRobustCommand{\Wgstar}{\HepProcess{\PW \Pgammastar}\xspace}
 \DeclareRobustCommand{\Zgstar}{\HepProcess{\PZ \Pgammastar}\xspace}
-\DeclareRobustCommand{\Wjets}{\HepProcess{\PW +}jets\xspace}
-\DeclareRobustCommand{\Zjets}{\HepProcess{\PZ +}jets\xspace}
+\DeclareRobustCommand{\Wjets}{\HepProcess{\PW +}jet\xspace}
+\DeclareRobustCommand{\Zjets}{\HepProcess{\PZ +}jet\xspace}
 \DeclareRobustCommand{\DY}{\HepProcess{\PZ/\Pgammastar}\xspace}
 \DeclareRobustCommand{\DYll}{\HepProcess{\PZ/\Pgammastar \HepTo \Plepton\Plepton}\xspace}
 \DeclareRobustCommand{\DYtt}{\HepProcess{\PZ/\Pgammastar \HepTo \Ptau\Ptau}\xspace}
@@ -106,6 +111,9 @@
 \DeclareRobustCommand{\powhegmethod}{\textsc{Powheg}\xspace}
 \DeclareRobustCommand{\powhegbox}{\textsc{PowhegBox}\xspace}
 \DeclareRobustCommand{\ggtoww}{\textsc{gg2ww}\xspace}
+\DeclareRobustCommand{\acermc}{\textsc{AcerMC}\xspace}
+\DeclareRobustCommand{\alpgen}{\textsc{Alpgen}\xspace}
+\DeclareRobustCommand{\madgraph}{\textsc{MadGraph}\xspace}
 \DeclareRobustCommand{\geant}{\textsc{Geant4}\xspace}
 \DeclareRobustCommand{\atlfast}{\textsc{Atlfast-ii}\xspace}
 \DeclareRobustCommand{\fastjet}{\textsc{FastJet}\xspace}
