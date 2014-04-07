@@ -21,6 +21,7 @@
 \RequirePackage{bigdelim}
 \RequirePackage{tabularx}
 \RequirePackage{listliketab}
+\RequirePackage{dcolumn}
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
@@ -48,4 +49,6 @@
 
 % tabularx centred column
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
+% dcolumn aligns decimal places
+\newcolumntype{d}[1]{D{.}{.}{#1}}
 
