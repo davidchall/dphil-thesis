@@ -173,8 +173,7 @@ of both \PW bosons for the channel in question, and includes contributions from 
 \Ptau decays.
 
 It is clear from (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) that both signal and 
-background modelling are important inputs in measuring a cross section. Within the 
-broader context of the \HWW analysis, the signal modelling is of most interest though.
+background modelling are important inputs in measuring a cross section.
 
 
 
@@ -184,7 +183,9 @@ broader context of the \HWW analysis, the signal modelling is of most interest t
 The \WW process is modelled at NLO by \meps{\mcatnlo}{\fherwig}. The NNLO \ggWW diagrams 
 contribute \about3\% to the total cross section, due to the large gluon luminosities at 
 the LHC, and are modelled by \meps{\ggtoww}{\fherwig} \cite{gg2ww}. The signal 
-acceptances $C_{\WW}$ and $A_{\WW}$ are evaluated using these MC simulations.
+acceptances $C_{\WW}$ and $A_{\WW}$ are evaluated using these MC simulations, though 
+are corrected for mismodelled trigger and lepton reconstruction efficiencies through 
+\textit{in situ} tag-and-probe studies.
 
 The jet veto in the event selection is responsible for the dominant uncertainties in both 
 $C_{\WW}$ and $A_{\WW}$. Uncertainties in the jet energy scale (JES) and jet energy 
@@ -326,34 +327,34 @@ are treated as uncorrelated with those of the other cuts. The same is true of th
 theoretical uncertainties in $A_{\WW}$. 
 
 \begin{table}
-	\begin{tabular}{lc@{\hskip 0.3in}c@{\hskip 0.3in}c}
+	\begin{tabular}{l@{}c@{\hskip 0.2in}c@{\hskip 0.2in}c@{\hskip 0.2in}c}
 		\toprule
-		& \emch & \eech & \mmch \\
+		& \emch & \eech & \mmch & All \\
 		\midrule
-		$C_{\WW}$ ($\times 100$) & $50.5\pm1.6$ & $40.3\pm1.7$ & $68.7\pm2.1$ \\
-		\quad Trigger efficiency & 0.3\% & 0.1\% & 0.6\% \\
-		\quad Lepton efficiency  & 1.4\% & 2.9\% & 0.7\% \\
-		\quad Lepton \pt scale and resolution & 0.6\% & 0.9\% & 0.8\% \\
+		$C_{\WW}$ ($\times 100$) & $50.5\pm1.6$ & $40.3\pm1.7$ & $68.7\pm2.1$ & $52.0\pm1.7$ \\
+		\quad Trigger efficiency & 0.3\% & 0.1\% & 0.6\% & 0.4\% \\
+		\quad Lepton efficiency  & 1.4\% & 2.9\% & 0.7\% & 1.3\% \\
+		\quad Lepton \pt scale and resolution & 0.6\% & 0.9\% & 0.8\% & 0.5\% \\
 		\quad Jet energy scale and resolution \\
-		\quad\quad Jet veto   & 0.7\% & 1.2\% & 1.0\% \\
-		\quad\quad Other cuts & 0.5\% & 0.6\% & 0.5\% \\
-		\quad \met modelling  & 0.4\% & 0.5\% & 0.2\% \\
+		\quad\quad Jet veto      & 0.7\% & 1.2\% & 1.0\% & 1.0\% \\
+		\quad\quad Other cuts    & 0.5\% & 0.6\% & 0.5\% & 0.5\% \\
+		\quad \met modelling     & 0.4\% & 0.5\% & 0.2\% & 0.2\% \\
 		\quad PDFs, \mur and \muf scales \\
-		\quad\quad Acceptance & 0.3\% & 0.7\% & 0.7\% \\
-		\quad\quad Jet veto correction factor & 2.6\% & 2.6\% & 2.6\% \\
-		\cmidrule(lr){1-4}
-		$A_{\WW}$ ($\times 100$) & $15.9\pm0.9$ & $7.5\pm0.4$ & $8.1\pm0.5$ \\
+		\quad\quad Acceptance    & 0.3\% & 0.7\% & 0.7\% & 0.3\% \\
+		\quad\quad Jet veto correction factor & 2.6\% & 2.6\% & 2.6\% & 2.6\% \\
+		\cmidrule(lr){1-5}
+		$A_{\WW}$ ($\times 100$) & $15.9\pm0.9$ & $7.5\pm0.4$ & $8.1\pm0.5$ & $11.9\pm0.7$ \\
 		\quad PDFs, \mur and \muf scales \\
-		\quad\quad Jet veto   & 5.6\% & 5.6\% & 5.6\% \\
-		\quad\quad Other cuts & 1.1\% & 1.0\% & 1.0\% \\
-		\cmidrule(lr){1-4}
-		$C_{\WW} \cdot A_{\WW}$ ($\times 100$) & $8.03\pm0.33$ & $3.02\pm0.15$ & $5.56\pm0.22$ \\
+		\quad\quad Jet veto   & 5.6\% & 5.6\% & 5.6\% & 5.6\% \\
+		\quad\quad Other cuts & 1.1\% & 1.0\% & 1.0\% & 1.0\% \\
+		\cmidrule(lr){1-5}
+		$C_{\WW} \cdot A_{\WW}$ ($\times 100$) & $8.03\pm0.33$ & $3.02\pm0.15$ & $5.56\pm0.22$ & $6.19\pm0.25$ \\
 		\quad PDFs, \mur and \muf scales \\
-		\quad\quad Jet veto   & 3.5\% & 3.5\% & 3.5\% \\
+		\quad\quad Jet veto   & 3.5\% & 3.5\% & 3.5\% & 3.5\% \\
 		\bottomrule
 	\end{tabular}
 	\caption{The signal acceptances $C_{\WW}$, $A_{\WW}$ and $C_{\WW} \cdot A_{\WW}$. 
-	A breakdown of relative uncertainties from different sources is also shown. The 
+	A breakdown of the relative uncertainties from different sources is also shown. The 
 	contribution to $\Delta \parenths{C_{\WW} \cdot A_{\WW}}$ of the theoretical 
 	uncertainty in the jet veto is also stated, in order to explicitly exhibit the 
 	cancellations between $\Delta C_{\WW}$ and $\Delta A_{\WW}$.}
@@ -373,7 +374,7 @@ search shall be discussed in detail in \Section~\ref{sec:ww_as_bkg} and
 
 Although many backgrounds are modelled by a data-driven technique, there is often some 
 underlying dependence upon MC. For this reason, \Table~\ref{tab:ww:mc_samples} states the 
-MC generators used to model each process.\todo{add dijet MC?}
+MC generators used to model each process.
 
 \begin{table}
 	\begin{tabular}{c@{\hskip 0.3in}c}
@@ -492,32 +493,33 @@ MC generators used to model each process.\todo{add dijet MC?}
 The observed number of events passing the event selection is shown for each channel in 
 \Table~\ref{tab:ww:sr_yield}. The expected number of events is also shown, with the 
 signal and background contributions estimated as described in 
-Sections~\ref{sec:ww:signal} and \ref{sec:ww:bkg}, respectively. An initial glance 
-suggests that the measured cross section shall be higher than predicted. Two \pt 
-distributions of the selected events are displayed in 
-\Figure~\ref{fig:ww:sr_distributions}.
+Sections~\ref{sec:ww:signal} and \ref{sec:ww:bkg}, respectively. Systematic uncertainties 
+of the \DY and non-\WW diboson backgrounds are considered correlated, though those of the 
+other backgrounds are considered uncorrelated. An initial glance suggests that the 
+measured cross section shall be higher than predicted. Two different \pt distributions of 
+the selected events are displayed in \Figure~\ref{fig:ww:sr_distributions}.
 
 \begin{table}
-	\begin{tabular}{l@{\hskip 0.3in}r@{$\,\pm\,$}r@{\hskip 0.3in}r@{$\,\pm\,$}r@{\hskip 0.3in}r@{$\,\pm\,$}r@{\hskip 0.3in}r@{$\,\pm\,$}l}
+	\begin{tabular}{l@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}l}
 		\toprule
-		& \multicolumn{2}{c@{\hskip 0.3in}}{\emch} & \multicolumn{2}{c@{\hskip 0.3in}}{\eech} & \multicolumn{2}{c@{\hskip 0.3in}}{\mmch} & \multicolumn{2}{c}{All} \\
+		& \multicolumn{3}{c@{\hskip 0.2in}}{\emch} & \multicolumn{3}{c@{\hskip 0.2in}}{\eech} & \multicolumn{3}{c@{\hskip 0.2in}}{\mmch} & \multicolumn{3}{c}{All} \\
 		\midrule
-		Observed & \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{821} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{174} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{330} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{1325} \\
-		Expected           & 744 & 62 & 169 & 20 & 280 & 25 & 1192 & 92 \\
-		\cmidrule(lr){1-9}
-		\quad \WW          & 538 & 45 & 100 &  9 & 186 & 15 &  824 & 69 \\
-		\quad Background   & 206 & 42 &  68 & 18 &  94 & 20 &  369 & 61 \\
-		\cmidrule(lr){1-9}
-		\quad\quad Top     &  87 & 27 &  22 &  4 &  32 & 15 &  141 & 37 \\
-		\quad\quad \Wjets  &  70 & 31 &  21 & 11 &   7 &  3 &   98 & 43 \\
-		\quad\quad \DY     &   5 &  2 &  12 &  4 &  34 & 11 &   51 & 13 \\
-		\quad\quad Diboson &  44 &  6 &  13 &  2 &  21 &  2 &   78 & 10 \\
+		Observed & \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{821} & \multicolumn{1}{c}{} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{174} & \multicolumn{1}{c}{} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{330} & \multicolumn{1}{c}{} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{1325} \\
+		Expected           & 744 & 24 & 57  &  169 & 12 & 16  &  280 & 16 & 20  &  1192 & 31 & 87 \\
+		\cmidrule(lr){1-13}
+		\quad \WW          & 538 &  3 & 45  &  100 &  2 &  9  &  186 &  2 & 15  &   824 &  4 & 69 \\
+		\quad Background   & 206 & 24 & 35  &   68 & 12 & 13  &   94 & 15 & 13  &   369 & 31 & 53 \\
+		\cmidrule(lr){1-13}
+		\quad\quad Top     &  87 & 23 & 13  &   22 & 12 &  3  &   32 & 14 &  5  &   141 & 30 & 22 \\
+		\quad\quad \Wjets  &  70 &  2 & 31  &   21 &  1 & 11  &    7 &  1 &  3  &    98 &  2 & 43 \\
+		\quad\quad \DY     &   5 &  2 &  1  &   12 &  3 &  3  &   34 &  6 & 10  &    51 &  7 & 12 \\
+		\quad\quad Diboson &  44 &  2 &  6  &   13 &  1 &  2  &   21 &  1 &  2  &    78 &  2 & 10 \\
 		\bottomrule
 	\end{tabular}
 	\caption{The number of events observed and expected in the \unit{4.6}{\invfb} dataset 
 	in each signal region. A breakdown of the expected signal and background 
-	contributions is also shown. The \WW signal is normalised to the NLO cross section 
-	of \unit{44.7}{\pico\barn}.}
+	contributions is also shown, with statistical and systematic uncertainties. The \WW 
+	signal is normalised to the NLO cross section of \unit{44.7}{\pico\barn}.}
 	\label{tab:ww:sr_yield}
 \end{table}
 
@@ -532,12 +534,12 @@ distributions of the selected events are displayed in
 	\label{fig:ww:sr_distributions}
 \end{figure}
 
-The fiducial and total cross sections for each channel are calculated with 
+The fiducial and total cross sections are calculated for each channel with 
 (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) respectively, using the values in 
 Tables~\ref{tab:ww:cww_aww} and \ref{tab:ww:sr_yield} and an integrated luminosity of 
 \unit{$L = 4.64 \pm 0.18$}{\invfb}. Systematic uncertainties in the signal acceptance and 
-the background estimation are assumed uncorrelated, and propagate to the cross sections 
-via
+the total background estimation are assumed uncorrelated, and propagate to the cross 
+sections via
 \begin{equation}
 	\parenths{\frac{\Delta\sigma^{\text{fid}}_{\WW}}{\sigma^{\text{fid}}_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta C_{\WW}}{C_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \label{eq:ww:fid_syst} \\
 	\parenths{\frac{\Delta\sigma_{\WW}}{\sigma_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta \parenths{C_{\WW} \cdot A_{\WW}}}{C_{\WW} \cdot A_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \,. \label{eq:ww:total_syst}
@@ -555,8 +557,14 @@ where $N_{\text{sig}}^i = \sigma_{\WW} \cdot C_{\WW}^i \cdot A_{\WW}^i \cdot \te
 \cdot L$ and the product over $i$ corresponds to the three channels. The best fit 
 $\hat{\sigma}_{\WW}$ is that which maximises the likelihood, and the statistical 
 uncertainty is obtained by finding where $\ln \mathcal{L}(\hat{\sigma}_{\WW} \pm 
-\Delta\sigma_{\WW}) = \ln \mathcal{L}(\hat{\sigma}_{\WW}) - \tfrac{1}{2}$. The systematic 
-uncertainty is determined with (\ref{eq:ww:total_syst}).
+\Delta\sigma_{\WW}) = \ln \mathcal{L}(\hat{\sigma}_{\WW}) - \tfrac{1}{2}$. 
+
+The systematic uncertainty in the combined cross section is calculated with
+(\ref{eq:ww:total_syst}), again using the values in Tables~\ref{tab:ww:cww_aww} and 
+\ref{tab:ww:sr_yield}. The top and non-\WW diboson systematic uncertainties are 
+considered correlated between all three channels. The \Wjets and \DY systematic 
+uncertainties are treated as uncorrelated between the \eech and \mmch channels, though 
+their combination is considered correlated with the \emch channel.
 
 The measured cross sections are shown in \Table~\ref{tab:ww:xs_results}. The combined 
 total cross section is \statsystlumi{51.9}{2.0}{3.9}{2.0}~\pico\barn, which is slightly 
