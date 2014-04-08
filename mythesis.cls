@@ -37,13 +37,12 @@
 % Fix hyperref labels in PDFTeX
 \@ifpackageloaded{hyperref}{%
 	\pdfstringdefDisableCommands{%
-		\def\pi{pi}%
-		\def\gamma{gamma}%
-		\def\WW{WW}%
-		\def\HWW{HWW}%
-		\def\Wjets{W+jets}%
-		\def\Zjets{Z+jets}%
-		\def\ggH{ggH}%
+		\def\pp{pp }%
+		\def\WW{WW }%
+		\def\HWW{HWW }%
+		\def\Wjets{W+jets }%
+		\def\DY{Z/gamma* }%
+		\def\ggH{ggH }%
 	}%
 }{}
 
