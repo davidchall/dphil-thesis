@@ -42,7 +42,7 @@ Since jet binning can introduce large uncertainties, a \WW CR is defined for eac
 the \twojet bin with sufficient purity owing to the large top background. Thus the \WW 
 background estimation in the \twojet bin is MC-based (see \Section~\ref{sec:ww_bkg:2j}).
 
-The event selection of the \WW CRs are outlined in \Table~\ref{tab:ww_cr}. Since the 
+The event selection of the \WW CRs are outlined in \Table~\ref{tab:ww_cr_sel}. Since the 
 \eech/\mmch channels are contaminated by \DYll, CRs are defined in the \emch/\mech 
 channels only. The \eech/\mmch 0-jet \WW prediction is extrapolated from the \emch/\mech 
 0-jet \WW CR, and similarly for the 1-jet bin. The selection criteria mostly follow those 
@@ -73,7 +73,7 @@ additional validation region (VR) is defined in the 0-jet bin with
 	\twojet bin). Cuts on energy, momentum and mass are given in \GeV, and angular cuts 
 	are given in radians. The relevant variables are described in 
 	\Chapter~\ref{chap:selection}.}
-	\label{tab:ww_cr}
+	\label{tab:ww_cr_sel}
 \end{table}
 
 A complementary view of the \WW background estimation is of a normalisation factor 
@@ -94,15 +94,62 @@ normalisation factors.
 	\includegraphics[width=0.495\textwidth]{tex/ww/emme_CutWWControl_1jet_DPhill_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/ww/emme_CutWWControl_1jet_MT_TrackHWW_Clj_mh125_lin}
-	\caption{The \dphill (left) and \mt (right) distributions in the 0-jet (top) and 
-	1-jet (bottom) \WW control regions. The \WW normalisation factor has been applied in
-	these plots.}
+	\caption{The \dphill (left) and \mt (right) distributions in the \WW control regions 
+	of the 0-jet (top) and 1-jet (bottom) bins. Normalisation factors have been applied.}
 	\label{fig:ww_bkg:cr_plots}
 \end{figure}
 
 
 \subsection{Theoretical uncertainties in $\alpha_{\WW}$}
 \label{sec:ww_bkg:alpha}
+
+Theoretical uncertainties in the extrapolation parameters $\alpha_{\WW}$ are evaluated 
+at hadron-level (\ie before detector simulation) by changing some aspect of the MC 
+modelling and measuring the effect upon each $\alpha_{\WW}$. This is done using NLO \WW 
+MC. Uncertainties due to \ggWW diagrams are negligible, since these diagrams only 
+contribute \about5\% (\about7\%) to the 0-jet (1-jet) bin SRs.
+
+The event selection criteria used in evaluating the uncertainties is similar to the 
+detector-level selection of the signal regions (see \Table~\ref{tab:event_selection}) 
+and control regions (see \Table~\ref{tab:ww_cr_sel}). However, the \Pbottom-jet veto and 
+\frecoil cuts are omitted.
+
+Hadron-level object definitions follow. The MC event record is used to identify leptons 
+and neutrinos which descend from the \PW bosons. An \metvec vector is constructed from 
+the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a cone of 
+$\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found using 
+individual particles as inputs (\cf topo-clusters at detector-level). Muons and neutrinos 
+are excluded from jet finding since they interact weakly with the calorimeter. Objects 
+must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-level.
+
+Four sources of theoretical uncertainty are considered:
+\begin{itemize}[noitemsep,nolistsep]
+	\item higher order corrections,
+	\item \acp{PDF},
+	\item parton shower, hadronisation and underlying event models,
+	\item NLO-PS matching scheme.
+\end{itemize}
+
+Uncertainties due to higher order corrections are evaluated via independent variation of 
+renormalisation and factorisation scales in the range $\mu_0/2 \leq \mur,\muf 
+\leq 2\mu_0$, where $\mu_0 = m_{\WW}$ is the nominal scale, whilst observing the 
+constraint $1/2 \leq \mur/\muf \leq 2$. These are evaluated with \amcatnlo and validated 
+with \mcfm.
+
+Uncertainties due to \acp{PDF} are evaluated in two ways. Predictions with the MSTW 2008 
+\cite{MSTW} and NNPDF 2.3 \cite{NNPDF} PDF sets are compared to those with the CT10 
+\cite{CTEQ} PDF sets, and the maximum deviation is found. Also, the set of PDF 
+eigenvectors corresponding to 90\% \ac{CL} of the CT10 fit were used to evaluate an 
+uncertainty, which was then rescaled to 68\% \ac{CL}. These are evaluated using \amcatnlo.
+
+Uncertainties due to the \ac{PS}, hadronisation and \ac{UE} models are evaluated by 
+comparing \powhegbox showered by \pythia{6} (nominal) and \fherwig. 
+Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
+\meps{\powhegbox}{\fherwig} to \meps{\amcatnlo}{\fherwig}.
+
+The $\alpha_{\WW}$ uncertainties for each signal region used in the fitting procedure are 
+shown in \Table~\ref{tab:ww_bkg:alpha_unc}. Those for the validation region are shown 
+additionally.
 
 \begin{table}
 	\centering
@@ -152,10 +199,52 @@ normalisation factors.
 \end{table}
 
 
+
 \subsection{\mt shape modelling}
 \label{sec:ww_bkg:mt}
+
+Theoretical uncertainties in the shape of the \mt distribution were also investigated, 
+as they could affect the fit. Uncertainties due to scale, PS/UE and NLO-PS choices are 
+considered within each signal region separately, using the methods described above.
+
+The uncertainties are parametrised by fitting the ratio of the \mt shapes, and then 
+symmetrising the fit to produce ``up'' and ``down'' variations. The \mt distributions are 
+normalised to unit integral in order to remove effects from acceptance uncertainties. 
+In cases when multiple variations exist within a single uncertainty source (such as the 
+seven scale variations), the largest deviation from the nominal result is fit. A linear 
+fit is used in the central \mt region, and a constant is used for the low-\mt and 
+high-\mt tails of the distribution where statistical uncertainties dominate.
+
+These fits allow the hadron-level \mt distribution of the \WW background to be reweighted 
+to the ``up'' and ``down'' variations. In this way, the \mt shape uncertainty is treated 
+as a nuisance parameter in the \HWW fitting procedure. 
+
+\begin{figure}
+	\includegraphics[width=\hugefigwidth]{tex/ww/mTshape_df_0j}
+	\caption{\WW \mt shape systematic uncertainties in each 0-jet signal region for the 
+	\emch/\mech channels. The fit shown is the sum in quadrature of the three individual 
+	fits, and successfully envelopes the uncertainty sources.}
+	\label{fig:ww_bkg:mTshape_0j}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=\hugefigwidth]{tex/ww/mTshape_df_1j}
+	\caption{\WW \mt shape systematic uncertainties in each 1-jet signal region for the 
+	\emch/\mech channels. The fit shown is the sum in quadrature of the three individual 
+	fits, and successfully envelopes the uncertainty sources.}
+	\label{fig:ww_bkg:mTshape_1j}
+\end{figure}
+
 
 
 \subsection{\WW background in the \twojet bin}
 \label{sec:ww_bkg:2j}
+
+In the \twojet bin the \WW background is modelled by \sherpa, since the second jet is 
+described by the parton shower in \meps{\powhegbox}{\pythia{6}}. Two kinds of diagrams 
+can be identified for the \WW~+~2~jets process: electroweak production (with zero QCD 
+vertices at LO) and QCD production (with two QCD vertices at LO), where VBF \WW 
+production is included in the former. 
+
+The two production types are simulated separately
 
