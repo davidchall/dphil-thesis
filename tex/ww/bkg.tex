@@ -203,21 +203,23 @@ additionally.
 \subsection{\mt shape modelling}
 \label{sec:ww_bkg:mt}
 
-Theoretical uncertainties in the shape of the \mt distribution were also investigated, 
+Theoretical uncertainties in the shape of the \mt distribution are also investigated, 
 as they could affect the fit. Uncertainties due to scale, PS/UE and NLO-PS choices are 
 considered within each signal region separately, using the methods described above.
 
-The uncertainties are parametrised by fitting the ratio of the \mt shapes, and then 
+Each uncertainty is parametrised by fitting the ratio of the \mt shapes, and then 
 symmetrising the fit to produce ``up'' and ``down'' variations. The \mt distributions are 
 normalised to unit integral in order to remove effects from acceptance uncertainties. 
-In cases when multiple variations exist within a single uncertainty source (such as the 
+In cases where multiple variations exist within a single uncertainty source (such as the 
 seven scale variations), the largest deviation from the nominal result is fit. A linear 
-fit is used in the central \mt region, and a constant is used for the low-\mt and 
-high-\mt tails of the distribution where statistical uncertainties dominate.
+fit is used in the central \mt region, and a constant is used in the low-\mt and 
+high-\mt tails of the distribution where statistical fluctuations dominate.
 
 These fits allow the hadron-level \mt distribution of the \WW background to be reweighted 
 to the ``up'' and ``down'' variations. In this way, the \mt shape uncertainty is treated 
-as a nuisance parameter in the \HWW fitting procedure. 
+as a nuisance parameter in the \HWW fitting procedure. The uncertainties for the 0-jet 
+and 1-jet signal regions are displayed in Figures~\ref{fig:ww_bkg:mTshape_0j} and 
+\ref{fig:ww_bkg:mTshape_1j} respectively, and additionally a global fit is shown.
 
 \begin{figure}
 	\includegraphics[width=\hugefigwidth]{tex/ww/mTshape_df_0j}
@@ -240,11 +242,15 @@ as a nuisance parameter in the \HWW fitting procedure.
 \subsection{\WW background in the \twojet bin}
 \label{sec:ww_bkg:2j}
 
-In the \twojet bin the \WW background is modelled by \sherpa, since the second jet is 
-described by the parton shower in \meps{\powhegbox}{\pythia{6}}. Two kinds of diagrams 
+In the \twojet bin the \WW background is modelled by \sherpa, since the second jet 
+is described by the parton shower in \meps{\powhegbox}{\pythia{6}}. Two kinds of diagrams 
 can be identified for the \WW~+~2~jets process: electroweak production (with zero QCD 
 vertices at LO) and QCD production (with two QCD vertices at LO), where VBF \WW 
 production is included in the former. 
 
-The two production types are simulated separately
+The two production types are simulated separately at LO by \sherpa, and this causes their 
+interference to be neglected. Interference with VBF Higgs boson production diagrams is 
+also neglected. The effect of each interference is investigated and treated as a 
+systematic uncertainty.
 
+\todo[inline]{Come back to WW+2j background}

@@ -5,12 +5,12 @@
 2833 words in Chapter: Computational tools for the LHC
 2944 words in Chapter: The ATLAS experiment
 6235 words in Chapter: Overview of the \HWW analysis
-2027 words in Chapter: Signal modelling
-4227 words in Chapter: \WW measurement and modelling
+2111 words in Chapter: Signal modelling
+4289 words in Chapter: \WW measurement and modelling
 0 words in Chapter: Other backgrounds
 0 words in Chapter: Experimental results
 61 words in Chapter: Conclusions
 0 words in Chapter: Event yields of \HWW selection
 ::: Total :::
-Words: 21618
+Words: 21764
 Formulae: 60

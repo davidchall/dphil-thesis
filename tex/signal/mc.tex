@@ -143,32 +143,30 @@ shown in \Table~\ref{tab:signal:acc_unc}.
 
 \subsection{\mt shape modelling}
 
-Theoretical uncertainties in the shape of the \mt distribution were also investigated, 
-as they could have an impact on the fit. Scale uncertainties are presented in 
-\Figure~\ref{fig:signal:mT_scale}, and \Figure~\ref{fig:signal:mT_psue} shows those due 
-to the PS/hadronisation/UE model and NLO-PS matching. They are driven by differences 
-between \pythia{8} and \fherwig, though remain small.
+Theoretical uncertainties in the shape of the \mt distribution are also investigated, 
+as they could affect the fit. Uncertainties due to scale, PS/UE and NLO-PS choices are 
+considered using the methods described above. The split signal regions were not used in 
+this study since the statistical fluctuations in the \mt distributions are large.
+
+Each uncertainty is parametrised by fitting the ratio of the \mt shapes, and then 
+symmetrising the fit to produce ``up'' and ``down'' variations. The \mt distributions are 
+normalised to unit integral in order to remove effects from acceptance uncertainties. 
+In cases where multiple variations exist within a single uncertainty source (such as the 
+seven scale variations), the largest deviation from the nominal result is fit. A linear 
+fit is used in the central \mt region, and a constant is used in the low-\mt and 
+high-\mt tails of the distribution where statistical fluctuations dominate.
+
+These fits allow the hadron-level \mt distribution of the ggF signal to be reweighted 
+to the ``up'' and ``down'' variations. In this way, the \mt shape uncertainty is treated 
+as a nuisance parameter in the \HWW fitting procedure. The uncertainties for the 0-jet 
+and 1-jet signal regions are displayed in \Figure~\ref{fig:signal:mTshape}.
 
 \begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/signal/mT_0jet_scale}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/signal/mT_1jet_scale}
-	\caption{Scale uncertainties in the shape of the ggF \mt distribution, for the 0-jet 
-	(left) and 1-jet (right) signal regions. The nominal scale is $\mu_0 = \mH$.}
-	\label{fig:signal:mT_scale}
+	\includegraphics[width=\hugefigwidth]{tex/signal/mTshape}
+	\caption{ggF \mt shape systematic uncertainties in the 0-jet and 1-jet signal regions 
+	of the \emch/\mech channels.}
+	\label{fig:signal:mTshape}
 \end{figure}
-
-\begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/signal/mT_0jet_psue}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/signal/mT_1jet_psue}
-	\caption{Uncertainties due to the PS/hadronisation/UE model and NLO-PS matching scheme
-	in the shape of the ggF \mt distribution, for the 0-jet (left) and 1-jet (right) 
-	signal regions. When unstated, the matrix element is provided by \powhegbox. 
-	NLO-PS uncertainties are evaluated by comparing the red and blue lines.}
-	\label{fig:signal:mT_psue}
-\end{figure}
-
 
 
 \subsection{ME-PS matching}
