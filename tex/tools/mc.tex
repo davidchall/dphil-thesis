@@ -12,8 +12,8 @@ that shall be used throughout the thesis.
 \Figure~\ref{fig:mcevent} shows how the \ac{MC} event generation is factorised into 
 several components, each describing a certain regime of momentum transfer.
 
-\begin{figure}[t]
-	\includegraphics[width=\largefigwidth]{tex/tools/event}
+\begin{figure}[p]
+	\includegraphics[width=\hugefigwidth]{tex/tools/event}
 	\caption{Schematic diagram of a simulated \ttH event, showing how factorisation allows 
 	the physics at different scales of momentum transfer $Q$ to be treated independently 
 	\cite{MCnet:MatchingLectures}.
@@ -21,7 +21,7 @@ several components, each describing a certain regime of momentum transfer.
 	radiated in the initial state (blue) and final state (red). At low-$Q$, incoming 
 	partons are confined to the beam protons, while outgoing partons hadronise (green 
 	blobs). The underlying event comprises multiple partonic interactions (purple blob) 
-	and beam remnants (blue blobs). Photons (yellow) are also radiated.}
+	and beam remnants (blue blobs). Photons and leptons (yellow) are also radiated.}
 	\label{fig:mcevent}
 \end{figure}
 
@@ -30,26 +30,26 @@ several components, each describing a certain regime of momentum transfer.
 	The high scale process can be selected as desired (\eg Higgs boson production via 
 	gluon-gluon fusion). The relevant parton-level \acp{ME} are calculated using fixed 
 	order perturbative QCD, either by the event generator itself or an external program. 
-	These \acp{ME} are usually \ac{LO}, though possible improvements are discussed in 
-	\Section~\ref{sec:mc:merging} and \Section~\ref{sec:mc:matching}.
-\item[Parton Distribution Functions (PDFs)] \hfill \\
+	Historically, these \acp{ME} were usually \ac{LO}, though improvements are discussed 
+	in \Section~\ref{sec:mc:merging} and \Section~\ref{sec:mc:matching}.
+\item[Parton distribution functions (PDFs)] \hfill \\
 	Incoming parton momenta are sampled from a proton \ac{PDF}, usually probed at the 
 	scale of the hard scatter ($\muf = Q$). The LHAPDF interface \cite{LHAPDF} provides 
-	access to the \acp{PDF} of several fitting collaborations, such as CTEQ \cite{CTEQ} 
-	and MSTW \cite{MSTW}. \acp{PDF} differ because they are fit with different subsets of 
-	experimental data, massive quark treatment, parametrisation model and $\alphaS 
-	\parenths{\mZ}$ value.
-\item[\ac{FSR}] \hfill \\
+	access to the \acp{PDF} of several fitting collaborations, such as CTEQ \cite{CTEQ}, 
+	MSTW \cite{MSTW} and NNPDF \cite{NNPDF}. \acp{PDF} differ because they are fit with 
+	different subsets of experimental data, massive quark treatments, parametrisation 
+	models and $\alphaS \parenths{\mZ}$ values.
+\item[Final state radiation (FSR)] \hfill \\
 	Soft and collinear radiation from outgoing partons is simulated by a universal parton 
 	shower, evolving the scale from the hard scatter to the hadronisation scale of 
 	\about\unit{1}{\GeV}. The successive emissions are ordered to avoid double-counting --
-	common order parameters are virtuality, transverse momentum and opening angle.
+	typical order parameters are virtuality, transverse momentum and opening angle.
 
-	For the correct treatment of soft emissions, it is vital to preserve coherence. This 
-	is inherent in an angular ordered shower, but must be manually implemented otherwise. 
-	Alternatively, a \textit{dipole shower} considers emissions from colour-connected 
-	pairs of partons, and is also inherently coherent.
-\item[\ac{ISR}] \hfill \\
+	For the correct treatment of soft emissions, it is vital to preserve colour 
+	coherence. This is inherent in an angular ordered shower, but must be manually 
+	implemented otherwise. Alternatively, a \textit{dipole shower} considers emissions 
+	from colour-connected pairs of partons, and is also inherently coherent.
+\item[Initial state radiation (ISR)] \hfill \\
 	Soft and collinear radiation from incoming partons is similarly described by a parton 
 	shower. However, the small probability of evolving two partons with the kinematics 
 	required by the hard process necessitates a \textit{backwards evolution}. Thus, the 
@@ -67,14 +67,14 @@ several components, each describing a certain regime of momentum transfer.
 	require tuning to experimental data.
 \item[Hadron and \Ptau decays] \hfill \\
 	Many of the hadrons produced during hadronisation are unstable, and must be decayed to
-	particles that are stable on a detector timescale, while observing conservation laws. 
-	Similarly, the \Ptau lepton must be decayed, hadronically or leptonically.
-\item[\ac{MPI}] \hfill \\
-	The \textit{underlying event} (UE) comprises additional soft hadronic activity caused 
-	by partons inactive in the hard scatter. It exists because the elastic parton-parton 
-	cross section is large enough to produce 
-	\textit{multiple partonic interactions} (MPI). The size of the activity is correlated 
-	to the scale of the hard scatter. 
+	particles that are stable on a detector traversal timescale, while observing 
+	conservation laws and measured branching ratios. Similarly, the \Ptau lepton must be 
+	decayed, hadronically or leptonically.
+\item[Multiple partonic interactions (MPI)] \hfill \\
+	The \textit{underlying event} (UE) is the additional soft hadronic activity caused by 
+	partons inactive in the hard scatter. It comprises the breakup of the beam remnants 
+	and \textit{multiple partonic interactions} (MPI) between the protons. The size of 
+	the MPI activity is correlated to the scale of the hard scatter. 
 
 	In order to calculate the number of additional interactions, the spatial distribution 
 	of partons within the proton must be modelled, the impact parameter of the \pp 
@@ -90,10 +90,10 @@ several components, each describing a certain regime of momentum transfer.
 \label{sec:mc:generators}
 
 Three event generators are commonly used at the \acs{LHC}, mainly differing in their 
-choice of hadronisation and \ac{MPI} models and their parton shower order parameter. 
+choice of hadronisation and \ac{MPI} models, and their parton shower order parameter. 
 Efforts to rewrite the older Fortran-based programs in \cpp has led to a generation of 
-`out-of-date' programs that are no longer actively developed. Even so, they are still in 
-common usage, and so are included in the descriptions below.
+`out-of-date' Fortran programs that are no longer actively developed. Even so, they are 
+still in common usage, and so are included in the descriptions below.
 
 \begin{description}
 \item[Herwig] \hfill \\
@@ -103,9 +103,9 @@ common usage, and so are included in the descriptions below.
 \item[Pythia] \hfill \\
 	\pythia{6} (Fortran) \cite{Pythia6} and \pythia{8} (\cpp) \cite{Pythia8} both use a 
 	string hadronisation model and an advanced \ac{MPI} model. \pythia{8} uses a dipole 
-	shower ordered in transverse momentum, whereas \pythia{6} offered a choice of 
-	virtuality and transverse momentum ordered parton showers with coherence implemented 
-	manually.
+	shower ordered in transverse momentum, whereas \pythia{6} offers a choice of 
+	virtuality or transverse momentum ordered parton showers with colour coherence 
+	implemented manually.
 \item[Sherpa] \hfill \\
 	\sherpa (\cpp) \cite{Sherpa} uses a dipole shower ordered in transverse momentum, 
 	which is convenient for multi-leg merging (see \Section~\ref{sec:mc:merging}). It 
@@ -126,10 +126,12 @@ transition from the emissions of \iac{ME} to those of the parton shower. Second,
 naturally leads to problems of double counting.
 
 By using a merging prescription, such as the CKKW-L algorithm \cite{CKKW,Lonnblad:2002} 
-employed by \sherpa, it is possible to consistently combine \ac{LO} matrix elements 
-with differing multiplicities, whilst matching to the parton shower correctly. This does 
-require the introduction of a merging scale though. Loosely speaking, this scale separates
-the \ac{ME} and parton shower descriptions of the emissions.
+employed by \sherpa or the MLM algorithm \cite{Merging} employed by \alpgen \cite{Alpgen} 
+and \madgraph \cite{MadGraph}, it is possible to consistently combine \ac{LO} matrix 
+elements with differing multiplicities, whilst matching to the parton shower correctly. 
+This does require the introduction of a merging scale though. This scale separates the 
+\ac{ME} and parton shower descriptions of the emissions, though the details of the 
+separation depend upon the merging prescription.
 
 
 
@@ -137,26 +139,24 @@ the \ac{ME} and parton shower descriptions of the emissions.
 \label{sec:mc:matching}
 
 It is also possible to match \iac{NLO} \ac{ME} to a parton shower, to improve the accuracy
-of both the normalisation and shape of observables \cite{Nason:2012}. Such a calculation 
-must include the \ac{LO}, virtual-loop and real-emission diagrams, while mapping smoothly 
-onto the parton shower for soft emissions. There are currently two valid matching 
-prescriptions:
+of both the normalisation and distribution of observables \cite{Nason:2012}. Such a 
+calculation must include the \ac{LO}, virtual-loop and real-emission diagrams, while 
+mapping smoothly onto the parton shower for soft emissions. There are currently two valid 
+matching prescriptions:
 
 \begin{description}
 \item[MC@NLO] \hfill \\
 	Simply adding a parton shower to \iac{NLO} \ac{ME} introduces double counting of 
-	emissions. The \mcatnlo method compensates for this overlap in the \ac{NLO} 
-	calculation. This renders the \ac{ME} dependent upon the parton shower used in the 
-	\ac{MC} event generator. It also introduces the possibility of negatively weighted 
-	events.
+	emissions. The \mcatnlo method compensates for this overlap through a correction to 
+	the \ac{NLO} calculation. This renders the \ac{ME} dependent upon the parton shower 
+	used in the \ac{MC} event generator. It also introduces negatively weighted events.
 
 	Originally implemented in the \mcatnlo program for matching to \fherwig 
 	\cite{MCatNLO-Herwig} and \herwigpp \cite{MCatNLO-Herwig++}, the method has now been 
 	automated within the \amcatnlo program \cite{aMCatNLO} and extended for use with 
-	\pythia{6} and \pythia{8} \cite{MCatNLO-Pythia}. A variant is also included in 
-	\sherpa.
+	\pythia{6} and \pythia{8} \cite{MCatNLO-Pythia}. It is now also included in \sherpa.
 \item[POWHEG] \hfill \\
-	The \powhegmethod method requires that the hardest emission is always generated by 
+	The \powhegmethod method requires the hardest emission to always be generated by 
 	the \ac{ME}. It achieves the correct hard and soft behaviour by convolving the \ac{LO}
 	\ac{ME} with a modified Sudakov factor, and then reweighting the differential cross 
 	section to the \ac{NLO} result. Thus the \ac{ME} is independent of the subsequent 
@@ -183,7 +183,7 @@ prescriptions:
 	\Chapter~\ref{chap:experiment}). Since long-lived particles will decay \textit{en 
 	route}, particles with lifetime \unit{$c\tau > 10$}{\milli\metre} are decayed by 
 	\geant rather than the \ac{MC} generator. The majority of the simulation time is 
-	spent modelling the complex calorimeter geometry, so in rare cases the simulation is 
+	spent modelling the complex calorimeter geometry; in some cases the simulation is 
 	performed by \atlfast \cite{Atlfast}, which contains a simplified calorimeter 
 	simulation.
 
@@ -192,16 +192,17 @@ prescriptions:
 	events.
 \item[Pile-up simulation] \hfill \\
 	As described in \Chapter~\ref{chap:experiment}, each \acs{LHC} bunch crossing can 
-	result in soft proton-proton interactions in addition to the hard process, known as 
-	\textit{pile-up}. This obscures the interesting physics and is important to model 
+	result in soft proton-proton interactions, known as \textit{pile-up}, in addition to 
+	the hard process. This obscures the interesting physics and is important to model 
 	accurately.
 
-	In-time pile-up (same bunch crossing as hard process) is modelled by overlaying 
+	In-time pile-up (same bunch crossing as the hard process) is modelled by overlaying 
 	simulated energy deposits from soft \pp interactions generated with \pythia{8}. The 
 	number of overlaid events depends upon the beam conditions (see 
 	\Section~\ref{sec:dataset}).
 
-	Out-of-time pile-up (different bunch crossing from hard process) affects detector 
-	sub-systems whose latency is longer than the bunch spacing. These sub-systems have 
-	further pile-up events overlaid; again this depends on the beam conditions.
+	Out-of-time pile-up (different bunch crossing to the hard process) affects detector 
+	sub-systems whose latency is longer than the bunch spacing. For such sub-systems, 
+	signals from out-of-time pile-up are overlaid with corresponding time shifts; again 
+	this depends on the beam conditions.
 \end{description}

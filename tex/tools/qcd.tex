@@ -28,11 +28,12 @@ where $\delta g$ and $\delta m$ are the loop contributions. This procedure is kn
 
 It is necessary to introduce an unphysical \textit{renormalisation scale} \mur, above 
 which loops are absorbed into renormalised quantities, and below which loops are 
-calculated in perturbation theory. Clearly couplings and masses will depend upon \mur,
-though physical observables must not -- however, truncation of the perturbative series 
-will result in a residual \mur dependence. Usually \mur is chosen to be the energy 
-scale $Q$ of the process under consideration, leading to the concept of a \textit{running 
-coupling constant}.
+calculated in perturbation theory. The exact details of the separation depend upon the 
+choice of renormalisation scheme \cite{Aitchison}. Clearly couplings and masses will 
+depend upon \mur, though physical observables must not; however, truncation of the 
+perturbative series will result in a residual \mur dependence. Usually \mur is chosen to 
+be the energy scale $Q$ of the process under consideration, leading to the concept of a 
+\textit{running coupling constant}.
 
 The \ac{QCD} coupling constant \alphaS is shown in \Figure~\ref{fig:qcd:alpha_s}. At low 
 scales (large distances), \alphaS is large and the theory is non-perturbative. 
@@ -40,8 +41,8 @@ Though not analytically proven\footnote{
 	A mathematically rigorous proof of confinement is one of seven Millennium Prize 
 	Problems of the Clay Mathematics Institute, with a bounty of \$1,000,000.
 }, confinement has been verified in this regime by lattice \ac{QCD} \cite{Wilson:1974}. 
-At high scales (small distances), \alphaS is small -- this is asymptotic freedom 
-\cite{Gross:1973,Politzer:1973}. Note that \alphaEM in \acs{QED} exhibits an opposing 
+At high scales (small distances), \alphaS is small; this is asymptotic freedom 
+\cite{Gross:1973,Politzer:1973}. Note that \alphaEM in \acs{QED} exhibits an opposite 
 trend, though remains perturbative at all accessible energies.
 \begin{figure}
 	\includegraphics[width=\mediumfigwidth]{tex/tools/alpha_s}
@@ -78,7 +79,8 @@ residual \mur dependence. Inserting the truncated series into (\ref{eq:qcd:xs_rg
 it follows that
 \begin{equation}
 	\frac{\d{}}{\d{\mur}} \sum\limits_{m=0}^{n} \alpha_{\text{S}}^{k+m} \hat{\sigma}^{(m)}
-	= \ofOrder{\alpha_{\text{S}}^{k+n+1}} \,.
+	&= - \frac{\d{}}{\d{\mur}} \sum\limits_{m=n+1}^{\infty} \!\!\alpha_{\text{S}}^{k+m} \hat{\sigma}^{(m)} \\
+	&= \ofOrder{\alpha_{\text{S}}^{k+n+1}} \,.
 \end{equation}
 Thus, the residual \mur dependence can be exploited to probe the effect of missing 
 higher order terms in the series, and estimate the associated uncertainty.
@@ -95,46 +97,48 @@ higher order terms in the series, and estimate the associated uncertainty.
 
 Fixed order calculations are useful only when the perturbative series is converging, as is
 usual for an inclusive cross section. However, when considering exclusive observables, 
-there are regions of phase space in which the missing higher order terms cannot be 
-neglected. This often occurs when there is a large separation in the scales of a process.
+there are regions of phase space in which the missing higher order terms contribute as 
+much as the included terms. This often occurs when there is a large separation in the 
+scales of the exclusive observables and the process.
 
 For example, consider the emission of a gluon from an outgoing quark. The scale 
 separation of the hard scatter $Q$ from the soft emission $Q_1$ introduces Sudakov double 
 logarithmic contributions $\alpha_{\text{S}}^{k+m} L^{2m}$ to the perturbative series, 
-where $L \sim \ln\parenths{Q_1 / Q}$. The (schematic) structure of the perturbative 
-series becomes
+where $L \sim \ln\parenths{Q_1 / Q}$. Requiring such an emission, the (schematic) 
+structure of the perturbative series becomes
 \begin{equation}
 	\hat{\sigma} \sim \alpha_{\text{S}}^k \braces{\alphaS \parenths{L^2 + L + 1}
 	+ \alpha_{\text{S}}^2 \parenths{L^4 + L^3 + L^2 + L + 1} 
 	+ \ofOrder{\alpha_{\text{S}}^3 L^6}} \,.
 	\label{eq:qcd:resum}
 \end{equation}
-For soft or collinear emissions we have $\alphaS L^2 \approx 1$, and the logarithms can 
-overcome the \alphaS suppression. Thus, the perturbative nature of the series is spoiled. 
-In (\ref{eq:qcd:resum}), terms like $\alpha_{\text{S}}^{k+m} L^{2m}$ are called \acp{LL}, 
-terms like $\alpha_{\text{S}}^{k+m} L^{2m-1}$ are called \acp{NLL}, and so on.
+Soft or collinear emissions are defined by $\alphaS L^2 \approx 1$, such that the 
+logarithms overcome the \alphaS suppression. Thus, the perturbative nature of the series 
+is spoiled. In (\ref{eq:qcd:resum}), terms like $\alpha_{\text{S}}^{k+m} L^{2m}$ are 
+called \acp{LL}, terms like $\alpha_{\text{S}}^{k+m} L^{2m-1}$ are called \acp{NLL}, and 
+so on.
 
-When sensitive to such large logarithms, they must be \textit{resummed} to all orders in 
-\alphaS to produce an accurate result. This is usually achieved analytically, but in the 
-case of the example soft and collinear emissions a \textit{parton shower} Monte Carlo 
-program can be used. This probabilistically generates emissions as it evolves partons 
-from the scale of the hard scatter down to a scale where non-perturbative effects of 
-confinement dominate. This leads to fully-exclusive observables. A parton shower is 
-necessary to produce hadron-level predictions (see \Section~\ref{sec:mc}). Technically 
-they have \ac{LL} accuracy, though can include many \ac{NLL} terms such as 
-energy-momentum conservation and colour coherence.
+When an observable is sensitive to such large logarithms, they must be \textit{resummed} 
+to all orders in \alphaS to produce an accurate result. This is usually achieved 
+analytically, but in this example of soft and collinear emissions a \textit{parton 
+shower} Monte Carlo program can be used. This probabilistically generates emissions as it 
+evolves partons from the scale of the hard scatter down to a scale where non-perturbative 
+effects of confinement dominate. This leads to fully-exclusive observables. A parton 
+shower is necessary to produce hadron-level predictions (see \Section~\ref{sec:mc}). 
+Technically they have \ac{LL} accuracy, though can include many higher order logarithms 
+through the enforcement of energy-momentum conservation and colour coherence.
 
 
 
 \subsection{Parton distribution functions}
 \label{sec:qcd:pdf}
 
-Since confinement binds partons into hadrons, it is these that are accelerated and 
-collided at the \acs{LHC} (we consider protons in particular). Therefore, we need to 
-calculate observables for proton-proton interactions rather than the parton-parton 
-interactions discussed above. Fortunately, the \textit{factorisation theorem} states that 
-the soft non-perturbative physics of the hadron can be treated independently of the hard 
-scatter \cite{Collins:1982}. Thus, a proton-proton cross section can be formulated as a 
+Since confinement binds partons into hadrons, it is the latter that are accelerated and 
+collided at the \acs{LHC} (in particular protons). Therefore, we need to calculate 
+observables for proton-proton interactions rather than the parton-parton interactions 
+discussed above. Fortunately, the \textit{factorisation theorem} states that the soft 
+non-perturbative physics of the hadron can be treated independently of the hard scatter 
+\cite{Collins:1982}. Thus, a proton-proton cross section can be formulated as a 
 convolution of the partonic cross section with \acp{PDF} of the incoming protons. That is,
 \begin{equation}
 	\sigma\parenths{p_1, p_2} = 
@@ -144,12 +148,13 @@ convolution of the partonic cross section with \acp{PDF} of the incoming protons
 	\frac{Q^2}{\mu_{\text{F}}^2}, \frac{Q^2}{\mu_{\text{R}}^2}} 
 \end{equation}
 where $f_a$ is the \ac{PDF} of parton type $a$ within the proton, $p_i$ is the momentum 
-of proton $i$, and $x_i$ is the momentum fraction of parton $i$. A sum is performed over 
-all possible parton types (six quark flavours and the gluon).
+of proton $i$, $x_i$ is the momentum fraction of parton $i$, and $Q$ is the scale of the 
+hard scatter. A sum is performed over all possible parton types (six quark flavours and 
+the gluon).
 
 Echoing renormalisation, factorisation absorbs collinear divergences into universal 
 \acp{PDF} which are not \textit{a priori} calculable and must be experimentally 
-constrained. Again, an unphysical \textit{factorisation scale} \muf is introduced, 
+constrained. An unphysical \textit{factorisation scale} \muf is introduced, 
 below which emissions are absorbed into \acp{PDF}, and above which they are included in 
 the hard scatter. As with \mur, truncating the perturbative series introduces a 
 \muf dependence, which can be exploited to estimate the effect of the missing higher 
