@@ -22,6 +22,7 @@
 \RequirePackage{tabularx}
 \RequirePackage{listliketab}
 \RequirePackage{dcolumn}
+\RequirePackage{cancel}
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}

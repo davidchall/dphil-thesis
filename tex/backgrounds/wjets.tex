@@ -1,1 +1,162 @@
 %!TEX root = ../../thesis.tex
+
+\Wjets events contribute to the background when a jet is misidentified as a lepton, and 
+dijet events contribute when two jets are misidentified as leptons. Although the fake 
+rates are very low, these backgrounds are significant because the \Wjets and dijet cross 
+sections are much larger than those of Higgs boson production. Moreover, since the fake 
+rates are sensitive to effects that are difficult to accurately model (such as jet 
+substructure and particle interactions with the detector), a data-driven \textit{fake 
+factor method} is used to estimate these backgrounds.
+
+As these backgrounds have large uncertainties, their suppression is critically important. 
+The electron and muon selection criteria are chosen to be tighter at low \pt (see 
+\Section~\ref{sec:objects}), in order to reduce the fake rates where these backgrounds 
+are largest. The dijet background is additionally rejected by requiring significant \met 
+and by the \unit{$\maxmtw > 50$}{\GeV} cut in the \emch/\mech channels of the 1-jet bin.
+
+
+
+\subsection{The fake factor method}
+\label{sec:wjets:fakefactor_method}
+
+The fake factor method defines two new reconstructed objects: anti-identified electrons 
+\antiid{\Pe} and muons \antiid{\Pmu}, collectively known as anti-identified leptons 
+\antiid{\Plepton}. Their loosened selection criteria ensures that they are highly 
+contaminated by jets, while a veto on identified leptons \id{\Plepton} removes overlap 
+between \id{\Plepton} and \antiid{\Plepton} objects (see \Section~\ref{sec:wjets:antiid}).
+The fake factor $f_{\Plepton}$ is then defined as the ratio of efficiencies (\ie fake 
+rates) for jets passing the \id{\Plepton} criteria to passing the \antiid{\Plepton} 
+criteria.
+
+In the following discussion, a \textit{sample} shall refer to a collection of events 
+featuring a specific set of objects, \eg the signal sample 
+$\mathcal{N}_{\id{\Plepton}\id{\Plepton}\text{,OS}}$ refers to \id{\Plepton}\id{\Plepton} 
+events with opposite-sign charges (the \HWW analysis uses four signal samples: 
+\id{\Plepton}\id{\Plepton} = \id{\Pe}\id{\Pe}, \id{\Pmu}\id{\Pmu}, \id{\Pe}\id{\Pmu} and 
+\id{\Pmu}\id{\Pe}). A \textit{region} shall refer to events whose objects satisfy a set 
+of criteria (also known as cuts), \eg the signal region refers to events passing the 
+criteria in \Table~\ref{tab:event_selection}.
+
+A dilepton sample $\mathcal{N}_{\id{\Plepton}\id{\Plepton}}$, a \Wjets control sample 
+$\mathcal{N}_{\id{\Plepton}\antiid{\Plepton}}$ and a dijet control sample 
+$\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton}}$ are defined, each with opposite-sign 
+(OS) and same-sign (SS) charge variants. Note that $\mathcal{N}$ indicates a sample to 
+which cuts may be applied, and anti-ID leptons are treated as leptons in such cuts when 
+appropriate. Each sample has contributions from \Wjets and dijet events, and events with 
+prompt leptons from the hard scatter (labelled EW):
+\begin{equation}
+	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i} &= \mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{\Wjets}} + \mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{dijet}} + \mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{EW}} \\
+	\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i} &= \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{\Wjets}} + \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{dijet}} + \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{EW}} \\
+	\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i} &= \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{\Wjets}} + \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{dijet}} + \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{EW}}
+\end{equation}
+where $i = \text{OS, SS}$. $\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}$ is dominated by 
+$\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{EW}}$, 
+$\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}$ is dominated by 
+$\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{\Wjets}}$ and 
+$\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}$ is dominated by 
+$\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{dijet}}$. 
+
+The purpose of the fake factor method is to estimate the 
+$\mathcal{N}_{\id{\Plepton}\id{\Plepton}\text{,OS}}^{\text{\Wjets}}$ and 
+$\mathcal{N}_{\id{\Plepton}\id{\Plepton}\text{,OS}}^{\text{dijet}}$ contributions to the 
+$\mathcal{N}_{\id{\Plepton}\id{\Plepton}\text{,OS}}$ signal sample. The SS estimations 
+are also required for the non-\WW diboson background estimation (see 
+\Section~\ref{sec:diboson}). It does this in a data-driven way by using the \Wjets and 
+dijet control samples, subtracting the expected contaminations, and then multiplying by a 
+data-driven fake factor:
+\begin{equation}
+	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{pred,dijet}} &= \parenths{\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,\Wjets}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}} \cdot f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}} \\
+	\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}} &= \parenths{\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,\Wjets}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}} \\
+	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{pred,\Wjets}} &= \parenths{\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}} - \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton,i}^{\text{pred,\Wjets}}
+\end{equation}
+where $i = \text{OS, SS}$. It should be noted that the dijet contamination to the \Wjets 
+control sample $\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}}$ is 
+data-driven from the dijet control sample. As discussed later, the fake factors are 
+determined by the flavour composition of the jets, and thus depend upon the process. 
+Also, $f_{\Plepton}^{\text{pred,dijet}}$ depends upon whether the other object in the 
+event is an ID lepton ($f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}$) or an 
+anti-ID lepton ($f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}$). This shall 
+be discussed in \Section~\ref{sec:wjets:dijet_bkg}. Finally, note that 
+$f_{\Plepton}^{\text{pred,\Wjets}}$ depends upon whether the event is OS or SS. This 
+shall be discussed in \Section~\ref{sec:wjets:wjet_bkg}.
+
+The rest of this section on the \Wjets and dijet backgrounds shall be spent describing 
+the anti-identification lepton selection criteria (\Section~\ref{sec:wjets:antiid}), the 
+measurement of fake factors in experimental data (Sections~\ref{sec:wjets:dijet_ff} and 
+\ref{sec:wjets:zjet_ff}), and MC-based corrections to the fake factors to improve the 
+background estimations (Sections~\ref{sec:wjets:dijet_bkg} and \ref{sec:wjets:wjet_bkg}).
+
+
+
+\subsection{Lepton anti-identification criteria}
+\label{sec:wjets:antiid}
+
+With respect to the lepton reconstruction described in \Section~\ref{sec:objects}, the 
+selection criteria of anti-ID leptons is looser in order to accept a large number of 
+jets. An explicit veto upon fully identified leptons avoids overlap between samples.
+
+Relative to \Section~\ref{sec:objects:electrons}, anti-ID electrons of any \pt must fail 
+the \textit{medium} identification criteria (though instead must have 
+$n_{\text{pixel}}^{\text{hit}} + n_{\text{SCT}}^{\text{hit}} \geq 4$). Also, the tracker 
+and calorimeter isolation are loosened to $\ptcone{0.3}/\et < 0.16$ and 
+$\etcone{0.3}/\et < 0.30$.
+
+Relative to \Section~\ref{sec:objects:muons}, anti-ID muons have their transverse impact 
+parameter $d_0$ requirement removed. Also, the tracker isolation is removed and the 
+calorimeter isolation is loosened to $\etcone{0.3}/\pt < 0.15$ for 
+\unit{$\pt \in \hardrange{10,15}$}{\GeV}, $\etcone{0.3}/\pt < 0.25$ for 
+\unit{$\pt \in \hardrange{15,20}$}{\GeV} and $\etcone{0.3}/\pt < 0.30$ for 
+\unit{$\pt > 20$}{\GeV}.
+
+The loosened anti-ID criteria of electrons lead to a much larger increase in jet 
+acceptance than in the case of muons, and consequently $f_{\Pe} \ll f_{\Pmu}$.
+
+
+
+\subsection{Dijet fake factor measurement}
+\label{sec:wjets:dijet_ff}
+
+
+
+
+\subsection{\Zjets fake factor measurement}
+\label{sec:wjets:zjet_ff}
+
+
+
+
+\subsection{Dijet background estimation}
+\label{sec:wjets:dijet_bkg}
+
+\begin{equation}
+	f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \\
+	f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \id{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert \antiid{\Plepton}}^{\text{MC,dijet}}}
+\end{equation}
+
+
+
+
+\subsection{\Wjets background estimation}
+\label{sec:wjets:wjet_bkg}
+
+\begin{equation}
+	f_{\Plepton,i}^{\text{pred,\Wjets}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,\Zjets}}\parenths{\pt} \cdot \frac{f_{\Plepton}^{\text{data,dijet}}\parenths{\pt, \eta}}{f_{\Plepton}^{\text{data,dijet}}\parenths{\pt}} \cdot \frac{f_{\Plepton,i}^{\text{MC,\Wjets}}}{f_{\Plepton}^{\text{MC,\Zjets}}}
+\end{equation}
+
+\todo[inline]{Plot fake factors}
+
+
+
+
+
+
+% \begin{figure}
+% 	\includegraphics[width=0.495\textwidth]{custom_images/wjets/ff_el_sampledep}
+% 	\hfill
+% 	\includegraphics[width=0.495\textwidth]{custom_images/wjets/ff_mu_sampledep}
+% 	\caption{Relative difference of the dijet (red) and \Zjets (blue) MC fake factors 
+% 	compared to the \Wjets MC fake factor, versus the \pt of the electron (left) or muon 
+% 	(right). MC is \meps{\alpgen}{\pythia{6}} (\Wjets and \Zjets) and \pythia{8} (dijet).}
+% 	\label{fig:wjets:ff_sampledep}
+% \end{figure}
+
