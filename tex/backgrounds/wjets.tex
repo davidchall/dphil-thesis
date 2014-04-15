@@ -93,7 +93,9 @@ background estimations (Sections~\ref{sec:wjets:dijet_bkg} and \ref{sec:wjets:wj
 
 With respect to the lepton reconstruction described in \Section~\ref{sec:objects}, the 
 selection criteria of anti-ID leptons is looser in order to accept a large number of 
-jets. An explicit veto upon fully identified leptons avoids overlap between samples.
+jets. An explicit veto upon fully identified leptons avoids overlap between samples. 
+The fake rate of the anti-ID electrons is much higher than that of anti-ID muons, and 
+consequently $f_{\Pe} \ll f_{\Pmu}$.
 
 Relative to \Section~\ref{sec:objects:electrons}, anti-ID electrons of any \pt must fail 
 the \textit{medium} identification criteria (though instead must have 
@@ -108,20 +110,91 @@ calorimeter isolation is loosened to $\etcone{0.3}/\pt < 0.15$ for
 \unit{$\pt \in \hardrange{15,20}$}{\GeV} and $\etcone{0.3}/\pt < 0.30$ for 
 \unit{$\pt > 20$}{\GeV}.
 
-The loosened anti-ID criteria of electrons lead to a much larger increase in jet 
-acceptance than in the case of muons, and consequently $f_{\Pe} \ll f_{\Pmu}$.
+
 
 
 
 \subsection{Dijet fake factor measurement}
 \label{sec:wjets:dijet_ff}
 
+\textit{In situ} fake factor measurements are made using dijet events. This involves 
+counting the numbers of ID and anti-ID leptons in a dijet control region, subtracting the 
+expected contamination from \PW and \PZ events, and calculating their ratio. 
+$f_{\Plepton}^{\text{data,dijet}}$ is measured as a function of \pt and $\eta$.
+
+Following data quality requirements, events are selected using very loose (no isolation 
+or electron identification criteria), but highly prescaled, lepton triggers. To reduce 
+the effects of prescaling, different triggers were used for different \pt ranges, and a 
+trigger containing electron identification criteria was added to aid measurement of the 
+numerator. 
+In the $f_{\Pe}$ measurement, the \verb|EF_e5_etcut| (\unit{0.012}{\invpb}) and 
+\verb|EF_e5_medium1| (\unit{0.24}{\invpb}) triggers were used for \unit{$\pt < 20$}{\GeV} 
+and the \verb|EF_g24_etcut| (\unit{2.1}{\invpb}) trigger was used for 
+\unit{$\pt > 20$}{\GeV}. 
+In the $f_{\Pmu}$ measurement, the \verb|EF_mu6| (\unit{0.94}{\invpb}) trigger was used 
+for \unit{$\pt < 15$}{\GeV} and the \verb|EF_mu15| (\unit{23}{\invpb}) trigger was used 
+for \unit{$\pt > 15$}{\GeV}. The trigger naming scheme is explained in the caption of 
+\Table~\ref{tab:sel:triggers}.
+
+The dijet control region requires events to have a jet with \unit{$\pt > 15$}{\GeV} (see 
+\Section~\ref{sec:objects:jets} for jet selection) balancing the triggered lepton object,
+$\Delta\phi\parenths{\Plepton,j} < 0.7$. To suppress contamination from \PW events we 
+require \unit{$\mtw < 30$}{\GeV}, and to suppress the \PZ background we veto events with 
+a lepton pair satisfying \unit{$\mods{\mll - \mZ} < 13$}{\GeV}. Note that these 
+criteria apply to both \id{\Plepton} and \antiid{\Plepton} objects. Normalisation factors 
+for the residual \PW and \PZ backgrounds are derived by inverting the respective veto.
+
+The measured electron and muon fake factors are shown in \Figure~\ref{fig:wjets:ff_data}. 
+The uncertainty is dominated by uncertainties in the subtracted contamination (which is 
+conservatively scaled up and down by 20\%). $f_{\Plepton}^{\text{data,dijet}}$ is used in 
+the dijet background estimation, as described in \Section~\ref{sec:wjets:dijet_bkg}.
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{custom_images/wjets/ff_el_data}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{custom_images/wjets/ff_mu_data}
+	\caption{The fake factor measured in dijet (red) and \Zjets (blue) events versus \pt, 
+	for electrons (left) and muons (right). The error bars include statistical 
+	uncertainties and uncertainties in the background subtraction.}
+	\label{fig:wjets:ff_data}
+\end{figure}
 
 
 
 \subsection{\Zjets fake factor measurement}
 \label{sec:wjets:zjet_ff}
 
+\textit{In situ} fake factor measurements are also made using \Zjets events. This 
+involves counting the numbers of ID and anti-ID leptons in a \Zjets control region (CR), 
+subtracting the expected electroweak contamination (\Zgamma, \ZZ, \Zgstar, \WZ, \Wgstar), 
+and calculating their ratio.
+
+Following data quality requirements, events are selected using unprescaled lepton 
+triggers. This is possible because the triggered object is a lepton from the \PZ boson 
+decay, and the \pt threshold can therefore be relatively high. In the $f_{\Pe}$ 
+measurement, the \verb|EF_e24vhi_medium1| and \verb|EF_e60_medium1| triggers supported 
+\unit{$\pt > 25$}{\GeV}. In the $f_{\Pmu}$ measurement, the \verb|EF_mu24i_tight| and 
+\verb|EF_mu36_tight| triggers were used with the dilepton \verb|EF_mu18_tight_mu8_EFFS| 
+trigger to support \unit{$\pt > 22$}{\GeV}. The trigger naming scheme is explained in the 
+caption of \Table~\ref{tab:sel:triggers}.
+
+The \Zjets CR requires a pair of same-flavour and oppositely charged ID 
+leptons to reconstruct the \PZ boson mass, \unit{$81 < \mll < 107$}{\GeV}. To suppress 
+the \ZZ background we veto events with another lepton pair satisfying 
+\unit{$76 < \mll < 107$}{\GeV}, and to suppress \WZ contamination we require 
+\unit{$\mtw < 30$}{\GeV}. Residual diboson backgrounds (\Zgamma, \ZZ, \Zgstar, \WZ, 
+\Wgstar) are subtracted using predictions from MC simulation.
+
+The measured electron and muon fake factors are shown in \Figure~\ref{fig:wjets:ff_data}. 
+The uncertainty is dominated by statistical uncertainty. For this reason, 
+$f_{\Plepton}^{\text{data,\Zjets}}$ is measured as a function of \pt only, and the $\eta$ 
+dependence is injected from $f_{\Plepton}^{\text{data,dijet}}$. The uncertainty due to 
+electroweak subtraction is also significant, because the contamination to the \Zjets CR 
+is not negligible. Although $f_{\Plepton}^{\text{data,\Zjets}}$ has larger uncertainties 
+than $f_{\Plepton}^{\text{data,dijet}}$, it shall be used in the \Wjets background 
+estimation. This is because jets in \Zjets and \Wjets events are expected to have similar 
+flavour composition, and therefore similar fake factors (see 
+\Section~\ref{sec:wjets:wjet_bkg}).
 
 
 
@@ -129,8 +202,8 @@ acceptance than in the case of muons, and consequently $f_{\Pe} \ll f_{\Pmu}$.
 \label{sec:wjets:dijet_bkg}
 
 \begin{equation}
-	f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \\
-	f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \id{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert \antiid{\Plepton}}^{\text{MC,dijet}}}
+	f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \antiid{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert j}^{\text{MC,dijet}}} \\
+	f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \id{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert j}^{\text{MC,dijet}}}
 \end{equation}
 
 
@@ -143,20 +216,4 @@ acceptance than in the case of muons, and consequently $f_{\Pe} \ll f_{\Pmu}$.
 	f_{\Plepton,i}^{\text{pred,\Wjets}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,\Zjets}}\parenths{\pt} \cdot \frac{f_{\Plepton}^{\text{data,dijet}}\parenths{\pt, \eta}}{f_{\Plepton}^{\text{data,dijet}}\parenths{\pt}} \cdot \frac{f_{\Plepton,i}^{\text{MC,\Wjets}}}{f_{\Plepton}^{\text{MC,\Zjets}}}
 \end{equation}
 
-\todo[inline]{Plot fake factors}
-
-
-
-
-
-
-% \begin{figure}
-% 	\includegraphics[width=0.495\textwidth]{custom_images/wjets/ff_el_sampledep}
-% 	\hfill
-% 	\includegraphics[width=0.495\textwidth]{custom_images/wjets/ff_mu_sampledep}
-% 	\caption{Relative difference of the dijet (red) and \Zjets (blue) MC fake factors 
-% 	compared to the \Wjets MC fake factor, versus the \pt of the electron (left) or muon 
-% 	(right). MC is \meps{\alpgen}{\pythia{6}} (\Wjets and \Zjets) and \pythia{8} (dijet).}
-% 	\label{fig:wjets:ff_sampledep}
-% \end{figure}
 
