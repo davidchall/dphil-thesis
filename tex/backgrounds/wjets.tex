@@ -43,7 +43,7 @@ $\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton}}$ are defined, each with opposi
 (OS) and same-sign (SS) charge variants. Note that $\mathcal{N}$ indicates a sample to 
 which cuts may be applied, and anti-ID leptons are treated as leptons in such cuts when 
 appropriate. Each sample has contributions from \Wjets and dijet events, and events with 
-prompt leptons from the hard scatter (labelled EW):
+prompt leptons from the hard scatter or photon conversions (labelled EW):
 \begin{equation}
 	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i} &= \mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{\Wjets}} + \mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{dijet}} + \mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{EW}} \\
 	\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i} &= \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{\Wjets}} + \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{dijet}} + \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{EW}} \\
@@ -65,18 +65,20 @@ are also required for the non-\WW diboson background estimation (see
 dijet control samples, subtracting the expected contaminations, and then multiplying by a 
 data-driven fake factor:
 \begin{equation}
-	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{pred,dijet}} &= \parenths{\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,\Wjets}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}} \cdot f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}} \\
-	\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}} &= \parenths{\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,\Wjets}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}} \\
-	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{pred,\Wjets}} &= \parenths{\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}} - \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton,i}^{\text{pred,\Wjets}}
+	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{pred,dijet}} &= \parenths{\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,\Wjets}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}} \cdot f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}} \label{eq:dijet_bkgto_dilepton} \\
+	\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}} &= \parenths{\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,\Wjets}} - \mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot \!\sum\limits_{\antiid{\Plepton}} f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}} \label{eq:dijet_bkgto_wjet} \\
+	\mathcal{N}_{\id{\Plepton}\id{\Plepton},i}^{\text{pred,\Wjets}} &= \parenths{\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{data}} - \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}} - \mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{MC,EW}}} \cdot f_{\Plepton,i}^{\text{pred,\Wjets}} \label{eq:wjet_bkgto_dilepton}
 \end{equation}
-where $i = \text{OS, SS}$. It should be noted that the dijet contamination to the \Wjets 
-control sample $\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}}$ is 
-data-driven from the dijet control sample. As discussed later, the fake factors are 
-determined by the flavour composition of the jets, and thus depend upon the process. 
-Also, $f_{\Plepton}^{\text{pred,dijet}}$ depends upon whether the other object in the 
-event is an ID lepton ($f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}$) or an 
-anti-ID lepton ($f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}$). This shall 
-be discussed in \Section~\ref{sec:wjets:dijet_bkg}. Finally, note that 
+where $i = \text{OS, SS}$. In \emch/\mech channels, there are in fact two terms because 
+an electron or a muon could be the fake. It should be noted that the dijet contamination 
+to the \Wjets control sample 
+$\mathcal{N}_{\id{\Plepton}\antiid{\Plepton},i}^{\text{pred,dijet}}$ is data-driven from 
+the dijet control sample. As discussed later, the fake factors are determined by the 
+flavour composition of the jets, and thus depend upon the process. Also, 
+$f_{\Plepton}^{\text{pred,dijet}}$ depends upon whether the other object in the event is 
+an ID lepton ($f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}$) or an anti-ID 
+lepton ($f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}$). This shall be 
+discussed in \Section~\ref{sec:wjets:dijet_bkg}. Finally, note that 
 $f_{\Plepton}^{\text{pred,\Wjets}}$ depends upon whether the event is OS or SS. This 
 shall be discussed in \Section~\ref{sec:wjets:wjet_bkg}.
 
@@ -119,8 +121,8 @@ calorimeter isolation is loosened to $\etcone{0.3}/\pt < 0.15$ for
 
 \textit{In situ} fake factor measurements are made using dijet events. This involves 
 counting the numbers of ID and anti-ID leptons in a dijet control region, subtracting the 
-expected contamination from \PW and \PZ events, and calculating their ratio. 
-$f_{\Plepton}^{\text{data,dijet}}$ is measured as a function of \pt and $\eta$.
+expected contamination of prompt leptons from \PW and \PZ events, and calculating their 
+ratio. $f_{\Plepton}^{\text{data,dijet}}$ is measured as a function of \pt and $\eta$.
 
 Following data quality requirements, events are selected using very loose (no isolation 
 or electron identification criteria), but highly prescaled, lepton triggers. To reduce 
@@ -166,8 +168,8 @@ the dijet background estimation, as described in \Section~\ref{sec:wjets:dijet_b
 
 \textit{In situ} fake factor measurements are also made using \Zjets events. This 
 involves counting the numbers of ID and anti-ID leptons in a \Zjets control region (CR), 
-subtracting the expected electroweak contamination (\Zgamma, \ZZ, \Zgstar, \WZ, \Wgstar), 
-and calculating their ratio.
+subtracting the expected prompt leptons and photon conversions from electroweak 
+contamination (\Zgamma, \ZZ, \Zgstar, \WZ, \Wgstar), and calculating their ratio.
 
 Following data quality requirements, events are selected using unprescaled lepton 
 triggers. This is possible because the triggered object is a lepton from the \PZ boson 
@@ -189,31 +191,109 @@ The measured electron and muon fake factors are shown in \Figure~\ref{fig:wjets:
 The uncertainty is dominated by statistical uncertainty. For this reason, 
 $f_{\Plepton}^{\text{data,\Zjets}}$ is measured as a function of \pt only, and the $\eta$ 
 dependence is injected from $f_{\Plepton}^{\text{data,dijet}}$. The uncertainty due to 
-electroweak subtraction is also significant, because the contamination to the \Zjets CR 
-is not negligible. Although $f_{\Plepton}^{\text{data,\Zjets}}$ has larger uncertainties 
-than $f_{\Plepton}^{\text{data,dijet}}$, it shall be used in the \Wjets background 
-estimation. This is because jets in \Zjets and \Wjets events are expected to have similar 
-flavour composition, and therefore similar fake factors (see 
-\Section~\ref{sec:wjets:wjet_bkg}).
-
-
-
-\subsection{Dijet background estimation}
-\label{sec:wjets:dijet_bkg}
-
-\begin{equation}
-	f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \antiid{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert j}^{\text{MC,dijet}}} \\
-	f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \id{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert j}^{\text{MC,dijet}}}
-\end{equation}
-
+electroweak subtraction is also significant (estimated by varying the diboson cross sections by 10\%), because the contamination to the \Zjets CR is not negligible. Although 
+$f_{\Plepton}^{\text{data,\Zjets}}$ has larger uncertainties than 
+$f_{\Plepton}^{\text{data,dijet}}$, it shall be used in the \Wjets background estimation. 
+This is because jets in \Zjets and \Wjets events are expected to have similar flavour 
+composition, and therefore similar fake factors (see \Section~\ref{sec:wjets:wjet_bkg}).
 
 
 
 \subsection{\Wjets background estimation}
 \label{sec:wjets:wjet_bkg}
 
+The \Wjets backgrounds to the opposite-sign (OS) and same-sign (SS) dilepton samples are 
+estimated from the \Wjets control sample, using (\ref{eq:wjet_bkgto_dilepton}). The 
+\Wjets control sample $\mathcal{N}_{\id{\Plepton}\antiid{\Plepton}}$ contains events with 
+one ID lepton and one anti-ID lepton, selected from events passing the data data quality 
+criteria and triggers specified in \Section~\ref{sec:selection}. Generally, it is the 
+lepton from the \PW boson decay that fires the trigger. Background contamination is 
+small, and is estimated using a data-driven technique for dijet events (see 
+\Section~\ref{sec:wjets:dijet_bkg}) and MC for other processes.
+
+The fake factor of a process is determined by the jet flavour composition of that 
+process. This is because the fake factor of each flavour is approximately independent of 
+the hard scatter. Explicitly, $f_{\Pe}$ is larger for heavy flavour because the electron 
+particle identification is tuned to reject light flavour jets, and $f_{\Pmu}$ is larger 
+for light flavour because the $d_0$ criterion suppresses long-lived heavy flavour hadrons.
+
+Since we use OS and SS samples, it is useful to consider the jet flavour composition of 
+the \Wjets process in each sample. There are diagrams like \HepProcess{\Pquark\Pgluon 
+\HepTo \PW\Pquark'}, where the final state quark has OS charge to the \PW boson (\eg 
+\HepProcess{\PW + \Pcharm}), and there are diagrams like \HepProcess{\Pquark\APquark' 
+\HepTo \PW\Pgluon}, where the gluon subsequently splits to a \HepProcess{\Pquark\APquark} 
+pair (\eg \HepProcess{\PW + \Pbottom\APbottom}). Therefore, in terms of the \PW boson and 
+the quark, the former diagrams contribute to OS only and the latter contribute to OS and 
+SS equally. However, the samples are categorised according to the signs of the leptons, 
+and so the extent to which the quark charge is preserved in the reconstructed lepton is 
+important. When a hadron decays leptonically, its sign is preserved in the lepton. 
+Without a non-prompt lepton, the sign of the jet charge is more likely to be inverted in 
+the reconstructed lepton. In the case of photon conversions from \HepProcess{\Ppizero 
+\HepTo \Pphoton\Pphoton}, there is no asymmetry. Thus, considering the points and example 
+diagrams above, there is a strong OS/SS asymmetry in \Pcharm-jets, a mild asymmetry in 
+light flavour jets, and no asymmetry in \Pbottom-jets and \HepProcess{\Ppizero \HepTo 
+\Pphoton\Pphoton} (see \Figure~\ref{fig:wjets:flav_comp}).
+
+\begin{figure}[t]
+	\includegraphics[width=\hugefigwidth,clip=true,trim=1.8cm 12cm 2cm 2cm]{custom_images/wjets/wjets_flavcomp}
+	\caption{The jet flavour composition of fake leptons, for opposite-sign (OS) and 
+	same-sign (SS) \Wjets events. Each SS axis is normalised to the corresponding OS 
+	axis.}
+	\label{fig:wjets:flav_comp}
+\end{figure}
+
+MC-based corrections are applied to the measured \Zjets fake factor in order to account 
+for the different jet flavour compositions of the OS and SS \Wjets processes
 \begin{equation}
 	f_{\Plepton,i}^{\text{pred,\Wjets}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,\Zjets}}\parenths{\pt} \cdot \frac{f_{\Plepton}^{\text{data,dijet}}\parenths{\pt, \eta}}{f_{\Plepton}^{\text{data,dijet}}\parenths{\pt}} \cdot \frac{f_{\Plepton,i}^{\text{MC,\Wjets}}}{f_{\Plepton}^{\text{MC,\Zjets}}}
+	\label{eq:wjet_ff}
+\end{equation}
+where $i = \text{OS, SS}$. The injection of $\eta$-dependence from the dijet fake factor 
+is also shown in (\ref{eq:wjet_ff}). The \Zjets fake factor is used because \Zjets has a 
+similar jet flavour composition to \Wjets. The correction factors are derived with 
+\meps{\alpgen}{\pythia{6}}, and compared to those of \meps{\alpgen}{\fherwig} and 
+\meps{\powhegbox}{\pythia{8}} to obtain a systematic uncertainty. The corrections factors 
+are \statsyst{0.99}{0.05}{0.19} for OS electrons, \statsyst{1.00}{0.08}{0.21} for OS 
+muons, \statsyst{1.25}{0.08}{0.30} for SS electrons and \statsyst{1.40}{0.14}{0.47} for 
+SS muons.
+
+The \Wjets background is validated with the same-sign dilepton sample.
+\todo[inline]{complete \Wjets validation once we decide to use SSCR or not}
+\todo[inline]{\Wjets OS/SS corr/uncorr uncertainties}
+
+
+\subsection{Dijet background estimation}
+\label{sec:wjets:dijet_bkg}
+
+The dijet backgrounds to the dilepton and \Wjets samples are estimated from the dijet 
+control sample, using (\ref{eq:dijet_bkgto_dilepton}) and (\ref{eq:dijet_bkgto_wjet}) 
+respectively. The dijet control sample $\mathcal{N}_{\antiid{\Plepton}\antiid{\Plepton}}$ 
+contains events with two anti-ID leptons, selected from events passing the data quality 
+criteria and triggers specified in \Section~\ref{sec:selection}. They are accepted by the 
+dilepton triggers since they have looser lepton selections. Contamination from \Wjets and 
+other processes is estimated with MC, though is generally small.
+
+The dijet fake factor $f_{\Plepton}^{\text{data,dijet}}$ is measured in events containing 
+a balancing jet (passing the offline jet selection). However, when fake factors are 
+applied in (\ref{eq:dijet_bkgto_dilepton}) and (\ref{eq:dijet_bkgto_wjet}), it is assumed 
+that there is another anti-ID lepton 
+($f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}$) or another ID lepton
+($f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}$) in the event. This can heavily 
+bias the jet flavour composition of the selected events, and this in turn can affect the 
+fake factor of interest. For example, if the other object is a muon, this increases the 
+probability that the event contains heavy flavour jets. Consequently, $f_{\Pe}$ would 
+increase and $f_{\Pmu}$ would decrease (see \Section~\ref{sec:wjets:wjet_bkg}).
+
+MC-based corrections are applied to the measured dijet fake factor in order to account 
+for the correlation between $f_{\Plepton}$ and the other object in the event
+\begin{equation}
+	f_{\Plepton \vert \antiid{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \antiid{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert j}^{\text{MC,dijet}}} \\
+	f_{\Plepton \vert \id{\Plepton}}^{\text{pred,dijet}}\parenths{\pt,\eta} &= f_{\Plepton}^{\text{data,dijet}}\parenths{\pt,\eta} \cdot \frac{f_{\Plepton \vert \id{\Plepton}}^{\text{MC,dijet}}}{f_{\Plepton \vert j}^{\text{MC,dijet}}} \,.
 \end{equation}
 
+The dijet background is validated in a dijet validation region of the signal sample. This 
+is defined similarly to the 1-jet signal region, but removing the \met cut and inverting 
+the \maxmtw cut. It is also validated in the same-sign dilepton sample. Good agreement 
+with experimental data is observed. \todo{include figure?}
+\todo{what is dominant dijet uncertainty?}
 

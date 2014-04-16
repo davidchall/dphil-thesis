@@ -12,7 +12,8 @@ thesis.synctex.gz
 thesis.pdf
 *.out
 *.tdo
-custom_images/*.key
+*.key
+*.numbers
 
 axodraw/*.dvi
 axodraw/*.ps
