@@ -1,1 +1,26 @@
 %!TEX root = ../../thesis.tex
+
+Although many backgrounds are modelled by a data-driven technique, there is often some 
+underlying dependence upon MC. For this reason, \Table~\ref{tab:ww:mc_samples} states the 
+MC generators used to model each process.
+
+\begin{table}
+	\begin{tabular}{c@{\hskip 0.3in}c}
+		\toprule
+		Process & MC generator (\twojet bin) \\
+		\midrule
+		\WW        & \meps{\powhegbox}{\pythia{6}}, \meps{\ggtoww}{\fherwig} (\sherpa) \\
+		\ttbar     & \meps{\powhegbox}{\pythia{6}} \\
+		single top & \meps{\powhegbox}{\pythia{6}}, \meps{\acermc}{\pythia{6}} \\
+		\Wjets     & \meps{\alpgen}{\fherwig} \\
+		\DY        & \meps{\alpgen}{\fherwig} (\sherpa) \\
+		\Wgamma    & \meps{\alpgen}{\fherwig} \\
+		\WZ        & \meps{\powhegbox}{\pythia{8}} (\sherpa) \\
+		\Wgstar    & \sherpa \\
+		\ZZ        & \meps{\powhegbox}{\pythia{8}}, \meps{\ggtozz}{\fherwig} (\sherpa) \\
+		\Zgstar    & \sherpa \\
+		\bottomrule
+	\end{tabular}
+	\caption{MC generators used to model backgrounds to the \HWW search.}
+	\label{tab:bkg:mc_samples}
+\end{table}
