@@ -1,1 +1,124 @@
 %!TEX root = ../../thesis.tex
+
+The \DY background is naturally split into \DYll and \DYtt processes. The former 
+contributes almost exclusively to the \eech/\mmch channels,\footnote{
+	In rare cases, \DYll events can enter the \emch/\mech channels. For example 
+	\HepProcess{\DY \HepTo \Pmu\Pmu\Pphoton}, where a muon radiates a photon which 
+	subsequently converts and is reconstructed as an electron.
+}
+where it is the dominant background. The latter can contribute to any channel since the 
+two \HepProcess{\Ptau \HepTo \Plepton\Pnulepton\Pnut} decays are independent, though is 
+doubly suppressed by the small $\text{BR}\parenths{\HepProcess{\Ptau \HepTo 
+\Plepton\Pnulepton\Pnut}} = 17.6\%$ \cite{PDG:2012}.
+
+Although \DYll does not feature prompt neutrinos, degradation of the \met resolution due 
+to high pile-up can cause some \DYll events to exhibit significant \met. Since this is a 
+difficult effect to model and \DYll is the dominant background to the \eech/\mmch 
+channels, a high threshold of \unit{$\metrel > 40$}{\GeV} is used in the pre-selection. 
+This is further tightened by tracker-based \trackmetrel cuts. On the other hand, \DYtt 
+does feature prompt neutrinos and is suppressed by other cuts, such as the \mtautau veto.
+
+The \DY backgrounds are estimated by data-driven techniques, in combination with MC 
+modelling provided by \meps{\alpgen}{\fherwig}. Overlap between the \DY MC and the 
+\Zgamma MC is removed through careful consideration of the MC event records.
+
+
+
+\subsection{\DY boson transverse momentum}
+\label{sec:dy:pt}
+
+Selecting \eech/\mmch events with \unit{$\mods{\mll - \mZ} < 15$}{\GeV} results in a very 
+pure sample of \DYll events, enabling the MC to be validated. In doing so, the \ptll 
+distribution is found to be poorly modelled at \unit{$\ptll > 30$}{\GeV} in the 0-jet 
+bin (see \Figure~\ref{fig:dy:ptZ_reweight}), despite being well modelled inclusively. 
+This is unsurprising since a difficult phase space, sensitive to soft hadronic activity 
+and jet shapes, has been selected: requiring a highly boosted \DY boson whilst vetoing 
+events with jets. It is important to model \ptll accurately, as other observables such as 
+\dphill and \ptleadlep are correlated.
+
+For this reason, a data-driven correction to the \ptZ distribution is employed. It is 
+derived in \mmch 0-jet events with \unit{$\mods{\mll - \mZ} < 15$}{\GeV}, by 
+comparing the \ptll distribution observed in experimental data to that predicted by 
+uncorrected MC. Each 0-jet MC event is then weighted according to its hadron-level \ptZ. 
+This is found to improve the modelling of detector-level observables such as \ptll, 
+\dphill and \ptleadlep (see \Figure~\ref{fig:dy:ptZ_reweight}). This correction is 
+applied to the \HepProcess{\DY \HepTo \Pe\Pe/\Pmu\Pmu/\Ptau\Ptau} processes, though only 
+to the 0-jet bin.
+
+\begin{figure}[p]
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\\
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\\
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\caption{Leptonic distributions in the 0-jet \PZ control region, before (left) and 
+	after (right) the \ptZ correction is applied. The distributions shown are \ptll 
+	(top), \dphill (middle) and \ptleadlep (bottom).}
+	\label{fig:dy:ptZ_reweight}
+\end{figure}
+
+The \ptZ mismodelling might be different in the signal region to the \PZ control region 
+where it is derived. The validity of this extrapolation of the correction was tested by 
+deriving similar corrections to \sherpa (instead of experimental data). This indicated 
+there is a correlation between the correction and the \met requirement. Thus, another 
+correction is derived with an additional \unit{$\corrtrackmet > 20$}{\GeV} cut, which is 
+used to estimate the uncertainty in the correction.
+
+
+
+\subsection{\DYtt estimation}
+\label{sec:dy:tautau}
+
+The \DYtt background is measured in a dedicated control region (CR), and then 
+extrapolated to the signal region (SR) using MC
+\begin{equation}
+	N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,SR}} &= \alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} \cdot \parenths{N^{\text{data,CR}} - N_{\text{non-}\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,CR}}} \\
+	\alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} &= N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,SR}} / N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,CR}} \,.
+\end{equation}
+A control region is defined for each jet bin in the \emch/\mech channels, as shown in 
+\Table~\ref{tab:dytt_cr_sel}. These are used to extrapolate to the respective signal 
+regions, for all channels.
+
+\todo[inline]{Plot CR}
+
+\begin{table}[t]
+	\begin{tabularx}{0.7\textwidth}{YYY}
+		\toprule
+		\multicolumn{3}{c}{\emch/\mech} \\
+		\midrule
+		\multicolumn{3}{c}{$\ptleadlep > 22$ and $\ptsubleadlep > 10$} \\
+		\multicolumn{3}{c}{$\mll > 12$} \\
+		\multicolumn{3}{c}{$\corrtrackmet > 20$} \\
+		\cmidrule(lr){1-3}
+		0-jet bin & 1-jet bin & \twojet bin \\
+		\cmidrule(lr){1-3}
+		-- & $\nbjets = 0$ & $\nbjets = 0$ \\
+		-- & $\maxmtw > 50$ & -- \\
+		-- & $\mtautau > \mZ - 25$ & -- \\
+		-- & -- & Fail CJV or OLV \\
+		$\mll < 80$ & $\mll < 80$ & $\mll < 70$ \\
+		$\dphill > 2.8$ & -- & $\dphill > 2.8$ \\
+		\bottomrule
+	\end{tabularx}
+	\caption{Event selection criteria of the \DYtt control regions. Cuts on energy, 
+	momentum and mass are given in \GeV, and angular cuts are given in radians. The 
+	relevant variables are described in 
+	\Chapter~\ref{chap:selection}.}
+	\label{tab:dytt_cr_sel}
+\end{table}
+
+The corresponding normalisation factors are \stat{1.01}{0.02} in the 0-jet bin, 
+\stat{1.08}{0.04} in the 1-jet bin, and \stat{1.05}{0.10} in the \twojet bin.
+
+
+
+\subsection{\DYll estimation}
+\label{sex:dy:ll}
+
+

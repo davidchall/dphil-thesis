@@ -22,10 +22,10 @@ efficiency $\epsilon_0$ has large modelling uncertainties, the \textit{jet veto 
 probability method} is employed to improve its estimation using experimental data.
 
 An extended signal region (ESR) is defined by the pre-selection in 
-\Section~\ref{sec:selection:presel}, and it is in the ESR that the jet veto is applied. 
-Thus, the aim is to estimate the number of events passing the jet veto 
-$N_{\text{top}}^{\text{pred,ESR,0j}}$, and then extrapolate to the 0-jet signal region 
-(SR) with MC
+\Section~\ref{sec:selection:presel} and a $\dphill < 2.8$ cut, and it is in the ESR that 
+the jet veto is applied. Thus, the aim is to estimate the number of events passing the 
+jet veto $N_{\text{top}}^{\text{pred,ESR,0j}}$, and then extrapolate to the 0-jet signal 
+region (SR) with MC
 \begin{equation}
 	N_{\text{top}}^{\text{pred,SR,0j}} &= \alpha_{\text{top}}^{\text{0j}} \cdot \epsilon_{\text{0,top}}^{\text{pred,ESR}} \cdot \parenths{N^{\text{data,ESR}} - N_{\text{non-top}}^{\text{pred,ESR}}} \\
 	\alpha_{\text{top}}^{\text{0j}} &= N_{\text{top}}^{\text{MC,SR,0j}} / N_{\text{top}}^{\text{MC,ESR,0j}} \,.
@@ -49,7 +49,9 @@ The CR is defined to ensure high top purity, by requiring a single \Pbottom-tagg
 relative to the ESR. Contributions from other top diagrams are found to not invalidate 
 this approximation.
 
-% NFs
+The background estimation can be expressed as a normalisation factor with respect to the 
+MC-only estimation. In the 0-jet bin, this is found to be \stat{1.115}{0.031}.
+
 % uncertainties in predicted jet veto efficiency and alpha
 
 
@@ -96,12 +98,36 @@ This method yields larger uncertainties in the \eech/\mmch channels than the \em
 channels. For this reason, the normalisation is taken from the \emch/\mech channels, and 
 an $\alpha_{\text{top}}^{\text{1j}}$ parameter extrapolates to the \eech/\mmch channels.
 
-% NFs
+The background estimation can be expressed as a normalisation factor with respect to the 
+MC-only estimation. In the 1-jet bin, this is found to be \stat{1.042}{0.025}.
+
 % uncertainties
 
 
 
 \subsection{\twojet bin estimation}
 \label{sec:top:2j}
+
+As in the 1-jet bin, a \Pbottom-jet veto is employed to reject the majority of the top 
+background. However, even after this veto, top remains the largest background in the 
+\twojet bin.
+
+A simple data-driven estimation is used, whereby the top background is measured in a 
+reasonably pure top control region (CR), and is then extrapolated to the signal region 
+(SR) using MC
+\begin{equation}
+	N_{\text{top}}^{\text{pred,SR}} &= \alpha_{\text{top}}^{\geq2\text{j}} \parenths{N^{\text{data,CR}} - N_{\text{non-top}}^{\text{pred,CR}}} \\
+	\alpha_{\text{top}}^{\geq2\text{j}} &= N_{\text{top}}^{\text{MC,SR}} / N_{\text{top}}^{\text{MC,CR}} \,.
+\end{equation}
+Since a large number of top events survive the \Pbottom-jet veto, it is possible to 
+include this cut in the top CR definition whilst maintaining a sufficiently small 
+statistical uncertainty in the background estimation. In doing so, systematic 
+uncertainties related to the \Pbottom-tagging efficiency are greatly reduced.
+
+The top CR is defined in a high-\mll region, similarly to the \WW CRs in the 0-jet and 
+1-jet bins. It uses the pre-selection, $\njets \geq 2$, the \Pbottom-jet veto, the VBF 
+rejection criteria, and finally \unit{$\mll > 80$}{\GeV}. The agreement between 
+experimental data and MC simulation is shown in \Figure~\todo{fig}.
+This yields a normalisation factor of \stat{1.078}{0.030}.
 
 

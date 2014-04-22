@@ -30,8 +30,8 @@
 \DeclareRobustCommand{\Wjets}{\HepProcess{\PW +}jet\xspace}
 \DeclareRobustCommand{\Zjets}{\HepProcess{\PZ +}jet\xspace}
 \DeclareRobustCommand{\DY}{\HepProcess{\PZ/\Pgammastar}\xspace}
-\DeclareRobustCommand{\DYll}{\HepProcess{\PZ/\Pgammastar \HepTo \Plepton\Plepton}\xspace}
-\DeclareRobustCommand{\DYtt}{\HepProcess{\PZ/\Pgammastar \HepTo \Ptau\Ptau}\xspace}
+\DeclareRobustCommand{\DYll}{\HepProcess{\DY \HepTo \Plepton\Plepton}\xspace}
+\DeclareRobustCommand{\DYtt}{\HepProcess{\DY \HepTo \Ptau\Ptau}\xspace}
 \DeclareRobustCommand{\Wgamma}{\HepProcess{\PW \Pphoton}\xspace}
 \DeclareRobustCommand{\Zgamma}{\HepProcess{\PZ \Pphoton}\xspace}
 \DeclareRobustCommand{\ttbar}{\HepProcess{\Ptop \APtop}\xspace}
@@ -76,6 +76,8 @@
 \DeclareRobustCommand{\ptllj}{\thesismath{p_{\text{T,\HepProcess{\Plepton\Plepton}}j}}\xspace}
 \DeclareRobustCommand{\ptlljvec}{\thesismath{\bvec{p}_{\text{T,\HepProcess{\Plepton\Plepton}}j}}\xspace}
 \DeclareRobustCommand{\pttot}{\thesismath{p_{\text{T,tot}}}\xspace}
+\DeclareRobustCommand{\ptZ}{\thesismath{p_{\text{T,\PZ}}}\xspace}
+\DeclareRobustCommand{\ptH}{\thesismath{p_{\text{T,\PHiggs}}}\xspace}
 \DeclareRobustCommand{\njets}{\thesismath{N_{\text{jets}}}\xspace}
 \DeclareRobustCommand{\nbjets}{\thesismath{N_{\text{\Pbottom-jets}}}\xspace}
 
