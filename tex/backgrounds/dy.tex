@@ -119,6 +119,108 @@ The corresponding normalisation factors are \stat{1.01}{0.02} in the 0-jet bin,
 
 
 \subsection{\DYll estimation}
-\label{sex:dy:ll}
+\label{sec:dy:ll}
 
+\DYll is the dominant background to the \eech/\mmch channels, and this section will 
+describe how it is estimated in the corresponding 0-jet and 1-jet bins (the \twojet bin 
+is unused in the \eech/\mmch channels).
+
+\DYll is largely rejected by the \PZ boson mass veto, 
+\unit{$\mods{\mll - \mZ} > 15$}{\GeV}, and the requirement of large missing transverse 
+momentum, \unit{$\metrel > 40 (40)$}{\GeV} and \unit{$\trackmetrel > 40 (35)$}{\GeV} in 
+the 0-jet (1-jet) bin. Although the \met resolution is broadened by pile-up, for 
+surviving events to possess such high \metrel and \trackmetrel suggests some mismeasured 
+hadronic activity recoiling against the dilepton (+ jet) system. This is also enhanced 
+by the \unit{$\ptll > 30$}{\GeV} cut in the 0-jet bin.
+
+This hadronic recoil must be soft and broad in order to avoid passing the jet 
+reconstruction, and might not be modelled accurately. It is therefore preferable to use 
+a data-driven estimation of this background. Fortunately, the \frecoil observable 
+(described below) can discriminate \DYll from other processes in this phase space, and 
+can simultaneously be used to suppress and estimate the \DYll background.
+
+First, soft jets with \unit{$\pt > 10$}{\GeV} and $\mods{\eta} < 4.5$ are found, 
+following the jet selection detailed in \Section~\ref{sec:objects:jets} minus the JVF 
+cut. In the 0-jet bin, \frecoil is defined by
+\begin{equation}
+	\frecoil = \left. \mods{\sum\limits_{j\text{ in }\wedge} \text{JVF}_{j} \cdot \bvec{p}_{\text{T,}j}} \, \middle/ \ptll \right.
+	\label{eq:dy:frecoil}
+\end{equation}
+where $\wedge$ is the detector quadrant centred on $-\ptllvec$. This is the fraction of 
+\ptll that can be balanced by soft hadronic activity in the opposing quadrant. 
+In the 1-jet bin, it is the dilepton + jet system that must be balanced, and thus the 
+quadrant $\wedge$ is centred upon $-\ptlljvec$ and the denominator becomes \ptllj.
+
+The tight \met criteria sculpt \frecoil in \DYll towards higher values, whereas the other 
+background processes (and signal) feature high-\pt neutrinos and peak at lower values 
+(see \Figure~\ref{fig:dy:frecoil_shape}). A \textit{template method} exploits the 
+markedly different \frecoil shape of the \DYll background to estimate its contribution to 
+the \eech/\mmch signal regions.
+
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\caption{\frecoil shape in the 0-jet (left) and 1-jet (right) signal regions of the 
+	\eech/\mmch channels, excluding the \frecoil cut itself. The non-\DYll backgrounds 
+	are modelled by data-driven methods described elsewhere, while the \DYll and signal 
+	processes are described by MC.}
+	\label{fig:dy:frecoil_shape}
+\end{figure}
+
+In the template method, the signal region (SR) is defined by the full event selection of 
+the \eech/\mmch channels, excluding the \frecoil cut (whose efficiency shall be predicted 
+by the method). The \frecoil distribution $\mathcal{T}$ in the SR of the same-flavour 
+(SF) channels, \ie the \eech/\mmch channels, has two components with distinct shapes: 
+\DYll and other processes (including signal). If the shape of both components are 
+predicted, then their relative contributions can be fit using the observed \frecoil 
+distribution in the SR
+\begin{equation}
+	\mathcal{T}^{\text{data,SR,SF}} = K^{\text{fit}}_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}} \cdot \mathcal{T}^{\text{pred,SR,SF}}_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}} + K^{\text{fit}}_{\HepProcess{\PZ\HepTo\Plepton\Plepton}} \cdot \mathcal{T}^{\text{pred,SR,SF}}_{\HepProcess{\PZ\HepTo\Plepton\Plepton}}
+	\label{eq:dy:pacman_basic}
+\end{equation}
+where $K^{\text{fit}}_{i}$ are prefactors determined by the fitting procedure, and the 
+input distributions $\mathcal{T}^{\text{pred,SR,SF}}_{i}$ are determined by data-driven 
+methods described below.
+
+$\mathcal{T}^{\text{pred,SR,SF}}_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}$ 
+is determined from the observed distribution in different-flavour (DF) events, \ie the 
+\emch/\mech channels, $\mathcal{T}^{\text{data,SR,DF}}$. Note that this DF distribution 
+is measured in the SR defined by SF event selection criteria. In doing this, the 
+normalisation factor $K^{\text{fit}}_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}$ 
+becomes an extrapolation parameter 
+$\alpha_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{fit}}$ from DF to SF. 
+This method is valid because the \DYll background to the SF channels is negligible, and 
+the composition of the other processes is consistent between DF and SF events.
+
+$\mathcal{T}^{\text{pred,SR,SF}}_{\HepProcess{\PZ\HepTo\Plepton\Plepton}}$ is determined 
+from the SF distribution measured in a \DYll control region (CR) 
+$\mathcal{T}^{\text{data,SR,DF}}$. The CR is defined by the same selection criteria as 
+the SR, except that the \unit{$\mll < 55$}{\GeV} criteria becomes 
+\unit{$\mods{\mll - \mZ} < 15$}{\GeV}. As the \met and \ptll criteria remain in the CR 
+definition, \frecoil is sculpted similarly to the SR. However, this also means that the 
+contribution of other processes in the CR is non-negligible and must be subtracted. This 
+contamination is estimated from the distribution measured in DF events passing the same 
+CR selection $\mathcal{T}^{\text{data,CR,DF}}$, with the extrapolation from DF to SF 
+predicted by dedicated data-driven methods described elsewhere or by MC.
+
+Thus, (\ref{eq:dy:pacman_basic}) becomes
+\begin{equation}
+	\mathcal{T}^{\text{data,SR,SF}} = \alpha_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{fit}} \cdot \mathcal{T}^{\text{data,SR,DF}} + \alpha_{\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{fit}} \cdot \parenths{\mathcal{T}^{\text{data,CR,SF}} - \alpha_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{pred}} \cdot \mathcal{T}^{\text{data,CR,DF}}}
+	\label{eq:dy:pacman_full}
+\end{equation}
+where $\alpha_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{fit}}$ and 
+$\alpha_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{pred}}$ are 
+extrapolations from DF to SF, and 
+$\alpha_{\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{fit}}$ is an extrapolation in 
+\mll. Note that the $\alpha_i$ are prefactors and leave template shapes unchanged. The 
+sensitivity of this method to the signal strength is tested and found to be negligible. 
+
+The final event selection criterion in the \eech/\mmch channels is $\frecoil < 0.1$. The 
+efficiency of this cut for both \DYll and other processes is inherently predicted by the 
+template method. To simplify matters, the templates are reduced to two bins: 
+$\frecoil < 0.1$ and $\frecoil > 0.1$. With two bins and two free parameters 
+$\alpha^{\text{fit}}_i$, the system can be solved exactly. The dominant uncertainty in 
+the 0-jet \DYll estimation arises from correlations between \frecoil and \mll, and is 
+evaluated with MC to be 32\%. The 1-jet bin is dominated by statistical uncertainties.
 

@@ -7,10 +7,10 @@
 6242 words in Chapter: Overview of the \HWW analysis
 2111 words in Chapter: Signal modelling
 4293 words in Chapter: \WW measurement and modelling
-3314 words in Chapter: Other backgrounds
+4021 words in Chapter: Other backgrounds
 0 words in Chapter: Experimental results
 61 words in Chapter: Conclusions
 0 words in Chapter: Event yields of \HWW selection
 ::: Total :::
-Words: 25198
-Formulae: 71
+Words: 25905
+Formulae: 74
