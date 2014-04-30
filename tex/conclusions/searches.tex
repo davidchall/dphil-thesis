@@ -1,7 +1,7 @@
 %!TEX root = ../../thesis.tex
 
 For a particle to be considered ``discovered'' within the particle physics community, 
-convention requires the null hypothesis to be rejected with $5\sigma$ significance, 
+the null hypothesis must be rejected with $5\sigma$ significance, 
 corresponding to $<0.0001\%$ chance that the observation is a statistical fluctuation.
 In the summer of 2012, this level of significance was reached independently by the ATLAS 
 and CMS collaborations, primarily driven by searches for \HepProcess{\PHiggs \HepTo 
@@ -41,7 +41,7 @@ Combining these two channels gives an \mH measurement of
 \unit{\statsyst{125.5}{0.2}{0.6}{}}{\GeV} in ATLAS \cite{ATLAS:combination:2013} and 
 \unit{\statsyst{125.7}{0.3}{0.3}{}}{\GeV} in CMS \cite{CMS:mass}. These are in excellent 
 agreement, although some tension exists between the two ATLAS channels. This makes the 
-Higgs boson as heavy as an atom of caesium-133, which is used in atomic clocks.
+Higgs boson as heavy as an atom of caesium-133.
 
 Nature has been kind in providing a Higgs boson with \unit{$\mH \approx 126$}{\GeV}, 
 since many different production modes and decay channels should be experimentally 
@@ -61,7 +61,7 @@ decay mode is sensitive only to the \HepProcess{\PHiggs\PW\PW} coupling. On the 
 hand, the ggF production mode and the \HepProcess{\PHiggs \HepTo \Pphoton\Pphoton} decay 
 channel feature loops, and interpreting results in terms of couplings is less 
 straightforward. Undiscovered massive particles may contribute to such loops, distorting 
-the effective coupling to gluons and photons.
+the effective couplings to gluons and photons.
 
 Measurements of \HepProcess{\PHiggs \HepTo \Pphoton\Pphoton}, \HepProcess{\PHiggs \HepTo 
 \PZ\PZ}, \HWW and \HepProcess{\PHiggs \HepTo \Ptau\Ptau} were made with the Run I 
@@ -84,8 +84,8 @@ compatible with the SM \cite{CMS:Hgamgam,CMS:HZZ,CMS:HWW,CMS:Htautau,CMS:Hbb}.
 It is also informative to split the signal strength according to the production mode. 
 \Figure~\ref{fig:concl:mu_2D} shows the likelihood contours for a fit with two signal 
 strength parameters: one for production modes dominated by a fermionic coupling (ggF and 
-\ttH), and the other for those dominated by a bosonic coupling (VBF and \VH). Again, this 
-does assume the couplings themselves are those predicted by the SM. However, it is useful 
+\ttH), and the other for modes dominated by a bosonic coupling (VBF and \VH). Again, this 
+assumes the couplings themselves are those predicted by the SM, but it is useful 
 to see which analyses are sensitive to which types of couplings. It is clear that \HWW is 
 a very sensitive analysis for couplings measurements.
 
@@ -108,8 +108,8 @@ $\kappa_{\PZ}, \kappa_{\PW}, \kappa_{\Ptop}, \kappa_{\Pbottom}, \kappa_{\Ptau}$.
 \HepProcess{\PHiggs\Pphoton\Pphoton} and \HepProcess{\PHiggs\Pgluon\Pgluon} effective 
 couplings and the total width are then calculated within the framework of the SM, as 
 functions of the $\kappa_i$. Compatibility with the SM is $p = 0.13$ (see 
-\Figure~\ref{fig:concl:couplings:SM}), with differences driven by the measured 
-\HepProcess{\PHiggs \HepTo \Pbottom\APbottom} cross section.
+\Figure~\ref{fig:concl:couplings:SM}), with differences driven by the 
+\HepProcess{\PHiggs \HepTo \Pbottom\APbottom} result.
 
 The second scenario allows for undiscovered particles, which may contribute through loops 
 or to the total width. Thus, two effective coupling scale factors are introduced 
@@ -143,12 +143,12 @@ large uncertainty on $\lambda_{\Ptop\Pgluon}$ could be improved by a measurement
 	\label{fig:concl:couplings}
 \end{figure}
 
-In addition to the five measured channels described above, upper bounds on other decay 
+In addition to the five measured channels described above, upper bounds on rare decay 
 channels have also been set. The observed limits at \unit{$\mH = 125$}{\GeV} are 
 $\sigma < 11\sigma_{\text{SM}}$ for \HepProcess{\PHiggs \HepTo \PZ\Pphoton} 
 \cite{ATLAS:HZgam} and $\sigma < 10\sigma_{\text{SM}}$ for \HepProcess{\PHiggs \HepTo 
 \Pmu\Pmu} \cite{ATLAS:Hmumu}, at the 95\% CL. Also, a search for \HepProcess{\ZH \HepTo 
-\Plepton\Plepton\met} has constrained the branching ratio to invisible particles to 
+\Plepton\Plepton\met} constrained the branching ratio to invisible particles to 
 $< 75\%$ at the 95\% CL, assuming $\sigma = \sigma_{\text{SM}}$ and 
 \unit{$\mH = 125$}{\GeV} \cite{ATLAS:Hinv}. Such a limit is important because 
 undiscovered massive particles that interact weakly (\eg dark matter) could 
@@ -160,22 +160,22 @@ CMS collaboration \cite{CMS:HZgam,CMS:Hmumu,CMS:Hinv}.
 \subsection{Spin and parity measurement}
 \label{sec:searches:spin}
 
-The SM Higgs boson is a spin-0 and CP-even particle, \ie $J^P = 0^+$. It is important to 
-experimentally confirm these properties, in order to establish that the observed particle 
-is the Higgs boson. According to the Landau-Yang theorem, the spin-1 hypothesis is 
-excluded by the observation of \HepProcess{\PHiggs \HepTo \Pphoton\Pphoton} 
+The SM Higgs boson is a spin-0 and CP-even particle, \ie $J^P = 0^+$. To establish that 
+the observed particle is the Higgs boson, it is important to experimentally confirm these 
+properties. According to the Landau-Yang theorem, the spin-1 hypothesis is excluded by 
+the observation of \HepProcess{\PHiggs \HepTo \Pphoton\Pphoton} 
 \cite{Landau:1948,Yang:1950}. Nevertheless, it can be tested by the other channels.
 
 The $J^P$ was probed by considering the decay topologies of events in the 
 \HepProcess{\PHiggs \HepTo \PZ\PZ}, \HWW and \HepProcess{\PHiggs \HepTo \Pphoton\Pphoton} 
 measurements with ATLAS. However, some event selection criteria were altered with respect 
 to the coupling measurements, in order to reduce bias. For example, the \HWW selection 
-exploits the spin-0 hypothesis in the \unit{$\mll < 55$}{\GeV} and $\dphill < 1.8$ 
-criteria (see \Chapter~\ref{chap:selection}).
+exploits the spin-0 hypothesis through the \unit{$\mll < 55$}{\GeV} and $\dphill < 1.8$ 
+criteria (see \Section~\ref{sec:selection:higgs_decay}).
 
 The $0^-, 1^+, 1^-, 2^+$ hypotheses are excluded at greater than 97.8\% CL, whilst the 
 data are compatible with the $0^+$ hypothesis \cite{ATLAS:spin}. This provides strong 
-evidence that the discovered particle is spin-0 (the only known scalar particle). 
+evidence that the discovered particle is spin-0 (it is the only known scalar particle). 
 It could be a mixture of CP-even and CP-odd states, though a preference for CP-even is 
 observed.
 
