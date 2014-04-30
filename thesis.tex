@@ -3,11 +3,6 @@
 \usepackage[colorinlistoftodos]{todonotes}
 \makeatother
 
-% Track acronym use and reset every chapter
-\usepackage[printonlyused]{acronym}
-\usepackage{etoolbox}
-\preto\chapter\acresetall
-
 \title{Discovery and measurement of the Higgs boson in the \WW decay channel}
 \author{David Christopher Hall}
 
@@ -23,7 +18,6 @@
   \cleardoublepage
   \pagenumbering{arabic}
   \listoftodos
-  \input{tex/acronyms}
   
   \chapter*{Introduction}
     \addcontentsline{toc}{chapter}{Introduction}

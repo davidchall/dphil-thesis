@@ -1,7 +1,7 @@
 %!TEX root = ../../thesis.tex
 
 We have seen in \Section~\ref{sec:mc} how coloured partons produced in a hard subprocess 
-(in the \ac{ME}) or radiated from the incoming partons (\ac{ISR}) will each produce a 
+(in the ME) or radiated from the incoming partons (ISR) will each produce a 
 shower of partons, which subsequently hadronise. By measuring the energy and direction of 
 the resulting collimated \textit{jet} of hadrons, it is possible to infer information 
 about the original quark or gluon. This is very useful for probing the perturbative hard 
@@ -14,7 +14,7 @@ number of criteria, the most important being infrared and collinear safety
 collinear emissions.
 
 Multiple jet algorithms are implemented in the \fastjet software library \cite{FastJet}. 
-In particular, \textit{sequential recombination algorithms} are popular at the \acs{LHC}, 
+In particular, \textit{sequential recombination algorithms} are popular at the LHC, 
 which iteratively combine the closest pair of particles according to some distance measure 
 $d_{ij}$. 
 
@@ -33,7 +33,7 @@ azimuthal angle of particle $i$ with respect to the beam axis, respectively. $R$
 are parameters of the algorithm, with $R$ effectively determining the size of the jet.
 
 With $m=1$, known as the $k_{\text{T}}$ algorithm, combinations between soft particles are 
-favoured. This follows the evolution of \ac{QCD}, but leads to rather irregular jet shapes.
+favoured. This follows the evolution of QCD, but leads to rather irregular jet shapes.
 
 With $m=-1$, known as the \antikt algorithm \cite{antikt}, combinations between hard 
 particles are favoured. This means the jets grow outwards from a hard `seed', ultimately 

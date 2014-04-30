@@ -9,24 +9,24 @@ this task, and are outlined below.
 \subsection{Tracks}
 \label{sec:objects:tracks}
 
-A track is a sequence of hits in the \ac{ID} indicative of a charged particle trajectory. 
-To first approximation the trajectories are helical, owing to the pervading solenoidal 
-magnetic field. However, multiple scattering and energy losses in the detector material 
-and bremsstrahlung can cause significant deviations from this path. Track reconstruction 
-is possible in the region $\mods{\eta} < 2.5$ (the extent of the \ac{ID}).
+A track is a sequence of hits in the inner detector (ID) indicative of a charged particle 
+trajectory. To first approximation the trajectories are helical, owing to the pervading 
+solenoidal magnetic field. However, multiple scattering and energy losses in the detector 
+material and bremsstrahlung can cause significant deviations from this path. Track 
+reconstruction is possible in the region $\mods{\eta} < 2.5$ (the extent of the ID).
 
-The inputs to the track reconstruction are threefold: pixel hits, \acs{SCT} 
+The inputs to the track reconstruction are threefold: pixel hits, SCT 
 space-points\footnote{
 	Each SCT module comprises two layers of silicon strips with a small stereo angle, 
 	enabling the three-dimensional position, or \textit{space-point}, to be precisely 
 	measured (see \Section~\ref{sec:atlas:id}).
 }
-and \acs{TRT} drift circles. The \textit{inside-out} algorithm 
+and TRT drift circles. The \textit{inside-out} algorithm 
 \cite{Tracking,ATLAS:ExpectPerf} uses a Kalman filter to seed tracks from hits in the 
-three pixel layers and the first \acs{SCT} layer. The seeds are then extended and fitted 
-into the \acs{SCT} and the \acs{TRT}, whilst resolving ambiguities and applying 
+three pixel layers and the first SCT layer. The seeds are then extended and fitted 
+into the SCT and the TRT whilst resolving ambiguities and applying 
 quality criteria. Finally, the \textit{outside-in} algorithm \cite{Tracking} considers 
-unused track segments in the \acs{TRT}, and extrapolates them into the \acs{SCT} and 
+unused track segments in the TRT, and extrapolates them into the SCT and 
 pixel detector. This improves the tracking of secondary particles with a displaced vertex.
 
 
@@ -52,14 +52,14 @@ number of vertices, until the result stabilises.
 
 The total number of primary vertices \npv is used to assess the pile-up conditions of 
 the bunch crossing. The primary vertex of the hard scatter is chosen to be that with the 
-highest $\sum p_{\text{T}}^2$ of the constituent tracks, and is referred to as simply \textit{the} 
-primary vertex. As an additional quality criterion, this vertex must have at least three 
-associated tracks.
+highest $\sum p_{\text{T}}^2$ of the constituent tracks, and is referred to as simply 
+\textit{the} primary vertex. As an additional quality criterion, this vertex must have at 
+least three associated tracks.
 
 Secondary vertex reconstruction is highly constrained by the physics of the vertex 
 \cite{AllVertexFinding}. This can be enforced by mass or angular constraints, or in the 
 track selection. For example, photon conversions are found using oppositely charged 
-track pairs associated with electrons (via \acs{TRT} identification), with small 
+track pairs associated with electrons (via TRT identification), with small 
 opening angle. 
 Flavour tagging of jets shall be described in \Section~\ref{sec:objects:bjets}.
 
@@ -68,8 +68,9 @@ Flavour tagging of jets shall be described in \Section~\ref{sec:objects:bjets}.
 \subsection{Electrons}
 \label{sec:objects:electrons}
 
-An electron will pass through the \ac{ID} before being absorbed by the \ac{ECal}. They 
-are therefore reconstructed by matching a track with an energy cluster in the \ac{ECal}. 
+An electron will pass through the ID before being absorbed by the electromagnetic 
+calorimeter (ECal). They 
+are therefore reconstructed by matching a track with an energy cluster in the ECal. 
 Following reconstruction, the vast majority of electron objects are faked by hadrons, 
 whilst many others are from photon conversions or electrons from heavy flavour decay (see 
 \Figure~\ref{fig:objects:el_composition}). However, in the \HWWlvlv search, it is prompt 
@@ -94,14 +95,14 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 
 \begin{description}
 \item[Reconstruction] \hfill \\
-	Energy deposits in \ac{ECal} cells are clustered by a \textit{sliding window} 
+	Energy deposits in ECal cells are clustered by a \textit{sliding window} 
 	algorithm \cite{ElectronPerf:Expect}. First, the calorimeter is divided into 
 	\textit{towers} of size $\Delta\eta \times \Delta\phi = 0.025 \times 0.025$ (the 
 	cell size of the middle layer). Then a window of $3 \times 5$ towers in $\eta$-$\phi$ 
-	space scans the \ac{ECal} for local maxima with $\et > \unit{2.5}{\GeV}$.
+	space scans the ECal for local maxima with $\et > \unit{2.5}{\GeV}$.
 
-	Tracks within $\Delta R < 0.3$ of a cluster are then refit using a Gaussian Sum 
-	Filter (GSF) \cite{Electron:GSF}. The default fit described in 
+	Tracks within $\Delta R < 0.3$ of a cluster are then refit using a Gaussian sum 
+	filter (GSF) \cite{Electron:GSF}. The default fit described in 
 	\Section~\ref{sec:objects:tracks} uses a pion hypothesis to estimate material 
 	effects, and does not account for the significant bremsstrahlung experienced by 
 	electrons (which is highly $\eta$-dependent). The GSF is a non-linear fitter and 
@@ -130,8 +131,8 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	For $\et > \unit{25}{\GeV}$ the medium criteria are used, comprising cuts on
 	\begin{itemize}[noitemsep,nolistsep]
 		\item shower shape variables (lateral and longitudinal),
-		\item leakage to the \ac{HCal},
-		\item the number of pixel and \acs{SCT} hits,
+		\item leakage to the hadronic calorimeter (HCal),
+		\item the number of pixel and SCT hits,
 		\item the impact parameter with respect to the primary vertex,
 		\item track-cluster matching,
 		\item transition radiation,
@@ -174,8 +175,8 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	from the primary vertex.
 
 	\textit{Calorimeter isolation:} Uncalibrated topological clusters (see 
-	\Section~\ref{sec:objects:jets}) are built from energy deposits in the \ac{ECal} 
-	and \ac{HCal}. These are more robust against pile-up than cell deposits as they 
+	\Section~\ref{sec:objects:jets}) are built from energy deposits in the ECal 
+	and HCal. These are more robust against pile-up than cell deposits as they 
 	suppress noise. $\etcone{R_0}$ is the summed \et of the topological clusters within a 
 	cone of $\Delta R < R_0$, excluding cells in a $5 \times 7$ window around the 
 	electron (see \Figure~\ref{fig:objects:el_iso}). Corrections are made for electron 
@@ -210,7 +211,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	mass constraint) and backgrounds estimated (usually a side-bands or template fit).
 
 	The tag is a well-identified electron, the probe is an electron passing the previous 
-	step (or an \ac{ECal} cluster) and the constraint is $\unit{80}{\GeV} < 
+	step (or an ECal cluster) and the constraint is $\unit{80}{\GeV} < 
 	m_{\parenths{\text{tag, probe}}} < \unit{100}{\GeV}$. The reconstruction and 
 	identification efficiencies are shown in \Figure~\ref{fig:objects:el_recoeff} and 
 	\Figure~\ref{fig:objects:el_ideff} respectively. Comparison with MC yields efficiency 
@@ -246,20 +247,20 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 \subsection{Muons}
 \label{sec:objects:muons}
 
-A muon will pass through the \ac{ID}, deposit minimal energy in the calorimeters and 
-continue through the \ac{MS}. Thus, they can be found via activity in the \ac{MS}, 
-optionally matched to an \ac{ID} track. Muons with $\pt > \unit{10}{\GeV}$ and 
+A muon will pass through the ID, deposit minimal energy in the calorimeters and 
+continue through the muon spectrometer (MS). Thus, they can be found via activity in the 
+MS, optionally matched to an ID track. Muons with $\pt > \unit{10}{\GeV}$ and 
 $\mods{\eta} < 2.5$ are selected.
 
 \begin{description}
 \item[Reconstruction] \hfill \\
-	Muons are found by matching \ac{MS} tracks to \ac{ID} tracks\footnote{
+	Muons are found by matching MS tracks to ID tracks\footnote{
 		A variety of muon reconstruction strategies are available: \textit{stand-alone} 
-		muons have only \ac{MS} tracks, \textit{combined} muons have both \ac{MS} and 
-		\ac{ID} tracks, \textit{segment-tagged} muons have \ac{ID} tracks that match to 
-		\iac{MS} track segment, and \textit{calorimeter-tagged} muons have \ac{ID} 
+		muons have only MS tracks, \textit{combined} muons have both MS and 
+		ID tracks, \textit{segment-tagged} muons have ID tracks that match to 
+		MS track segment, and \textit{calorimeter-tagged} muons have ID 
 		tracks matched to the calorimeter deposit of a minimum ionising particle (used to 
-		recover efficiency at $\eta \approx 0$, where detector services reduce the \ac{MS}
+		recover efficiency at $\eta \approx 0$, where detector services reduce the MS 
 		coverage). This thesis uses \textit{combined} muons, which perform best.
 	}
 	and their momenta are measured from track curvature \cite{ATLAS:ExpectPerf}.
@@ -267,18 +268,18 @@ $\mods{\eta} < 2.5$ are selected.
 	First, the \textit{Muonboy} algorithm \cite{Muons:algorithms} identifies a 
 	$\Delta\eta \times \Delta\phi \approx 0.4 \times 0.4$ region of activity via the muon 
 	trigger chambers (see \Section~\ref{sec:atlas:ms}) and then reconstructs localised 
-	segments from nearby \acs{MDT} and \acs{CSC} hits. By scanning a potential momentum 
+	segments from nearby MDT and CSC hits. By scanning a potential momentum 
 	range, segments in different layers are combined to form a track. Finally, a global 
-	track fit using the full \ac{MS} hit information is performed, accounting for energy 
+	track fit using the full MS hit information is performed, accounting for energy 
 	loss.
 
-	\ac{MS} tracks are extrapolated to the primary vertex, accounting for energy loss in 
-	the calorimeter, and matched to \ac{ID} tracks (see 
+	MS tracks are extrapolated to the primary vertex, accounting for energy loss in 
+	the calorimeter, and matched to ID tracks (see 
 	\Section~\ref{sec:objects:tracks}). The statistical combination of the two 
 	tracks is performed by the \textit{STACO} algorithm \cite{Muons:algorithms}, which
 	weights each track by its covariance matrix. The muon four-momentum is determined 
-	from this combined track (dominated by the \ac{ID} track at low-\pt and by the 
-	\ac{MS} track at high-\pt), and is calibrated with \HepProcess{\PZ \HepTo \Pmu\Pmu}
+	from this combined track (dominated by the ID track at low-\pt and by the 
+	MS track at high-\pt), and is calibrated with \HepProcess{\PZ \HepTo \Pmu\Pmu}
 	events \cite{Muons:2012}.
 
 \item[Isolation] \hfill \\
@@ -305,7 +306,7 @@ $\mods{\eta} < 2.5$ are selected.
 	\end{table}
 
 \item[Quality] \hfill \\
-	The \ac{ID} track must satisfy quality criteria on the number of traversed sensors:
+	The ID track must satisfy quality criteria on the number of traversed sensors:
 	\begin{itemize}[noitemsep,nolistsep]
 		\item $n_{\text{pixel}}^{\text{hit}} + n_{\text{pixel}}^{\text{dead}} \geq 1$
 		\item $n_{\text{SCT}}^{\text{hit}} + n_{\text{SCT}}^{\text{dead}} \geq 5$
@@ -334,7 +335,7 @@ $\mods{\eta} < 2.5$ are selected.
 		\caption{Muon reconstruction efficiency versus \pt (left) and $\eta$ (right), 
 		measured using tag-and-probe of \HepProcess{\PZ \HepTo \Pmu\Pmu} data and 
 		compared to MC \cite{Muons:2012}. Reductions in efficiency at $\eta \approx 0$ 
-		and $\eta \approx 1.2$ are due to partial \ac{MS} coverage (detector services and 
+		and $\eta \approx 1.2$ are due to partial MS coverage (detector services and 
 		incomplete installation respectively). `Chain 1' refers to \textit{STACO} 
 		reconstruction.}
 		\label{fig:objects:mu_recoeff}
@@ -347,8 +348,8 @@ $\mods{\eta} < 2.5$ are selected.
 \subsection{Jets}
 \label{sec:objects:jets}
 
-A hadron will pass through the \ac{ID} (leaving hits if charged) before being absorbed by 
-the \ac{ECal} and \ac{HCal}. The finite resolution of the calorimeter and the 
+A hadron will pass through the ID (leaving hits if charged) before being absorbed by 
+the ECal and HCal. The finite resolution of the calorimeter and the 
 large number of overlapping hadronic showers make it impossible to reconstruct individual 
 hadrons. For this reason, and more theoretical ones outlined in \Section~\ref{sec:jets}, 
 jets are reconstructed from energy deposits. The main challenge in identifying jets from 
@@ -376,9 +377,9 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 		excitations and neutrinos.
 	}
 	Topo-clusters are reconstructed at the EM scale and thus require calibration to the 
-	\ac{JES}. An intermediate \textit{local cluster weighting} (LCW) classifies each
-	topo-cluster as electromagnetic or hadronic (via energy density and shower depth) 
-	and applies an appropriate energy correction.
+	jet energy scale (JES). An intermediate \textit{local cluster weighting} (LCW) 
+	classifies each topo-cluster as electromagnetic or hadronic (via energy density and 
+	shower depth) and applies an appropriate energy correction.
 	
 	These topo-clusters are then input to the \antikt jet algorithm with $R = 0.4$ (see 
 	\Section~\ref{sec:jets}), making the assumption that the topo-clusters are massless.
@@ -412,11 +413,11 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 		\label{fig:objects:jet_pu_corr}
 	\end{figure}
 
-	Third, the energy is calibrated from the LCW scale to the \ac{JES}. The correction is 
+	Third, the energy is calibrated from the LCW scale to the JES. The correction is 
 	derived from MC by comparing the energy of a reconstructed jet to that of the 
 	corresponding hadron-level jet (\ie before detector simulation).
 
-	Finally, a residual \textit{in situ} \ac{JES} calibration corrects for mismodelling, 
+	Finally, a residual \textit{in situ} JES calibration corrects for mismodelling, 
 	and is applied to jets in data events only. The calibration exploits the \pt 
 	balance between a jet and a well-measured reference object, deriving the correction 
 	as the double-ratio
@@ -537,7 +538,7 @@ kinematics.
 	performance was achieved by using tracks as the starting points.
 
 \item[Track-based \trackmet] \hfill \\
-	One can alternatively reconstruct missing transverse momentum with \ac{ID} tracks. 
+	One can alternatively reconstruct missing transverse momentum with ID tracks. 
 	This is denoted \trackmetvec, with magnitude \trackmet, since it is track-based.
 
 	Tracks with \unit{$\pt > 500$}{\MeV} are selected if they have sufficiently small 
@@ -559,7 +560,7 @@ kinematics.
 	Bremsstrahlung from an electron can convert to \epluseminus pairs, resulting in 
 	additional tracks. For this reason, tracks within a cone of $\Delta R < 0.05$ of a 
 	reconstructed electron are collectively replaced with the calibrated electron \pt.
-	Muon \ac{ID} tracks are also replaced by the \pt of the reconstructed muon.
+	Muon ID tracks are also replaced by the \pt of the reconstructed muon.
 
 	Thus, the missing transverse momentum is defined with the following components
 	\begin{equation}
@@ -622,3 +623,4 @@ objects, overlapping objects are removed according to the following rules:
 	\end{tabular}
 \end{listliketab}
 
+\todo[inline]{Subthreshold muon overlap with electron => veto event}

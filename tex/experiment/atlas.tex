@@ -1,18 +1,18 @@
 %!TEX root = ../../thesis.tex
 
 ATLAS is a general-purpose particle detector for probing hadron-hadron collisions 
-\cite{ATLAS-detector}, from precise measurements of \ac{SM} processes to searches for 
-signatures of new physics. As such, it must achieve a good performance in the 
-reconstruction of all physics objects interacting with the detector (leptons, photons and 
-jets), and infer the existence of non-interacting particles through transverse momentum 
-imbalance. A good vertex resolution is needed for jet flavour tagging and to distinguish 
-pile-up events. Other requirements include a fast trigger system to select interesting 
-events to record.
+\cite{ATLAS-detector}, from precise measurements of Standard Model (SM) processes to 
+searches for signatures of new physics. As such, it must achieve a good performance in 
+the reconstruction of all physics objects interacting with the detector (leptons, photons 
+and jets), and infer the existence of non-interacting particles through transverse 
+momentum imbalance. A good vertex resolution is needed for jet flavour tagging and to 
+distinguish pile-up events. Other requirements include a fast trigger system to select 
+interesting events to record.
 
 The design of ATLAS exhibits cylindrical and forward-backward symmetries with the nominal 
 interaction point at the centre.\footnote{
 	ATLAS uses a right-handed coordinate system with its origin at the nominal 
-	interaction point. The $x$-axis points to the centre of the \ac{LHC} ring, the 
+	interaction point. The $x$-axis points to the centre of the LHC ring, the 
 	$y$-axis points upwards, and the $z$-axis points along the beam line. Positions and 
 	directions within the detector are given in spherical coordinates $(r, \theta, \phi)$ 
 	where $r$ is the radial distance, $\theta$ is the polar angle and $\phi$ is the 
@@ -67,12 +67,12 @@ momenta of charged particles to be measured from the curvature of their tracks.
 \end{figure}
 
 Pattern recognition algorithms are used to precisely track the trajectories of charged 
-particles through the \ac{ID}, shown in \Figure~\ref{fig:inner_detector}. The \ac{ID} is 
-immersed in a \unit{2}{\tesla} solenoidal magnetic field, which enables the momentum of a 
-particle to be measured from the curvature of its track. Momentum and vertex measurements
-both require an excellent spatial resolution, which is achieved through fine detector 
-granularity. The \ac{ID} covers the region $\mods{\eta} < 2.5$ and consists of three 
-complementary sub-detectors:
+particles through the inner detector (ID), shown in \Figure~\ref{fig:inner_detector}. The 
+ID is immersed in a \unit{2}{\tesla} solenoidal magnetic field, which enables the 
+momentum of a particle to be measured from the curvature of its track. Momentum and 
+vertex measurements both require an excellent spatial resolution, which is achieved 
+through fine detector granularity. The ID covers the region $\mods{\eta} < 2.5$ and 
+consists of three complementary sub-detectors:
 \begin{description}
 \item[Pixel detector] \hfill \\
 	The pixel detector is installed in three layers closest to the beam pipe, and 
@@ -85,8 +85,8 @@ complementary sub-detectors:
 	A silicon particle detector consists of a reverse-biased p-n junction. When a charged
 	particle passes through the depletion region it creates an electron-hole pair, which 
 	travel to the respective electrodes and produce a signal current.
-\item[\ac{SCT}] \hfill \\
-	The \ac{SCT} features 15,912 silicon strip sensors, each consisting of 770 strips 
+\item[Semiconductor tracker (SCT)] \hfill \\
+	The SCT features 15,912 silicon strip sensors, each consisting of 770 strips 
 	with a pitch of \unit{80}{\micro\metre} and a length of \unit{6}{\centi\metre}. Pairs 
 	of sensors are sandwiched together into modules with a stereo angle of 
 	\unit{40}{\milli\radian}, enabling the coordinate parallel to the strip to be 
@@ -94,11 +94,11 @@ complementary sub-detectors:
 	ensures that each track passes through at least four modules. 
 	The intrinsic accuracy is \unit{17}{\micro\metre}$\,\times\,$\unit{580}{\micro\metre} 
 	in $r\phi \mhyphen z$ ($r\phi \mhyphen r$) space for the barrel (end-cap).
-\item[\ac{TRT}] \hfill \\
-	The \ac{TRT} features 370,000 drift chambers, known as straws, which simultaneously 
+\item[Transition radiation tracker (TRT)] \hfill \\
+	The TRT features 370,000 drift chambers, known as straws, which simultaneously 
 	function as a straw tracker to enhance particle tracking and as a transition 
 	radiation detector to aid electron identification. Straws are aligned with the beam 
-	pipe in the barrel and radially in the end-caps. The \ac{TRT} covers the region 
+	pipe in the barrel and radially in the end-caps. The TRT covers the region 
 	$\mods{\eta} < 2.0$.
 
 	Each \unit{4}{\milli\metre} diameter straw has a 
@@ -157,15 +157,15 @@ $\mods{\eta} < 4.9$ respectively. The total thickness of the electromagnetic cal
 corresponds to more than $22 X_0$ and the total thickness of the entire calorimeter 
 corresponds to more than $10 \lambda$.
 \begin{description}
-\item[\ac{ECal}] \hfill \\
-	The \ac{ECal} uses a lead absorber and a liquid argon (LAr) active material arranged 
+\item[Electromagnetic calorimeter (ECal)] \hfill \\
+	The ECal uses a lead absorber and a liquid argon (LAr) active material arranged 
 	in an accordion geometry, which ensures uniform $\phi$-coverage. The LAr is ionised 
 	by charged particles, and the freed electrons produce a signal current in the readout 
 	electrodes. LAr was chosen for its linear behaviour, stability and radiation-hardness.
 
 	A fine granularity is required to make precise electron and photon measurements, and 
 	to distinguish single photons from $\HepProcess{\Ppizero \HepTo \Pphoton \Pphoton}$. 
-	Thus, the \ac{ECal} is typically segmented into three layers with a minimum 
+	Thus, the ECal is typically segmented into three layers with a minimum 
 	$\Delta\eta\times\Delta\phi$ granularity of $0.003 \times 0.025$. The transition 
 	between the barrel and the end-cap, $1.37 < \mods{\eta} < 1.52$, is used for detector 
 	services. Since this material is difficult to model, this ``crack'' region is usually 
@@ -173,12 +173,12 @@ corresponds to more than $10 \lambda$.
 
 	For $\mods{\eta} < 1.8$, a LAr presampler is installed before the first lead layer. 
 	This enables estimation of the energy lost by electrons and photons before 
-	encountering the \ac{ECal}.
-\item[\ac{HCal}] \hfill \\
-	The \ac{HCal} consists of a tile calorimeter covering $\mods{\eta} < 1.7$, a Hadronic 
-	End-Cap (HEC) covering $1.5 < \mods{\eta} < 3.2$, and a Forward Calorimeter (FCal) 
-	covering $3.1 < \mods{\eta} < 4.9$. The \ac{HCal} has a coarser granularity than the
-	\ac{ECal}: it is typically segmented into three layers with a minimum 
+	encountering the ECal.
+\item[Hadronic calorimeter (HCal)] \hfill \\
+	The HCal consists of a tile calorimeter covering $\mods{\eta} < 1.7$, a hadronic 
+	end-cap (HEC) covering $1.5 < \mods{\eta} < 3.2$, and a forward calorimeter (FCal) 
+	covering $3.1 < \mods{\eta} < 4.9$. The HCal has a coarser granularity than the
+	ECal: it is typically segmented into three layers with a minimum 
 	$\Delta\eta\times\Delta\phi$ granularity of $0.1 \times 0.1$.
 
 	The tile calorimeter uses a steel absorber with scintillator tiles as the active 
@@ -199,24 +199,23 @@ corresponds to more than $10 \lambda$.
 	\label{fig:muon_spectrometer}
 \end{figure}
 
-The \ac{MS} provides precise tracking of muons that have exited the calorimeters. A huge 
-air-core toroid magnet system generates a \unit{0.5}{\tesla} (\unit{1}{\tesla}) field in 
-the barrel (end-caps), enabling momentum to be inferred from track curvature measurements.
-Four types of tracking chamber are installed in three layers (see 
-\Figure~\ref{fig:muon_spectrometer}):
+The muon spectrometer (MS) provides precise tracking of muons that have exited the 
+calorimeters. A huge air-core toroid magnet system generates a \unit{0.5}{\tesla} 
+(\unit{1}{\tesla}) field in the barrel (end-caps), enabling momentum to be inferred from 
+track curvature measurements. Four types of tracking chamber are installed in three 
+layers (see \Figure~\ref{fig:muon_spectrometer}):
 \begin{description}
-\item[\acp{MDT} and \acp{CSC}] \hfill \\
-	\acp{MDT} and \acp{CSC} provide precise momentum measurement, with a resolution of 
-	about \unit{40}{\micro\metre} in the bending plane. \acp{MDT} cover the region 
-	$\mods{\eta} < 2.7$, but the innermost end-cap is replaced with \acp{CSC} to 
-	withstand the higher particle flux. \acp{CSC} are multiwire proportional chambers 
+\item[Monitored drift tubes (MDTs) and cathode strip chambers (CSCs)] \hfill \\
+	MDTs and CSCs provide precise momentum measurement, with a resolution of 
+	about \unit{40}{\micro\metre} in the bending plane. MDTs cover the region 
+	$\mods{\eta} < 2.7$, but the innermost end-cap is replaced with CSCs to 
+	withstand the higher particle flux. CSCs are multiwire proportional chambers 
 	with cathode planes segmented into strips in orthogonal directions.
-\item[\acp{RPC} and \acp{TGC}] \hfill \\
-	\acp{RPC} and \acp{TGC} provide less precise tracking, but at a faster readout speed 
-	needed for triggering. They also provide orthogonal coordinates to those of	the 
-	\acp{MDT} and \acp{CSC}. 
-	\acp{RPC} are gas-filled parallel plate detectors operated in avalanche mode.
-	\acp{TGC} are multiwire proportional chambers operated in quasi-saturated mode.
+\item[Resistive plate chambers (RPCs) and thin gap chambers (TGCs)] \hfill \\
+	RPCs and TGCs provide less precise tracking, but at a faster readout speed needed for 
+	triggering. They also provide orthogonal coordinates to those of the MDTs and CSCs. 
+	RPCs are gas-filled parallel plate detectors operated in avalanche mode.
+	TGCs are multiwire proportional chambers operated in quasi-saturated mode.
 \end{description}
 
 
@@ -225,16 +224,16 @@ Four types of tracking chamber are installed in three layers (see
 \label{sec:atlas:trig}
 
 It is technically infeasible to record the detector readout (\unit{1.6}{\mega\bel} per 
-event) at the bunch crossing rate expected at the \ac{LHC} (\unit{40}{\mega\hertz}).
-Moreover, the majority of these events are uninteresting in terms of the \ac{LHC} physics 
+event) at the bunch crossing rate expected at the LHC (\unit{40}{\mega\hertz}).
+Moreover, the majority of these events are uninteresting in terms of the LHC physics 
 program. For these reasons, ATLAS has a trigger system to identify and retain interesting
 events for further analysis offline.
 
-The trigger is split into three levels with successively lower event rates: \ac{L1}, 
-\ac{L2} and the \ac{EF}. This is achieved by affording a longer latency for later levels 
-to apply more refined selection criteria, as shown in \Figure~\ref{fig:trigger}. The 
-\ac{L2} and \ac{EF} triggers are collectively referred to as the \ac{HLT}, and are 
-implemented on an off-detector computer farm.
+The trigger is split into three levels with successively lower event rates: level~1 (L1), 
+level~2 (L2) and the event filter (EF). This is achieved by affording a longer latency 
+for later levels to apply more refined selection criteria, as shown in 
+\Figure~\ref{fig:trigger}. The L2 and EF triggers are collectively referred to as the 
+high level trigger (HLT), and are implemented on an off-detector computer farm.
 
 \begin{figure}
 	\includegraphics[width=\textwidth,clip=true,trim=0.9cm 6.8cm 1.4cm 6.8cm]{custom_images/trigger}
@@ -244,17 +243,17 @@ implemented on an off-detector computer farm.
 	\label{fig:trigger}
 \end{figure}
 
-The \ac{L1} trigger searches for high-\pt leptons, photons and jets, in addition to 
+The L1 trigger searches for high-\pt leptons, photons and jets, in addition to 
 events with significant total transverse energy or transverse energy imbalance. The 
-decision is made using muon trigger chamber information (\acp{RPC} and \acp{TGC}) and 
+decision is made using muon trigger chamber information (RPCs and TGCs) and 
 reduced-granularity calorimeter information. Since the decision latency 
 (\unit{2.5}{\micro\second}) is longer than the bunch spacing (\unit{25}{\nano\second}),
 event data is stored in pipelines while a decision is made.
 
-The detector coordinates of interesting features identified by the \ac{L1} trigger, known 
-as Regions of Interest (ROIs), are passed on to the \ac{L2} trigger. The \ac{L2} trigger 
+The detector coordinates of interesting features identified by the L1 trigger, known 
+as regions of interest (ROIs), are passed on to the L2 trigger. The L2 trigger 
 then requests the full degree of detector information for these ROIs (\about 2\% of total
-event data), in order to make a more informed decision. Finally, the \ac{EF} trigger has
+event data), in order to make a more informed decision. Finally, the EF trigger has
 access to the full event data, and further reduces the data rate such that it can be 
 written to tape. The entire trigger system reduces the data rate from 
 \unit{64}{\tera\bel\per\second} to about \unit{1}{\giga\bel\per\second}.
@@ -292,8 +291,8 @@ statistical fluctuations in the hadronic shower (the \textit{stochastic term}).
 		\bottomrule
 	\end{tabular}
 	\caption{Performance goals of the ATLAS sub-detectors \cite{ATLAS-detector}. Energies 
-	and momenta are given in \GeV. The quoted \ac{MS} performance is independent of the 
-	\ac{ID}. The contribution of electronic noise to $\sigma_{E}/E$ is neglected (a term 
+	and momenta are given in \GeV. The quoted MS performance is independent of the 
+	ID. The contribution of electronic noise to $\sigma_{E}/E$ is neglected (a term 
 	proportional to $1/E$).}
 	\label{tab:atlas_targets}
 \end{table}

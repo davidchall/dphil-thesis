@@ -2,15 +2,15 @@
 
 The analysis is jet-binned since the background composition strongly depends upon jet 
 multiplicity (see \Figure\ref{fig:sel:njets}). There are 0-jet and 1-jet bins, and a 
-\twojet bin split into \ac{ggF} and \acsu{VBF} signal regions (see 
+\twojet bin split into ggF and VBF signal regions (see 
 \Figure~\ref{fig:sig:jetbinning}). Uncertainties should be evaluated separately for each 
 bin, and correlations accounted for when the bins are combined. Perturbative 
 uncertainties require particular consideration, due to subtleties described below.
 
 \begin{figure}
 	\includegraphics[width=\mediumfigwidth,clip=true,trim=8.5cm 13.1cm 12.1cm 8.4cm]{custom_images/signal_jetbin}
-	\caption{Schematic diagram of the \ac{ggF} and \ac{VBF} signal regions. Note that the 
-	exclusivity of the \ac{VBF} signal region is defined by a central jet veto, and thus 
+	\caption{Schematic diagram of the ggF and VBF signal regions. Note that the 
+	exclusivity of the VBF signal region is defined by a central jet veto, and thus 
 	for $\njets \geq 3$ the jet definition includes the restriction that $\eta$ is 
 	between $\eta_{j_1}$ and $\eta_{j_2}$.}
 	\label{fig:sig:jetbinning}
@@ -29,7 +29,7 @@ inclusive $\sigma_{\geq1}$
 where \ptcut is the jet \pt threshold \cite{YR2}. In $\sigma_{\geq1}$, the requirement of 
 a jet with $\pt > \ptcut$ introduces Sudakov double logarithmic contributions 
 $\alpha_{\text{S}}^{k+m} L^{2m}$, where $L \sim \ln\parenths{\ptcut/Q}$ ($Q = \mH$ for 
-\ac{ggF}). These are analogous to the logarithms introduced by soft gluon emission, 
+ggF). These are analogous to the logarithms introduced by soft gluon emission, 
 described in \Section~\ref{sec:qcd:resum}. 
 
 The schematic structures of the two inclusive cross sections are
@@ -191,7 +191,7 @@ as large as those in $\sigma_{\geq N}$, and the large-\ptcut limit is correct.
 
 It should be noted that each inclusive cross section must be evaluated at the same order 
 in \alphaS (\eg $\sigma_{\total}^{\text{NNLO}}$, $\sigma_{\geq1}^{\text{NLO}}$ and 
-$\sigma_{\geq2}^{\text{LO}}$). In the case of \ac{ggF} contamination to the \ac{VBF} 
+$\sigma_{\geq2}^{\text{LO}}$). In the case of ggF contamination to the VBF 
 signal region, the uncertainties are evaluated in a significantly different region of 
 phase space, and so are treated as uncorrelated.
 
@@ -236,7 +236,7 @@ $\epsilon_N$ contains similar cancellations to those discussed in
 \Section~\ref{sec:ggF:naive}, and so $\Delta\epsilon_N$ must be treated with care.
 
 There is an ambiguity in the definition of $\epsilon_N$ that is not present in fixed 
-order calculations. For example, at \ac{NNLO}, three alternative definitions of 
+order calculations. For example, at NNLO, three alternative definitions of 
 $\epsilon_N$ may be identified
 \begin{equation}
 	\epsilon_N^{\parenths{\text{a}}} &= 1 - \frac{\sigma_{\geq N+1}^{\text{NLO}}}{\sigma_{\geq N}^{\text{NNLO}}} \\
@@ -250,6 +250,7 @@ $\epsilon_N^{\parenths{\text{a}}}$ is taken as the central value and $\Delta\eps
 is taken as the difference between the schemes or the scale variations in 
 $\epsilon_N^{\parenths{\text{a}}}$, whichever is larger.
 
+\todo[inline]{allows you to improve accuracy of components independently. insert plot showing resummation improvement}
 
 
 \subsection{Results}

@@ -1,8 +1,8 @@
 %!TEX root = ../../thesis.tex
 
-\ac{QCD} is the theory of the strong interaction, describing coloured particles (quarks 
+QCD is the theory of the strong interaction, describing coloured particles (quarks 
 and gluons, collectively known as partons) \cite{Ellis:1996}. Two crucial features of 
-\ac{QCD} are \textit{confinement} and \textit{asymptotic freedom}. Confinement refers to 
+QCD are \textit{confinement} and \textit{asymptotic freedom}. Confinement refers to 
 the observation that quarks and gluons are only found within colourless hadrons, and 
 never as isolated states. Asymptotic freedom states that, within the hadron, the 
 constituent partons are relatively free to move. Both concepts can be understood in terms 
@@ -35,14 +35,14 @@ perturbative series will result in a residual \mur dependence. Usually \mur is c
 be the energy scale $Q$ of the process under consideration, leading to the concept of a 
 \textit{running coupling constant}.
 
-The \ac{QCD} coupling constant \alphaS is shown in \Figure~\ref{fig:qcd:alpha_s}. At low 
+The QCD coupling constant \alphaS is shown in \Figure~\ref{fig:qcd:alpha_s}. At low 
 scales (large distances), \alphaS is large and the theory is non-perturbative. 
 Though not analytically proven\footnote{
 	A mathematically rigorous proof of confinement is one of seven Millennium Prize 
 	Problems of the Clay Mathematics Institute, with a bounty of \$1,000,000.
-}, confinement has been verified in this regime by lattice \ac{QCD} \cite{Wilson:1974}. 
+}, confinement has been verified in this regime by lattice QCD \cite{Wilson:1974}. 
 At high scales (small distances), \alphaS is small; this is asymptotic freedom 
-\cite{Gross:1973,Politzer:1973}. Note that \alphaEM in \acs{QED} exhibits an opposite 
+\cite{Gross:1973,Politzer:1973}. Note that \alphaEM in QED exhibits an opposite 
 trend, though remains perturbative at all accessible energies.
 \begin{figure}
 	\includegraphics[width=\mediumfigwidth]{tex/tools/alpha_s}
@@ -56,17 +56,18 @@ trend, though remains perturbative at all accessible energies.
 \subsection{Perturbative QCD}
 \label{sec:qcd:pqcd}
 
-Most interesting \acs{LHC} processes involve a large momentum transfer, where the partons 
+Most interesting LHC processes involve a large momentum transfer, where the partons 
 are asymptotically free. Thus, parton-level cross sections may be calculated with Feynman 
 diagrams as a perturbative series in \alphaS (which converges since $\alphaS \ll 1$)
 \begin{equation}
 	\hat{\sigma} = \sum\limits_{m=0}^{\infty} \alpha_{\text{S}}^{k+m} \hat{\sigma}^{(m)}
 	\label{eq:qcd:partonic_xs}
 \end{equation}
-where the hat denotes a parton-level quantity, $k$ is the number of \ac{QCD} vertices at 
+where the hat denotes a parton-level quantity, $k$ is the number of QCD vertices at 
 tree-level, and $\hat{\sigma}^{(m)}$ is the $m$th order contribution to the cross section.
 A \textit{fixed order} calculation truncates the series after $n$ terms, with $n=0$ being 
-a \ac{LO} calculation, $n=1$ being a \ac{NLO} calculation, and so on.
+a leading order (LO) calculation, $n=1$ being a next-to-leading order (NLO) calculation, 
+and so on.
 
 As mentioned in \Section~\ref{sec:qcd:renormalisation}, the cross section $\hat{\sigma}$ 
 is independent of the renormalisation scale \mur
@@ -115,8 +116,8 @@ structure of the perturbative series becomes
 Soft or collinear emissions are defined by $\alphaS L^2 \approx 1$, such that the 
 logarithms overcome the \alphaS suppression. Thus, the perturbative nature of the series 
 is spoiled. In (\ref{eq:qcd:resum}), terms like $\alpha_{\text{S}}^{k+m} L^{2m}$ are 
-called \acp{LL}, terms like $\alpha_{\text{S}}^{k+m} L^{2m-1}$ are called \acp{NLL}, and 
-so on.
+called leading logarithms (LLs), terms like $\alpha_{\text{S}}^{k+m} L^{2m-1}$ are called 
+next-to-leading logarithms (NLLs), and so on.
 
 When an observable is sensitive to such large logarithms, they must be \textit{resummed} 
 to all orders in \alphaS to produce an accurate result. This is usually achieved 
@@ -125,7 +126,7 @@ shower} Monte Carlo program can be used. This probabilistically generates emissi
 evolves partons from the scale of the hard scatter down to a scale where non-perturbative 
 effects of confinement dominate. This leads to fully-exclusive observables. A parton 
 shower is necessary to produce hadron-level predictions (see \Section~\ref{sec:mc}). 
-Technically they have \ac{LL} accuracy, though can include many higher order logarithms 
+Technically they have LL accuracy, though can include many higher order logarithms 
 through the enforcement of energy-momentum conservation and colour coherence.
 
 
@@ -134,12 +135,13 @@ through the enforcement of energy-momentum conservation and colour coherence.
 \label{sec:qcd:pdf}
 
 Since confinement binds partons into hadrons, it is the latter that are accelerated and 
-collided at the \acs{LHC} (in particular protons). Therefore, we need to calculate 
+collided at the LHC (in particular protons). Therefore, we need to calculate 
 observables for proton-proton interactions rather than the parton-parton interactions 
 discussed above. Fortunately, the \textit{factorisation theorem} states that the soft 
 non-perturbative physics of the hadron can be treated independently of the hard scatter 
 \cite{Collins:1982}. Thus, a proton-proton cross section can be formulated as a 
-convolution of the partonic cross section with \acp{PDF} of the incoming protons. That is,
+convolution of the partonic cross section with parton distribution functions (PDFs) of 
+the incoming protons. That is,
 \begin{equation}
 	\sigma\parenths{p_1, p_2} = 
 	\sum\limits_{a, b} \! \int_0^1 \! \d{x_1} \d{x_2} \,
@@ -147,26 +149,26 @@ convolution of the partonic cross section with \acp{PDF} of the incoming protons
 	\hat{\sigma}_{ab} \parenths{x_1 p_1, x_2 p_2, \alphaS\parenths{\mu_{\text{R}}^2}, 
 	\frac{Q^2}{\mu_{\text{F}}^2}, \frac{Q^2}{\mu_{\text{R}}^2}} 
 \end{equation}
-where $f_a$ is the \ac{PDF} of parton type $a$ within the proton, $p_i$ is the momentum 
+where $f_a$ is the PDF of parton type $a$ within the proton, $p_i$ is the momentum 
 of proton $i$, $x_i$ is the momentum fraction of parton $i$, and $Q$ is the scale of the 
 hard scatter. A sum is performed over all possible parton types (six quark flavours and 
 the gluon).
 
 Echoing renormalisation, factorisation absorbs collinear divergences into universal 
-\acp{PDF} which are not \textit{a priori} calculable and must be experimentally 
+PDFs which are not \textit{a priori} calculable and must be experimentally 
 constrained. An unphysical \textit{factorisation scale} \muf is introduced, 
-below which emissions are absorbed into \acp{PDF}, and above which they are included in 
+below which emissions are absorbed into PDFs, and above which they are included in 
 the hard scatter. As with \mur, truncating the perturbative series introduces a 
 \muf dependence, which can be exploited to estimate the effect of the missing higher 
-order terms. At \ac{LO}, $f_a \parenths{x, \muf}$ is simply the probability of finding a 
+order terms. At LO, $f_a \parenths{x, \muf}$ is simply the probability of finding a 
 parton of type $a$ with momentum fraction $x$, when probing the proton at a scale \muf.
 However, the interpretation at higher orders is more complicated.
 
-The \ac{PDF} \muf scaling is described by the DGLAP equations 
+The PDF \muf scaling is described by the DGLAP equations 
 \cite{Gribov:1972,Altarelli:1977,Dokshitser:1977}. Thus, an $f_a \parenths{x}$ ansatz is 
 made at low \muf and then experimentally validated at higher scales (\eg with deep 
 inelastic scattering or collider jet data). \Figure~\ref{fig:qcd:pdf} shows some example 
-\acp{PDF}.
+PDFs.
 
 \begin{figure}
 	\includegraphics[width=\largefigwidth]{tex/tools/pdf}

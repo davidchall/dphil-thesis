@@ -1,6 +1,6 @@
 %!TEX root = ../../thesis.tex
 
-\ac{ggF} is modelled by \meps{\powhegbox}{\pythia{8}}, including the exact mass 
+ggF is modelled by \meps{\powhegbox}{\pythia{8}}, including the exact mass 
 dependence of the \Ptop and \Pbottom quarks in the loop \cite{Powheg-ggF-quarkmasses}. 
 The CT10 PDF \cite{CTEQ} was used to model the incoming partons.
 The \powhegbox parameter \verb|hfact| controls the scale at which the emission 
@@ -65,7 +65,7 @@ must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-
 Four sources of theoretical uncertainty are considered:
 \begin{itemize}[noitemsep,nolistsep]
 	\item higher order corrections,
-	\item \acp{PDF},
+	\item PDFs,
 	\item parton shower, hadronisation and underlying event models,
 	\item NLO-PS matching scheme.
 \end{itemize}
@@ -77,16 +77,16 @@ uncertainties are evaluated \todo{H+2j scale uncertainties in acceptance} with \
 \cite{MCFM:H2j}. This is necessary because \powhegbox is an NLO generator and therefore 
 cannot probe perturbative uncertainties in the \twojet bin.
 
-Uncertainties due to \acp{PDF} are evaluated in two ways. The acceptance is compared to 
+Uncertainties due to PDFs are evaluated in two ways. The acceptance is compared to 
 that predicted with the MSTW2008 PDF \cite{MSTW}. Also, the set of PDF eigenvectors 
-corresponding to 90\% \ac{CL} of the CT10 fit were used to evaluate an uncertainty, 
-which was then rescaled to 68\% \ac{CL}. PDF uncertainties are calculated relative to the 
+corresponding to 90\% CL of the CT10 fit were used to evaluate an uncertainty, 
+which was then rescaled to 68\% CL. PDF uncertainties are calculated relative to the 
 inclusive cross section, in order to include uncertainties in the jet binning. These are 
 evaluated using \mcatnlo.
 
-Uncertainties due to the \ac{PS}, hadronisation and \ac{UE} models are evaluated by 
-comparing \powhegbox showered by \pythia{8} (nominal), \pythia{6} and \fherwig. 
-Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
+Uncertainties due to the parton shower (PS), hadronisation and underlying event (UE) 
+models are evaluated by comparing \powhegbox showered by \pythia{8} (nominal), \pythia{6} 
+and \fherwig. Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
 \meps{\powhegbox}{\fherwig} to \meps{\mcatnlo}{\herwigpp}.
 
 The acceptance uncertainties for each signal region used in the fitting procedure are 
@@ -178,15 +178,15 @@ green and black lines in \Figure~\ref{fig:signal:matching}). Its effect is prope
 accounted for in the above uncertainties, but the discrepancy is interesting in itself.
 It was also observed in other electroweak processes.
 
-The hadronisation and \ac{UE} models of standalone \pythia{8} have been tuned to ATLAS 
-\ac{UE} data with a variety of \ac{PDF} sets (known as AU2 tunes) \cite{ATLAS:tune:2012}.
+The hadronisation and UE models of standalone \pythia{8} have been tuned to ATLAS 
+UE data with a variety of PDF sets (known as AU2 tunes) \cite{ATLAS:tune:2012}.
 However, the parton shower was not tuned since the default settings gave good agreement. 
 
 When modelling ggF with \powhegbox, the AU2-CT10 tune was used in order to match the 
-\acp{PDF} used in the matrix element calculation. Technically speaking, a dedicated 
+PDFs used in the matrix element calculation. Technically speaking, a dedicated 
 \meps{\powhegbox}{\pythia{8}} tune should have been used, but this was unavailable. 
 Unfortunately, a couple of issues had a negative impact on the NLO-PS matching. First, 
-the parton shower evolves \alphaS at LO while NLO \acp{PDF} were used in the shower. 
+the parton shower evolves \alphaS at LO while NLO PDFs were used in the shower. 
 Second, there was a mismatch between the \alphaS used in \powhegbox, 
 $\alphaS\parenths{\mZ} = 0.118$, and the default value in the parton shower, 
 $\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in 
