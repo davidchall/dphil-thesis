@@ -23,8 +23,8 @@ space-points\footnote{
 }
 and TRT drift circles. The \textit{inside-out} algorithm 
 \cite{Tracking,ATLAS:ExpectPerf} uses a Kalman filter to seed tracks from hits in the 
-three pixel layers and the first SCT layer. The seeds are then extended and fitted 
-into the SCT and the TRT whilst resolving ambiguities and applying 
+three pixel layers and the first SCT layer. The seeds are then extended 
+into the SCT and the TRT and fitted, whilst resolving ambiguities and applying 
 quality criteria. Finally, the \textit{outside-in} algorithm \cite{Tracking} considers 
 unused track segments in the TRT, and extrapolates them into the SCT and 
 pixel detector. This improves the tracking of secondary particles with a displaced vertex.
@@ -60,8 +60,8 @@ Secondary vertex reconstruction is highly constrained by the physics of the vert
 \cite{AllVertexFinding}. This can be enforced by mass or angular constraints, or in the 
 track selection. For example, photon conversions are found using oppositely charged 
 track pairs associated with electrons (via TRT identification), with small 
-opening angle. 
-Flavour tagging of jets shall be described in \Section~\ref{sec:objects:bjets}.
+opening angle. Flavour tagging of jets, which uses secondary vertices, shall be described in 
+\Section~\ref{sec:objects:bjets}.
 
 
 
@@ -83,7 +83,7 @@ identification requirements to reject the large \Wjets and dijet backgrounds.
 Electrons with $\et > \unit{10}{\GeV}$ and $\mods{\eta} < 2.47$ are selected. Additionally, electrons with $1.37 < \mods{\eta} < 1.52$ are vetoed since they correspond
 to the crack region (see \Section~\ref{sec:atlas:calo}).
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=\smallfigwidth]{tex/selection/electron_composition}
 	\caption{The composition of reconstructed electrons as a function of transverse 
 	energy, simulated by a \pythia{6} sample of dijet, heavy flavour, prompt photon, \PW 
@@ -146,7 +146,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
  	It uses the signal and background probability density functions of multiple input 
  	variables to construct a likelihood discriminant, which may be cut upon (effectively 
  	choosing an operating point). The input variables are similar to those used in 
- 	medium identification, although track hits remain as cuts.
+ 	medium identification.
 
 \item[Isolation] \hfill \\
 	Rejection of hadronic fakes or electrons from heavy flavour decays is further 
@@ -154,7 +154,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	calorimeter. The cuts are summarised in \Table~\ref{tab:objects:el_iso} and explained 
 	below.
 
-	\begin{table}[b]
+	\begin{table}[t]
 		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
 			\toprule
 			Electron \et (\GeV) & Tracker isolation & Calorimeter isolation \\
@@ -182,7 +182,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	electron (see \Figure~\ref{fig:objects:el_iso}). Corrections are made for electron 
 	energy leakage and deposits from pile-up and the underlying event.
 
-	\begin{figure}
+	\begin{figure}[t]
 		\includegraphics[width=0.8\smallfigwidth]{tex/selection/el_isolation}
 		\caption{Schematic of calorimeter isolation. Pink cells constitute topological 
 		clusters, the yellow circle is the isolation cone ($R_0 = 0.4$ shown), the green 
@@ -257,7 +257,7 @@ $\mods{\eta} < 2.5$ are selected.
 	Muons are found by matching MS tracks to ID tracks\footnote{
 		A variety of muon reconstruction strategies are available: \textit{stand-alone} 
 		muons have only MS tracks, \textit{combined} muons have both MS and 
-		ID tracks, \textit{segment-tagged} muons have ID tracks that match to 
+		ID tracks, \textit{segment-tagged} muons have ID tracks that match to a 
 		MS track segment, and \textit{calorimeter-tagged} muons have ID 
 		tracks matched to the calorimeter deposit of a minimum ionising particle (used to 
 		recover efficiency at $\eta \approx 0$, where detector services reduce the MS 
@@ -267,7 +267,7 @@ $\mods{\eta} < 2.5$ are selected.
 
 	First, the \textit{Muonboy} algorithm \cite{Muons:algorithms} identifies a 
 	$\Delta\eta \times \Delta\phi \approx 0.4 \times 0.4$ region of activity via the muon 
-	trigger chambers (see \Section~\ref{sec:atlas:ms}) and then reconstructs localised 
+	trigger chambers (see \Section~\ref{sec:atlas:ms}), and then reconstructs localised track 
 	segments from nearby MDT and CSC hits. By scanning a potential momentum 
 	range, segments in different layers are combined to form a track. Finally, a global 
 	track fit using the full MS hit information is performed, accounting for energy 
@@ -289,7 +289,7 @@ $\mods{\eta} < 2.5$ are selected.
 	$\ptcone{R_0}$ and $\etcone{R_0}$ variables are defined similarly to electrons, 
 	though the size of the subtracted calorimeter window is reduced for muons.
 
-	\begin{table}
+	\begin{table}[t]
 		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
 			\toprule
 			Muon \pt (\GeV) & Tracker isolation & Calorimeter isolation \\
@@ -328,7 +328,7 @@ $\mods{\eta} < 2.5$ are selected.
 	reconstruction efficiency is shown in \Figure~\ref{fig:objects:mu_recoeff}. 
 	Comparison with MC yields efficiency scale factors.
 
-	\begin{figure}
+	\begin{figure}[t]
 		\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_pt}
 		\hfill
 		\includegraphics[width=0.495\textwidth]{tex/selection/mu_recoeff_eta}
@@ -352,8 +352,8 @@ A hadron will pass through the ID (leaving hits if charged) before being absorbe
 the ECal and HCal. The finite resolution of the calorimeter and the 
 large number of overlapping hadronic showers make it impossible to reconstruct individual 
 hadrons. For this reason, and more theoretical ones outlined in \Section~\ref{sec:jets}, 
-jets are reconstructed from energy deposits. The main challenge in identifying jets from 
-the hard scatter is calorimeter noise: electronic and resulting from pile-up.
+jets are reconstructed from energy deposits. The main challenge in identifying jets 
+originating from the hard scatter is calorimeter noise: electronic and resulting from pile-up.
 
 Jets are selected with $\pt > \unit{25}{\GeV}$ for central jets ($\mods{\eta} < 2.4$) and 
 with $\pt > \unit{30}{\GeV}$ for forward jets ($2.4 < \mods{\eta} < 4.5$). However, 
@@ -366,8 +366,8 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	topological clusters (\textit{topo-clusters}) \cite{Jets:Calib:2010,Jets:Calib:2011}. 
 	First, a seed cell is identified with signal-to-noise ratio $S/N > 4$. Surrounding 
 	cells with $S/N > 2$ are iteratively added. Finally, a single iteration of 
-	neighbouring cells with no $S/N$ cut are added. When localised maxima exist within a 
-	cluster, it may be split. Clearly, the robustness to noise is determined by $N$, 
+	neighbouring cells with no $S/N$ criterion are added. When localised maxima exist within 
+	a cluster, it may be split. Clearly, the robustness to noise is determined by $N$, 
 	which is taken to be the sum in quadrature of the electronic noise and the pile-up 
 	noise expected with $\mu = 30$.
 
@@ -447,11 +447,10 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 	for jets with $\pt > \unit{20}{\GeV}$.
 
 \item[Primary vertex association] \hfill \\
-	The \textit{jet vertex fraction} (JVF) is defined as the fraction of tracks 
-	associated to a jet that originate from the primary vertex ($\mods{z_0 \sin\theta} < 
-	\unit{1}{\milli\metre}$), weighted by track \pt \cite{Jets:PileupCorrection:2012}. 
-	It is a powerful discriminant against pile-up jets, but is only available for 
-	$\mods{\eta} < 2.4$.
+	The \textit{jet vertex fraction} (JVF) is defined as the fraction of associated tracks 
+	originating from the primary vertex ($\mods{z_0 \sin\theta} < \unit{1}{\milli\metre}$), 
+	weighted by track \pt \cite{Jets:PileupCorrection:2012}. It is a powerful discriminant 
+	against pile-up jets, but is only available for $\mods{\eta} < 2.4$.
 
 	Central jets with $\pt < \unit{50}{\GeV}$ are required to have either 
 	$\text{JVF} > 0.5$ or zero associated tracks. The efficiency of this cut is measured 
@@ -464,10 +463,11 @@ veto in the VBF search). It shall be clearly stated when this is the case.
 \subsection{\Pbottom-jets}
 \label{sec:objects:bjets}
 
-To aid top background suppression, \textit{\Pbottom-tagging algorithms} exploit the long 
-lifetimes of \Pbottom-hadrons to identify jets originating from \Pbottom-quarks. The MV1 
-algorithm uses a neural network with inputs of jet \pt, $\eta$ and the weights output 
-by three other algorithms \cite{Btag:algorithms}:
+A \textit{\Pbottom-tagging algorithm} exploits the long lifetimes of \Pbottom-hadrons to 
+identify jets originating from \Pbottom-quarks. This aids suppression of top backgrounds, 
+since $\text{BR}\parenths{\HepProcess{\Ptop \HepTo \PW\Pbottom}} \approx 100\%$. 
+The MV1 algorithm uses a neural network with inputs of jet \pt and $\eta$, and the weights 
+output by three other algorithms \cite{Btag:algorithms}:
 \begin{itemize}[noitemsep,nolistsep]
 	\item IP3D searches for significant impact parameters of jet tracks, \storeliststyle{}
 	\item SV1 searches for secondary vertices associated with \Pbottom-hadron decays,
@@ -491,9 +491,9 @@ efficiency scale factors.
 
 The near-hermetic detector design enables information of non-interacting particles (\eg 
 neutrinos) to be inferred from measurements of interacting particles. Since the initial 
-state has no $\bvec{p}_{\text{T}}$, momentum conservation implies that the visible and 
-invisible $\bvec{p}_{\text{T}}$ in the final state must balance each other. Thus, the 
-negative sum of the visible $\bvec{p}_{\text{T}}$ is known as \textit{missing transverse 
+state has negligible nett $\bvec{p}_{\text{T}}$, momentum conservation implies that the 
+visible and invisible $\bvec{p}_{\text{T}}$ in the final state must balance each other. Thus, 
+the negative sum of the visible $\bvec{p}_{\text{T}}$ is known as \textit{missing transverse 
 momentum}, and equals the sum of the invisible $\bvec{p}_{\text{T}}$.
 
 Multiple sources of fake momentum imbalance lead to a poor experimental resolution of 
@@ -515,10 +515,9 @@ kinematics.
 	is removed from jets and their \pt threshold is lowered to \unit{20}{\GeV}. Also, 
 	segment-tagged muons are used in addition to combined muons.
 
-	The low-\pt component is reconstructed using topo-clusters of the remaining deposits 
-	(for noise suppression), which are calibrated to the LCW scale (see 
-	\Section~\ref{sec:objects:jets}). This is improved further by including unassociated 
-	tracks with \unit{$\pt > 400$}{\MeV}.
+	The low-\pt component is reconstructed using topo-clusters of the remaining calorimeter 
+	deposits, which are calibrated to the LCW scale (see \Section~\ref{sec:objects:jets}). 
+	This is further improved by including unassociated tracks with \unit{$\pt > 400$}{\MeV}.
 
 	Thus, the missing transverse momentum is defined with the following components
 	\begin{equation}
@@ -601,8 +600,8 @@ kinematics.
 			\met & \text{otherwise}
 		\end{cases}
 	\end{equation}
-	where $\Delta\phi$ is the angle between \metvec and the nearest electron, muon or jet.
-	Similar definitions exist for \trackmetrel and \corrtrackmetrel.
+	where $\Delta\phi$ is the azimuthal angle between \metvec and the nearest electron, muon 
+	or jet. Similar definitions exist for \trackmetrel and \corrtrackmetrel.
 
 \end{description}
 
@@ -623,4 +622,10 @@ objects, overlapping objects are removed according to the following rules:
 	\end{tabular}
 \end{listliketab}
 
-\todo[inline]{Subthreshold muon overlap with electron => veto event}
+\noindent
+Additionally, events are rejected if a muon passing loose reconstruction (\ie without 
+isolation, quality, primary vertex and \pt criteria) is found within $\Delta R < 0.05$ of an 
+electron passing the full reconstruction. This rejects a small number of expected 
+\HepProcess{\PZ \HepTo \Pmu\Pmu} events in the \emch/\mech signal regions, without loss of 
+signal events.
+

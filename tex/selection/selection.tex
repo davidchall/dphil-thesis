@@ -2,9 +2,9 @@
 
 \Section~\ref{sec:signature} outlined the basic experimental signature of the search as 
 two oppositely charged leptons and significant \met. Thus, the initial stages of the 
-event selection are tasked with finding this signature. Subsequent criteria, or 
-\textit{cuts}, target specific backgrounds. Their aim is improve the analysis sensitivity 
-by suppressing backgrounds whilst retaining a sufficient number of signal events.
+event selection are responsible for finding this signature. Subsequent criteria, or 
+\textit{cuts}, target specific background processes. Their aim is to improve the analysis 
+sensitivity by suppressing backgrounds whilst retaining a sufficient number of signal events.
 
 
 
@@ -40,18 +40,19 @@ three tracks. This reduces the cosmic ray background to negligible levels.
 \subsection{Trigger}
 \label{sec:selection:trigger}
 
-It is infeasible to record all events in the \unit{20.3}{\invfb} dataset; ATLAS instead 
-employs a trigger system to identify and record interesting events (see 
-\Section~\ref{sec:atlas:trig}). In the \HWWlvlv search it is natural to trigger on 
-high-\pt leptons, using algorithms similar to, though less sophisticated than, those in 
-\Section~\ref{sec:objects:electrons} and \Section~\ref{sec:objects:muons}.
+It is infeasible to record all the delivered collisions; ATLAS employs a trigger system to 
+identify and record interesting events (see \Section~\ref{sec:atlas:trig}). In the \HWWlvlv 
+search it is natural to trigger on high-\pt leptons, using algorithms similar to, though less 
+sophisticated than, those in \Section~\ref{sec:objects:electrons} and 
+\Section~\ref{sec:objects:muons}.
 
 A trigger is characterised by its efficiency versus \pt curve (though it also depends on 
 $\eta$), which has a turn-on followed by a plateau, as shown in 
 \Figure~\ref{fig:sel:trig_eff}. It is preferable to operate on the plateau, where the 
-efficiency is more stable. To maximise the signal yield, it is desirable to use a trigger 
-with a lower turn-on \pt. However, increased backgrounds and limitations to trigger 
-latency and bandwidth require a compromise to be found. The lowest unprescaled\footnote{
+efficiency is more stable and has smaller uncertainty. To maximise the signal yield, it is 
+desirable to use a trigger with a lower turn-on \pt. However, increased backgrounds and 
+limitations to trigger latency and bandwidth require a compromise to be found. The lowest 
+unprescaled\footnote{
 	A \textit{prescaled} trigger reduces the turn-on \pt by recording only 1 in $N$ 
 	events passing the trigger, and weighting such events by a factor $N$. In doing so, 
 	some statistical power is lost.
@@ -60,7 +61,7 @@ single lepton triggers available in 2012 had nominal \pt thresholds of \unit{24}
 Fortunately, it is possible to recover trigger efficiency at lower \pt by using dilepton 
 triggers, because the backgrounds are much smaller.
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/selection/trigger_eff_el}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/trigger_eff_mu}
@@ -70,14 +71,7 @@ triggers, because the backgrounds are much smaller.
 	\label{fig:sel:trig_eff}
 \end{figure}
 
-Events are required to pass at least one trigger listed in \Table~\ref{tab:sel:triggers}. 
-The single lepton triggers include a tighter low-\pt trigger and a looser high-\pt 
-trigger in order to maximise the efficiency. Dilepton triggers are then used to increase 
-the efficiency during the turn-on of the single lepton triggers. Together, these triggers 
-support a \pt threshold of \unit{22}{\GeV} on the leading lepton (in the 
-offline analysis), whilst operating on the plateau.
-
-\begin{table}
+\begin{table}[t]
 	\begin{tabular}{lllcl}
 		\toprule
 		\multirow{2}{2.5cm}{Single lepton triggers} & \Pe  & \verb|EF_e24vhi_medium1| & or & \verb|EF_e60_medium1| \\
@@ -88,7 +82,7 @@ offline analysis), whilst operating on the plateau.
 		& \HepProcess{\Pe\Pmu}  & \multicolumn{3}{l}{\texttt{EF\symbol{95}e12Tvh\symbol{95}medium1\symbol{95}mu8}} \\
 		\bottomrule
 	\end{tabular}
-	\caption{Employed trigger names. \texttt{EF} refers to event filter, \texttt{e} is an 
+	\caption{Employed triggers. \texttt{EF} refers to event filter, \texttt{e} is an 
 	electron, \texttt{mu} is a muon, the following number is the \pt threshold, 
 	\texttt{vh} indicates calorimeter isolation, \texttt{i} indicates track isolation, 
 	and \texttt{tight}, \texttt{medium} or \texttt{loose} is the identification. Other 
@@ -97,11 +91,11 @@ offline analysis), whilst operating on the plateau.
 	\label{tab:sel:triggers}
 \end{table}
 
-Lepton trigger efficiencies are measured via tag-and-probe of 
-\HepProcess{\PZ \HepTo \Plepton\Plepton} events, where the tag and probe have both 
-passed the offline lepton selection and the tag has successfully matched to a triggered 
-lepton object. For example, single lepton trigger efficiencies are displayed in 
-\Figure~\ref{fig:sel:trig_eff}. Comparison with MC yields efficiency scale factors.
+Events are required to pass at least one trigger listed in \Table~\ref{tab:sel:triggers}. 
+The single lepton triggers include a tighter low-\pt trigger and a looser high-\pt 
+trigger in order to maximise the efficiency. Dilepton triggers are then used to recover some 
+efficiency at lower \pt. Together, these triggers support a \pt threshold of \unit{22}{\GeV} 
+on the leading lepton (in the offline analysis), whilst operating on the plateau.
 
 Additionally, events are required to have at least one lepton passing the offline 
 reconstruction that is matched within $\Delta R < 0.15$ of a triggered lepton object.
@@ -109,7 +103,16 @@ Single lepton triggers are matched to offline leptons with $\pt > \unit{25}{\GeV
 the other hand, dilepton triggers comprise two triggered objects: \texttt{mu8} is matched 
 to offline muons with $\pt > \unit{10}{\GeV}$, \texttt{mu18} is matched to offline muons 
 with $\pt > \unit{20}{\GeV}$, and \texttt{e12} is matched to offline electrons with 
-$\pt > \unit{15}{\GeV}$.
+$\pt > \unit{15}{\GeV}$.\footnote{
+	It follows that events featuring an electron with \unit{$\pt < 15$}{\GeV} must fire a 
+	single lepton trigger.
+}
+
+Lepton trigger efficiencies are measured via tag-and-probe of 
+\HepProcess{\PZ \HepTo \Plepton\Plepton} events, where the tag and probe have both 
+passed the offline lepton selection and the tag has successfully matched to a triggered 
+lepton object. For example, single lepton trigger efficiencies are displayed in 
+\Figure~\ref{fig:sel:trig_eff}. Comparison with MC yields efficiency scale factors.
 
 
 
@@ -127,13 +130,12 @@ reject backgrounds with three or more leptons in the final state, such as \WZ pr
 At this point, it is possible to split the dilepton final state into four channels 
 according to the flavours of the two leptons: \eech, \mmch, \emch, \mech (where the first 
 flavour is that of the leading lepton). This is very useful because the background 
-compositions of the channels are dramatically different. For example, the \DY background 
+compositions of the channels are dramatically different. For example, the \DYll background 
 is much larger in the same flavour channels (\eech/\mmch) than the different flavour 
 channels (\emch/\mech).
 
 Low mass hadronic resonances with dileptonic decays (\eg \PJpsi) are removed from the 
-\eech/\mmch channels by requiring the mass of the dilepton system 
-\unit{$\mll > 12$}{\GeV}. 
+\eech/\mmch channels by requiring the mass of the dilepton system \unit{$\mll > 12$}{\GeV}. 
 This also greatly suppresses the low mass \DY background. For the \emch/\mech channels, 
 a cut of \unit{$\mll > 10$}{\GeV} suppresses leptons from heavy flavour decays. The 
 \eech/\mmch channels are hugely dominated by the \DY background (see 
@@ -144,8 +146,8 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMll_Mll_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutMll_Mll_mh125_log}
-	\caption{Dilepton mass distribution directly preceding the \PZ mass veto, in the 
-	\emch/\mech (left) and \eech/\mmch (right) channels.}
+	\caption{The \mll distribution in the \emch/\mech (left) and \eech/\mmch (right) 
+	channels. These are made after the low \mll cut.}
 	\label{fig:sel:mll}
 \end{figure}
 
@@ -153,29 +155,30 @@ vetoing a window around the \PZ mass, \unit{$\mods{\mll - \mZ} > 15$}{\GeV}.
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutZVeto_MET_TrackHWW_Clj_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutZVeto_METRel_mh125_log}
-	\caption{The \met distribution cut upon, in the \emch/\mech (left) and \eech/\mmch 
-	(right) channels.}
+	\caption{The \met variable cut upon in the \emch/\mech (left) and \eech/\mmch (right) 
+	channels. These are made after the \PZ mass veto cut.}
 	\label{fig:sel:met}
 \end{figure}
 
 Requiring significant \met suppresses the \DYll and dijet backgrounds (see 
-\Figure~\ref{fig:sel:met}). We require \unit{$\corrtrackmet > 20$}{\GeV} in the 
-\emch/\mech channels and \unit{$\metrel > 40$}{\GeV} in the \eech/\mmch channels. In the 
-\emch/\mech channels, the \met cut is relaxed because the \DYll background is smaller. 
+\Figure~\ref{fig:sel:met}). It also suppresses the \DYtt background as its neutrinos have a 
+propensity to cancel in the \met calculation. We require \unit{$\corrtrackmet > 20$}{\GeV} 
+in the \emch/\mech channels and \unit{$\metrel > 40$}{\GeV} in the \eech/\mmch channels. In 
+the \emch/\mech channels, the \met cut is relaxed because the \DYll background is smaller. 
 
 Following the selection of dilepton events with significant \met, the \emch/\mech 
 channels are dominated by top background and the \eech/\mmch channels are dominated by 
-\DYll. However, the background composition of all channels is highly dependent upon the 
+\DYll. However, the background compositions of all channels are highly dependent upon the 
 number of jets (see \Figure~\ref{fig:sel:njets}). Thus, at this stage the analysis is 
-binned according to jet multiplicity, so that backgrounds can be targeted individually.
-Note that only the \emch/\mech channels are used in the \twojet bin.
+binned according to jet multiplicity (0-jet, 1-jet, \twojet), so that backgrounds can be 
+targeted individually. In the \twojet bin, only the \emch/\mech channels are used.
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMETRel_m_jet_n_upTo7_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutMETRel_m_jet_n_upTo7_mh125_lin}
-	\caption{Jet multiplicity distribution directly preceding jet binning, in the 
-	\emch/\mech (left) and \eech/\mmch (right) channels.}
+	\caption{Jet multiplicity distribution in the \emch/\mech (left) and \eech/\mmch (right) 
+	channels. These are made following the pre-selection.}
 	\label{fig:sel:njets}
 \end{figure}
 
@@ -184,8 +187,8 @@ Note that only the \emch/\mech channels are used in the \twojet bin.
 \subsection{\HWWlvlv decay topology}
 \label{sec:selection:higgs_decay}
 
-The discrimination of \HWW signal from backgrounds that also feature a \WW pair is a 
-problem common to all jet bins. Thus, the topology of the \HWWlvlv decay is discussed 
+The discrimination of \HWW signal from irreducible backgrounds that also feature a \WW pair 
+is a problem common to all jet bins. Thus, the topology of the \HWWlvlv decay is discussed 
 before continuing with the event selection.
 
 Firstly, the spin-0 nature of the Higgs boson and the \VminusA structure of the weak 
@@ -209,8 +212,8 @@ p_{\text{T,\HepProcess{\Plepton\Plepton}}}^2 + m_{\Plepton\Plepton}^2$ and
 \corrtrackmetvec 
 is used as it has the best resolution (see \Section~\ref{sec:objects:met}). At 
 hadron-level this is an event-by-event lower bound on \mH, though at detector-level the 
-sharp cut-off is smeared by the poor \corrtrackmet resolution. \mt is used in the 
-statistical fitting procedure.
+sharp cut-off is smeared by the poor \corrtrackmet resolution. This \mt observable is used in 
+the statistical fitting procedure.
 
 
 
@@ -227,12 +230,12 @@ greatly reduced by requiring \unit{$\ptll > 30$}{\GeV} (see
 also suppressed by an additional cut \unit{$\trackmetrel > 40$}{\GeV} (see 
 \Figure~\ref{fig:sel:0j:sf_cuts}).
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutDPhillMET_0jet_Ptll_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutDPhillMET_0jet_Ptll_mh125_log}
-	\caption{The \ptll distribution directly before it is cut upon, in the \emch/\mech (left) 
-	and \eech/\mmch (right) channels.}
+	\caption{The \ptll distribution in the \emch/\mech (left) and \eech/\mmch (right) 
+	channels. These are made in the 0-jet bin, after the \dphillmet cut.}
 	\label{fig:sel:0j:ptll}
 \end{figure}
 
@@ -257,8 +260,8 @@ instrumental in estimating the \DYll background, and shall be revisited in
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoMll_0jet_METRel_TrackHWW_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoDPhill_0jet_f_recoil_mh125_log}
-	\caption{The \trackmetrel (left) and \frecoil (right) distributions directly 
-	before they are cut upon in the \eech/\mmch channels.}
+	\caption{The \trackmetrel (left) and \frecoil (right) distributions in the \eech/\mmch 
+	channels, directly before they are cut upon.}
 	\label{fig:sel:0j:sf_cuts}
 \end{figure}
 
@@ -291,14 +294,16 @@ transverse mass variables are constructed
 	\sqbracs{1 - \cos\Delta\phi\parenths{\Plepton_i, \corrtrackmet}}} \,.
 \end{equation}
 Their maximum, \maxmtw, tends to peak at lower values for processes with fake \met (see 
-\Figure~\ref{fig:sel:1j:df_cuts}). Therefore we require \unit{$\maxmtw > 50$}{\GeV}.
+\Figure~\ref{fig:sel:1j:df_cuts}). Therefore we require \unit{$\maxmtw > 50$}{\GeV} in the 
+\emch/\mech channels. In the \eech/\mmch channels, the tighter \met cuts reject the dijet 
+background.
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutbVeto_1jet_MaxMTW_TrackHWW_Clj_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutMaxMTlep_1jet_Mtt_TrackHWW_Clj_mh125_lin}
-	\caption{The \maxmtw (left) and \mtautau (right) distributions directly 
-	before they are cut upon in the \emch/\mech channels.}
+	\caption{The \maxmtw (left) and \mtautau (right) distributions in the \emch/\mech 
+	channels, directly before they are cut upon.}
 	\label{fig:sel:1j:df_cuts}
 \end{figure}
 
@@ -317,16 +322,9 @@ assuming the \Ptau decays collinearly, \ie
 $\Delta\phi\parenths{\Plepton,\HepProcess{\Pnut\Pnulepton}} = 0$. 
 This approximation is reasonable since each \Ptau has large \pt. We require 
 \unit{$\mtautau < \mZ - 25$}{\GeV} (see \Figure~\ref{fig:sel:1j:df_cuts}). In rare cases 
-where the ditau system is poorly reconstructed ($x_i < 0$), the event is accepted.
+where the ditau system is poorly reconstructed (\ie $x_i < 0$), the event is accepted.
 
-After the signal topology selection, the \DYll background is suppressed in the 
-\eech/\mmch channels by requiring \unit{$\trackmetrel > 35$}{\GeV} and $\frecoil < 0.1$ 
-(see \Figure~\ref{fig:sel:1j:sf_cuts}). In the 1-jet bin, the \frecoil definition is 
-altered with respect to (\ref{eq:frecoil}): the quadrant $\wedge$ is centred upon 
-$-\ptlljvec$ and the denominator becomes \ptllj. This is because a hard jet has been 
-found, and so it is the dilepton + jet system that must be balanced by the soft recoil.
-
-\begin{figure}
+\begin{figure}[b]
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoMll_1jet_METRel_TrackHWW_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutTopoDPhill_1jet_f_recoil_ext_mh125_log}
@@ -335,10 +333,17 @@ found, and so it is the dilepton + jet system that must be balanced by the soft 
 	\label{fig:sel:1j:sf_cuts}
 \end{figure}
 
+After the signal topology selection, the \DYll background is suppressed in the 
+\eech/\mmch channels by requiring \unit{$\trackmetrel > 35$}{\GeV} and $\frecoil < 0.1$ 
+(see \Figure~\ref{fig:sel:1j:sf_cuts}). In the 1-jet bin, the \frecoil definition is 
+altered with respect to (\ref{eq:frecoil}): the quadrant $\wedge$ is centred upon 
+$-\ptlljvec$ and the denominator becomes \ptllj. This is because a hard jet has been 
+found, and so it is the dilepton + jet system that must be balanced by the soft recoil.
+
 The event yields of the 1-jet selection are provided in \Appendix~\ref{app:sr_yields}, 
 and the \mt distributions of the selected events are shown in \Figure~\ref{fig:sel:1j:mt}.
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFRecoil_1jet_MT_TrackHWW_Clj_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/eemm_CutFRecoil_1jet_MT_TrackHWW_Clj_mh125_lin}
@@ -353,11 +358,21 @@ and the \mt distributions of the selected events are shown in \Figure~\ref{fig:s
 \label{sec:selection:2j}
 
 Only the \emch/\mech channels are used in the \twojet bin, which is dominated by top 
-background (see \Figure~\ref{fig:sel:njets}). Note that variable definitions using only 
-two jets refer to the two hardest jets. As in the 1-jet bin, the top background is 
-greatly suppressed by vetoing events with a \Pbottom-tagged jet with 
-\unit{$\pt > 20$}{\GeV}. Also, the \DYtt background is again suppressed by the 
-requirement \unit{$\mtautau < \mZ - 25$}{\GeV}.
+background (see \Figure~\ref{fig:sel:njets}). In the following, observable definitions using 
+only two jets refer to the two hardest jets. As in the 1-jet bin, the top background is 
+greatly suppressed by vetoing events featuring a \Pbottom-tagged jet with 
+\unit{$\pt > 20$}{\GeV} (see \Figure~\ref{fig:sel:2j:df_cuts}). Also, the \DYtt background is 
+again suppressed by the requirement \unit{$\mtautau < \mZ - 25$}{\GeV} (see 
+\Figure~\ref{fig:sel:2j:df_cuts}).
+
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFailVBF_2jetincl_nJets_Pt20_MV1_85_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFailVBFbVeto_2jetincl_Mtt_TrackHWW_Clj_mh125_lin}
+	\caption{The \nbjets (left) and \mtautau (right) distributions directly 
+	before they are cut upon in the \emch/\mech channels.}
+	\label{fig:sel:2j:df_cuts}
+\end{figure}
 
 At this point, it is necessary to contextualise the analysis. Although this thesis 
 describes the search for the ggF production mode, searches for the other production modes 
@@ -365,8 +380,7 @@ describes the search for the ggF production mode, searches for the other product
 simplify the statistical combination of these searches, it is helpful to avoid overlap 
 between their signal regions. This is particularly important for the \twojet bin.
 
-The VBF production mode features two outgoing quarks at LO (see 
-\Figure~\ref{fig:feyn:VBF}). 
+The VBF production mode features two outgoing quarks at LO (see \Figure~\ref{fig:feyn:VBF}). 
 Therefore the \twojet bin is the starting point for the VBF selection. However, the 
 absence of colour exchange between the quarks leads to dramatically different event 
 topologies compared to ggF events in the \twojet bin; VBF events feature two high-\pt 
@@ -393,21 +407,32 @@ possible with the two hardest jets, which is higher in VBF events due to the lar
 separations involved. \pttot is the sum of \corrtrackmetvec and the \ptvec of each lepton 
 and jet, capturing the soft hadronic recoil, which is larger in top background events. 
 The BDT scores events between 100\% signal-like ($+1$) and 100\% background-like ($-1$), 
-where ggF is considered a background. Events with a score $> -0.48$ are selected for the 
-VBF analysis (see \Figure~\todo{VBF BDT plot}).
+where ggF is considered a background. Events with a score greater than $-0.48$ are selected 
+for the VBF analysis.
 
 Another search considers the \WH and \ZH production modes (collectively known as \VH), 
 where the vector boson decays hadronically (see \Figure~\ref{fig:feyn:VH}). Again, the 
 \twojet bin is the starting point for this selection. As with VBF, the jet kinematics can 
-be used to distinguish this from ggF. First, the criterion $\dyjj < 1.2$ requires small 
-jet separation, since the vector boson is likely to be produced with significant momentum.
+be used to distinguish this from ggF. First, a small rapidity gap is required, $\dyjj < 1.2$. 
 Second, the dijet system must have a mass corresponding to a \PW or \PZ boson, 
-\unit{$\mods{\mjj - 85}$}{\GeV}.
+\unit{$\mods{\mjj - 85} < 15$}{\GeV}.
 
 To maintain orthogonality with the VBF and \VH analyses, the ggF analysis requires that 
-events in the \twojet bin fail at least one cut from each selection. That is, an event 
+events in the \twojet bin must fail at least one cut from each selection. That is, an event 
 must fail either the CJV, the OLV \textbf{or} the BDT score cut \textbf{and} it must fail 
 either the \dyjj \textbf{or} the \mjj cut.
+
+Finally, the usual signal topology selection is made, \unit{$\mll < 55$}{\GeV} and 
+$\dphill < 1.8$. The resulting event yields of the \twojet selection are provided in 
+\Appendix~\ref{app:sr_yields}, and the \mt distribution of the selected events are shown in 
+\Figure~\ref{fig:sel:2j:mt}.
+
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFailVBFTopoDPhillggFlike_2jetincl_MT_TrackHWW_Clj_mh125_lin}
+	\caption{The \mt distribution of the selected \twojet events, in the \emch/\mech 
+	channels.}
+	\label{fig:sel:2j:mt}
+\end{figure}
 
 
 
@@ -416,15 +441,9 @@ either the \dyjj \textbf{or} the \mjj cut.
 
 The entire event selection is concisely summarised in \Table~\ref{tab:event_selection}. 
 In total, there are 10 different signal regions: $\braces{\emch,\mech,\eech,\mmch} 
-\otimes \braces{\text{0-jet,1-jet}} \oplus \braces{\emch,\mech} \otimes \twojet$. As 
-shall be fully described in \Chapter~\ref{chap:results}, experimental limits are obtained 
-by comparing the observed events to the expected events in each signal region. In the 
-\twojet bin and the \eech/\mmch channels, a simple \mt fit is used. For the \emch/\mech 
-channels in the 0-jet and 1-jet bins, a three dimensional fit of \mt, \mll and 
-\ptsubleadlep is performed. The different fits enable maximal sensitivity to be extracted 
-from the data.
+\otimes \braces{\text{0-jet,1-jet}}~~\oplus~~\braces{\emch,\mech} \otimes \twojet$. 
 
-\begin{sidewaystable}
+\begin{sidewaystable}[p]
 	\centering
 	\begin{tabularx}{1.05\textwidth}{l *{6}{Y}}
 		\toprule
@@ -469,5 +488,28 @@ from the data.
 	in the text.}
 	\label{tab:event_selection}
 \end{sidewaystable}
+
+\Chapter~\ref{chap:results} shall describe how statistical limits are extracted from these 
+signal regions, by comparing the observed \mt distribution to that expected. However, some 
+key points are summarised here. The majority of the sensitivity lies in the 0-jet and 1-jet 
+bins of the \emch/\mech channels. In fact, the sensitivity is further optimised by splitting 
+each of these four signal regions into three bins of \ptsubleadlep and two bins of \mll 
+(see \Figure~\ref{fig:sel:df_split_sr}). This equates to performing a three-dimensional fit 
+of \mt, \mll and \ptsubleadlep. In the other signal regions, a simple one-dimensional \mt 
+fit is used.
+
+\begin{figure}[p]
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFRecoil_0jet_lepPtSublead_zoom_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFRecoil_0jet_Mll_zoom_mh125_lin}
+	\\
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFRecoil_1jet_lepPtSublead_zoom_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/emme_CutFRecoil_1jet_Mll_zoom_mh125_lin}
+	\caption{The \ptsubleadlep (left) and \mll (right) distributions in the 0-jet (top) and 
+	1-jet (bottom) signal regions of the \emch/\mech channels. The dashed lines indicate 
+	how the signal regions are split in the fit.}
+	\label{fig:sel:df_split_sr}
+\end{figure}
 
 
