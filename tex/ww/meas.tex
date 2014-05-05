@@ -2,23 +2,23 @@
 
 This section describes the \WW cross section measurement using the 
 \unit{$\sqrt{s} = 7$}{\TeV} dataset, published in \Reference~\cite{WW-7TeV}.
-As the experimental signature is the same as \HWW, many backgrounds are shared.
-However, there are two key differences between the analyses. 
+As the experimental signature is the same as \HWW, many aspects are shared.
+However, there are two key differences between the analyses: 
 
 \begin{enumerate}
 	\item The analysis described in \Chapter~\ref{chap:selection} is optimised for low 
 	mass (\unit{$\mH \approx 125$}{\GeV}) resonant \WW production. It therefore requires 
 	at least one \PW boson to be off-shell, and consequently employs low lepton 
 	thresholds (\unit{$\pt > 10$}{\GeV}). Conversely, the search for non-resonant \WW 
-	production is optimised for on-shell \PW bosons, and so raises the lepton thresholds 
+	production is optimised for on-shell \PW bosons, and raises the lepton thresholds 
 	to \unit{$\pt > 20$}{\GeV}. This reduces fake leptons, and obviates the need to split 
 	the different flavour channel into \emch and \mech parts.
 
 	\item The total \WW cross section at \unit{$\sqrt{s} = 7$}{\TeV} is 
-	\unit{$44.7^{+2.1}_{-1.9}$}{\pico\barn}, which is much larger than that of \ggHWW 
-	(\unit{$3.3 \pm 0.4$}{\pico\barn} for \unit{$\mH = 125$}{\GeV}). This enables use of 
-	tighter criteria to reduce backgrounds, whilst retaining a large number of signal 
-	events. For example, only the 0-jet bin is used.
+	\unit{$\sigma_{\text{NLO}} = 44.7^{+2.1}_{-1.9}$}{\pico\barn}, which is much larger than 
+	that of \ggHWW (\unit{$3.3 \pm 0.4$}{\pico\barn} for \unit{$\mH = 125$}{\GeV}). This 
+	enables backgrounds to be suppressed by tighter criteria, whilst retaining a large number 
+	of signal events. As an example, only the 0-jet bin is used.
 \end{enumerate}
 
 
@@ -26,9 +26,9 @@ However, there are two key differences between the analyses.
 \subsection{Reconstruction of physics objects}
 
 Beam conditions in 2011 were quite different to 2012; in particular, the pile-up 
-environment was much less difficult (see \Figure~\ref{fig:dataset:pileup}). Consequently, 
+environment was considerably less harsh (see \Figure~\ref{fig:dataset:pileup}). Consequently, 
 the reconstruction of physics objects is slightly different to that described in 
-\Section~\ref{sec:objects}.
+\Section~\ref{sec:objects}:
 
 \begin{description}
 \item[Electrons] \hfill \\
@@ -48,12 +48,12 @@ the reconstruction of physics objects is slightly different to that described in
 
 \item[Jets] \hfill \\
 	A lower pile-up noise threshold is used in topo-clustering, corresponding to 
-	$\mu = 8$. Local cluster weighting (LCW) is not performed on topo-clusters, and so 
-	jets are corrected directly from the EM scale to the Jet Energy Scale (JES). In 2011, 
-	the pile-up subtraction step of the calibration is less sophisticated, and is 
-	averaged over \npv and $\mu$ rather than as an event-by-event correction 
-	\cite{Jets:PileupCorrection:2011}. The jet vertex fraction criterion is also removed. 
-	Finally, a unified threshold of \unit{$\pt > 25$}{\GeV} is used over the entire 
+	$\mu = 8$ (\cf $\mu = 30$ in 2012). Local cluster weighting (LCW) is not performed on 
+	topo-clusters, and so jets are corrected directly from the EM scale to the Jet Energy 
+	Scale (JES). In 2011, the pile-up subtraction step of the calibration is less 
+	sophisticated, and is averaged over \npv and $\mu$ rather than an event-by-event 
+	correction \cite{Jets:PileupCorrection:2011}. The jet vertex fraction criterion is also 
+	removed. A unified threshold of \unit{$\pt > 25$}{\GeV} is used over the entire 
 	range $\mods{\eta} < 4.5$.
 
 \item[Missing transverse momentum] \hfill \\
@@ -78,10 +78,10 @@ of the \HWW search, and does not require such stringent optimisation.
 \item[Trigger] \hfill \\
 	The lowest unprescaled single lepton triggers were used to support 
 	\unit{$\ptleadlep > 25$}{\GeV} in the offline analysis, whilst operating on the 
-	plateau. These changed throughout the year as data-taking conditions changed, and 
+	plateau. These changed throughout the year as beam conditions changed, and 
 	are displayed in \Table~\ref{tab:ww:triggers}.
 
-	\begin{table}
+	\begin{table}[t]
 		\begin{tabular}{ll@{\hskip 0.3in}r@{\;{--}\;}l}
 			\toprule
 			\multirow{3}{*}{\Pe}  & \verb|EF_e20_medium|     & 14th Apr & 4th Aug \\
@@ -116,7 +116,7 @@ of the \HWW search, and does not require such stringent optimisation.
 			\multicolumn{2}{c}{$\ptll > 30$} \\
 			\bottomrule
 		\end{tabularx}
-		\caption{Summary of \WW event selection. Cuts are given in \GeV.}
+		\caption{Summary of \WW event selection. Cuts are given in \GeV. The relevant observables are described in \Chapter~\ref{chap:selection}.}
 		\label{tab:ww:sel}
 	\end{table}
 
@@ -143,7 +143,7 @@ hadron-level objects, which are now described. The MC event record is used to id
 leptons and neutrinos which descend from the \PW bosons. An \metvec vector is constructed 
 from the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a 
 cone of $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found 
-using individual particles as inputs (\cf topo-clusters at detector-level). Muons and 
+using particle four-momenta as inputs (\cf topo-clusters at detector-level). Muons and 
 neutrinos are excluded from jet finding since they interact weakly with the calorimeter. 
 Objects must pass the same \pt, $\eta$ and overlap removal criteria applied at 
 detector-level.
@@ -172,7 +172,7 @@ signal acceptance of the event selection criteria. BR incorporates the branching
 of both \PW bosons for the channel in question, and includes contributions from leptonic 
 \Ptau decays.
 
-It is clear from (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) that both signal and 
+It is apparent from (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) that both signal and 
 background modelling are important inputs in measuring a cross section.
 
 
@@ -192,7 +192,7 @@ $C_{\WW}$ and $A_{\WW}$. Uncertainties in the jet energy scale (JES) and jet ene
 resolution (JER) lead to large uncertainties in $C_{\WW}$, since the leading jet \pt is a 
 rapidly falling distribution. As discussed in \Section~\ref{sec:ggf_jetbin}, restricting 
 QCD emissions via a jet veto introduces large theoretical uncertainties to $A_{\WW}$, 
-though these are expected to be smaller in \WW than ggF as the perturbative corrections 
+though these are expected to be smaller in \WW than ggF since the perturbative corrections 
 are smaller.
 
 For this reason, a data-driven correction factor is included within $C_{\WW}$ in order to 
@@ -203,9 +203,9 @@ predicted jet veto acceptance is
 	\epsilon^{\text{pred}}_{\WW} = \epsilon^{\text{MC}}_{\WW} \cdot \frac{\epsilon^{\text{data}}_{\PZ}}{\epsilon^{\text{MC}}_{\PZ}} \,.
 \end{equation}
 Application of this correction factor effectively calibrates the MC generator to data 
-(thus the MC generators used to model $\epsilon^{\text{MC}}_{\WW}$ and 
-$\epsilon^{\text{MC}}_{\PZ}$ must be the same). As shown in 
-\Table~\ref{tab:ww:jetveto_contrib}, this enables the experimental uncertainty due to the 
+(thus the same MC generator must be used to model $\epsilon^{\text{MC}}_{\WW}$ and 
+$\epsilon^{\text{MC}}_{\PZ}$). As shown in 
+\Table~\ref{tab:ww:jetveto_contrib}, this enables the experimental uncertainty in the 
 jet veto acceptance to be reduced, at the expense of introducing a theoretical 
 uncertainty to $C_{\WW}$. However, in the product $C_{\WW} \cdot A_{\WW}$ the 
 theoretical uncertainty is also reduced.
@@ -219,7 +219,7 @@ correction factors of 0.957, 0.954 and 0.956 for the \eech, \mmch and \emch chan
 respectively. Statistical uncertainties were found to be negligible compared to the 
 experimental and theoretical uncertainties.
 
-\begin{table}[b]
+\begin{table}[t]
 	\begin{tabularx}{\textwidth}{c|YY|YY}
 		\toprule
 		\multirow{2}{*}{Contribution to} & \multicolumn{2}{c|}{No correction factor} & \multicolumn{2}{c}{Jet veto correction factor} \\
@@ -245,10 +245,11 @@ determined using other \textit{in situ} techniques \cite{Jets:JER:2011}. These
 uncertainties are displayed in \Table~\ref{tab:ww:jetveto_unc}.
 
 Theoretical uncertainties are evaluated at hadron-level by changing some aspect of the MC 
-modelling and measuring the effect upon the jet veto acceptance. These uncertainties are 
+modelling and measuring the effect upon the jet veto acceptance $\epsilon$. These 
+uncertainties are 
 displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described below.
 
-\begin{table}
+\begin{table}[t]
 	\begin{tabular}{r|ccccc|cc}
 		\toprule
 		& \multicolumn{5}{c|}{Uncertainty sources} & \multicolumn{2}{c}{Total} \\
@@ -308,7 +309,7 @@ the CT10 fit were used to evaluate an uncertainty.
 
 Uncertainties due to the parton shower (PS), hadronisation and underlying event (UE) 
 models are evaluated by recomputing the jet veto acceptances with \powhegbox events, and 
-comparing the result when showered by \fherwig and \pythia{6}.
+comparing the result when showered by \fherwig and by \pythia{6}.
 
 By substituting uncertainties from \Table~\ref{tab:ww:jetveto_unc} into the two 
 strategies outlined in \Table~\ref{tab:ww:jetveto_contrib}, it is clear that the jet veto 
@@ -322,11 +323,11 @@ The signal acceptances $A_{\WW}$, $C_{\WW}$ and $C_{\WW} \cdot A_{\WW}$ are disp
 \Table~\ref{tab:ww:cww_aww}. The \mmch channel has the best reconstruction efficiency and 
 the event selection of the \emch channel has the highest yield. The uncertainties arising 
 from different systematic sources are also shown, with those associated with the jet veto 
-separated for clarity. For simplicity, the JES/JER uncertainty in the jet veto acceptance 
+separated for clarity. The JES and JER uncertainties in the jet veto acceptance 
 are treated as uncorrelated with those of the other cuts. The same is true of the 
 theoretical uncertainties in $A_{\WW}$. 
 
-\begin{table}
+\begin{table}[p]
 	\begin{tabular}{l@{}c@{\hskip 0.2in}c@{\hskip 0.2in}c@{\hskip 0.2in}c}
 		\toprule
 		& \emch & \eech & \mmch & All \\
@@ -376,7 +377,7 @@ Although many backgrounds are modelled by a data-driven technique, there is ofte
 underlying dependence upon MC. For this reason, \Table~\ref{tab:ww:mc_samples} states the 
 MC generators used to model each process.
 
-\begin{table}
+\begin{table}[t]
 	\begin{tabular}{c@{\hskip 0.3in}c}
 		\toprule
 		Process & MC generator \\
@@ -400,25 +401,26 @@ MC generators used to model each process.
 	simultaneously estimated by this method.
 
 	A \Wjets anti-ID region (AR) is defined similarly to the signal region (SR), but 
-	where one of the leptons is replaced with an anti-identified lepton. The anti-ID 
-	lepton objects are ensured to be highly contaminated with jets by loosening the 
-	selection criteria and vetoing leptons passing the full identification. Anti-ID 
-	electrons have looser calorimeter isolation criteria and do not have to pass the 
-	\textit{tight} identification criteria. Anti-ID muons have looser calorimeter 
-	isolation criteria and the tracker isolation removed completely. The predicted \Wjets 
-	background is the measured number of events in the AR, scaled by a fake factor 
+	where one of the leptons is replaced with an anti-identified lepton, \antiid{\Plepton}. 
+	The \antiid{\Plepton} objects are ensured to be highly contaminated with jets by 
+	loosening the selection criteria and vetoing leptons passing the full identification. 
+	Anti-ID electrons, \antiid{\Pe}, have looser calorimeter isolation criteria and do not 
+	have to pass the \textit{tight} identification criteria. Anti-ID muons, \antiid{\Pmu}, 
+	have looser calorimeter isolation criteria and the tracker isolation removed completely. 
+	The predicted \Wjets background is the measured number of events in the AR, scaled by a 
+	fake factor 
 	$f_{\Plepton}$:
 	\begin{equation}
-		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pe}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\text{id \Pe + anti-id \Pe}} \\
-		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pmu\Pmu}}} &= f_{\Pmu} \cdot N^{\text{data,AR}}_{\text{id \Pmu + anti-id \Pmu}} \\
-		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pmu}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\text{id \Pmu + anti-id \Pe}} + f_{\Pmu} \cdot N^{\text{data,AR}}_{\text{id \Pe + anti-id \Pmu}} \,.
+		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pe}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\id{\Pe}\antiid{\Pe}} \\
+		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pmu\Pmu}}} &= f_{\Pmu} \cdot N^{\text{data,AR}}_{\id{\Pmu}\antiid{\Pmu}} \\
+		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pmu}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\id{\Pmu}\antiid{\Pe}} + f_{\Pmu} \cdot N^{\text{data,AR}}_{\id{\Pe}\antiid{\Pmu}} \,.
 	\end{equation}
 	The fake factor $f_{\Plepton}$ is defined as the ratio of efficiencies for jets 
 	passing the lepton ID criteria to passing the anti-ID criteria ($f_{\Pe} \ll f_{\Pmu}$
-	since the electron anti-ID accepts more jets). Each fake factor is measured from 
+	since the \antiid{\Pe} definition accepts more jets). Each fake factor is measured from 
 	dijet events as a function of \pt and $\eta$
 	\begin{equation}
-		f_{\Plepton} = \frac{N_{\text{id \Plepton}}^{\text{data}}}{N_{\text{anti-id \Plepton}}^{\text{data}}} \,.
+		f_{\Plepton} = \frac{N_{\id{\Plepton}}^{\text{data}}}{N_{\antiid{\Plepton}}^{\text{data}}} \,.
 	\end{equation}
 	To avoid bias, the dijet events were selected with a very loose (but prescaled) 
 	trigger, without identification or isolation criteria applied. A \PZ veto 
@@ -438,23 +440,23 @@ MC generators used to model each process.
 	top events are estimated by a data-driven \textit{template method}, which attempts to 
 	constrain the jet multiplicity distribution within a top control region (CR).
 
-	An inclusive signal region (ISR) is defined without the jet veto and \ptll cut. The 
-	top CR is a subset of the ISR, requiring at least one \Pbottom-tagged jet with 
+	An extended signal region (ESR) is defined without the jet veto and \ptll cut. The 
+	top CR is a subset of the ESR, requiring at least one \Pbottom-tagged jet with 
 	\unit{$\pt > 20$}{\GeV}. The \njets distribution $\mathcal{T}$ is measured in the CR, 
-	and is extrapolated to the ISR by top MC. However, non-top contributions to the CR 
+	and is extrapolated to the ESR by top MC. However, non-top contributions to the CR 
 	must be subtracted beforehand, which are estimated by an \njets template from MC 
 	scaled by a data-driven normalisation factor $K_{\text{non-top}}^{\text{data}}$. 
-	Thus, the predicted top \njets distribution in the ISR is
+	Thus, the predicted top \njets distribution in the ESR is
 	\begin{equation}
-		\mathcal{T}_{\text{top}}^{\text{pred,ISR}} = \frac{\mathcal{T}_{\text{top}}^{\text{MC,ISR}}}{\mathcal{T}_{\text{top}}^{\text{MC,CR}}} \parenths{\mathcal{T}^{\text{data,CR}} - K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,CR}}} \,.
+		\mathcal{T}_{\text{top}}^{\text{pred,ESR}} = \frac{\mathcal{T}_{\text{top}}^{\text{MC,ESR}}}{\mathcal{T}_{\text{top}}^{\text{MC,CR}}} \parenths{\mathcal{T}^{\text{data,CR}} - K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,CR}}} \,.
 	\end{equation}
-	$K_{\text{non-top}}^{\text{data}}$ is assumed to be the same in the CR and the ISR, 
-	and is constrained by an \njets fit in the ISR, \ie
+	$K_{\text{non-top}}^{\text{data}}$ is assumed to be the same in the CR and the ESR, 
+	and is constrained by an \njets fit in the ESR, \ie
 	\begin{equation}
-		\mathcal{T}^{\text{data,ISR}} = \mathcal{T}_{\text{top}}^{\text{pred,ISR}} + K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,ISR}} \,.
+		\mathcal{T}^{\text{data,ESR}} = \mathcal{T}_{\text{top}}^{\text{pred,ESR}} + K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,ESR}} \,.
 	\end{equation}
 	The fit yields $K_{\text{non-top}}^{\text{data}} = 1.07 \pm 0.03$.
-	Finally, once the 0-jet bin of $\mathcal{T}_{\text{top}}^{\text{pred,ISR}}$ is 
+	Finally, once the 0-jet bin of $\mathcal{T}_{\text{top}}^{\text{pred,ESR}}$ is 
 	selected, the acceptance of the \ptll cut is modelled by top MC.
 
 	The small number of 0-jet events in the top CR leads to a large statistical 
@@ -496,10 +498,11 @@ signal and background contributions estimated as described in
 Sections~\ref{sec:ww:signal} and \ref{sec:ww:bkg}, respectively. Systematic uncertainties 
 of the \DY and non-\WW diboson backgrounds are considered correlated, though those of the 
 other backgrounds are considered uncorrelated. An initial glance suggests that the 
-measured cross section shall be higher than predicted. Two different \pt distributions of 
-the selected events are displayed in \Figure~\ref{fig:ww:sr_distributions}.
+measured cross section shall be higher than predicted. 
+% Two different \pt distributions of 
+% the selected events are displayed in \Figure~\ref{fig:ww:sr_distributions}.
 
-\begin{table}
+\begin{table}[t]
 	\begin{tabular}{l@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}l}
 		\toprule
 		& \multicolumn{3}{c@{\hskip 0.2in}}{\emch} & \multicolumn{3}{c@{\hskip 0.2in}}{\eech} & \multicolumn{3}{c@{\hskip 0.2in}}{\mmch} & \multicolumn{3}{c}{All} \\
@@ -523,16 +526,16 @@ the selected events are displayed in \Figure~\ref{fig:ww:sr_distributions}.
 	\label{tab:ww:sr_yield}
 \end{table}
 
-\begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/ww/pt_leadlep}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/ww/pt_tot}
-	\caption{The \pt distribution of the leading lepton (left) and the dilepton + \met 
-	system (right), for all events passing the \WW event selection. Estimations of the 
-	top, \Wjets and \DY (Drell-Yan) backgrounds are data-driven. The \WW signal is 
-	normalised to the NLO cross section of \unit{44.7}{\pico\barn}.}
-	\label{fig:ww:sr_distributions}
-\end{figure}
+% \begin{figure}
+% 	\includegraphics[width=0.495\textwidth]{tex/ww/pt_leadlep}
+% 	\hfill
+% 	\includegraphics[width=0.495\textwidth]{tex/ww/pt_tot}
+% 	\caption{The \pt distribution of the leading lepton (left) and the dilepton + \met 
+% 	system (right), for all events passing the \WW event selection. Estimations of the 
+% 	top, \Wjets and \DY (Drell-Yan) backgrounds are data-driven. The \WW signal is 
+% 	normalised to the NLO cross section of \unit{44.7}{\pico\barn}.}
+% 	\label{fig:ww:sr_distributions}
+% \end{figure}
 
 The fiducial and total cross sections are calculated for each channel with 
 (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) respectively, using the values in 
@@ -564,7 +567,7 @@ The systematic uncertainty in the combined cross section is calculated with
 \ref{tab:ww:sr_yield}. The top and non-\WW diboson systematic uncertainties are 
 considered correlated between all three channels. The \Wjets and \DY systematic 
 uncertainties are treated as uncorrelated between the \eech and \mmch channels, though 
-their combination is considered correlated with the \emch channel.
+the \eech + \mmch combination is considered correlated with the \emch channel.
 
 The measured cross sections are shown in \Table~\ref{tab:ww:xs_results}. The combined 
 total cross section is \statsystlumi{51.9}{2.0}{3.9}{2.0}~\pico\barn, which is slightly 
