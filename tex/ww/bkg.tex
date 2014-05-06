@@ -139,9 +139,10 @@ comparing \powhegbox showered by \pythia{6} (nominal) and by \fherwig.
 Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
 \meps{\powhegbox}{\fherwig} to \meps{\amcatnlo}{\fherwig}.
 
-The $\alpha_{\WW}$ theoretical uncertainties for each SR used in the fitting procedure are 
-shown in \Table~\ref{tab:ww_bkg:alpha_unc} (experimental uncertainties are discussed in 
-\Chapter~\ref{chap:results}). Those for the VR are also shown. 
+The $\alpha_{\WW}$ theoretical uncertainties for each SR are shown in 
+\Table~\ref{tab:ww_bkg:alpha_unc} (experimental uncertainties are discussed in 
+\Chapter~\ref{chap:results}). Although small, they have a large effect in the final fit 
+because the \WW background is much larger than the signal. Those for the VR are also shown. 
 The expected number of events in the validation region is \statsyst{123}{1}{1}, whilst the 
 observed number is 123\todo{update}. This agreement supports the extrapolation uncertainties 
 assigned to the SRs.
@@ -241,14 +242,14 @@ with two or more hard jets are likely to be poorly modelled. For this reason, \s
 to describe the \WW background in the \twojet bin, including up to three partons in the 
 matrix element using LO ME-PS merging (see \Section~\ref{sec:mc:merging}).
 
-Two kinds of diagrams 
-can be identified for the \WW~+~2~jets process: electroweak production (with zero QCD 
-vertices at LO) and QCD production (with two QCD vertices at LO), where VBF \WW 
-production is included in the former. 
-
-The two production types are simulated separately at LO by \sherpa, and this causes their 
-interference to be neglected. Interference with VBF Higgs boson production diagrams is 
-also neglected. The effect of each interference is investigated and treated as a 
+Two kinds of diagrams can be identified for the \WW~+~2~jets process: EW production (zero QCD 
+vertices at LO) and QCD production (two QCD vertices at LO), where VBF \WW production is 
+included in the former. The two production types are simulated separately by \sherpa, and 
+this causes their interference to be neglected. Interference with VBF Higgs boson production 
+is also neglected. The effect of each interference is investigated and treated as a 
 systematic uncertainty.
 
-\todo[inline]{Come back to WW+2j background}
+Uncertainties due to the choice of \mur and \muf scale are considered, and also a modelling 
+uncertainty is evaluated by comparing the \sherpa yield to that of 
+\meps{\madgraph}{\pythia{6}}.
+
