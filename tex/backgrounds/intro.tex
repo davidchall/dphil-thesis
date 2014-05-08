@@ -1,10 +1,11 @@
 %!TEX root = ../../thesis.tex
 
-Although many backgrounds are modelled by a data-driven technique, there is often some 
-underlying dependence upon MC. For this reason, \Table~\ref{tab:ww:mc_samples} states the 
-MC generators used to model each process.
+In addition to the \WW background, many other background processes contribute significantly. 
+As they are often difficult to accurately model in the \HWW phase space, they are estimated by 
+sophisticated data-driven methods. Even so, there is usually some underlying dependence upon 
+MC (see \Table~\ref{tab:bkg:mc_samples}).
 
-\begin{table}
+\begin{table}[b]
 	\begin{tabular}{c@{\hskip 0.3in}c}
 		\toprule
 		Process & MC generator (\twojet bin) \\
@@ -16,14 +17,15 @@ MC generators used to model each process.
 		\DY        & \meps{\alpgen}{\fherwig} (\sherpa) \\
 		\Wgamma    & \meps{\alpgen}{\fherwig} \\
 		\WZ        & \meps{\powhegbox}{\pythia{8}} (\sherpa) \\
-		\Wgstar    & \sherpa \\
-		\Zgamma    & \sherpa \\
 		\ZZ        & \meps{\powhegbox}{\pythia{8}}, \meps{\ggtozz}{\fherwig} (\sherpa) \\
-		\Zgstar    & \sherpa \\
+		\Wgstar, \Zgstar, \Zgamma & \sherpa \\
 		\bottomrule
 	\end{tabular}
-	\caption{MC generators used to model backgrounds to the \HWW search.}
+	\caption{MC generators used to model backgrounds to the \HWW search. These are used with 
+	data-driven techniques described in the text.}
 	\label{tab:bkg:mc_samples}
 \end{table}
 
-\todo[inline]{Normalisation factors are not used in fit!!}
+This chapter describes the estimation of non-\WW backgrounds: \Wjets and dijet in 
+\Section~\ref{sec:wjets}, non-\WW diboson in \Section~\ref{sec:diboson}, top in 
+\Section~\ref{sec:top}, and \DY in \Section~\ref{sec:dy}.

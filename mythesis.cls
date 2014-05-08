@@ -44,6 +44,8 @@
 		\def\Wjets{W+jets }%
 		\def\DY{Z/gamma* }%
 		\def\ggH{ggH }%
+		\def\Wgamma{Wgamma }%
+		\def\Wgstar{Wgamma* }%
 	}%
 }{}
 
