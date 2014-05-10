@@ -80,11 +80,9 @@ extrapolated to the signal region (SR) using MC
 	N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,SR}} &= \alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} \cdot \parenths{N^{\text{data,CR}} - N_{\text{non-}\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,CR}}} \\
 	\alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} &= N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,SR}} / N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,CR}} \,.
 \end{equation}
-A control region is defined for each jet bin in the \emch/\mech channels, as shown in 
-\Table~\ref{tab:dytt_cr_sel}. These are used to extrapolate to the respective signal 
-regions, for all channels.
-
-\todo[inline]{Plot CR}
+Jet-binned CRs are defined in the \emch{}+\mech channel, according to the event selection 
+criteria in \Table~\ref{tab:dytt_cr_sel}. This \emch{}+\mech CR is used to extrapolate to 
+each of the \emch/\mech/\eech/\mmch SRs.
 
 \begin{table}[t]
 	\begin{tabularx}{0.7\textwidth}{YYY}
@@ -112,8 +110,24 @@ regions, for all channels.
 	\label{tab:dytt_cr_sel}
 \end{table}
 
-The corresponding normalisation factors are \stat{1.01}{0.02} in the 0-jet bin, 
-\stat{1.08}{0.04} in the 1-jet bin, and \stat{1.05}{0.10} in the \twojet bin.
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutZttControl_0jet_MT_TrackHWW_Clj_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutZttControl_1jet_MT_TrackHWW_Clj_mh125_lin}
+	\\
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutFailVBFZttCR_2jetincl_MT_TrackHWW_Clj_mh125_lin}
+	\caption{The \mt distribution in the \DYtt control regions of the 0-jet (left), 1-jet 
+	(right) and \twojet (bottom) bins. Normalisation factors are applied.}
+	\label{fig:dytt:cr}
+\end{figure}
+
+To estimate the \DYtt background in regions other than the SR, the method is viewed as 
+providing a simple data-driven normalisation factor. This is equivalent to neglecting the 
+extrapolation uncertainties, but is helpful when plotting observables. The normalisation 
+factors are measured to be \stat{1.01}{0.02} in the 0-jet bin, \stat{1.08}{0.04} in the 1-jet 
+bin, and \stat{1.05}{0.10} in the \twojet bin\todo{update}. \Figure~\ref{fig:dytt:cr} 
+exhibits the excellent MC modelling of this background, following application of the 
+normalisation factors.
 
 
 
@@ -157,11 +171,11 @@ markedly different \frecoil shape of the \DYll background to estimate its contri
 the \eech/\mmch signal regions.
 
 \begin{figure}[t]
-	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/frecoil_0jet}
 	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/motivation/sombrero_comical}
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/frecoil_1jet}
 	\caption{\frecoil shape in the 0-jet (left) and 1-jet (right) signal regions of the 
-	\eech/\mmch channels, excluding the \frecoil cut itself. The non-\DYll backgrounds 
+	\eech/\mmch channels, excluding the \frecoil cut itself. The other backgrounds 
 	are modelled by data-driven methods described elsewhere, while the \DYll and signal 
 	processes are described by MC.}
 	\label{fig:dy:frecoil_shape}

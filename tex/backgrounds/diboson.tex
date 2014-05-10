@@ -119,13 +119,62 @@ $p_{\text{T,\Pe}}$ and so a conversion systematic uncertainty is derived: 25\% f
 \subsection{\WZ and \Wgstar}
 \label{sec:diboson:wgstar}
 
-% separated into 2 samples
-% WZ K-factor from MCFM
-% Wgstar difficult to simulate low mass, must extrapolate K-factor
-% usual stuff from theory note
-% Wgstar VR
+Both the \WZ and \Wgstar processes result in a \HepProcess{\Plepton\Pnu\Plepton'\Plepton'} 
+final state, which peaks in $m_{\HepProcess{\Plepton'\Plepton'}}$ at \mZ and $2m_{\Plepton'}$ 
+respectively (due to the different \PZ and \Pphoton propagators). Their interference at 
+intermediate $m_{\HepProcess{\Plepton'\Plepton'}}$ is non-negligible, and so these processes 
+are generated together.
 
-\begin{figure}[p]
+It is technically difficult to generate MC events with very low 
+$m_{\HepProcess{\Plepton'\Plepton'}}$. For this reason, the phase space is generated in two 
+parts: high mass ``\WZ'' events with \unit{$m_{\HepProcess{\Plepton'\Plepton'}} > 7$}{\GeV} 
+and low mass ``\Wgstar'' events with 
+\unit{$m_{\HepProcess{\Plepton'\Plepton'}} < 7$}{\GeV}.\footnote{
+	It is these ``\WZ'' and ``\Wgstar''	MC samples that are referred to as the \WZ and 
+	\Wgstar backgrounds, though each sample contains both the \WZ and \Wgstar processes.
+}
+In ambiguous cases ($\Plepton = \Plepton'$), the lowest mass opposite-sign same-flavour 
+dilepton pair is used to split the phase space. \WZ is modelled at NLO by 
+\meps{\powhegbox}{\pythia{8}}.
+
+\Wgstar is technically difficult to model because it involves integrating over a phase space 
+with extremely low mass; the threshold for production is $m_{\HepProcess{\Plepton'\Plepton'}} 
+= 2m_{\Plepton'}$, which is \unit{1.022}{\MeV} for \HepProcess{\Plepton\Pnu\Pe\Pe}.
+In previous analysis iterations, \Wgstar was modelled by \meps{\madgraph}{\pythia{6}} 
+\cite{HWW-Moriond}. However, this implementation failed to produce gauge-invariant 
+results when $m_{\HepProcess{\Plepton'\Plepton'}} \ll \Gamma_{\PW}$ \cite{MadGraph:Wgstar}, 
+yielding wildly unphysical events in this region of phase space (\eg leptons with 
+\unit{\pt~\about~1}{\TeV}). In an attempt to resolve this problem, events with 
+\unit{$m_{\HepProcess{\Plepton'\Plepton'}} < 3$}{\MeV} were removed from the MC sample, and 
+events with \unit{3}{\MeV} $< m_{\HepProcess{\Plepton'\Plepton'}} <$ \unit{10}{\MeV} were 
+reweighted in order to recover the cross section. Even with this fix, this background was 
+associated with a modelling uncertainty of 40\% (evaluated by comparing to \sherpa).
+
+\sherpa can produce gauge-invariant results for the full mass range, since it employs a 
+complex mass scheme \cite{Sherpa:Wgstar}. A simple LO \sherpa sample was found to 
+underestimate the \Wgstar background because it mismodels the FSR phase space with 
+$p_{\text{T,\HepProcess{\Plepton'\Plepton'}}} > \mW/2$. For this reason, \Wgstar is modelled 
+by \sherpa ME-PS merging with up to one additional parton (see \Section~\ref{sec:mc:merging}).
+It was technically not possible to include further partons in the ME-PS merging over the 
+full mass range.
+
+The \sherpa sample is normalised using an NLO $K$-factor of $0.94\pm0.07\,\text{(scale)}$, 
+calculated with \mcfm. Due to technical limitations, this was calculated in a high mass 
+region \unit{$m_{\HepProcess{\Plepton'\Plepton'}} > 0.5$}{\GeV} and then extrapolated down in 
+mass. It was also calculated following the \unit{$\ptleadlep > 22$}{\GeV} and 
+\unit{$\ptsubleadlep > 10$}{\GeV} criteria.
+
+Since the \Wgstar acceptance of the lepton \pt criteria are strongly related to \njets and 
+because the \HWW analysis itself is jet binned, the jet multiplicity distribution must be 
+well modelled. For this reason, the \njets distribution is reweighted to that of a \sherpa 
+ME-PS merged sample with up to two additional partons, using corrections of 
+$0.91\pm0.06\,\text{(scale)}$ in the 0-jet bin, $1.09\pm0.33\,\text{(scale)}$ in the 1-jet 
+bin, and $2.0\pm0.5\,\text{(scale)}$ in the \twojet bin. Again, due to technical limitations, 
+this was calculated in a high mass region \unit{$m_{\HepProcess{\Plepton'\Plepton'}} > 
+0.5$}{\GeV} and then extrapolated down in mass. It was also calculated following the 
+\unit{$\ptleadlep > 22$}{\GeV} and \unit{$\ptsubleadlep > 10$}{\GeV} criteria.
+
+\begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/backgrounds/Wgstar/em_CutDPhiMax_lepPtSublead_zoom_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/backgrounds/Wgstar/em_CutDPhiMax_Mll_mh125_lin}
@@ -133,12 +182,61 @@ $p_{\text{T,\Pe}}$ and so a conversion systematic uncertainty is derived: 25\% f
 	\includegraphics[width=0.495\textwidth]{tex/backgrounds/Wgstar/em_CutDPhiMax_MT_TrackHWW_Clj_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/backgrounds/Wgstar/em_CutDPhiMax_m_jet_n_mh125_lin}
-	\caption{}
+	\caption{The \ptsubleadlep (top left), \mll (top right), \mt (bottom left) and \njets 
+	(bottom right) distributions in the \Wgstar validation region. Leptonic observables are 
+	defined with the electron and the leading muon.}
 	\label{fig:wgstar:vr}
 \end{figure}
+
+The \Wgstar modelling is tested in a \HepProcess{\Wgstar \HepTo \Pe\Pnu\Pmu\Pmu} validation 
+region (VR). Since $\Delta R\parenths{\Pmu,\Pmu}$ is generally small, the muon isolation 
+criteria are altered: tracks associated with other muons are removed from the 
+$p_{\text{T}}^{\text{cone}}$ definition, and the calorimeter isolation is loosened to 
+$\etcone{0.3}/\pt < 0.4$ for \unit{$\pt < 15$}{\GeV} (\cf \Section~\ref{sec:objects:muons}). 
+Events are selected with \unit{$p_{\text{T,\Pe}} > 22$}{\GeV}, 
+\unit{$p_{\text{T,\Pmu}}^{\text{lead}} > 10$}{\GeV} and 
+\unit{$p_{\text{T,\Pmu}}^{\text{sublead}} > 3$}{\GeV}. 
+Then, the VR is defined by \unit{$m_{\HepProcess{\Pmu\Pmu}} < 7$}{\GeV}, 
+\unit{$\mods{m_{\HepProcess{\Pmu\Pmu}} - m_{\PJpsi}} > 100$}{\MeV}, 
+\unit{$\metrel > 20$}{\GeV} and $\max\parenths{\dphill} < 2.8$.
+The experimental data in the VR is well described by \sherpa, as seen in 
+\Figure~\ref{fig:wgstar:vr}, and supports the normalisation used. It appears that \njets is 
+underestimated, though this effect is within theoretical uncertainties (which are not shown 
+in \Figure~\ref{fig:wgstar:vr}).
+
+It should be noted that the \Wgstar VR does not test the modelling of 
+\HepProcess{\Wgstar \HepTo \Plepton\Pnu\Pe\Pe}, which can contribute background events via an 
+additional mechanism: both electrons can be reconstructed as a single electron when 
+$\Delta R\parenths{\Pe,\Pe}$ is very small. However, the good agreement in the same-sign 
+control region suggests that this is well modelled.
+
 
 
 \subsection{\ZZ and \Zgstar}
 \label{sec:diboson:zz}
 
-% Zg* used in electroweak subtraction when calculating Z+jet fake factor
+Similar to \Section~\ref{sec:diboson:wgstar}, the \ZZ and \Zgstar processes share a 
+\HepProcess{\Plepton\Plepton\Plepton'\Plepton'} final state, and are modelled together in 
+order to include their interference. Again, the phase space is split: high mass 
+``\ZZ'' events with \unit{$m_{\HepProcess{\Plepton\Plepton}} > 4$}{\GeV} and 
+\unit{$m_{\HepProcess{\Plepton'\Plepton'}} > 4$}{\GeV}, and low mass ``\Zgstar'' events with 
+\unit{$m_{\HepProcess{\Plepton\Plepton}} > 4$}{\GeV} and 
+\unit{$m_{\HepProcess{\Plepton'\Plepton'}} < 4$}{\GeV}.\footnote{
+	It is these ``\ZZ'' and ``\Zgstar''	MC samples that are referred to as the \ZZ and 
+	\Zgstar backgrounds, though each sample contains both the \ZZ and \Zgstar processes.
+}
+The corresponding ``\HepProcess{\Pgammastar\Pgammastar}'' process is not modelled due to 
+technical limitations. In ambiguous cases ($\Plepton = \Plepton'$), the lowest mass 
+opposite-sign same-flavour dilepton pair is used to split the phase space.
+
+\ZZ is modelled at NLO by \meps{\powhegbox}{\pythia{8}} and the NNLO \ggZZ diagrams are also 
+modelled by \meps{\ggtozz}{\fherwig}. \Zgstar is modelled by \sherpa and is normalised to the 
+NLO cross section calculated with \mcfm. As in \Section~\ref{sec:diboson:wgstar}, this 
+$K$-factor is calculated at high $m_{\HepProcess{\Plepton'\Plepton'}}$ and extrapolated to 
+low $m_{\HepProcess{\Plepton'\Plepton'}}$.
+
+Neither background contributes significantly to the signal region. However, it is important 
+to model the \Zgstar background in the \Zgamma validation region (see 
+\Section~\ref{sec:diboson:wgamma}) and when measuring the \Zjets fake factor (see 
+\Section~\ref{sec:wjets:zjet_ff}).
+
