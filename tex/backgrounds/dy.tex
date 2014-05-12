@@ -12,11 +12,11 @@ doubly suppressed by the small $\text{BR}\parenths{\HepProcess{\Ptau \HepTo
 \Plepton\Pnulepton\Pnut}} = 17.6\%$ \cite{PDG:2012}.
 
 Although \DYll does not feature prompt neutrinos, degradation of the \met resolution due 
-to high pile-up can cause some \DYll events to exhibit significant \met. Since this is a 
-difficult effect to model and \DYll is the dominant background to the \eech/\mmch 
-channels, a high threshold of \unit{$\metrel > 40$}{\GeV} is used in the pre-selection. 
-This is further tightened by tracker-based \trackmetrel cuts. On the other hand, \DYtt 
-does feature prompt neutrinos and is suppressed by other cuts, such as the \mtautau veto.
+to high pile-up can cause some \DYll events to exhibit significant \met. Since \DYll is the 
+dominant background in the \eech/\mmch channels, a high threshold of 
+\unit{$\metrel > 40$}{\GeV} is used in the pre-selection, which is further tightened by 
+tracker-based \trackmetrel cuts. On the other hand, \DYtt does feature prompt neutrinos and 
+is suppressed by other cuts, such as the \mtautau veto.
 
 The \DY backgrounds are estimated by data-driven techniques, in combination with MC 
 modelling provided by \meps{\alpgen}{\fherwig}. Overlap between the \DY MC and the 
@@ -29,21 +29,12 @@ modelling provided by \meps{\alpgen}{\fherwig}. Overlap between the \DY MC and t
 
 Selecting \eech/\mmch events with \unit{$\mods{\mll - \mZ} < 15$}{\GeV} results in a very 
 pure sample of \DYll events, enabling the MC to be validated. In doing so, the \ptll 
-distribution is found to be poorly modelled at \unit{$\ptll > 30$}{\GeV} in the 0-jet 
-bin (see \Figure~\ref{fig:dy:ptZ_reweight}), despite being well modelled inclusively. 
-This is unsurprising since a difficult phase space, sensitive to soft hadronic activity 
-and jet shapes, has been selected: requiring a highly boosted \DY boson whilst vetoing 
-events with jets. It is important to model \ptll accurately, as other observables such as 
-\dphill and \ptleadlep are correlated.
-
-For this reason, a data-driven correction to the \ptZ distribution is employed. It is 
-derived in \mmch 0-jet events with \unit{$\mods{\mll - \mZ} < 15$}{\GeV}, by 
-comparing the \ptll distribution observed in experimental data to that predicted by 
-uncorrected MC. Each 0-jet MC event is then weighted according to its hadron-level \ptZ. 
-This is found to improve the modelling of detector-level observables such as \ptll, 
-\dphill and \ptleadlep (see \Figure~\ref{fig:dy:ptZ_reweight}). This correction is 
-applied to the \HepProcess{\DY \HepTo \Pe\Pe/\Pmu\Pmu/\Ptau\Ptau} processes, though only 
-to the 0-jet bin.
+distribution is found to be poorly modelled in the 0-jet bin for \unit{$\ptll > 30$}{\GeV} 
+(see \Figure~\ref{fig:dy:ptZ_reweight}), despite being well modelled inclusively. 
+This is unsurprising: by vetoing events with jets whilst requiring a highly boosted \DY 
+boson, we have selected a difficult phase space to model, sensitive to soft hadronic 
+activity and jet shapes. It is important to model \ptll accurately, as other observables 
+such as \dphill and \ptleadlep are correlated.
 
 \begin{figure}[p]
 	\includegraphics[width=0.48\textwidth]{tex/backgrounds/ZpT-off/eemm_CutZControl_0jet_Ptll_mh125_log}
@@ -62,12 +53,21 @@ to the 0-jet bin.
 	\label{fig:dy:ptZ_reweight}
 \end{figure}
 
+For this reason, a data-driven correction to the \ptZ distribution is employed. It is 
+derived by comparing the observed and predicted \ptll distributions in 0-jet \mmch events 
+with \unit{$\mods{\mll - \mZ} < 15$}{\GeV}. The \ptZ distribution in MC is then multiplied 
+by this \ptll correction. This is found to improve the modelling of detector-level 
+observables such as \ptll, \dphill and \ptleadlep (see \Figure~\ref{fig:dy:ptZ_reweight}). 
+This correction is applied to the \HepProcess{\DY \HepTo \Pe\Pe/\Pmu\Pmu/\Ptau\Ptau} 
+processes, though only in the 0-jet bin.
+
 The \ptZ mismodelling might be different in the signal region to the \PZ control region 
 where it is derived. The validity of this extrapolation of the correction was tested by 
-deriving similar corrections to \sherpa (instead of experimental data). This indicated 
-there is a correlation between the correction and the \met requirement. Thus, another 
-correction is derived with an additional \unit{$\corrtrackmet > 20$}{\GeV} cut, which is 
-used to estimate the uncertainty in the correction.
+deriving similar corrections to a \sherpa sample (instead of to experimental data). This 
+indicated there is a correlation between the correction and the \met requirement. Thus, 
+another data-driven correction is derived with an additional 
+\unit{$\corrtrackmet > 20$}{\GeV} cut, which is used to estimate the uncertainty in the 
+correction.
 
 
 
@@ -80,9 +80,17 @@ extrapolated to the signal region (SR) using MC
 	N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,SR}} &= \alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} \cdot \parenths{N^{\text{data,CR}} - N_{\text{non-}\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,CR}}} \\
 	\alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} &= N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,SR}} / N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,CR}} \,.
 \end{equation}
-Jet-binned CRs are defined in the \emch{}+\mech channel, according to the event selection 
-criteria in \Table~\ref{tab:dytt_cr_sel}. This \emch{}+\mech CR is used to extrapolate to 
-each of the \emch/\mech/\eech/\mmch SRs.
+CRs are defined in each jet bin of the \emch{}+\mech channel, according to the event 
+selection criteria in \Table~\ref{tab:dytt_cr_sel}. Each \emch{}+\mech CR is used to 
+extrapolate to the corresponding jet-binned \emch/\mech/\eech/\mmch SRs.
+
+To estimate the \DYtt background in regions other than the SR, the method is viewed as 
+providing a simple data-driven normalisation factor. This is equivalent to neglecting the 
+extrapolation uncertainties, but is helpful when plotting observables. The normalisation 
+factors are measured to be \stat{1.01}{0.02} in the 0-jet bin, \stat{1.08}{0.04} in the 
+1-jet bin, and \stat{1.05}{0.10} in the \twojet bin\todo{update}. \Figure~\ref{fig:dytt:cr} 
+exhibits the excellent MC modelling of this background, following application of the 
+normalisation factors.
 
 \begin{table}[t]
 	\begin{tabularx}{0.7\textwidth}{YYY}
@@ -105,29 +113,20 @@ each of the \emch/\mech/\eech/\mmch SRs.
 	\end{tabularx}
 	\caption{Event selection criteria of the \DYtt control regions. Cuts on energy, 
 	momentum and mass are given in \GeV, and angular cuts are given in radians. The 
-	relevant variables are described in 
-	\Chapter~\ref{chap:selection}.}
+	relevant observables are described in \Chapter~\ref{chap:selection}.}
 	\label{tab:dytt_cr_sel}
 \end{table}
 
 \begin{figure}[t]
-	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutZttControl_0jet_MT_TrackHWW_Clj_mh125_lin}
+	\includegraphics[width=0.48\textwidth]{tex/backgrounds/emme_CutZttControl_0jet_MT_TrackHWW_Clj_mh125_lin}
 	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutZttControl_1jet_MT_TrackHWW_Clj_mh125_lin}
+	\includegraphics[width=0.48\textwidth]{tex/backgrounds/emme_CutZttControl_1jet_MT_TrackHWW_Clj_mh125_lin}
 	\\
-	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutFailVBFZttCR_2jetincl_MT_TrackHWW_Clj_mh125_lin}
+	\includegraphics[width=0.48\textwidth]{tex/backgrounds/emme_CutFailVBFZttCR_2jetincl_MT_TrackHWW_Clj_mh125_lin}
 	\caption{The \mt distribution in the \DYtt control regions of the 0-jet (left), 1-jet 
 	(right) and \twojet (bottom) bins. Normalisation factors are applied.}
 	\label{fig:dytt:cr}
 \end{figure}
-
-To estimate the \DYtt background in regions other than the SR, the method is viewed as 
-providing a simple data-driven normalisation factor. This is equivalent to neglecting the 
-extrapolation uncertainties, but is helpful when plotting observables. The normalisation 
-factors are measured to be \stat{1.01}{0.02} in the 0-jet bin, \stat{1.08}{0.04} in the 1-jet 
-bin, and \stat{1.05}{0.10} in the \twojet bin\todo{update}. \Figure~\ref{fig:dytt:cr} 
-exhibits the excellent MC modelling of this background, following application of the 
-normalisation factors.
 
 
 
@@ -136,21 +135,21 @@ normalisation factors.
 
 \DYll is the dominant background to the \eech/\mmch channels, and this section will 
 describe how it is estimated in the corresponding 0-jet and 1-jet bins (the \twojet bin 
-is unused in the \eech/\mmch channels).
+is not used in the \eech/\mmch channels).
 
 \DYll is largely rejected by the \PZ boson mass veto, 
 \unit{$\mods{\mll - \mZ} > 15$}{\GeV}, and the requirement of large missing transverse 
 momentum, \unit{$\metrel > 40 (40)$}{\GeV} and \unit{$\trackmetrel > 40 (35)$}{\GeV} in 
 the 0-jet (1-jet) bin. Although the \met resolution is broadened by pile-up, for 
-surviving events to possess such high \metrel and \trackmetrel suggests some mismeasured 
-hadronic activity recoiling against the dilepton (+ jet) system. This is also enhanced 
-by the \unit{$\ptll > 30$}{\GeV} cut in the 0-jet bin.
+events to possess such high \metrel and \trackmetrel suggests there is some mismeasured 
+hadronic activity recoiling against the dilepton (+ jet) system. This situation is also 
+enhanced by the \unit{$\ptll > 30$}{\GeV} cut in the 0-jet bin.
 
 This hadronic recoil must be soft and broad in order to avoid passing the jet 
 reconstruction, and might not be modelled accurately. It is therefore preferable to use 
 a data-driven estimation of this background. Fortunately, the \frecoil observable 
 (described below) can discriminate \DYll from other processes in this phase space, and 
-can simultaneously be used to suppress and estimate the \DYll background.
+can be used to simultaneously suppress and estimate the \DYll background.
 
 First, soft jets with \unit{$\pt > 10$}{\GeV} and $\mods{\eta} < 4.5$ are found, 
 following the jet selection detailed in \Section~\ref{sec:objects:jets} minus the JVF 
@@ -159,10 +158,11 @@ cut. In the 0-jet bin, \frecoil is defined by
 	\frecoil = \left. \mods{\sum\limits_{j\text{ in }\wedge} \text{JVF}_{j} \cdot \bvec{p}_{\text{T,}j}} \, \middle/ \ptll \right.
 	\label{eq:dy:frecoil}
 \end{equation}
-where $\wedge$ is the detector quadrant centred on $-\ptllvec$. This is the fraction of 
-\ptll that can be balanced by soft hadronic activity in the opposing quadrant. 
-In the 1-jet bin, it is the dilepton + jet system that must be balanced, and thus the 
-quadrant $\wedge$ is centred upon $-\ptlljvec$ and the denominator becomes \ptllj.
+where $\wedge$ is the detector quadrant centred on $-\ptllvec$. Approximately speaking, 
+this is the fraction of \ptll that can be balanced by soft hadronic activity in the 
+opposing quadrant. In the 1-jet bin, it is the dilepton + jet system that must be balanced, 
+and thus the quadrant $\wedge$ is centred upon $-\ptlljvec$ and the denominator becomes 
+\ptllj.
 
 The tight \met criteria sculpt \frecoil in \DYll towards higher values, whereas the other 
 background processes (and signal) feature high-\pt neutrinos and peak at lower values 
@@ -175,9 +175,9 @@ the \eech/\mmch signal regions.
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/backgrounds/frecoil_1jet}
 	\caption{\frecoil shape in the 0-jet (left) and 1-jet (right) signal regions of the 
-	\eech/\mmch channels, excluding the \frecoil cut itself. The other backgrounds 
-	are modelled by data-driven methods described elsewhere, while the \DYll and signal 
-	processes are described by MC.}
+	\eech/\mmch channels, excluding the \frecoil cut itself. The \Wjets and dijet 
+	backgrounds are data-driven and all other processes are described by MC. Error bars 
+	show statistical uncertainties.}
 	\label{fig:dy:frecoil_shape}
 \end{figure}
 
@@ -199,7 +199,7 @@ methods described below.
 $\mathcal{T}^{\text{pred,SR,SF}}_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}$ 
 is determined from the observed distribution in different-flavour (DF) events, \ie the 
 \emch/\mech channels, $\mathcal{T}^{\text{data,SR,DF}}$. Note that this DF distribution 
-is measured in the SR defined by SF event selection criteria. In doing this, the 
+is measured in the SR defined by the SF event selection criteria. In doing this, the 
 normalisation factor $K^{\text{fit}}_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}$ 
 becomes an extrapolation parameter 
 $\alpha_{\text{non-}\HepProcess{\PZ\HepTo\Plepton\Plepton}}^{\text{fit}}$ from DF to SF. 
@@ -208,7 +208,7 @@ the composition of the other processes is consistent between DF and SF events.
 
 $\mathcal{T}^{\text{pred,SR,SF}}_{\HepProcess{\PZ\HepTo\Plepton\Plepton}}$ is determined 
 from the SF distribution measured in a \DYll control region (CR) 
-$\mathcal{T}^{\text{data,SR,DF}}$. The CR is defined by the same selection criteria as 
+$\mathcal{T}^{\text{data,CR,SF}}$. The CR is defined by the same selection criteria as 
 the SR, except that the \unit{$\mll < 55$}{\GeV} criteria becomes 
 \unit{$\mods{\mll - \mZ} < 15$}{\GeV}. As the \met and \ptll criteria remain in the CR 
 definition, \frecoil is sculpted similarly to the SR. However, this also means that the 
@@ -233,7 +233,8 @@ The final event selection criterion in the \eech/\mmch channels is $\frecoil < 0
 efficiency of this cut for both \DYll and other processes is inherently predicted by the 
 template method. To simplify matters, the templates are reduced to two bins: 
 $\frecoil < 0.1$ and $\frecoil > 0.1$. With two bins and two free parameters 
-$\alpha^{\text{fit}}_i$, the system can be solved exactly. The dominant uncertainty in 
+$\alpha^{\text{fit}}_i$, the system can be solved exactly: instead of fitting the \frecoil 
+shape, the method estimates the efficiency of the \frecoil cut. The dominant uncertainty in 
 the 0-jet \DYll estimation arises from correlations between \frecoil and \mll, and is 
 evaluated with MC to be 32\%. The 1-jet bin is dominated by statistical uncertainties.
 

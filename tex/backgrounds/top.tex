@@ -1,10 +1,20 @@
 %!TEX root = ../../thesis.tex
 
-The \ttbar and \HepProcess{\PW\Ptop} processes are irreducible backgrounds, in that they 
-both exhibit the opposite-sign dilepton + \met experimental signature. However, these 
-events can be identified by their one (\HepProcess{\PW\Ptop}) or two (\ttbar) 
-\Pbottom-jets. The top background is therefore discriminated by the jet binning, and is 
-suppressed via the veto upon \Pbottom-tagged jets.
+The leading and subleading contributions to the top background are the \ttbar and 
+\HepProcess{\PW\Ptop} processes, respectively. These are irreducible backgrounds, in that 
+they both exhibit the opposite-sign dilepton + \met experimental signature. This occurs via 
+top decays $\text{BR}\parenths{\HepProcess{\Ptop \HepTo \PW\Pbottom}} \approx 100\%$ 
+(occurs before hadronisation) and leptonic \PW boson decays.
+
+Considering \HepProcess{\ttbar \HepTo \PW\PW\Pbottom\Pbottom} and \HepProcess{\PW\Ptop 
+\HepTo \PW\PW\Pbottom}, it is clear that top events feature one or two \Pbottom-jets. This 
+motivates the jet binning of the \HWW analysis (see \Figure~\ref{fig:sel:njets}), using 
+jets with a \pt threshold of \unit{25(30)}{\GeV} in the central (forward) region (see 
+\Section~\ref{sec:objects:jets}). The top background is further discriminated by counting 
+the number of \Pbottom-tagged jets with \unit{$\pt > 20$}{\GeV} in the central region, 
+using an algorithm with a tagging efficiency of 85\% (see \Section~\ref{sec:objects:bjets}).
+In the 1-jet and \twojet bins, the top background is suppressed by vetoing events with 
+\Pbottom-tagged jets.
 
 \ttbar, \HepProcess{\PW\Ptop} and $s$-channel single top are modelled by 
 \meps{\powhegbox}{\pythia{6}}, while $t$-channel single top is modelled by 
@@ -17,118 +27,165 @@ estimate this background.
 \subsection{0-jet bin estimation}
 \label{sec:top:0j}
 
-The jet veto is very effective at rejecting the top background. As the jet veto 
-efficiency $\epsilon_0$ has large modelling uncertainties, the \textit{jet veto survival 
-probability method} is employed to improve its estimation using experimental data.
+In the 0-jet bin, the top background is very small because both \Pbottom-jets must fail the 
+jet selection. It is estimated by the data-driven \textit{jet veto survival probability 
+method} since the jet veto efficiency $\epsilon_0$ has large uncertainties.
 
 An extended signal region (ESR) is defined by the pre-selection in 
-\Section~\ref{sec:selection:presel} and a $\dphill < 2.8$ cut, and it is in the ESR that 
-the jet veto is applied. Thus, the aim is to estimate the number of events passing the 
-jet veto $N_{\text{top}}^{\text{pred,ESR,0j}}$, and then extrapolate to the 0-jet signal 
-region (SR) with MC
+\Section~\ref{sec:selection:presel}, with an additional $\dphill < 2.8$ criterion to 
+suppress the \DYtt background. The aim is to estimate the number of events in the ESR 
+passing the jet veto $N_{\text{top}}^{\text{pred,ESR,0j}}$, and then extrapolate to the 
+0-jet signal region (SR) with MC
 \begin{equation}
 	N_{\text{top}}^{\text{pred,SR,0j}} &= \alpha_{\text{top}}^{\text{0j}} \cdot \epsilon_{\text{0,top}}^{\text{pred,ESR}} \cdot \parenths{N^{\text{data,ESR}} - N_{\text{non-top}}^{\text{pred,ESR}}} \\
-	\alpha_{\text{top}}^{\text{0j}} &= N_{\text{top}}^{\text{MC,SR,0j}} / N_{\text{top}}^{\text{MC,ESR,0j}} \,.
+	\alpha_{\text{top}}^{\text{0j}} &= N_{\text{top}}^{\text{MC,SR,0j}} / N_{\text{top}}^{\text{MC,ESR,0j}}
 \end{equation}
-\Figure~\ref{fig:sel:njets} shows that the ESR is dominated by top background in the 
-\emch/\mech channels, but by \DYll in the \eech/\mmch channels. For this reason, the top 
-normalisation is derived from the \emch/\mech channels and extrapolated to the 
-\eech/\mmch channels by a dedicated $\alpha_{\text{top}}^{\text{0j}}$ parameter.
+where $\epsilon_{0}$ is the jet veto efficiency. \Figure~\ref{fig:sel:njets} shows that, 
+after pre-selection, top dominates the \emch/\mech channels, but \DYll dominates the 
+\eech/\mmch channels. For this reason, the top normalisation is derived from a combined 
+\emch{}+\mech channel and extrapolated to each \emch/\mech/\eech/\mmch SR.
 
-The ESR is dominated by \ttbar events, which feature two \Pbottom-jets that must both 
-fail jet selection for the event to pass the jet veto. Since each \Pbottom-quark 
-originates from the decay of a top quark, the kinematic distributions of the two jets are 
-similar. Thus, it is possible to make the approximation $\epsilon_{\text{0,top}} = 
-\epsilon_{\text{1,top}}^2$, where $\epsilon_{\text{1,top}}$ is the second jet veto 
-efficiency. This $\epsilon_{\text{1,top}}$ is experimentally measured in a top control 
-region (CR) and is used to correct the $\epsilon_{\text{0,top}}$ modelled by MC:
+The ESR is dominated by \ttbar events featuring two \Pbottom-jets. Since each 
+\Pbottom-quark originates from the decay of a top quark, the kinematic distributions of the 
+two jets are similar. Thus, it is possible to make the approximation 
+$\epsilon_{\text{0,top}} = \epsilon_{\text{1,top}}^2$, where $\epsilon_{1}$ is the veto 
+efficiency of a second jet. This $\epsilon_{\text{1,top}}$ is experimentally measured in a 
+high-purity top control region (CR) and is used to correct the $\epsilon_{\text{0,top}}$ 
+modelled by MC in the ESR:
 \begin{equation}
-	\epsilon_{\text{0,top}}^{\text{pred,ESR}} &= \epsilon_{\text{0,top}}^{\text{MC,ESR}} \parenths{\frac{\epsilon_{1}^{\text{data,CR}}}{\epsilon_{\text{1,top}}^{\text{MC,CR}}}}^{\!\!2} \,.
+	\epsilon_{\text{0,top}}^{\text{pred,ESR}} &= \epsilon_{\text{0,top}}^{\text{MC,ESR}} \parenths{\frac{\epsilon_{1}^{\text{data,CR}}}{\epsilon_{\text{1,top}}^{\text{MC,CR}}}}^{\!\!2} \,. \label{eq:jvsp}
 \end{equation}
-The CR is defined to ensure high top purity, by requiring a single \Pbottom-tagged jet 
-relative to the ESR. Contributions from other top diagrams are found to not invalidate 
-this approximation.
+The top CR requires at least one \Pbottom-tagged jet with \unit{$\pt > 25$}{\GeV}, relative 
+to the ESR. Then $\epsilon_{\text{1,top}}^{\text{data,CR}}$ is measured by counting the 
+fraction of CR events with zero additional jets. These are defined as jets with 
+$\Delta R > 1$ from the highest scoring \Pbottom-tagged jet (see \Figure~\ref{fig:top:jvsp}). It is found that (\ref{eq:jvsp}) is not invalidated by contributions from other top 
+processes and jets other than the two \Pbottom-jets.
 
-The background estimation can be expressed as a normalisation factor with respect to the 
-MC-only estimation. In the 0-jet bin, this is found to be \stat{1.115}{0.031}.
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutTopControl_AddTrackMET_nJets_probing_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutTopControl_AddTrackMET_MT_TrackHWW_Clj_mh125_lin}
+	\caption{The number of additional jets (left) and the \mt distribution (right) in the 
+	top control region used by the jet veto survival probability method. The fraction of 
+	events with zero additional jets is $\epsilon_{\text{1,top}}^{\text{data,CR}}$, as 
+	described in the text.}
+	\label{fig:top:jvsp}
+\end{figure}
 
-% uncertainties in predicted jet veto efficiency and alpha
+The total uncertainties in the expected 0-jet top background is \about8.2\%, dominated by 
+theoretical uncertainties in the extrapolation $\alpha_{\text{top}}^{\text{0j}}$ and 
+JES/JER uncertainties in the predicted jet veto efficiency 
+$\epsilon_{\text{0,top}}^{\text{pred,ESR}}$.
+
+To estimate the top background in 0-jet regions other than the SR, the method is viewed as 
+providing a simple data-driven normalisation factor. This is equivalent to neglecting the 
+extrapolation uncertainties, but is helpful when plotting observables. The normalisation 
+factor is measured to be \stat{1.115}{0.031}\todo{update}.
 
 
 
 \subsection{1-jet bin estimation}
 \label{sec:top:1j}
 
-The top background in the 1-jet bin is suppressed by removing events with a 
-\Pbottom-tagged jet with \unit{$\pt > 20$}{\GeV}. Thus, the \textit{jet \Pbottom-tagging 
-efficiency extrapolation method} is used to accurately estimate the \Pbottom-tagging 
-efficiency of jets in such events. 
+In the 1-jet bin, the top background is suppressed by removing events with a 
+\Pbottom-tagged jet with \unit{$\pt > 20$}{\GeV}. Since the \Pbottom-tagging efficiency is 
+associated with large uncertainties, the data-driven \textit{jet \Pbottom-tagging 
+efficiency extrapolation method} is used to estimate this background.
 
-First, an extended signal region (ESR) is defined by the pre-selection in 
-\Section~\ref{sec:selection:presel}. As described in \Section~\ref{sec:selection:1j}, the 
-following two cuts are the 1-jet selection and the \Pbottom-jet veto. It is these two 
-cuts that introduce the largest uncertainties to the expected top background, and so the 
-aim is to estimate the accepted number of events 
-$N_{\text{top}}^{\text{pred,ESR,1j0\Pbottom}}$. 
-The extrapolation to the 1-jet signal region is then be estimated by MC
+An extended signal region (ESR) is defined by the pre-selection in 
+\Section~\ref{sec:selection:presel}. Since it is the $\njets = 1$ selection and the 
+\Pbottom-tagged jet veto that introduce the largest uncertainties to this background, the 
+aim of the method is to estimate the number of events accepted by these cuts 
+$N_{\text{top}}^{\text{pred,ESR,1j0\Pbottom}}$, and then extrapolate to the 1-jet signal 
+region (SR) with MC
 \begin{equation}
-	\alpha_{\text{top}}^{\text{1j}} = N_{\text{top}}^{\text{MC,SR,1j0\Pbottom}} / N_{\text{top}}^{\text{MC,ESR,1j0\Pbottom}} \,.
+	N_{\text{top}}^{\text{pred,SR,1j0\Pbottom}} &= \alpha_{\text{top}}^{\text{1j}} \cdot N_{\text{top}}^{\text{pred,ESR,1j0\Pbottom}} \\
+	\alpha_{\text{top}}^{\text{1j}} &= N_{\text{top}}^{\text{MC,SR,1j0\Pbottom}} / N_{\text{top}}^{\text{MC,ESR,1j0\Pbottom}} \,.
 \end{equation}
+The top normalisation is derived from a combined \emch{}+\mech channel and extrapolated to 
+each \emch/\mech/\eech/\mmch SR.
 
-The \Pbottom-tagging efficiency of jets in top events is measured in a high-purity top 
-control region (CR). This is defined after the ESR by requiring two jets, at least one of 
-which is \Pbottom-tagged. \todo{Check with Zhiqing exact CR definition}
-The \Pbottom-tagging efficiency $\varepsilon_{\Pbottom}$ is measured using a 
-tag-and-probe method, where the tag is a \Pbottom-tagged jet and the probe is the other 
-jet. However, $\varepsilon_{\Pbottom}$ is measured in 2-jet events but applied to 1-jet 
-events. To account for the corresponding bias, an MC-based correction is applied to the 
-measured \Pbottom-tagging efficiency
-\begin{equation}
-	\varepsilon_{\Pbottom}^{\text{pred,ESR,1j}} &= \frac{\varepsilon_{\Pbottom}^{\text{MC,ESR,1j}}}{\varepsilon_{\Pbottom}^{\text{MC,CR,2j}}} \cdot \varepsilon_{\Pbottom}^{\text{data,CR,2j}} \,.
-\end{equation}
-
-The region of the 1-jet ESR with a \Pbottom-tagged jet is highly dominated by top 
-background events. Then, the number of events passing the \Pbottom-jet veto 
-$N_{\text{top}}^{\text{pred,ESR,1j0\Pbottom}}$ can be estimated with 
-$\varepsilon_{\Pbottom}^{\text{pred,ESR,1j}}$. Finally, the expected top background to 
-the 1-jet signal region (SR) is
+In order to estimate $N_{\text{top}}^{\text{pred,ESR,1j0\Pbottom}}$, the number of 1-jet 
+events in the ESR with a \Pbottom-tagged jet $N^{\text{data,ESR,1j1\Pbottom}}$ is measured, 
+which is highly pure in top events (see \Figure~\ref{fig:top:jbee})\todo{Add systematics to 
+error band}. Then the non-top contamination is subtracted, and the \Pbottom-tagged jet 
+selection is inverted using the expected \Pbottom-tagging efficiency 
+$\varepsilon_{\Pbottom}^{\text{pred,ESR,1j}}$:
 \begin{equation}
 	N_{\text{top}}^{\text{pred,SR,1j0\Pbottom}} &= \alpha_{\text{top}}^{\text{1j}} \cdot \frac{1 - \varepsilon_{\Pbottom}^{\text{pred,ESR,1j}}}{\varepsilon_{\Pbottom}^{\text{pred,ESR,1j}}} \cdot \parenths{N^{\text{data,ESR,1j1\Pbottom}} - N_{\text{non-top}}^{\text{pred,ESR,1j1\Pbottom}}} \,.
 \end{equation}
-This method yields larger uncertainties in the \eech/\mmch channels than the \emch/\mech 
-channels. For this reason, the normalisation is taken from the \emch/\mech channels, and 
-an $\alpha_{\text{top}}^{\text{1j}}$ parameter extrapolates to the \eech/\mmch channels.
+It should be emphasised that $\varepsilon_{\Pbottom}$ is a per-jet efficiency, rather than 
+a per-event efficiency (\cf $\epsilon_0$). Also, $\varepsilon_{\Pbottom}$ is the average 
+\Pbottom-tagging efficiency for a jet in a top event, and will include non-\Pbottom-jets 
+(\ie it is a mixture of tagged \Pbottom-jets and mis-tagged other jets).
 
-The background estimation can be expressed as a normalisation factor with respect to the 
-MC-only estimation. In the 1-jet bin, this is found to be \stat{1.042}{0.025}.
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutMTW_1j_noSubBjet_Btagged_MT_TrackHWW_Clj_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutMTW_1j_noSubBjet_Btagged_Mll_mh125_lin}
+	\caption{The \mt (left) and \mll (right) distributions for events passing the 
+	pre-selection and containing 1 jet and 1 \Pbottom-tagged jet. The jet \Pbottom-tagging 
+	efficiency extrapolation method uses the top normalisation in this region and 
+	extrapolates to events with 0 \Pbottom-tagged jets. Normalisation factors are applied.}
+	\label{fig:top:jbee}
+\end{figure}
 
-% uncertainties
+The \Pbottom-tagging efficiency of jets in top events $\varepsilon_{\Pbottom}$ is measured 
+in a high-purity top control region (CR). These events pass the pre-selection (minus the 
+\corrtrackmet cut) and feature two jets, at least one of which is \Pbottom-tagged. 
+$\varepsilon_{\Pbottom}$ is then measured using a tag-and-probe method, where the tag is a 
+\Pbottom-tagged jet and the probe is the other jet. Since $\varepsilon_{\Pbottom}$ is 
+measured in 2-jet events but applied to 1-jet events, an MC-based correction is applied to 
+the measured \Pbottom-tagging efficiency
+\begin{equation}
+	\varepsilon_{\Pbottom}^{\text{pred,ESR,1j}} = \frac{\varepsilon_{\Pbottom}^{\text{MC,ESR,1j}}}{\varepsilon_{\Pbottom}^{\text{MC,CR,2j}}} \cdot \varepsilon_{\Pbottom}^{\text{data,CR,2j}} \,.
+	\label{eq:top:jbee}
+\end{equation}
+
+The total uncertainty in the expected 1-jet top background is \about6.8\%, dominated by 
+theoretical uncertainties in the MC-based correction to $\varepsilon_{\Pbottom}$ in 
+(\ref{eq:top:jbee}).
+
+To estimate the top background in 1-jet regions other than the SR, the method is viewed as 
+providing a simple data-driven normalisation factor. This is equivalent to neglecting the 
+extrapolation uncertainties, but is helpful when plotting observables. The normalisation 
+factor is measured to be \stat{1.042}{0.025}\todo{update}.
 
 
 
 \subsection{\twojet bin estimation}
 \label{sec:top:2j}
 
-As in the 1-jet bin, a \Pbottom-jet veto is employed to reject the majority of the top 
+As in the 1-jet bin, a veto on \Pbottom-tagged jets rejects the majority of the top 
 background. However, even after this veto, top remains the largest background in the 
-\twojet bin.
+\twojet bin. Fortunately, this enables a top control region (CR) to be defined which 
+includes the \Pbottom-tagged jet veto, greatly reducing the uncertainties due to 
+\Pbottom-tagging efficiencies.
 
-A simple data-driven estimation is used, whereby the top background is measured in a 
-reasonably pure top control region (CR), and is then extrapolated to the signal region 
-(SR) using MC
+The top CR is defined in a high-\mll region, similarly to the \WW CRs in the 0-jet and 
+1-jet bins. It is defined by the same criteria as the \twojet SR (minus the \mtautau, 
+\dphill and \VH cuts), but the \mll cut is changed to \unit{$\mll > 80$}{\GeV}. The 
+observed number of events is then extrapolated to the signal region (SR) using MC
 \begin{equation}
 	N_{\text{top}}^{\text{pred,SR}} &= \alpha_{\text{top}}^{\geq2\text{j}} \parenths{N^{\text{data,CR}} - N_{\text{non-top}}^{\text{pred,CR}}} \\
 	\alpha_{\text{top}}^{\geq2\text{j}} &= N_{\text{top}}^{\text{MC,SR}} / N_{\text{top}}^{\text{MC,CR}} \,.
 \end{equation}
-Since a large number of top events survive the \Pbottom-jet veto, it is possible to 
-include this cut in the top CR definition whilst maintaining a sufficiently small 
-statistical uncertainty in the background estimation. In doing so, systematic 
-uncertainties related to the \Pbottom-tagging efficiency are greatly reduced.
+The uncertainty is dominated by theoretical uncertainties in the extrapolation 
+$\alpha_{\text{top}}^{\geq2\text{j}}$.
 
-The top CR is defined in a high-\mll region, similarly to the \WW CRs in the 0-jet and 
-1-jet bins. It uses the pre-selection, $\njets \geq 2$, the \Pbottom-jet veto, the VBF 
-rejection criteria, and finally \unit{$\mll > 80$}{\GeV}. The agreement between 
-experimental data and MC simulation is shown in \Figure~\todo{fig}.
-This yields a normalisation factor of \stat{1.078}{0.030}.
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutFailVBFHighMllTopCR_2jetincl_MT_TrackHWW_Clj_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutFailVBFHighMllTopCR_2jetincl_DPhill_mh125_lin}
+	\caption{The \mt (left) and \dphill (right) distributions in the top control region of 
+	the \twojet bin. Normalisation factors are applied.}
+	\label{fig:top:2j}
+\end{figure}
 
+To estimate the top background in \twojet regions other than the SR, the method is viewed 
+as providing a simple data-driven normalisation factor. This is equivalent to neglecting 
+the extrapolation uncertainties, but is helpful when plotting observables. The 
+normalisation factor is measured to be \stat{1.078}{0.030}\todo{update}. 
+\Figure~\ref{fig:top:2j} shows the good description of experimental data in the CR, 
+after application of the normalisation factors.
 
