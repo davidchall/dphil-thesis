@@ -9,8 +9,8 @@
 4256 words in Chapter: \WW measurement and modelling
 6125 words in Chapter: Other backgrounds
 0 words in Chapter: Experimental results
-2646 words in Chapter: Conclusions
+2639 words in Chapter: Conclusions
 0 words in Chapter: Event yields of \HWW selection
 ::: Total :::
-Words: 30636
+Words: 30629
 Formulae: 76
