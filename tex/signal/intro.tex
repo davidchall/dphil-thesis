@@ -1,19 +1,22 @@
 %!TEX root = ../../thesis.tex
 
-Signal and background modelling is of utmost importance when designing a search strategy; 
-differences can be exploited to optimise the sensitivity. Whereas background modelling can 
-often be experimentally verified (and in some cases estimated by entirely data-driven 
-methods), the signal processes must rely purely upon theoretical models.
+This thesis describes a search for the ggF production mode (see \Figure~\ref{fig:sig:ggF}). 
+This exhibits large theoretical uncertainties due to higher order corrections,\footnote{
+	The poor convergence of the ggF perturbative series, with respect to similar 
+	\HepProcess{\Pquark\APquark}-initiated processes, is thought to be due to the larger 
+	colour factor of the gluon.
+}
+and so its cross section is calculated at NNLO+NNLL in QCD and NLO in EW (see 
+\Figure~\ref{fig:higgs_xs}). PDF uncertainties are also significant, since the low-$x$ gluon 
+is relatively poorly constrained (see \Figure~\ref{fig:qcd:pdf}). Calculations are also 
+sensitive to the treatment of quark masses in the loop.
 
-\begin{figure}[b]
+\Section~\ref{sec:ggf_jetbin} considers the significant theoretical issues introduced by the 
+jet binning of the analysis, and then the MC modelling of ggF is discussed in 
+\Section~\ref{sec:ggf_mc}.
+
+\begin{figure}[h]
 	\includegraphics[width=\mediumfigwidth]{axodraw/ggf_WWlvlv.pdf}
 	\caption{Leading order Feynman diagram for gluon-gluon fusion (ggF).}
 	\label{fig:sig:ggF}
 \end{figure}
-
-The analysis described in \Chapter~\ref{chap:selection} is designed to search for the 
-ggF production mode (see \Figure~\ref{fig:sig:ggF}), which exhibits large 
-theoretical uncertainties. \Section~\ref{sec:ggf_inc} briefly outlines the current 
-knowledge of the inclusive ggF cross section. The significant theoretical issues 
-introduced by jet vetoes are considered in \Section~\ref{sec:ggf_jetbin}. Uncertainties 
-related to the MC modelling of ggF are discussed in \Section~\ref{sec:ggf_mc}.
