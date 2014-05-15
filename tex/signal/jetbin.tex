@@ -1,20 +1,12 @@
 %!TEX root = ../../thesis.tex
 
-The analysis is jet-binned since the background composition strongly depends upon jet 
-multiplicity (see \Figure\ref{fig:sel:njets}). There are 0-jet and 1-jet bins, and a 
-\twojet bin split into ggF and VBF signal regions (see 
-\Figure~\ref{fig:sig:jetbinning}). Uncertainties should be evaluated separately for each 
-bin, and correlations accounted for when the bins are combined. Perturbative 
-uncertainties require particular consideration, due to subtleties described below.
-
-\begin{figure}
-	\includegraphics[width=\mediumfigwidth,clip=true,trim=8.5cm 13.1cm 12.1cm 8.4cm]{custom_images/signal_jetbin}
-	\caption{Schematic diagram of the ggF and VBF signal regions. Note that the 
-	exclusivity of the VBF signal region is defined by a central jet veto, and thus 
-	for $\njets \geq 3$ the jet definition includes the restriction that $\eta$ is 
-	between $\eta_{j_1}$ and $\eta_{j_2}$.}
-	\label{fig:sig:jetbinning}
-\end{figure}
+The \ggHWW analysis is binned according to jet multiplicity, in order to exploit the vastly 
+different background compositions in each jet bin (see \Figure~\ref{fig:sel:njets}); the 
+0-jet, 1-jet and \twojet bins each have dedicated event selection criteria. Uncertainties 
+in the expected ggF cross section must be evaluated separately for each jet bin, and 
+correlations considered when the bins are combined. Perturbative uncertainties in the jet 
+binning itself are considered independently from the other selection criteria, since they 
+posses some additional subtleties.
 
 
 
@@ -29,16 +21,17 @@ inclusive $\sigma_{\geq1}$
 where \ptcut is the jet \pt threshold \cite{YR2}. In $\sigma_{\geq1}$, the requirement of 
 a jet with $\pt > \ptcut$ introduces Sudakov double logarithmic contributions 
 $\alpha_{\text{S}}^{k+m} L^{2m}$, where $L \sim \ln\parenths{\ptcut/Q}$ ($Q = \mH$ for 
-ggF). These are analogous to the logarithms introduced by soft gluon emission, 
-described in \Section~\ref{sec:qcd:resum}. 
+ggF). The exact nature of these terms depends upon the process and also the jet 
+algorithm and parameters (\eg \antikt with $R=0.4$). They are analogous to the 
+logarithms introduced by soft gluon emission, described in \Section~\ref{sec:qcd:resum}. 
 
 The schematic structures of the two inclusive cross sections are
 \begin{equation}
 	\sigma_{\total} &\sim \alpha_{\text{S}}^k \{1 &+& \alphaS &+& \alpha_{\text{S}}^2 &+& \ofOrder{\alpha_{\text{S}}^3}\} \\
-\sigma_{\geq1}  &\sim \alpha_{\text{S}}^k \{&\phantom{{}=+}&\alphaS (L^2 + L + 1) &+& \alpha_{\text{S}}^2 (L^4 + L^3 + L^2 + L + 1) &+& \ofOrder{\alpha_{\text{S}}^3 L^6}\}
+	\sigma_{\geq1}  &\sim \alpha_{\text{S}}^k \{&\phantom{{}=+}&\alphaS (L^2 + L + 1) &+& \alpha_{\text{S}}^2 (L^4 + L^3 + L^2 + L + 1) &+& \ofOrder{\alpha_{\text{S}}^3 L^6}\}
 \end{equation}
 and the exclusive cross section is $\sigma_0 = \sigma_{\total} - \sigma_{\geq1}$.
-Corrections to $\sigma_{\total}$ are large (see \Section~\ref{sec:ggf_inc}) and, when 
+Perturbative corrections to $\sigma_{\total}$ are large in ggF and, when 
 $\ptcut \ll \mH$, the logarithms can overcome the \alphaS suppression and provide 
 significant corrections to $\sigma_{\geq1}$ too. Cancellations then occur between the two 
 series and the scale dependence of $\sigma_0$ is reduced. This effect is rather extreme 
@@ -254,3 +247,11 @@ $\epsilon_N^{\parenths{\text{a}}}$, whichever is larger.
 
 
 \subsection{Results}
+
+\begin{figure}
+	\includegraphics[width=\largefigwidth]{custom_images/ggF_xs_jetbin}
+	\caption{Jet-binned cross sections for ggF production with \unit{$\mH = 125$}{\GeV} and 
+	\unit{$\sqrt{s} = 8$}{\TeV}. The error bars show the perturbative uncertainty 
+	associated with each prescription. Consistency with \meps{\powhegbox}{\pythia{8}} is also shown, normalised to \unit{19.27}{\pico\barn}.}
+	\label{fig:signal:jetbin_xs_summary}
+\end{figure}
