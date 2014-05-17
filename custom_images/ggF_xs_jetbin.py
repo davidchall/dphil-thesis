@@ -16,12 +16,12 @@ foci_yerr = [ 2.13, 2.19, 1.60]
 # FO JVE
 fojve_x    = [5, 15, 25]
 fojve_y    = [11.55, 4.75, 2.97]
-fojve_yerr = [ 2.64, 1.70, 1.18]
+fojve_yerr = [ 2.64, 1.64, 1.09]
 
 # Res JVE
 resjve_x    = [7, 17, 27]
 resjve_y    = [11.81, 4.59, 2.87]
-resjve_yerr = [ 1.66, 1.12, 0.86]
+resjve_yerr = [ 1.66, 1.03, 0.73]
 
 # Powheg
 powheg_y      = [11.47, 5.43, 2.37]
@@ -94,7 +94,7 @@ leg.AddEntry( foci, "Fixed order CI", "ep" )
 leg.AddEntry( fojve, "Fixed order JVE", "ep" )
 leg.AddEntry( resjve, "Resummed JVE", "ep" )
 leg.AddEntry( powheg, "Powheg", "l" )
-leg.AddEntry( powheg_rwgt, "Powheg (reweighted #it{p}_{T,#it{H}} )", "l" )
+leg.AddEntry( powheg_rwgt, "Powheg (reweight #it{p}_{T,#it{H}} )", "l" )
 
 
 leg.Draw()
