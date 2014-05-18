@@ -1,18 +1,45 @@
 %!TEX root = ../../thesis.tex
 
-ggF is modelled by \meps{\powhegbox}{\pythia{8}}, including the exact mass 
-dependence of the \Ptop and \Pbottom quarks in the loop \cite{Powheg-ggF-quarkmasses}. 
-The CT10 PDF \cite{CTEQ} was used to model the incoming partons.
-The \powhegbox parameter \verb|hfact| controls the scale at which the emission 
-transitions from Sudakov-like to ME-like. This is tuned to $\mH/1.2$ in order to 
-reproduce the Higgs boson \pt distribution of \hqt \cite{HqT2} (NLO+NNLL accuracy). This 
-tuning is further discussed in \Section~4.9 of \Reference \cite{YR2}.
+The ggF signal is modelled by \meps{\powhegbox}{\pythia{8}}, including the exact mass 
+dependence of the \Ptop and \Pbottom quarks in the loop \cite{Powheg-ggF-quarkmasses}, and 
+using the CT10 PDF \cite{CTEQ} to describe the incoming partons. Various aspects of this 
+modelling are now discussed.
 
 
 
 \subsection{Higgs boson transverse momentum}
 \label{sec:ggF:pt}
-\todo[inline]{Include Higgs \pt studies?}
+
+The MC events are produced with the \powhegbox parameter \verb|hfact| tuned to 
+$\mH/1.2$.\footnote{
+	\texttt{hfact} controls the scale at which the emission transitions from Sudakov-like 
+	to ME-like. Its use in tuning \ptH is discussed in Sections~4.5 and 4.9 of 
+	\Reference~\cite{YR2}.
+}
+This setting reproduces the NLO+NNLL \ptH distribution calculated by \hqt \cite{HqT2} in 
+the large-$m_{\Ptop}$ limit, when effects of hadronisation, MPI and finite quark masses are 
+turned off in \meps{\powhegbox}{\pythia{8}}.
+
+The \ptH distribution of the generated MC events is reweighted to the best available 
+prediction of \ptH.\footnote{
+	The reweighting is motivated by the \HepProcess{\PHiggs \HepTo \Pphoton\Pphoton} and 
+	\HepProcess{\PHiggs \HepTo \Ptau\Ptau} analyses, which feature boosted categories.
+}
+This reweighting simultaneously satisfies three criteria:
+\begin{itemize}[noitemsep,nolistsep]
+	\item inclusive \ptH distribution agrees with \hres \cite{HRes}
+	\item \twojet \ptH distribution agrees with \HepProcess{\Pgluon\Pgluon \HepTo 
+	\PHiggs jj} process of \meps{\minlo}{\pythia{8}} \cite{Minlo:Hjj}
+	\item jet-binned cross sections agree with \Section~\ref{sec:ggf_jetbin}.
+\end{itemize}
+\hres computes the inclusive \ptH distribution with NLO+NNLL accuracy and includes finite 
+$m_{\Ptop}$ and $m_{\Pbottom}$ effects in the loop. It also employs a dynamic scale of 
+$\mu_0 = \sqrt{m_{\PHiggs}^2 + p_{\text{T,\PHiggs}}^2}$ as the nominal \mur and \muf scale, 
+which improves results at high \ptH compared to the fixed $\mu_0 = \mH$ scale used by \hqt.
+\minlo is an improved version of \powhegbox, which includes higher order logarithmic 
+contributions through the careful choice of \mur and \muf scales \cite{Minlo:Hjj}. 
+\Figure~\ref{fig:signal:jetbin_xs_summary} shows that the reweighting preserves agreement 
+with the predicted \njets distribution.
 
 
 
@@ -34,7 +61,7 @@ individual particles as inputs (\cf topo-clusters at detector-level). Muons and 
 are excluded from jet finding since they interact weakly with the calorimeter. Objects 
 must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-level.
 
-\begin{table}
+\begin{table}[t]
 	\begin{tabular}{ccc}
 		\toprule
 		Jet binning & \emch/\mech & \eech/\mmch \\
@@ -94,7 +121,7 @@ and \fherwig. Uncertainties due to the NLO-PS matching scheme are evaluated by c
 The acceptance uncertainties for each signal region used in the fitting procedure are 
 shown in \Table~\ref{tab:signal:acc_unc}.
 
-\begin{table}
+\begin{table}[p]
 	\centering
 	\begin{tabular}{ccc|cccccc}
 		\toprule
@@ -164,12 +191,13 @@ to the ``up'' and ``down'' variations. In this way, the \mt shape uncertainty is
 as a nuisance parameter in the \HWW fitting procedure. The uncertainties for the 0-jet 
 and 1-jet signal regions are displayed in \Figure~\ref{fig:signal:mTshape}.
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=\hugefigwidth]{custom_images/mT-shapes/ggf}
 	\caption{ggF \mt shape systematic uncertainties in the 0-jet and 1-jet signal regions 
 	of the \emch/\mech channels.}
 	\label{fig:signal:mTshape}
 \end{figure}
+
 
 
 \subsection{ME-PS matching}
@@ -195,7 +223,7 @@ $\alphaS\parenths{\mZ} = 0.118$, and the default value in the parton shower,
 $\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in 
 \Figure~\ref{fig:signal:matching}.
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=\smallfigwidth]{tex/signal/matching}
 	\caption{Jet multiplicity produced by \meps{\powhegbox}{\pythia{8}} with a selection 
 	of shower tunes. The green circles is the tune used in the analysis. The red squares 
@@ -208,3 +236,76 @@ $\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in
 Identification of this poor matching has led to improvements in the latest round of MC 
 tuning, where dedicated \meps{\powhegbox}{\pythia{8}} tunes are fit using an adjusted 
 parton shower \cite{ATLAS:tune:2013}.
+
+
+
+\subsection{Fiducial region acceptances}
+\label{sec:ggF:fiducial}
+
+In order to measure the total ggF cross section, it is necessary to estimate the signal 
+acceptance of the object and event selection. The extrapolation from the measured phase 
+space to the inclusive phase space introduces theoretical uncertainties (see 
+\Section~\ref{sec:ggF:acc}). It is helpful to separate these theoretical uncertainties from 
+the others by measuring an intermediate cross section in a \textit{fiducial region} of 
+phase space, chosen to be similar to that used in the detector-level selection in order to 
+minimise the extrapolation.
+
+The measured fiducial cross section is extracted by
+\begin{equation}
+	\sigma_{\text{ggF}}^{\text{fid}} = \frac{N_{\text{obs}} - N_{\text{bkg}}}{C_{\text{ggF}} \cdot L}
+	\label{eq:ggF:fid_xs}
+\end{equation}
+where $N_{\text{obs}}$ is the observed number of events, $N_{\text{bkg}}$ is the expected 
+number of background events, $L$ is the luminosity, and $C_{\text{ggF}}$ is the ratio of 
+the expected number of signal events passing the detector-level selection to those passing 
+the fiducial selection. $C_{\text{ggF}}$ accounts for detector effects such as lepton 
+trigger and reconstruction efficiencies and object mismeasurement due to the finite 
+resolution of the detector.
+
+On the other hand, the measured total cross section is extracted by
+\begin{equation}
+	\sigma_{\text{ggF}} = \frac{N_{\text{obs}} - N_{\text{bkg}}}{C_{\text{ggF}} \cdot A_{\text{ggF}} \cdot \text{BR} \cdot L}
+	\label{eq:ww:total_xs}
+\end{equation}
+where $A_{\text{ggF}}$ is the ratio of the expected number of signal events passing the 
+fiducial selection to the total expected number of signal events. $A_{\text{ggF}}$ accounts 
+for the signal acceptance of the event selection criteria. BR incorporates the branching 
+ratios of the Higgs and \PW bosons for the channel in question, and includes contributions 
+from leptonic \Ptau decays.
+
+Fiducial cross sections are extracted from the combined \emch{}+\mech channel only, since 
+these are the most sensitive channels. Also, the split signal regions (by \ptsubleadlep and 
+\mll) are combined in the fiducial cross section extraction. Apart from these two points, 
+the event selection criteria of the fiducial regions are identical to those described in 
+\Section~\ref{sec:ggF:acc}. The signal acceptances $C_{\text{ggF}}$, $A_{\text{ggF}}$ and 
+$C_{\text{ggF}} \cdot A_{\text{ggF}}$ are displayed in \Table~\ref{tab:ggF:cggF_aggF}, 
+together with their respective uncertainties.\todo{Add \twojet bin?}
+
+\begin{table}[t]
+	\begin{tabular}{l@{}c@{\hskip 0.2in}c@{\hskip 0.2in}c}
+		\toprule
+		& 0-jet & 1-jet & \twojet \\
+		\midrule
+		$C_{\text{ggF}}$ ($\times 100$) & $46.5\pm2.6$ & $45.6\pm1.8$ &  \\
+		\quad Trigger efficiency              & 1.2\% & 1.0\% & \\
+		\quad Lepton efficiency               & 3.1\% & 2.7\% & \\
+		\quad Lepton \pt scale and resolution & 1.3\% & 1.3\% & \\
+		\quad Jet energy scale and resolution & 4.5\% & 1.6\% & \\
+		\quad Jet \Pbottom-tagging efficiency & 0.0\% & 1.8\% & \\
+		\quad \met modelling                  & 0.2\% & 0.8\% & \\
+		\cmidrule(lr){1-4}
+		$A_{\text{ggF}}$ ($\times 100$) & $15.0\pm0.7$ & $7.1\pm0.4$ & \\
+		\quad \mur and \muf scales & 1.1\% & 1.4\% & \\
+		\quad PDFs                 & 3.7\% & 3.4\% & \\
+		\quad PS/UE                & 2.2\% & 3.8\% & \\
+		\quad NLO-PS               & 1.8\% & 1.1\% & \\
+		\cmidrule(lr){1-4}
+		$C_{\text{ggF}} \cdot A_{\text{ggF}}$ ($\times 100$) & $7.0\pm0.5$ & $3.2\pm0.2$ & \\
+		\bottomrule
+	\end{tabular}
+	\caption{The signal acceptances $C_{\text{ggF}}$, $A_{\text{ggF}}$ and $C_{\text{ggF}} 
+	\cdot A_{\text{ggF}}$. A breakdown of the relative uncertainties from different sources 
+	is also shown.}
+	\label{tab:ggF:cggF_aggF}
+\end{table}
+
