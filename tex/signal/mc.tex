@@ -12,8 +12,8 @@ modelling are now discussed.
 
 The MC events are produced with the \powhegbox parameter \verb|hfact| tuned to 
 $\mH/1.2$.\footnote{
-	\texttt{hfact} controls the scale at which the emission transitions from Sudakov-like 
-	to ME-like. Its use in tuning \ptH is discussed in Sections~4.5 and 4.9 of 
+	\texttt{hfact} controls the scale at which the first emission transitions from 
+	Sudakov-like to ME-like. Its use in tuning \ptH is discussed in Sections~4.5 and 4.9 of 
 	\Reference~\cite{YR2}.
 }
 This setting reproduces the NLO+NNLL \ptH distribution calculated by \hqt \cite{HqT2} in 
@@ -47,11 +47,13 @@ with the predicted \njets distribution.
 \label{sec:ggF:acc}
 
 In \Section~\ref{sec:ggf_jetbin}, perturbative uncertainties in the jet binning were 
-considered. We now consider uncertainties in the acceptance of the event selection. These 
+considered. We now consider uncertainties in the acceptance of the remaining event 
+selection criteria (and PDF uncertainties in the jet binning). These 
 are evaluated at hadron-level (\ie before detector simulation) by changing some aspect of 
-the MC modelling and measuring the effect upon the acceptance within each jet bin. 
-The selection criteria are similar to those applied at detector-level (see 
-\Table~\ref{tab:signal:acc_truthselection}).
+the MC modelling and measuring the effect upon the acceptance relative to the jet-binned 
+cross sections (in the case of PDF uncertainties, the acceptance is calculated relative to 
+the inclusive cross section). The selection criteria are similar to those applied at 
+detector-level (see \Table~\ref{tab:signal:acc_truthselection}).
 
 Hadron-level object definitions follow. The MC event record is used to identify leptons 
 and neutrinos which descend from the Higgs boson. An \metvec vector is constructed from 
@@ -83,14 +85,15 @@ must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-
 		& \multicolumn{2}{c}{Fail $\dyjj > 3.6$ or $\mjj > 600$ or CJV or OLV} \\
 		\bottomrule
 	\end{tabular}
-	\caption{Hadron-level event selection used to calculate ggF acceptance uncertainties. 
-	Cuts on energy, momentum and mass are given in \GeV, and angular cuts are given in 
-	radians. The CJV and OLV are the central jet veto and outside lepton veto, 
+	\caption{Hadron-level event selection criteria used to calculate ggF acceptance 
+	uncertainties. Cuts on energy, momentum and mass are given in \GeV, and angular cuts 
+	are given in radians. The CJV and OLV are the central jet veto and outside lepton veto, 
 	respectively. See \Chapter~\ref{chap:selection} for a detailed explanation of the 
 	criteria.}
 	\label{tab:signal:acc_truthselection}
 \end{table}
 
+\newpage
 Four sources of theoretical uncertainty are considered:
 \begin{itemize}[noitemsep,nolistsep]
 	\item higher order corrections,
@@ -106,20 +109,19 @@ uncertainties are evaluated \todo{H+2j scale uncertainties in acceptance} with \
 \cite{MCFM:H2j}. This is necessary because \powhegbox is an NLO generator and therefore 
 cannot probe perturbative uncertainties in the \twojet bin.
 
-Uncertainties due to PDFs are evaluated in two ways. The acceptance is compared to 
-that predicted with the MSTW2008 PDF \cite{MSTW}. Also, the set of PDF eigenvectors 
+Uncertainties due to PDFs are evaluated in two ways. First, the acceptance is compared to 
+that predicted with the MSTW2008 PDF \cite{MSTW}. Second, the set of PDF eigenvectors 
 corresponding to 90\% CL of the CT10 fit were used to evaluate an uncertainty, 
-which was then rescaled to 68\% CL. PDF uncertainties are calculated relative to the 
-inclusive cross section, in order to include uncertainties in the jet binning. These are 
-evaluated using \mcatnlo.
+which was then rescaled to 68\% CL. PDF uncertainties are evaluated using \mcatnlo.
 
 Uncertainties due to the parton shower (PS), hadronisation and underlying event (UE) 
 models are evaluated by comparing \powhegbox showered by \pythia{8} (nominal), \pythia{6} 
 and \fherwig. Uncertainties due to the NLO-PS matching scheme are evaluated by comparing 
 \meps{\powhegbox}{\fherwig} to \meps{\mcatnlo}{\herwigpp}.
 
-The acceptance uncertainties for each signal region used in the fitting procedure are 
-shown in \Table~\ref{tab:signal:acc_unc}.
+\Table~\ref{tab:signal:acc_unc} shows the acceptance uncertainties for each signal region 
+used in the fitting procedure, including the \ptsubleadlep and \mll split signal regions 
+in the \emch/\mech channels.
 
 \begin{table}[p]
 	\centering
@@ -161,10 +163,11 @@ shown in \Table~\ref{tab:signal:acc_unc}.
 		\bottomrule
 	\end{tabular}
 	\caption{Theoretical uncertainties in the ggF acceptance for each signal region used 
-	in the fitting procedure. PDF uncertainties are relative to the inclusive cross 
-	section, whereas others are calculated within jet bins. When the uncertainty is 
-	statistically insignificant, the statistical uncertainty on the generator difference 
-	is given, and the sign of the generator difference is parenthesised.}
+	in the fitting procedure. PDF uncertainties are in acceptances relative to the 
+	inclusive cross section, whereas others are calculated within jet bins. When the 
+	uncertainty is statistically insignificant, the statistical uncertainty on the 
+	generator difference is given, and the sign of the generator difference is 
+	parenthesised.}
 	\label{tab:signal:acc_unc}
 \end{table}
 
@@ -173,9 +176,9 @@ shown in \Table~\ref{tab:signal:acc_unc}.
 \subsection{\mt shape modelling}
 \label{sec:ggF:mt}
 
-Theoretical uncertainties in the shape of the \mt distribution are also investigated, 
-as they could affect the fit. Uncertainties due to scale, PS/UE and NLO-PS choices are 
-considered using the methods described above. The split signal regions were not used in 
+Theoretical uncertainties in the shape of the \mt distribution are also investigated. 
+Uncertainties due to scale, PS/UE and NLO-PS choices are 
+considered using the methods described above. The split signal regions are not used in 
 this study since the statistical fluctuations in the \mt distributions are large.
 
 Each uncertainty is parametrised by fitting the ratio of the \mt shapes, and then 
@@ -192,7 +195,7 @@ as a nuisance parameter in the \HWW fitting procedure. The uncertainties for the
 and 1-jet signal regions are displayed in \Figure~\ref{fig:signal:mTshape}.
 
 \begin{figure}[t]
-	\includegraphics[width=\hugefigwidth]{custom_images/mT-shapes/ggf}
+	\includegraphics[width=\largefigwidth]{custom_images/mT-shapes/ggf}
 	\caption{ggF \mt shape systematic uncertainties in the 0-jet and 1-jet signal regions 
 	of the \emch/\mech channels.}
 	\label{fig:signal:mTshape}
@@ -205,23 +208,9 @@ and 1-jet signal regions are displayed in \Figure~\ref{fig:signal:mTshape}.
 
 When studying the uncertainties described above, a discrepancy was observed at high jet 
 multiplicity between \meps{\powhegbox}{\pythia{8}} and \meps{\powhegbox}{\pythia{6}} (see 
-green and black lines in \Figure~\ref{fig:signal:matching}). Its effect is properly 
-accounted for in the above uncertainties, but the discrepancy is interesting in itself.
-It was also observed in other electroweak processes.
-
-The hadronisation and UE models of standalone \pythia{8} have been tuned to ATLAS 
-UE data with a variety of PDF sets (known as AU2 tunes) \cite{ATLAS:tune:2012}.
-However, the parton shower was not tuned since the default settings gave good agreement. 
-
-When modelling ggF with \powhegbox, the AU2-CT10 tune was used in order to match the 
-PDFs used in the matrix element calculation. Technically speaking, a dedicated 
-\meps{\powhegbox}{\pythia{8}} tune should have been used, but this was unavailable. 
-Unfortunately, a couple of issues had a negative impact on the NLO-PS matching. First, 
-the parton shower evolves \alphaS at LO while NLO PDFs were used in the shower. 
-Second, there was a mismatch between the \alphaS used in \powhegbox, 
-$\alphaS\parenths{\mZ} = 0.118$, and the default value in the parton shower, 
-$\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in 
-\Figure~\ref{fig:signal:matching}.
+the green and black lines in \Figure~\ref{fig:signal:matching}). Although its effect is 
+included in the acceptance uncertainties, it is intrinsically interesting. It is also 
+observed in other electroweak processes.
 
 \begin{figure}[t]
 	\includegraphics[width=\smallfigwidth]{tex/signal/matching}
@@ -232,6 +221,21 @@ $\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in
 	with \powhegbox). \meps{\powhegbox}{\pythia{6}} is shown in black for reference.}
 	\label{fig:signal:matching}
 \end{figure}
+
+The hadronisation and UE models of standalone \pythia{8} have been tuned to ATLAS 
+UE data with a variety of PDF sets (known as AU2 tunes) \cite{ATLAS:tune:2012}.
+However, the parton shower was not tuned since the default settings successfully described 
+experimental data. 
+
+When modelling ggF with \powhegbox, the AU2-CT10 tune was used in order to match the 
+PDFs used in the matrix element calculation. Technically speaking, a dedicated 
+\meps{\powhegbox}{\pythia{8}} tune should have been used, but this was unavailable. 
+Unfortunately, a couple of issues had a negative impact on the NLO-PS matching. First, 
+the parton shower evolves \alphaS at LO while NLO PDFs were used in the shower. 
+Second, there was a mismatch between the \alphaS used in \powhegbox, 
+$\alphaS\parenths{\mZ} = 0.118$, and the default value in the parton shower, 
+$\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in 
+\Figure~\ref{fig:signal:matching}.
 
 Identification of this poor matching has led to improvements in the latest round of MC 
 tuning, where dedicated \meps{\powhegbox}{\pythia{8}} tunes are fit using an adjusted 
@@ -257,7 +261,7 @@ The measured fiducial cross section is extracted by
 \end{equation}
 where $N_{\text{obs}}$ is the observed number of events, $N_{\text{bkg}}$ is the expected 
 number of background events, $L$ is the luminosity, and $C_{\text{ggF}}$ is the ratio of 
-the expected number of signal events passing the detector-level selection to those passing 
+the expected number of ggF events passing the detector-level selection to those passing 
 the fiducial selection. $C_{\text{ggF}}$ accounts for detector effects such as lepton 
 trigger and reconstruction efficiencies and object mismeasurement due to the finite 
 resolution of the detector.
@@ -267,9 +271,9 @@ On the other hand, the measured total cross section is extracted by
 	\sigma_{\text{ggF}} = \frac{N_{\text{obs}} - N_{\text{bkg}}}{C_{\text{ggF}} \cdot A_{\text{ggF}} \cdot \text{BR} \cdot L}
 	\label{eq:ww:total_xs}
 \end{equation}
-where $A_{\text{ggF}}$ is the ratio of the expected number of signal events passing the 
-fiducial selection to the total expected number of signal events. $A_{\text{ggF}}$ accounts 
-for the signal acceptance of the event selection criteria. BR incorporates the branching 
+where $A_{\text{ggF}}$ is the ratio of the expected number of ggF events passing the 
+fiducial selection to the total expected number of ggF events. $A_{\text{ggF}}$ accounts 
+for the acceptance of the event selection criteria. BR incorporates the branching 
 ratios of the Higgs and \PW bosons for the channel in question, and includes contributions 
 from leptonic \Ptau decays.
 

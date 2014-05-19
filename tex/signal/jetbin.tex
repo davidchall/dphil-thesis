@@ -4,9 +4,9 @@ The \ggHWW analysis is binned according to jet multiplicity, in order to exploit
 different background compositions in each jet bin (see \Figure~\ref{fig:sel:njets}); the 
 0-jet, 1-jet and \twojet bins each have dedicated event selection criteria. Uncertainties 
 in the expected ggF cross section must be evaluated separately for each jet bin, and 
-correlations considered when the bins are combined. Perturbative uncertainties in the jet 
-binning itself are considered independently from the other selection criteria, since they 
-posses some additional subtleties.
+correlations between these bins must be considered when they are combined. Perturbative 
+uncertainties in the jet binning itself are considered independently from the other 
+selection criteria, since they possess additional subtleties described below.
 
 
 
@@ -31,12 +31,12 @@ The schematic structures of the two inclusive cross sections are
 	\sigma_{\geq1}  &\sim \alpha_{\text{S}}^k \{&\phantom{{}=+}&\alphaS (L^2 + L + 1) &+& \alpha_{\text{S}}^2 (L^4 + L^3 + L^2 + L + 1) &+& \ofOrder{\alpha_{\text{S}}^3 L^6}\} \,.
 \end{equation}
 When $\ptcut \ll \mH$, the logarithms can overcome the \alphaS suppression and provide 
-significant corrections to $\sigma_{\geq1}$. When similar in size to the perturbative 
-corrections to $\sigma_{\total}$, the scale dependence of $\sigma_0 = \sigma_{\total} - 
-\sigma_{\geq1}$ is reduced by cancellations between the two series. This suggests that 
-na\"{i}vely varying \mur and \muf might underestimate perturbative uncertainties. This is 
-confirmed by \Figure~\ref{fig:ggF:naive}, which shows that the cancellations at 
-\unit{$\ptcut = 25$}{\GeV} (used in the \HWW analysis) are rather extreme.
+significant corrections to $\sigma_{\geq1}$. When these corrections are similar in size to 
+the perturbative corrections to $\sigma_{\total}$, the scale dependence of $\sigma_0 = 
+\sigma_{\total} - \sigma_{\geq1}$ is reduced by cancellations between the two series. This 
+suggests that na\"{i}vely varying \mur and \muf might underestimate perturbative 
+uncertainties. This is confirmed in \Figure~\ref{fig:ggF:naive}, which shows that the 
+cancellations at \unit{$\ptcut = 25$}{\GeV} (used in the \HWW analysis) are rather extreme.
 
 \begin{figure}[t]
 	\includegraphics[width=\mediumfigwidth]{tex/signal/sigma0_naive}
@@ -50,9 +50,9 @@ a general parametrisation of the covariance matrix. In the \braces{\sigma_0, \si
 basis, the covariance matrix is decomposed into two uncertainty sources
 \begin{equation}
 	C &= C^{\text{yield}} + C^{\text{migration}} \\
-	&= \twomatrix{\parenths{\Delta^{\text{y}}_0}^2 & \Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1}}{\Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1} & \parenths{\Delta^{\text{y}}_{\geq1}}^2} + \parenths{\Delta_{0\rightarrow}^{\text{mig}}}^2\twomatrix{1 & -1}{-1 & 1} \,.
+	&= \twomatrix{\parenths{\Delta^{\text{y}}_0}^2 & \Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1}}{\Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1} & \parenths{\Delta^{\text{y}}_{\geq1}}^2} + \parenths{\Delta_{0\rightarrow}^{\text{mig}}}^2\twomatrix{+1 & -1}{-1 & +1} \,.
 \end{equation}
-The yield component is fully correlated between jet bins, though can affect them with 
+The yield component is fully correlated between jet bins, though can affect each with 
 different magnitudes. The migration component is fully anti-correlated and affects both 
 bins equally, conserving the normalisation. In the limit setting procedure, these sources 
 are treated as nuisance parameters with \braces{\sigma_0, \sigma_{\geq1}} uncertainty 
@@ -78,9 +78,9 @@ amplitudes
 
 Different prescriptions for evaluating perturbative uncertainties are defined by their 
 choice of $\Delta^{\text{y}}_0$, $\Delta^{\text{y}}_{\geq1}$ and 
-$\Delta^{\text{mig}}_{0\rightarrow}$. This includes a choice of observables to measure 
-uncertainties in, and also the method of measuring the uncertainties. For example, the 
-na\"{i}ve prescription described above is equivalent to choosing
+$\Delta^{\text{mig}}_{0\rightarrow}$. This includes a choice of which observables to 
+measure uncertainties in, and also the method of measuring the uncertainties. For example, 
+the na\"{i}ve prescription described above is equivalent to choosing
 \begin{equation}
 	\text{Na\"{i}ve:} 
 	\quad\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{0},& 
@@ -111,7 +111,7 @@ matrix has three components
 	\nonumber \\
 	&+ \parenths{\Delta^{\text{mig}}_{0\rightarrow}}^2
 	\threematrix{
-		1 & -\parenths{1-\rho} & -\rho
+		+1 & -\parenths{1-\rho} & -\rho
 	}{
 		-\parenths{1-\rho} & \parenths{1-\rho}^2 & \rho\parenths{1-\rho}
 	}{
@@ -121,9 +121,9 @@ matrix has three components
 	\threematrix{
 		0 & 0 & 0
 	}{
-		0 & 1 & -1
+		0 & +1 & -1
 	}{
-		0 & -1 & 1
+		0 & -1 & +1
 	}
 \end{equation}
 where $\rho$ is the fraction of migrations from the 0-jet bin that enter the \twojet bin. 
@@ -269,13 +269,13 @@ $\pt > \ptcut$, and $\epsilon_1 = \epsilon_1\parenths{p_{\text{T}}^{\text{sel}},
 is the efficiency of a veto upon additional jets with $\pt > \ptcut$ given that there is 
 already a jet with $\pt > p_{\text{T}}^{\text{sel}}$. In the \HWW analysis, 
 $\ptcut = p_{\text{T}}^{\text{sel}} = \unit{25}{\GeV}$.\footnote{
-	Since the jets are predominantly central, the raised \ptcut of \unit{30}{\GeV} in the 
-	forward region is neglected. This approximation is conservative, since the 
+	Since the jets are predominantly central, the raising of \ptcut to \unit{30}{\GeV} in 
+	the forward region is neglected. This approximation is conservative, since the 
 	$\Delta\sigma_N$ decrease with higher \ptcut.
 }
 
 The JVE prescription assumes that uncertainties in $\sigma_{\total}$ and the $\epsilon_N$ 
-are uncorrelated, which ensures that uncertainties in exclusive cross section are larger 
+are uncorrelated, which ensures that uncertainties in exclusive cross sections are larger 
 than those in the total cross section, \ie $\Delta\sigma_N > \Delta\sigma_{\total}$.
 This is equivalent to choosing
 \begin{equation}
@@ -288,30 +288,32 @@ This is equivalent to choosing
 	\quad\quad \rho &= 1-\epsilon_1 \,. \label{eq:jve}
 \end{equation}
 Thus, the JVE prescription requires six inputs: $\sigma_{\total}$, $\epsilon_0$, 
-$\epsilon_1$, $\Delta\sigma_{\total}$, $\Delta\epsilon_0$, $\Delta\epsilon_1$.
+$\epsilon_1$, $\Delta\sigma_{\total}$, $\Delta\epsilon_0$ and $\Delta\epsilon_1$.
 As in the CI prescription, $\sigma_{\total}$ and $\Delta\sigma_{\total}$ are taken from the 
 NNLO+NNLL(QCD)+NLO(EW) calculation. However, the $\epsilon_N$ contain similar cancellations 
 to those discussed in \Section~\ref{sec:ggF:naive}, and so the $\Delta\epsilon_N$ must be 
 treated with care.
 
-There is an ambiguity in the definition of $\epsilon_N$ that is not present in fixed order 
-$\sigma_{\geq N}$ calculations \cite{JVE:NLL}. For example, considering NNLO terms with 
-respect to the $N$-jet process, three alternative definitions of $\epsilon_N$ may be 
+There is an ambiguity in the definition of $\epsilon_N$ that is not present in the fixed 
+order $\sigma_{\geq N}$ calculations \cite{JVE:NLL}. For example, considering NNLO terms 
+with respect to the $N$-jet process, three alternative definitions of $\epsilon_N$ may be 
 identified
 \begin{equation}
 	\epsilon_N^{\parenths{\text{a}}} &= 1 - \frac{\sigma_{\geq N+1}^{\text{NLO}}}{\sigma_{\geq N}^{\text{NNLO}}} \label{eq:jve:scheme_a} \\
 	\epsilon_N^{\parenths{\text{b}}} &= 1 - \frac{\sigma_{\geq N+1}^{\text{NLO}}}{\sigma_{\geq N}^{\text{NLO}}} \label{eq:jve:scheme_b} \\
 	\epsilon_N^{\parenths{\text{c}}} &= 1 - \frac{\sigma_{\geq N+1}^{\text{NLO}}}{\sigma_{\geq N}^{\text{LO}}} + \parenths{\frac{\sigma_{\geq N}^{\text{NLO}}}{\sigma_{\geq N}^{\text{LO}}} - 1} \frac{\sigma_{\geq N+1}^{\text{LO}}}{\sigma_{\geq N}^{\text{LO}}} \label{eq:jve:scheme_c} \,.
 \end{equation}
-Although scheme (a) is the more intuitive definition, schemes (b) and (c) differ by N$^3$LO 
+Although scheme (a) is the most intuitive definition, schemes (b) and (c) differ by N$^3$LO 
 terms and therefore probe higher order corrections.\footnote{
 	Processes whose perturbative series converge more quickly, such as 
-	\HepProcess{\Pquark\APquark \HepTo \PZ}, exhibit better agreement between schemes.
+	\HepProcess{\Pquark\APquark \HepTo \PZ}, exhibit better agreement between schemes. 
+	This supports using these schemes to evaluate perturbative uncertainties.
 } 
-However, this probing is less susceptible to accidental cancellations than scale variations.
-Thus, $\epsilon_N^{\parenths{\text{a}}}$ is used as the nominal $\epsilon_N$, whilst 
-$\Delta\epsilon_N$ is evaluated via scale variations in $\epsilon_N^{\parenths{\text{a}}}$ 
-or the difference between the schemes, whichever is larger.
+However, this probing is less susceptible to the accidental cancellations than scale 
+variations. Thus, $\epsilon_N^{\parenths{\text{a}}}$ is used as the nominal $\epsilon_N$, 
+whilst $\Delta\epsilon_N$ is evaluated by scale variations in 
+$\epsilon_N^{\parenths{\text{a}}}$ or by the difference between the schemes, whichever is 
+larger.
 
 \begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/signal/eps0_jve_fixedorder}
@@ -340,8 +342,8 @@ $\sigma_{\geq1}^{\text{NLO}}$ and $\sigma_{\geq2}^{\text{LO}}$ (see
 \Section~\ref{sec:ggF:ci}). Unfortunately, it is not possible to calculate 
 $\epsilon_1^{\text{(a)}}$ since a full $\sigma_{\geq1}^{\text{NNLO}}$ calculation is not 
 yet available. Instead, we choose $\epsilon_1 = (\epsilon_1^{\text{(b)}} + 
-\epsilon_1^{\text{(c)}})/2$ and $\Delta\epsilon_1$ is evaluated by an envelope of all scale 
-uncertainties in $\epsilon_1^{\text{(b)}}$ and $\epsilon_1^{\text{(c)}}$.
+\epsilon_1^{\text{(c)}})/2$ and $\Delta\epsilon_1$ is evaluated by an envelope of scale 
+uncertainties in both $\epsilon_1^{\text{(b)}}$ and $\epsilon_1^{\text{(c)}}$.
 The validity of this approximation is tested using \HepProcess{\Pgluon\Pgluon}-initiated 
 diagrams only, for which a $\sigma_{\geq1}^{\text{NNLO}}$ calculation exists 
 \cite{H+1j:NNLO}. For $k_{\text{T}}$ jets with $R = 0.5$ and \unit{$\ptcut = 30$}{\GeV}, we 
@@ -373,13 +375,14 @@ and uncertainties obtained using simple Gaussian propagation of uncertainties.
 
 \Figure~\ref{fig:ggF:jve_compare} compares the $\epsilon_0$ and $\epsilon_1$ calculations 
 described above to a variety of different \meps{\powhegbox}{\pythia{8}} configurations.
-The $\epsilon_N$ calculations were performed at parton-level in the large-$m_{\Ptop}$ 
-limit, and the solid lines show similar configurations of \meps{\powhegbox}{\pythia{8}}, 
+The $\epsilon_N$ calculations are performed at parton-level in the large-$m_{\Ptop}$ 
+limit; the solid lines show similar configurations of \meps{\powhegbox}{\pythia{8}}, 
 and can be considered directly comparable. The effect of consecutively adding 
 hadronisation, MPI and finite quark mass effects are also shown. Finally, the blue line 
 shows how reweighting the Higgs boson \pt distribution (see \Section~\ref{sec:ggF:pt}) 
 influences these observables. \Figure~\ref{fig:ggF:jve_compare} shows that, following 
-\ptH reweighting, the MC is within the perturbative uncertainty band.
+\ptH reweighting, the MC is within the perturbative uncertainty band for both $\epsilon_0$ 
+and $\epsilon_1$.
 
 \begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/signal/eps0_jve_compare}
@@ -393,23 +396,29 @@ influences these observables. \Figure~\ref{fig:ggF:jve_compare} shows that, foll
 
 
 
-
-
 \subsection{Discussion of results}
 
 It is helpful to directly compare the predicted jet-binned cross sections of the two 
 prescriptions, as in \Figure~\ref{fig:signal:jetbin_xs_summary}. ``Fixed order CI'' and 
 ``resummed JVE'' are the prescriptions described in the preceding sections. JVE offers a 
 reduction in uncertainty compared to CI, whilst both prescriptions remain consistent with 
-the \meps{\powhegbox}{\pythia{8}} MC used, both before and after \ptH reweighting.
+the \meps{\powhegbox}{\pythia{8}} MC used, both before and after \ptH reweighting. The 
+improvement is due to the resummation of large logarithms in $\epsilon_0$ and including 
+higher order terms in $\epsilon_1$.
 
 ``Fixed order JVE'' replaces the resummed $\epsilon_0$ calculation with the fixed order 
-$\epsilon_0$ calculation (see \Figure~\ref{fig:ggF:jve_compare}). This uses the same 
-degree of accuracy as ``fixed order CI'' in calculating $\sigma_0$, and so their comparison 
-in the the 0-jet bin directly evaluates how conservative each prescription is. JVE appears 
-more conservative than CI.
+$\epsilon_0$ calculation (\ie replace the red band with the green band in 
+\Figure~\ref{fig:ggF:jve_compare}). This has the same formal accuracy as ``fixed order CI'' 
+when calculating $\sigma_0$, and so their comparison in the 0-jet bin directly evaluates 
+how conservative each prescription is. JVE appears to be more conservative than CI.
 
-\todo[inline]{Add sentence about which prescription is chosen}
+Recently, a more general prescription for evaluating perturbative uncertainties in 
+jet-binned cross sections has been proposed, which directly probes each uncertainty 
+amplitude in (\ref{eq:ggF:3bin_np}) \cite{BLTPW:2013}. Although it offers a further 
+reduction in uncertainty, this prescription was not considered. Time is needed for certain 
+details to be discussed: $\sigma_{\total}$ is larger than that presented in 
+\Reference~\cite{YR3}, incomplete higher order terms are included in the perturbative 
+series, and a controversial $\pi^2$ resummation technique is used.
 
 \begin{figure}[t]
 	\includegraphics[width=\largefigwidth]{custom_images/ggF_xs_jetbin}
