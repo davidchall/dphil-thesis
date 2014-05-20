@@ -10,7 +10,7 @@
 6125 words in Chapter: Other backgrounds
 0 words in Chapter: Experimental results
 2639 words in Chapter: Conclusions
-0 words in Chapter: Event yields of \HWW selection
+81 words in Chapter: Event yields of \HWW selection
 ::: Total :::
-Words: 32256
+Words: 32337
 Formulae: 79

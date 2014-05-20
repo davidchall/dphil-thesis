@@ -1,17 +1,53 @@
 %!TEX root = ../../thesis.tex
 
-\begin{table}
-	\begin{subtable}{\textwidth}
-		\centering
-		\begin{tabular}{lrrr}
-			Criteria & Signal & Bkg. & Observed \\
-			\hline
-			$\njets = 0$              & 1 & 100 & 100 \\
-			$\dphillmet > \pi/2$      & & & \\
-			\unit{$\ptll > 30$}{\GeV} & & & \\
-			\unit{$\mll < 55$}{\GeV}  & & & \\
-			$\dphill < 1.8$           & & & \\
-			$0.75\mH < \mt < \mH$     & & & \\
-		\end{tabular}
-	\end{subtable}
+The expected and observed numbers of events passing the event selection criteria are shown 
+in \Table~\ref{tab:sr_yield_df}. The contributions of signal and each background component 
+are also displayed. The expected number of background events and the systematic 
+uncertainties are constrained in the fitting procedure, as described in 
+\Chapter~\ref{chap:results}.
+
+\begin{table}[t]
+	\begin{tabular}{l@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}l}
+		\toprule
+		& \multicolumn{3}{c@{\hskip 0.2in}}{0-jet} & \multicolumn{3}{c@{\hskip 0.2in}}{1-jet} & \multicolumn{3}{c}{\twojet} \\
+		\midrule
+		\emch{}+\mech channel \\
+		\quad Observed & \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{xxx} & \multicolumn{1}{c}{} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{xxx} & \multicolumn{1}{c}{} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{xxx} \\
+		\quad Expected            & xxx & xx & xx  &  xxx & xx & xx  &  xxx & xx & xx \\
+		\cmidrule(lr){1-10}
+		\quad\quad Signal         &     &    &     &      &    &     &      &    &  \\
+		\quad\quad Background     &     &    &     &      &    &     &      &    &  \\
+		\cmidrule(lr){1-10}
+		\quad\quad\quad \WW       &     &    &     &      &    &     &      &    &  \\
+		\quad\quad\quad Other \HepProcess{\PV\PV} 
+		                          &     &    &     &      &    &     &      &    &  \\
+		\quad\quad\quad Top       &     &    &     &      &    &     &      &    &  \\
+		\quad\quad\quad \DYll     &     &    &     &      &    &     &      &    &  \\
+		\quad\quad\quad \DYtt     &     &    &     &      &    &     &      &    &  \\
+		\quad\quad\quad \Wjets    &     &    &     &      &    &     &      &    &  \\
+		\quad\quad\quad Dijet     &     &    &     &      &    &     &      &    &  \\
+		\midrule
+		\eech{}+\mmch channel \\
+		\quad Observed & \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{xxx} & \multicolumn{1}{c}{} && \multicolumn{1}{c@{\phantom{$\,\pm\,$}}}{xxx} \\
+		\quad Expected            & xxx & xx & xx  &  xxx & xx & xx \\
+		\cmidrule(lr){1-10}
+		\quad\quad Signal         &     &    &     &      &    &    \\
+		\quad\quad Background     &     &    &     &      &    &    \\
+		\cmidrule(lr){1-10}
+		\quad\quad\quad \WW       &     &    &     &      &    &    \\
+		\quad\quad\quad Other \HepProcess{\PV\PV} 
+		                          &     &    &     &      &    &    \\
+		\quad\quad\quad Top       &     &    &     &      &    &    \\
+		\quad\quad\quad \DYll     &     &    &     &      &    &    \\
+		\quad\quad\quad \DYtt     &     &    &     &      &    &    \\
+		\quad\quad\quad \Wjets    &     &    &     &      &    &    \\
+		\quad\quad\quad Dijet     &     &    &     &      &    &    \\
+		\bottomrule
+	\end{tabular}
+	\caption{The expected (post-fit) and observed numbers of events for the 
+	\unit{20.3}{\invfb} dataset, in each signal region. Statistical and systematic 
+	uncertainties are shown. The signal yield is for \unit{$\mH = 125$}{\GeV} and includes 
+	small contributions from non-ggF production modes.}
+	\label{tab:sr_yield_df}
 \end{table}
+
