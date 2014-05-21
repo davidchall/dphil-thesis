@@ -111,7 +111,7 @@ of the \HWW search, and does not require such stringent optimisation.
 			\multicolumn{2}{c}{$\ptleadlep > 25$ and $\ptsubleadlep > 20$} \\
 			$\mll > 10$    & $\mll > 15$ \\
 			--             & $\mods{\mll - \mZ} > 15$ \\
-			$\metrel > 25$ & $\metrel > 45$ \\
+			$\calometrel > 25$ & $\calometrel > 45$ \\
 			\multicolumn{2}{c}{$\njets = 0$} \\
 			\multicolumn{2}{c}{$\ptll > 30$} \\
 			\bottomrule
@@ -140,7 +140,7 @@ the extrapolation.
 
 The fiducial region is defined by the criteria in \Table~\ref{tab:ww:sel} applied to 
 hadron-level objects, which are now described. The MC event record is used to identify 
-leptons and neutrinos which descend from the \PW bosons. An \metvec vector is constructed 
+leptons and neutrinos which descend from the \PW bosons. A \truthmetvec vector is constructed 
 from the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a 
 cone of $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found 
 using particle four-momenta as inputs (\cf topo-clusters at detector-level). Muons and 
@@ -464,10 +464,10 @@ MC generators used to model each process.
 	uncertainties in the (mis)tag efficiency of the \Pbottom-tagging algorithm.
 
 \item[\DY] \hfill \\
-	The \DY background is suppressed by the \PZ mass veto and the \met and \ptll cuts, 
-	though remains a significant background to the \eech and \mmch channels. Since MC 
-	might mismodel the fake \met distribution, this background is normalised to data in a 
-	control region (CR) that includes the \met cut.
+	The \DY background is suppressed by the \PZ mass veto and the \calometrel and \ptll 
+	cuts, though remains a significant background to the \eech and \mmch channels. Since MC 
+	might mismodel the fake \calometrel distribution, this background is normalised to data 
+	in a control region (CR) that includes the \calometrel cut.
 
 	The \DY CR is defined similarly to the signal region (SR), with the \ptll cut 
 	inverted. The number of events in the CR is measured, the non-\DY contamination is 
@@ -477,7 +477,7 @@ MC generators used to model each process.
 	\end{equation}
 
 	The dominant uncertainties are due to the small number of events in the CR and the 
-	energy scale of the soft terms in the \met (see \Section~\ref{sec:objects:met}).
+	energy scale of the soft terms in the \calometrel (see \Section~\ref{sec:objects:met}).
 
 \item[Non-\WW diboson] \hfill \\
 	The non-\WW diboson backgrounds (\WZ, \Wgstar, \ZZ, \Wgamma) are estimated purely 

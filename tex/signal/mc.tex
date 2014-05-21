@@ -56,7 +56,7 @@ hadron-level objects and are chosen to closely represent those of the detector-l
 selection, in order to minimise the extrapolation.
 
 Hadron-level object definitions follow. The MC event record is used to identify leptons 
-and neutrinos which descend from the Higgs boson. An \metvec vector is constructed from 
+and neutrinos which descend from the Higgs boson. A \truthmetvec vector is constructed from 
 the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a cone of 
 $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found using 
 individual particles as inputs (\cf topo-clusters at detector-level). Muons and neutrinos 
@@ -71,7 +71,7 @@ must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-
 		Inclusive & \multicolumn{2}{c}{$\ptleadlep > 22$ and $\ptsubleadlep > 10$} \\
 		& $\mll > 10$ & $\mll > 12$ \\
 		& -- & $\mods{\mll - \mZ} > 15$ \\
-		& $\met > 20$ & $\metrel > 40$ \\
+		& $\truthmet > 20$ & $\truthmetrel > 40$ \\
 		& \multicolumn{2}{c}{$\mll < 55$} \\
 		& \multicolumn{2}{c}{$\dphill < 1.8$} \\
 		\midrule
