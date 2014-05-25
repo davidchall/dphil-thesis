@@ -553,7 +553,7 @@ $\sqrt{N_{\text{obs}}} / \parenths{N_{\text{obs}} - N_{\text{bkg}}}$.
 The combined total cross section from the three channels is obtained by maximising the 
 likelihood function of a Poisson process
 \begin{equation}
-	\mathcal{L}\parenths{\sigma_{\WW} \vert N_{\text{obs}}^{\emch}, N_{\text{obs}}^{\eech}, N_{\text{obs}}^{\mmch}} &= f\parenths{N_{\text{obs}}^{\emch}; \sigma_{\WW}} \cdot f\parenths{N_{\text{obs}}^{\eech}; \sigma_{\WW}} \cdot f\parenths{N_{\text{obs}}^{\mmch}; \sigma_{\WW}} \nonumber \\
+	\mathcal{L}\parenths{\sigma_{\WW} \vert N_{\text{obs}}^{\emch}, N_{\text{obs}}^{\eech}, N_{\text{obs}}^{\mmch}} &= \Pois{N_{\text{obs}}^{\emch}; \sigma_{\WW}} \cdot \Pois{N_{\text{obs}}^{\eech}; \sigma_{\WW}} \cdot \Pois{N_{\text{obs}}^{\mmch}; \sigma_{\WW}} \nonumber \\
 	&= \prod\limits_{i=1}^3 \frac{\eexp{-\parenths{N_{\text{sig}}^i + N_{\text{bkg}}^i}} \cdot \parenths{N_{\text{sig}}^i + N_{\text{bkg}}^i}^{N_{\text{obs}}^i}}{N_{\text{obs}}^i!}
 \end{equation}
 where $N_{\text{sig}}^i = \sigma_{\WW} \cdot C_{\WW}^i \cdot A_{\WW}^i \cdot \text{BR}^i 

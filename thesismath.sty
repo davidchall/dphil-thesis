@@ -1,4 +1,4 @@
-\ProvidesPackage{thesismath}% Courtesy of Andy Buckley
+\ProvidesPackage{thesismath}% Courtesy of Andy Buckley (+ my additions)
 
 \DeclareRobustCommand{\thesismath}[1]{\ensuremath{\maybebmsf{#1}}}
 \DeclareRobustCommand{\parenths}[1]{\thesismath{\left({#1}\right)}}
@@ -15,6 +15,9 @@
 \DeclareRobustCommand{\lnOf}[1]{\ln\!\parenths{#1}}
 \DeclareRobustCommand{\ofOrder}[1]{\thesismath{ \mathcal{O}\parenths{#1} }}
 \DeclareRobustCommand{\about}{\thesismath{\sim\!\,}}
+\DeclareRobustCommand{\Pois}[1]{\thesismath{\mathrm{Pois}\parenths{#1}}}
+\DeclareRobustCommand{\Gauss}[1]{\thesismath{\mathrm{Gauss}\parenths{#1}}}
+\DeclareRobustCommand{\given}{\thesismath{\vert}}
 
 %% Vectors, tuples and sets
 \DeclareRobustCommand{\cross}{\thesismath{\times}\xspace}

@@ -1,23 +1,130 @@
 %!TEX root = ../../thesis.tex
 
+A statistical model is built within the \histfactory software package \cite{HistFactory}, 
+incorporating the various data-driven techniques described in Chapters~\ref{chap:ww} and 
+\ref{chap:backgrounds}. The experimental data and MC-modelled expectations found within each 
+signal and control region allow the model to be constrained, and for various hypotheses to 
+be tested.
 
-\subsection{Transverse mass binning}
-\label{sec:stat:mt_bin}
-% (em, me, ee+mm) x (0j, 1j) use bin optimisation algorithm
-% (em, me) x (2j)
+
+
+\subsection{Discriminant observables}
+\label{sec:stat:sr_binning}
+
+The fitting procedure discriminates between the signal and background processes through the 
+distribution of certain sensitive observables. However, the degree to which this information 
+can be exploited is limited by statistical uncertainties. The sensitivity of the fitting 
+procedure can be optimised through the choice of discriminating observables, the number of 
+bins in each observable, and the location of the bin boundaries.
+
+The analysis features eight signal regions, defined by the criteria in 
+\Section~\ref{sec:selection}: $\braces{\emch,\mech,\eech{}+\mmch} \otimes 
+\braces{\text{0-jet,1-jet}}~~\oplus~~\braces{\emch,\mech} \otimes \braces{\twojet}$.
+A three-dimensional fit of \mt, \ptsubleadlep and \mll is performed in the 
+$\braces{\emch,\mech} \otimes \braces{\text{0-jet,1-jet}}$ channels, whereas a 
+one-dimensional \mt fit is used in the others.
+
+Additionally, an optimisation algorithm is used to determine the \mt bin boundaries in the 
+$\braces{\emch,\mech,\eech{}+\mmch} \otimes \braces{\text{0-jet,1-jet}}$ signal regions. 
+It is applied independently in each \ptsubleadlep-\mll bin in the \emch/\mech channels. 
+This algorithm starts with bin boundaries that give an equal number of expected signal 
+events in each bin. Then, each of the odd bin boundaries is scanned across \mt in order to 
+optimise the sum in quadrature of the per-bin significances of the two adjacent bins
+\begin{equation}
+	Z_b = \sqrt{\left(N_{b}^{\text{sig}} \middle/ \sqrt{N_{b}^{\text{bkg}}}\right)^{\!\!2} + \left(N_{b+1}^{\text{sig}} \middle/ \sqrt{N_{b+1}^{\text{bkg}}}\right)^{\!\!2}}
+\end{equation}
+where $b$ is the bin number. The new bin boundary is accepted if the increase in $Z_b$ is 
+statistically significant, \ie $(Z_b' - Z_b)/\Delta(Z_b' - Z_b) > 5$. This process repeats 
+on the even bin boundaries, and continues to iterate between odd and even boundaries until 
+their positions stabilise.
+
+The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_binning}.
+
+
+\begin{table}[t]
+	\begin{tabular}{cc@{\hskip 0.3in}ccc@{\hskip 0.3in}c}
+		\toprule
+		\multirow{2}{*}{\njets} & \multirow{2}{*}{Channel} & \multicolumn{3}{c}{Bin boundaries (\GeV)} & \multirow{2}{*}{$N_{\text{bins}}$} \\
+		& & \ptsubleadlep & \mll & \mt & \\
+		\midrule
+		0-jet & \emch, \mech   & \hardrange{10,15,20,\infty} & \hardrange{10,30,55} & 10 bins: optimised & 60 \\
+		0-jet & \eech{}+\mmch  & \hardrange{10,\infty} & \hardrange{12,55} & 10 bins: optimised & 10 \\
+		1-jet & \emch, \mech   & \hardrange{10,15,20,\infty} & \hardrange{10,30,55} & \phantom{1}6 bins: optimised & 36 \\
+		1-jet & \eech{}+\mmch  & \hardrange{10,\infty} & \hardrange{12,55} & \phantom{1}6 bins: optimised & 6 \\
+		\twojet & \emch, \mech & \hardrange{10,\infty} & \hardrange{10,55} & \hardrange{0,50,80,130,\infty} & 4 \\
+		\bottomrule
+	\end{tabular}
+	\caption{The binning of each discriminant for each signal region. The optimisation 
+	algorithm used to determine the \mt bin boundaries is described in the text.}
+	\label{tab:stat:sr_binning}
+\end{table}
 
 
 
 \subsection{Likelihood function}
 \label{sec:stat:likelihood}
 
+The fitting procedure involves the maximisation of a likelihood function, whose construction 
+is now described.
+
+\begin{equation}
+	\mathcal{L}\parenths{\mu, \bvec{\theta}} &= \mathcal{L}\parenths{\mu, \bvec{\theta} ~\given~ \bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}} \\
+	&= f\parenths{\bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}; \mu, \bvec{\theta}} \\
+	&= \!\!\!\!\!\prod\limits_{c\in\text{channels}} \!\!\!\!\!f\parenths{\mathcal{D}_{c}^{\text{SR}}; \mu, \bvec{\theta}} ~\!\!\!\!\!\prod\limits_{c\in\text{channels}}\!\!\!\!\! f\parenths{\mathcal{D}_{c}^{\text{CR}}; \mu, \bvec{\theta}} ~\prod\limits_{i} ~f_i\parenths{\tilde{\theta}_i; \theta_i}
+\end{equation}
+
+\begin{equation}
+	f\parenths{\mathcal{D}_c; \mu, \bvec{\theta}} &= \!\prod\limits_{b\in\text{bins}}\! \Pois{N_{cb}^{\text{obs}}; \mu N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} + N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}}} \\
+	N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} &= N_{cb}^{\text{sig}} ~\prod\limits_{i} \nu_{cbi}\parenths{\theta_i} \\
+	N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}} &= \!\!\!\!\!\sum\limits_{p\in\text{processes}}\!\!\!\!\! N_{cbp}^{\text{bkg}} ~\prod\limits_{i} \nu_{cbpi}\parenths{\theta_i}
+\end{equation}
+
+\begin{equation}
+	\Pois{x; \lambda} = \frac{\lambda^x \eexp{-\lambda}}{x!}
+\end{equation}
+
+
+\cite{Cowan:2010}
+\cite{Junk:CLs,Read:CLs}
+
 % parameters of interest
-% nuisance parameters
+% nuisance parameters constrained by auxiliary measurements
+
+
 
 
 \subsection{Hypothesis testing}
 \label{sec:stat:tests}
-% profile likelihood ratio
+
+profile likelihood ratio:
+\begin{equation}
+	\tilde{\lambda}\parenths{\mu} = 
+	\begin{cases}
+		\frac{\mathcal{L}(\mu, \hat{\hat{\bvec{\theta}}}\parenths{\mu})}{\mathcal{L}(\hat{\mu}, \hat{\bvec{\theta}})} & \text{if~} \hat{\mu} \geq 0 \\
+		\frac{\mathcal{L}(\mu, \hat{\hat{\bvec{\theta}}}\parenths{\mu})}{\mathcal{L}(0, \hat{\hat{\bvec{\theta}}}\parenths{0})} & \text{if~} \hat{\mu} < 0
+	\end{cases}
+\end{equation}
+
+test statistic for measurement:
+\begin{equation}
+	\tilde{t}_{\mu} = -2 \ln \tilde{\lambda}\parenths{\mu}
+\end{equation}
+
+test statistic for discovery:
+\begin{equation}
+	q_0 = -2 \ln \tilde{\lambda}\parenths{0}
+\end{equation}
+
+test statistic for upper limits (leads to CLs):
+\begin{equation}
+	\tilde{q}_{\mu} = 
+	\begin{cases}
+		-2 \ln \tilde{\lambda}\parenths{\mu} & \text{if~} \hat{\mu} \leq \mu \\
+		0 & \text{if~} \hat{\mu} > \mu
+	\end{cases}
+\end{equation}
+
+% profile likelihood ratio (Neyman-Pearson lemma not actually for models with multiple parameters)
 % profile likelihood ratio test statistic
 % p-value
 % CLs
