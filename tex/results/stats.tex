@@ -40,7 +40,6 @@ their positions stabilise.
 
 The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_binning}.
 
-
 \begin{table}[t]
 	\begin{tabular}{cc@{\hskip 0.3in}ccc@{\hskip 0.3in}c}
 		\toprule
@@ -64,37 +63,72 @@ The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_
 \subsection{Likelihood function}
 \label{sec:stat:likelihood}
 
-The fitting procedure involves the maximisation of a likelihood function, whose construction 
-is now described.
+The statistical model describing the expected outcome of the experiment depends upon a set 
+of parameters $\bvec{\alpha} = \parenths{\mu, \bvec{\theta}}$, where $\mu$ is the signal 
+strength (a parameter of interest) and \bvec{\theta} is the set of nuisance parameters (\eg 
+trigger efficiency, \WW extrapolation $\alpha_{\WW}$). The Higgs boson mass \mH could also 
+be treated as a parameter of interest, but in practice this parameter is scanned during 
+hypothesis testing.
 
+The likelihood function expresses how likely a set of parameter values are, given that a 
+particular dataset is observed. It is defined as the probability of producing the observed 
+dataset, when the parameter values are input into the statistical model
 \begin{equation}
 	\mathcal{L}\parenths{\mu, \bvec{\theta}} &= \mathcal{L}\parenths{\mu, \bvec{\theta} ~\given~ \bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}} \\
-	&= f\parenths{\bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}; \mu, \bvec{\theta}} \\
-	&= \!\!\!\!\!\prod\limits_{c\in\text{channels}} \!\!\!\!\!f\parenths{\mathcal{D}_{c}^{\text{SR}}; \mu, \bvec{\theta}} ~\!\!\!\!\!\prod\limits_{c\in\text{channels}}\!\!\!\!\! f\parenths{\mathcal{D}_{c}^{\text{CR}}; \mu, \bvec{\theta}} ~\prod\limits_{i} ~f_i\parenths{\tilde{\theta}_i; \theta_i}
+	&= f\parenths{\bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}; \mu, \bvec{\theta}}
 \end{equation}
-
+where \bvec{\mathcal{D}^{\text{SR}}} and \bvec{\mathcal{D}^{\text{CR}}} are the sets of 
+observed data in the signal regions (SRs) and control regions (CRs), respectively.
+This can be decomposed into a product of probabilities
 \begin{equation}
-	f\parenths{\mathcal{D}_c; \mu, \bvec{\theta}} &= \!\prod\limits_{b\in\text{bins}}\! \Pois{N_{cb}^{\text{obs}}; \mu N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} + N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}}} \\
+	\mathcal{L}\parenths{\mu, \bvec{\theta}} = \!\!\!\!\!\prod\limits_{c\in\text{channels}} \!\!\!\!\!f\parenths{\mathcal{D}_{c}^{\text{SR}}; \mu, \bvec{\theta}} ~\!\!\!\!\!\prod\limits_{c\in\text{channels}}\!\!\!\!\! f\parenths{\mathcal{D}_{c}^{\text{CR}}; \mu, \bvec{\theta}} ~\prod\limits_{i} ~f_i(\tilde{\theta}_i; \theta_i, \Delta\tilde{\theta}_i)
+\end{equation}
+where the SR channels are the eight SRs described in \Section~\ref{sec:stat:sr_binning}, and 
+the CR channels include the data used in data-driven background estimations. Each 
+$f(\tilde{\theta}; \theta, \Delta\tilde{\theta})$ acts to constrain the corresponding 
+nuisance parameter, and is often a Gaussian distribution. The nominal value $\tilde{\theta}$ 
+and uncertainty $\Delta\tilde{\theta}$ are determined by an auxiliary measurement, either 
+experimental (\eg trigger efficiency) or theoretical (\eg $\alpha_{\WW}$).
+
+The probability of producing an observed distribution $\mathcal{D}_c$ is described by 
+a product of Poisson distributions
+\begin{equation}
+	f\parenths{\mathcal{D}_c; \mu, \bvec{\theta}} &= \!\prod\limits_{b\in\text{bins}}\! \Pois{N_{cb}^{\text{obs}}; \mu N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} + N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}}}
+\end{equation}
+where $\Pois{x; \lambda} = \lambda^x \eexp{-\lambda} / x!$, $N_{cb}^{\text{obs}}$ is the 
+number of observed events, $N_{cb}^{\text{sig}}\parenths{\bvec{\theta}}$ is the number of 
+expected signal events for a Standard Model Higgs boson (estimated by MC), and 
+$N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}}$ is the number of expected background events 
+(estimated by a combination of data and MC). The product is over the bins of the 
+distribution $\mathcal{D}_c$, which is one- or three-dimensional in the case of the SRs, 
+and zero-dimensional in most of the CRs (\ie a single bin).
+
+The expected numbers of events depend upon the nuisance parameters according to
+\begin{equation}
 	N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} &= N_{cb}^{\text{sig}} ~\prod\limits_{i} \nu_{cbi}\parenths{\theta_i} \\
 	N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}} &= \!\!\!\!\!\sum\limits_{p\in\text{processes}}\!\!\!\!\! N_{cbp}^{\text{bkg}} ~\prod\limits_{i} \nu_{cbpi}\parenths{\theta_i}
 \end{equation}
-
-\begin{equation}
-	\Pois{x; \lambda} = \frac{\lambda^x \eexp{-\lambda}}{x!}
-\end{equation}
-
-
-\cite{Cowan:2010}
-\cite{Junk:CLs,Read:CLs}
-
-% parameters of interest
-% nuisance parameters constrained by auxiliary measurements
-
+where $N = N(\tilde{\bvec{\theta}})$ is the expected events with the nominal nuisance 
+parameters determined by auxiliary measurements, and $\nu_i(\theta_i)$ factorises the 
+dependence upon the nuisance parameter $\theta_i$. The $\nu_i(\theta_i)$ are often 
+determined by evaluating $\nu_i(\tilde{\theta}_i + \Delta\tilde{\theta}_i)$ and 
+$\nu_i(\tilde{\theta}_i - \Delta\tilde{\theta}_i)$, and then interpolating and extrapolating 
+to other values of $\theta_i$. Some nuisance parameters affect all processes (\eg trigger 
+efficiency), whilst others only affect a particular process (\eg $\alpha_{\WW}$). 
+Correlations exist between bins and channels, \eg a normalisation uncertainty would be 100\% 
+correlated between bins. Statistical uncertainties in the MC samples are implemented as 
+uncorrelated uncertainties in the total expected events in each bin, where the corresponding 
+constraint $f(\tilde{\theta}; \theta, \Delta\tilde{\theta})$ is a Poisson distribution.
 
 
 
 \subsection{Hypothesis testing}
 \label{sec:stat:tests}
+
+% nps constrained in the fit (pulls wrt auxiliary measurements)
+
+\cite{Cowan:2010}
+\cite{Junk:CLs,Read:CLs}
 
 profile likelihood ratio:
 \begin{equation}
