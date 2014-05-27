@@ -1,28 +1,114 @@
 %!TEX root = ../../thesis.tex
 
-% data and MC statistics (not a systematic uncertainty)
+In addition to statistical uncertainties arising in the numbers of events observed and 
+expected (due to finite MC sample sizes), multiple sources of systematic uncertainty should 
+be considered. Many of these were introduced throughout 
+Chapters~\ref{chap:selection}--\ref{chap:backgrounds}, but a short summary is also presented 
+here.
+
+
 
 \subsection{Experimental uncertainties}
 \label{sec:syst:exp}
 
+Experimental uncertainties arise due to mismodelling of the detector performance, 
+particularly in the reconstruction efficiency and energy calibration of physics objects. 
+These introduce uncertainties either directly into the expected acceptance (as with signal) 
+or via the extrapolation from a control region (as with many backgrounds).
+
 \begin{description}
-\item[Trigger efficiency] \hfill \\	
+\item[Trigger efficiency] \hfill \\
+	The lepton trigger efficiencies and their uncertainties are measured as a function of 
+	\pt and $\eta$ using tag-and-probe of \HepProcess{\PZ \HepTo \Plepton\Plepton} events 
+	(see \Section~\ref{sec:selection:trigger}). This includes the efficiency of matching the 
+	trigger to the lepton object.
 	
 \item[Lepton reconstruction efficiency] \hfill \\
+	The lepton selection efficiencies and their uncertainties are measured as a function of 
+	\pt and $\eta$ using tag-and-probe of \HepProcess{\PZ \HepTo \Plepton\Plepton} events 
+	(see Sections~\ref{sec:objects:electrons} and \ref{sec:objects:muons}). This is 
+	performed separately for each step in the lepton selection, \ie reconstruction, 
+	identification, isolation and primary vertex association. The efficiency uncertainties 
+	are $<\!0.5\%$ for muons and $<\!3\%$ for electrons.
 	
 \item[Lepton energy scale and resolution] \hfill \\
+	Lepton energy scales and resolutions are calibrated \textit{in situ} as a function of 
+	\pt and $\eta$ using \HepProcess{\PJpsi \HepTo \Plepton\Plepton} and \HepProcess{\PZ 
+	\HepTo \Plepton\Plepton} resonance events, and the associated uncertainties are also 
+	derived during this calibration. Scale uncertainties are $<\!0.5\%$ and their impact 
+	is assessed by varying lepton energies by $\pm1\sigma$. Resolution uncertainties are 
+	$<\!1\%$ and their impact is assessed by varying the smearing of lepton energies by 
+	$\pm1\sigma$.
 
 \item[Jet reconstruction efficiency] \hfill \\
+	The jet selection criteria feature a cut upon the jet vertex fraction (JVF) in order to 
+	reduce pile-up jets (see \Section~\ref{sec:objects:jets}). Unlike the trigger, lepton 
+	reconstruction and \Pbottom-tagging efficiencies, the JVF efficiency is not subject to 
+	a data-driven scale factor and so MC mismodelling introduces a systematic uncertainty to 
+	the \njets distribution. This is only an issue in signal events, since the data-driven 
+	background estimations are jet-binned. The mismodelling is evaluated as 1.2\% in a \DYll 
+	control region, producing negligible jet bin migrations.
 
 \item[Jet energy scale and resolution] \hfill \\
+	The jet energy scale (JES) is calibrated as a function of \pt and $\eta$, as described 
+	in \Section~\ref{sec:objects:jets}. The \textit{in situ} calibration method of balancing 
+	jets against well-measured reference objects introduces uncertainties to the JES. Also, 
+	uncertainties in the pile-up environment introduce uncertainties to the JES through the 
+	pile-up subtraction step of the calibration. Finally, the JES is affected by 
+	uncertainties in the jet flavour composition and the detector response to each flavour.
+	The uncertainty components are treated separately (the total uncertainty is $<\!7\%$) 
+	and their impact is assessed by varying jet energies by $\pm1\sigma$.
+
+	The jet energy resolution (JER) and its uncertainty are measured \textit{in situ} as a 
+	function of \pt and $\eta$ using dijet events \cite{Jets:JER:2011}. The bisector method 
+	projects the dijet \pt imbalance in the direction bisecting the two jets and in the 
+	orthogonal direction. At hadron-level the two components are expected to have the same 
+	variance, but at detector-level the variance of the latter is increased by the JER.
+	Thus, measurements of the two components allow the JER to be evaluated. The uncertainty 
+	is $<\!10\%$ and its impact is assessed by increasing the smearing of jet energies 
+	by $+1\sigma$.
 
 \item[Jet \Pbottom-tagging efficiency] \hfill \\
+	The \Pbottom-tagging efficiency for \Pbottom-jets is calibrated as a function of jet 
+	\pt, using dileptonic \ttbar decays in a combinational likelihood method \cite{Btag:llh}.
+	At \unit{$\pt \approx 20$}{\GeV} the measurement is limited by JES uncertainties, but at 
+	\unit{$\pt > 40$}{\GeV} it is limited by modelling uncertainties in the jet flavour 
+	composition. Uncertainties in the \Pbottom-tagging efficiency of \Pcharm-jets and light 
+	jets are also considered, though have small effect.
 
 \item[\met modelling] \hfill \\
+	As described in \Section~\ref{sec:objects:met}, \calomet, \trackmet and \corrtrackmet 
+	are defined using the calibrated electron, muon and jet objects, and are therefore 
+	correlated to the electron, muon and jet energy scales whose uncertainties are outlined 
+	above. In the \calomet calculation, uncertainties in the scale of the unassociated soft 
+	calorimeter deposits are also considered. In the \trackmet and \corrtrackmet 
+	calculations, uncertainties in the nett $\bvec{p}_{\text{T}}$ of unassociated tracks 
+	(\eg due to neutral particles) are also considered.
 
-\item[Fake rate] \hfill \\
+\item[Lepton fake factors] \hfill \\
+	The lepton fake factors are important to the \Wjets and dijet background estimations, 
+	and are discussed in detail in \Section~\ref{sec:wjets}. $f_{\Plepton}^{\text{\Wjets}}$ 
+	is measured in \Zjets events, and is dominated by statistical uncertainties, 
+	uncertainties in the electroweak background subtraction and theoretical uncertainties in 
+	MC-based corrections. However, a component of the uncertainties cancels in the same-sign 
+	control region method (see \Section~\ref{sec:diboson:sscr}). 
+	$f_{\Plepton}^{\text{dijet}}$ is measured in dijet events and is dominated by 
+	theoretical uncertainties in MC-based corrections.
+
+\item[Pile-up] \hfill \\
+	Uncertainties in the pile-up environment affect the jet calibration, as outlined above. 
+	Pile-up can also introduce additional hard jets that lead to migrations between jet bins.
+	Uncertainties in pile-up lead to migration uncertainties of 0.5\% and 1.0\% in the 0-jet 
+	and 1-jet bins respectively, and are neglected sine they are much smaller than the ggF 
+	jet binning uncertainties.
+
+	The effect of out-of-time pile-up upon detector electronics might also be mismodelled. 
+	This was investigated but found to be negligible.
 
 \item[Luminosity] \hfill \\
+	The luminosity measurement is calibrated during van der Meer scans (see 
+	\Section~\ref{sec:dataset:lumi}), with a relative uncertainty of 2.8\% for the 
+	\unit{$\sqrt{s} = 8$}{\TeV} dataset.
 
 \end{description}
 
@@ -30,3 +116,15 @@
 
 \subsection{Theoretical uncertainties}
 \label{sec:syst:theor}
+
+Many theoretical uncertainties are also considered (and indeed are included within the 
+experimental uncertainties above). Theoretical uncertainties on the expected signal are 
+described in \Chapter~\ref{chap:signal}. Theoretical uncertainties on the expected 
+background appear when some aspect of the data-driven techniques relies upon MC modelling. 
+Some of the uncertainties considered are presented in Chapters~\ref{chap:ww} and 
+\ref{chap:backgrounds}.
+
+The sources of uncertainty usually considered are: higher order corrections in the 
+perturbative series, incoming parton distribution functions, and aspects of the MC modelling 
+(\eg hadronisation and underlying event models).
+
