@@ -125,44 +125,118 @@ constraint $f(\tilde{\theta}; \theta, \Delta\tilde{\theta})$ is a Poisson distri
 \label{sec:stat:tests}
 
 The techniques of statistical hypothesis testing employed by Higgs boson searches at the LHC 
-are fully described in \Reference~\cite{Cowan:2010}. Those used in the \HWW search to 
-exclude, discover and measure the Higgs boson are briefly summarised below.
+are fully described in references~\cite{Cowan:2010,Cranmer:lectures}. Those used in the \HWW 
+search to exclude, discover and measure the Higgs boson are briefly summarised below.
 
-% nps constrained in the fit (pulls wrt auxiliary measurements)
-
-\cite{Junk:CLs,Read:CLs}
-
-profile likelihood ratio:
+Hypothesis testing is based around the profile likelihood ratio, defined as
+\begin{equation}
+	\lambda\parenths{\mu} = \frac{\mathcal{L}(\mu, \hat{\hat{\bvec{\theta}}}\parenths{\mu})}{\mathcal{L}(\hat{\mu}, \hat{\bvec{\theta}})}
+\end{equation}
+where $\hat{\mu}$ and $\hat{\bvec{\theta}}$ are the parameter values that maximise the 
+likelihood, and $\hat{\hat{\bvec{\theta}}}\parenths{\mu}$ are the nuisance parameter values 
+that maximise the likelihood when $\mu$ is fixed. Maximal agreement with experimental data 
+is expressed by the maximum $\lambda\parenths{\hat{\mu}} = 1$, and statistical and 
+systematic uncertainties determine the shape of $\lambda\parenths{\mu}$. The maximised 
+$\hat{\bvec{\theta}}$ and $\hat{\hat{\bvec{\theta}}}\parenths{\mu}$ can be pulled, and 
+constrained differently, with respect to the auxiliary measurements $\tilde{\bvec{\theta}}$. 
+An alternative version of the profile likelihood ratio is defined as
 \begin{equation}
 	\tilde{\lambda}\parenths{\mu} = 
-	\begin{cases}
-		\frac{\mathcal{L}(\mu, \hat{\hat{\bvec{\theta}}}\parenths{\mu})}{\mathcal{L}(\hat{\mu}, \hat{\bvec{\theta}})} & \text{if~} \hat{\mu} \geq 0 \\
-		\frac{\mathcal{L}(\mu, \hat{\hat{\bvec{\theta}}}\parenths{\mu})}{\mathcal{L}(0, \hat{\hat{\bvec{\theta}}}\parenths{0})} & \text{if~} \hat{\mu} < 0
-	\end{cases}
+	\begin{dcases*}
+		\frac{\mathcal{L}(\mu, \hat{\hat{\bvec{\theta}}}\parenths{\mu})}{\mathcal{L}(\hat{\mu}, \hat{\bvec{\theta}})} & if $\hat{\mu} \geq 0$ \\
+		\frac{\mathcal{L}(\mu, \hat{\hat{\bvec{\theta}}}\parenths{\mu})}{\mathcal{L}(0, \hat{\hat{\bvec{\theta}}}\parenths{0})} & if $\hat{\mu} < 0$
+	\end{dcases*}
 \end{equation}
+which limits the model to $\hat{\mu} \geq 0$.
 
-test statistic for measurement:
-\begin{equation}
-	\tilde{t}_{\mu} = -2 \ln \tilde{\lambda}\parenths{\mu}
-\end{equation}
+Frequentist techniques are used to test three different scenarios. First, we attempt to 
+exclude the Standard Model Higgs boson (\ie $\mu < 1$) at the 95\% confidence level (CL). 
+Second, we attempt to discover the Higgs boson (\ie $\mu > 0$) with $\geq\!5\sigma$ 
+significance. Third, we make a measurement of the signal strength $\mu$ (\ie with a 
+two-sided confidence interval). Each scenario is tested as a raster scan of \mH.
 
-test statistic for discovery:
-\begin{equation}
-	q_0 = -2 \ln \tilde{\lambda}\parenths{0}
-\end{equation}
+In each scenario, a test statistic is constructed to quantify the disagreement between the 
+observed data and the null hypothesis. A $p$-value is then computed, which is the 
+probability of observing a test statistic at least as extreme as that observed, given that 
+the null hypothesis is true. This is computed using a sampling distribution described by an 
+asymptotic formula valid in the limit of large sample size \cite{Cowan:2010}. Finally, we 
+quantify the sensitivity of the analysis via the expected results given that the alternative 
+hypothesis is true (using the corresponding expected ``Asimov'' dataset) \cite{Cowan:2010}.
 
-test statistic for upper limits (leads to CLs):
-\begin{equation}
-	\tilde{q}_{\mu} = 
-	\begin{cases}
-		-2 \ln \tilde{\lambda}\parenths{\mu} & \text{if~} \hat{\mu} \leq \mu \\
-		0 & \text{if~} \hat{\mu} > \mu
-	\end{cases}
-\end{equation}
+\begin{description}
+\item[Exclusion] \hfill \\
+	To determine an upper limit on the signal strength, a one-sided test statistic is 
+	constructed under the assumption of a signal-plus-background null hypothesis:
+	\begin{equation}
+		\tilde{q}_{\mu} = 
+		\begin{dcases*}
+			-2 \ln \tilde{\lambda}\parenths{\mu} & if $\hat{\mu} \leq \mu$ \\
+			0 & if $\hat{\mu} > \mu$
+		\end{dcases*}
+	\end{equation}
+	where use of $\tilde{\lambda}\parenths{\mu}$ ensures that only $\mu \geq 0$ are 
+	considered physical. The compatibility of the data with the null hypothesis is 
+	quantified by the $p$-value
+	\begin{equation}
+		p_{\mu} = \int\limits_{\tilde{q}_{\mu,\text{obs}}}^{\infty} \! f(\tilde{q}_{\mu}~\given~\mu, \hat{\hat{\bvec{\theta}}}(\mu)) \,\, \d{\tilde{q}_{\mu}} \,.
+	\end{equation}
+	Thus, a 95\% CL upper limit upon $\mu$ is set at the value which satisfies 
+	$p_{\mu} = 0.05$.
 
-% profile likelihood ratio (Neyman-Pearson lemma not actually for models with multiple parameters)
-% profile likelihood ratio test statistic
-% p-value
-% CLs
-% expected (Asimov data)
+	An unfortunate feature of this method is that a downward fluctuation in the observed 
+	data can exclude models where little sensitivity is expected. For this reason the 
+	modified frequentist \CLs technique is used \cite{Junk:CLs,Read:CLs}, which defines the 
+	$p$-value
+	\begin{equation}
+		p_{\mu}' = \frac{p_{\mu}}{1 - p_{b}}
+	\end{equation}
+	where incompatibilities with the null hypothesis are down-weighted if the data is also 
+	incompatible with the background-only hypothesis, through
+	\begin{equation}
+		p_{b} = \int\limits_{-\infty}^{\tilde{q}_{\mu,\text{obs}}} \! f(\tilde{q}_{\mu}~\given~0, \hat{\hat{\bvec{\theta}}}(0)) \,\, \d{\tilde{q}_{\mu}} \,.
+	\end{equation}
+	Thus, a 95\% CL upper limit upon $\mu$ is set at the value which satisfies 
+	$p_{\mu}' = 0.05$. The Standard Model Higgs boson is considered excluded if $\mu < 1$ at 
+	the 95\% CL. The analysis sensitivity is evaluated by calculating the expected $\mu$ 
+	upper limit under the assumption of a background-only alternative hypothesis.
+
+\item[Discovery] \hfill \\
+	For discovery, a one-sided test statistic is constructed under the assumption of a 
+	background-only null hypothesis:
+	\begin{equation}
+		q_0 = 
+		\begin{dcases*}
+			-2 \ln \lambda\parenths{0} & if $\hat{\mu} \geq 0$ \\
+			0 & if $\hat{\mu} < 0$ \,.
+		\end{dcases*}
+	\end{equation}
+	The compatibility of the data with the null hypothesis is quantified by the $p$-value
+	\begin{equation}
+		p_{0} = \int\limits_{q_{0,\text{obs}}}^{\infty} \! f(q_{0}~\given~0, \hat{\hat{\bvec{\theta}}}(0)) \,\, \d{q_{0}} \,.
+	\end{equation}
+	The Higgs boson is considered discovered if the background-only hypothesis is excluded 
+	with $p_0 < 2.87 \times 10^{-7}$, corresponding to a significance of at least five 
+	standard deviations (\ie $\geq\!5\sigma$) in a Gaussian distribution. The analysis 
+	sensitivity is evaluated by calculating the expected $p_0$ under the assumption of a 
+	signal-plus-background alternative hypothesis, with $\mu = 1$. As seen in 
+	\Section~\ref{sec:results}, an \mH value must also be chosen for this hypothesis.
+
+\item[Measurement] \hfill \\
+	For the $\mu$ measurement, a two-sided test statistic is constructed under the 
+	assumption of a signal-plus-background null hypothesis:
+	\begin{equation}
+		t_{\mu} = -2 \ln \lambda\parenths{\mu} \,.
+	\end{equation}
+	The compatibility of the data with the null hypothesis is quantified by the $p$-value
+	\begin{equation}
+		p_{\mu} = \int\limits_{t_{\mu,\text{obs}}}^{\infty} \! f(t_{\mu}~\given~\mu, \hat{\hat{\bvec{\theta}}}(\mu)) \,\, \d{t_{\mu}} \,.
+	\end{equation}
+	The nominal $\mu$ value will be $\hat{\mu}$, and the 68\% CL confidence interval is 
+	set at the values which	satisfy $p_{\mu} = 0.16$. The analysis sensitivity is evaluated 
+	by calculating the expected $\hat{\mu} \pm \Delta\mu$ under the assumption of a 
+	signal-plus-background hypothesis, with $\mu = 1$.
+
+\end{description}
+
+
 

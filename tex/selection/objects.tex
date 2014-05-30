@@ -603,10 +603,10 @@ kinematics.
 	the relative \calomet is defined to be
 	\begin{equation}
 		\calometrel = 
-		\begin{cases}
-			\calomet\sin\parenths{\Delta\phi} & \text{if~} \Delta\phi < \pi/2 \\
-			\calomet & \text{otherwise}
-		\end{cases}
+		\begin{dcases*}
+			\calomet\sin\parenths{\Delta\phi} & if $\Delta\phi < \pi/2$ \\
+			\calomet & otherwise
+		\end{dcases*}
 	\end{equation}
 	where $\Delta\phi$ is the azimuthal angle between \calometvec and the nearest electron, 
 	muon or jet object. Similar definitions exist for \trackmetrel and \corrtrackmetrel.

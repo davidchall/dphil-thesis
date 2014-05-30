@@ -23,6 +23,7 @@
 \RequirePackage{listliketab}
 \RequirePackage{dcolumn}
 \RequirePackage{cancel}
+\RequirePackage{mathtools}
 
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
