@@ -21,20 +21,20 @@ The analysis features eight signal regions, defined by the criteria in
 \Section~\ref{sec:selection}: $\braces{\emch,\mech,\eech{}+\mmch} \otimes 
 \braces{\text{0-jet,1-jet}}~~\oplus~~\braces{\emch,\mech} \otimes \braces{\twojet}$.
 A three-dimensional fit of \mt, \ptsubleadlep and \mll is performed in the 
-$\braces{\emch,\mech} \otimes \braces{\text{0-jet,1-jet}}$ channels, whereas a 
+$\braces{\emch,\mech} \otimes \braces{\text{0-jet,1-jet}}$ signal regions, whereas a 
 one-dimensional \mt fit is used in the others.
 
 Additionally, an optimisation algorithm is used to determine the \mt bin boundaries in the 
 $\braces{\emch,\mech,\eech{}+\mmch} \otimes \braces{\text{0-jet,1-jet}}$ signal regions. 
-It is applied independently in each \ptsubleadlep-\mll bin in the \emch/\mech channels. 
-This algorithm starts with bin boundaries that give an equal number of expected signal 
+It is applied independently within each \ptsubleadlep-\mll bin in the \emch/\mech channels. 
+The algorithm starts with bin boundaries that give an equal number of expected signal 
 events in each bin. Then, each of the odd bin boundaries is scanned across \mt in order to 
 optimise the sum in quadrature of the per-bin significances of the two adjacent bins
 \begin{equation}
 	Z_b = \sqrt{\left(N_{b}^{\text{sig}} \middle/ \sqrt{N_{b}^{\text{bkg}}}\right)^{\!\!2} + \left(N_{b+1}^{\text{sig}} \middle/ \sqrt{N_{b+1}^{\text{bkg}}}\right)^{\!\!2}}
 \end{equation}
 where $b$ is the bin number. The new bin boundary is accepted if the increase in $Z_b$ is 
-statistically significant, \ie $(Z_b' - Z_b)/\Delta(Z_b' - Z_b) > 5$. This process repeats 
+statistically significant, \ie $(Z_b' - Z_b)/\Delta(Z_b' - Z_b) > 5$. The algorithm repeats 
 on the even bin boundaries, and continues to iterate between odd and even boundaries until 
 their positions stabilise.
 The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_binning}.
@@ -52,7 +52,8 @@ The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_
 		\twojet & \emch, \mech & \hardrange{10,\infty} & \hardrange{10,55} & \hardrange{0,50,80,130,\infty} & 4 \\
 		\bottomrule
 	\end{tabular}
-	\caption{The binning of each discriminant for each signal region. The optimisation 
+	\caption{The binning of each discriminant observable for each signal region. The 
+	optimisation 
 	algorithm used to determine the \mt bin boundaries is described in the text.}
 	\label{tab:stat:sr_binning}
 \end{table}
@@ -62,29 +63,29 @@ The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_
 \subsection{Likelihood function}
 \label{sec:stat:likelihood}
 
-The statistical model describing the expected outcome of the experiment depends upon a set 
-of parameters $\bvec{\alpha} = \parenths{\mu, \bvec{\theta}}$, where $\mu$ is the signal 
-strength (a parameter of interest) and \bvec{\theta} is the set of nuisance parameters (\eg 
-trigger efficiency, \WW extrapolation $\alpha_{\WW}$). The Higgs boson mass \mH could also 
-be treated as a parameter of interest, but in practice this parameter is scanned during 
-hypothesis testing.
+The statistical model describing the experiment depends upon a set of parameters 
+$\bvec{\alpha} = \parenths{\mu, \bvec{\theta}}$, where $\mu = \sigma/\sigma_{\text{SM}}$ is 
+the signal strength (a parameter of interest) and \bvec{\theta} is the set of nuisance 
+parameters (\eg trigger efficiency, \WW extrapolation parameter $\alpha_{\WW}$). The Higgs 
+boson mass \mH could also be treated as a parameter of interest, but hypothesis testing is 
+usually performed as a raster scan of \mH in practice.
 
 The likelihood function expresses how likely a set of parameter values are, given that a 
 particular dataset is observed. It is defined as the probability of producing the observed 
-dataset, when the parameter values are input into the statistical model
+dataset, when the parameter values are input into the statistical model,
 \begin{equation}
 	\mathcal{L}\parenths{\mu, \bvec{\theta}} &= \mathcal{L}\parenths{\mu, \bvec{\theta} ~\given~ \bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}} \\
-	&= f\parenths{\bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}; \mu, \bvec{\theta}}
+	&= f\parenths{\bvec{\mathcal{D}^{\text{SR}}}, \bvec{\mathcal{D}^{\text{CR}}}; \,\mu, \bvec{\theta}}
 \end{equation}
-where \bvec{\mathcal{D}^{\text{SR}}} and \bvec{\mathcal{D}^{\text{CR}}} are the sets of 
-observed data in the signal regions (SRs) and control regions (CRs), respectively.
+where \bvec{\mathcal{D}^{\text{SR}}} and \bvec{\mathcal{D}^{\text{CR}}} are the 
+observed datasets in the signal regions (SRs) and control regions (CRs), respectively.
 This can be decomposed into a product of probabilities
 \begin{equation}
-	\mathcal{L}\parenths{\mu, \bvec{\theta}} = \!\!\!\!\!\prod\limits_{c\in\text{channels}} \!\!\!\!\!f\parenths{\mathcal{D}_{c}^{\text{SR}}; \mu, \bvec{\theta}} ~\!\!\!\!\!\prod\limits_{c\in\text{channels}}\!\!\!\!\! f\parenths{\mathcal{D}_{c}^{\text{CR}}; \mu, \bvec{\theta}} ~\prod\limits_{i} ~f_i(\tilde{\theta}_i; \theta_i, \Delta\tilde{\theta}_i)
+	\mathcal{L}\parenths{\mu, \bvec{\theta}} = \!\!\!\!\!\prod\limits_{c\in\text{channels}} \!\!\!\!\!f\parenths{\mathcal{D}_{c}^{\text{SR}}; \,\mu, \bvec{\theta}} ~\!\!\!\!\!\prod\limits_{c\in\text{channels}}\!\!\!\!\! f\parenths{\mathcal{D}_{c}^{\text{CR}}; \,\mu, \bvec{\theta}} ~\prod\limits_{i} ~f_i(\tilde{\theta}_i; \,\theta_i, \Delta\tilde{\theta}_i)
 \end{equation}
 where the SR channels are the eight SRs described in \Section~\ref{sec:stat:sr_binning}, and 
 the CR channels include the data used in data-driven background estimations. Each 
-$f(\tilde{\theta}; \theta, \Delta\tilde{\theta})$ acts to constrain the corresponding 
+$f(\tilde{\theta}; \,\theta, \Delta\tilde{\theta})$ acts to constrain the corresponding 
 nuisance parameter, and is often a Gaussian distribution. The nominal value $\tilde{\theta}$ 
 and uncertainty $\Delta\tilde{\theta}$ are determined by an auxiliary measurement, either 
 experimental (\eg trigger efficiency) or theoretical (\eg $\alpha_{\WW}$).
@@ -92,29 +93,30 @@ experimental (\eg trigger efficiency) or theoretical (\eg $\alpha_{\WW}$).
 The probability of producing an observed distribution $\mathcal{D}_c$ is described by 
 a product of Poisson distributions
 \begin{equation}
-	f\parenths{\mathcal{D}_c; \mu, \bvec{\theta}} &= \!\prod\limits_{b\in\text{bins}}\! \Pois{N_{cb}^{\text{obs}}; \mu N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} + N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}}}
+	f\parenths{\mathcal{D}_c; \,\mu, \bvec{\theta}} &= \!\prod\limits_{b\in\text{bins}}\! \Pois{N_{cb}^{\text{obs}}; \,\mu N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} + N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}}}
 \end{equation}
-where $\Pois{x; \lambda} = \lambda^x \eexp{-\lambda} / x!$, $N_{cb}^{\text{obs}}$ is the 
+where $\Pois{x; \,\lambda} = \lambda^x \eexp{-\lambda} / x!$, $N_{cb}^{\text{obs}}$ is the 
 number of observed events, $N_{cb}^{\text{sig}}\parenths{\bvec{\theta}}$ is the number of 
 expected signal events for a Standard Model Higgs boson (estimated by MC), and 
 $N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}}$ is the number of expected background events 
-(estimated by a combination of data and MC). The product is over the bins of the 
-distribution $\mathcal{D}_c$, which is one- or three-dimensional in the case of the SRs, 
-and zero-dimensional in most of the CRs (\ie a single bin).
+(estimated by data-driven techniques embedded in the statistical model). The product is over 
+the bins of the distribution $\mathcal{D}_c$, which is one- or three-dimensional in the case 
+of the SRs, and zero-dimensional in many of the CRs (\ie a single bin).
 
 The expected numbers of events depend upon the nuisance parameters according to
 \begin{equation}
-	N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} &= N_{cb}^{\text{sig}} ~\prod\limits_{i} \nu_{cbi}\parenths{\theta_i} \\
-	N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}} &= \!\!\!\!\!\sum\limits_{p\in\text{processes}}\!\!\!\!\! N_{cbp}^{\text{bkg}} ~\prod\limits_{i} \nu_{cbpi}\parenths{\theta_i}
+	N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} &= N_{cb}^{\text{sig}}(\tilde{\bvec{\theta}}) ~\prod\limits_{i} \nu_{cbi}(\theta_i - \tilde{\theta}_i) \\
+	N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}} &= \!\!\!\!\!\sum\limits_{p\in\text{processes}}\!\!\!\!\! N_{cbp}^{\text{bkg}}(\tilde{\bvec{\theta}}) ~\prod\limits_{i} \nu_{cbpi}(\theta_i - \tilde{\theta}_i)
 \end{equation}
-where $N = N(\tilde{\bvec{\theta}})$ is the expected events with the nominal nuisance 
-parameters determined by auxiliary measurements, and $\nu_i(\theta_i)$ factorises the 
-dependence upon the nuisance parameter $\theta_i$. The $\nu_i(\theta_i)$ are often 
-determined by evaluating $\nu_i(\tilde{\theta}_i + \Delta\tilde{\theta}_i)$ and 
-$\nu_i(\tilde{\theta}_i - \Delta\tilde{\theta}_i)$, and then interpolating and extrapolating 
-to other values of $\theta_i$. Some nuisance parameters affect all processes (\eg trigger 
+where $N(\tilde{\bvec{\theta}})$ is the expected events with the nominal nuisance parameters 
+as determined by auxiliary measurements, and $\nu_i(\theta_i - \tilde{\theta}_i)$ factorises 
+the dependence upon the nuisance parameter $\theta_i$. The 
+$\nu_i(\theta_i - \tilde{\theta}_i)$ are often determined by evaluating 
+$\nu_i(+\Delta\tilde{\theta}_i)$ and $\nu_i(-\Delta\tilde{\theta}_i)$, and then 
+interpolating and extrapolating. Some nuisance parameters affect all processes (\eg trigger 
 efficiency), whilst others only affect a particular process (\eg $\alpha_{\WW}$). 
-Correlations exist between bins and channels, \eg a normalisation uncertainty would be 100\% 
+Correlations can exist between bins and channels, \eg the 
+$\nu_i(\theta_i - \tilde{\theta}_i)$ for a normalisation parameter would be 100\% 
 correlated between bins. Statistical uncertainties in the MC samples are implemented as 
 uncorrelated uncertainties in the total expected events in each bin, where the corresponding 
 constraint $f(\tilde{\theta}; \theta, \Delta\tilde{\theta})$ is a Poisson distribution.
@@ -124,7 +126,7 @@ constraint $f(\tilde{\theta}; \theta, \Delta\tilde{\theta})$ is a Poisson distri
 \subsection{Hypothesis testing}
 \label{sec:stat:tests}
 
-The techniques of statistical hypothesis testing employed by Higgs boson searches at the LHC 
+The statistical techniques of hypothesis testing employed by Higgs boson searches at the LHC 
 are fully described in references~\cite{Cowan:2010,Cranmer:lectures}. Those used in the \HWW 
 search to exclude, discover and measure the Higgs boson are briefly summarised below.
 
@@ -157,11 +159,12 @@ two-sided confidence interval). Each scenario is tested as a raster scan of \mH.
 
 In each scenario, a test statistic is constructed to quantify the disagreement between the 
 observed data and the null hypothesis. A $p$-value is then computed, which is the 
-probability of observing a test statistic at least as extreme as that observed, given that 
-the null hypothesis is true. This is computed using a sampling distribution described by an 
-asymptotic formula valid in the limit of large sample size \cite{Cowan:2010}. Finally, we 
-quantify the sensitivity of the analysis via the expected results given that the alternative 
-hypothesis is true (using the corresponding expected ``Asimov'' dataset) \cite{Cowan:2010}.
+probability of observing a test statistic at least as extreme as that observed, under the 
+assumption of the null hypothesis. The $p$-value is computed in the large-sample limit, 
+using an asymptotic formula for the sampling distribution \cite{Cowan:2010}. Finally, the 
+sensitivity of the analysis is quantified by calculating the expected limits under the 
+assumption of an alternative hypothesis (using the corresponding expected ``Asimov'' 
+dataset) \cite{Cowan:2010}.
 
 \begin{description}
 \item[Exclusion] \hfill \\
@@ -174,7 +177,7 @@ hypothesis is true (using the corresponding expected ``Asimov'' dataset) \cite{C
 			0 & if $\hat{\mu} > \mu$
 		\end{dcases*}
 	\end{equation}
-	where use of $\tilde{\lambda}\parenths{\mu}$ ensures that only $\mu \geq 0$ are 
+	where use of $\tilde{\lambda}\parenths{\mu}$ ensures that only $\mu \geq 0$ is 
 	considered physical. The compatibility of the data with the null hypothesis is 
 	quantified by the $p$-value
 	\begin{equation}
@@ -197,7 +200,7 @@ hypothesis is true (using the corresponding expected ``Asimov'' dataset) \cite{C
 	\end{equation}
 	Thus, a 95\% CL upper limit upon $\mu$ is set at the value which satisfies 
 	$p_{\mu}' = 0.05$. The Standard Model Higgs boson is considered excluded if $\mu < 1$ at 
-	the 95\% CL. The analysis sensitivity is evaluated by calculating the expected $\mu$ 
+	the 95\% CL. The exclusion sensitivity is evaluated by calculating the expected $\mu$ 
 	upper limit under the assumption of a background-only alternative hypothesis.
 
 \item[Discovery] \hfill \\
@@ -216,7 +219,7 @@ hypothesis is true (using the corresponding expected ``Asimov'' dataset) \cite{C
 	\end{equation}
 	The Higgs boson is considered discovered if the background-only hypothesis is excluded 
 	with $p_0 < 2.87 \times 10^{-7}$, corresponding to a significance of at least five 
-	standard deviations (\ie $\geq\!5\sigma$) in a Gaussian distribution. The analysis 
+	standard deviations (\ie $\geq\!5\sigma$) in a Gaussian distribution. The discovery 
 	sensitivity is evaluated by calculating the expected $p_0$ under the assumption of a 
 	signal-plus-background alternative hypothesis, with $\mu = 1$. As seen in 
 	\Section~\ref{sec:results}, an \mH value must also be chosen for this hypothesis.
@@ -232,9 +235,10 @@ hypothesis is true (using the corresponding expected ``Asimov'' dataset) \cite{C
 		p_{\mu} = \int\limits_{t_{\mu,\text{obs}}}^{\infty} \! f(t_{\mu}~\given~\mu, \hat{\hat{\bvec{\theta}}}(\mu)) \,\, \d{t_{\mu}} \,.
 	\end{equation}
 	The nominal $\mu$ value will be $\hat{\mu}$, and the 68\% CL confidence interval is 
-	set at the values which	satisfy $p_{\mu} = 0.16$. The analysis sensitivity is evaluated 
-	by calculating the expected $\hat{\mu} \pm \Delta\mu$ under the assumption of a 
-	signal-plus-background hypothesis, with $\mu = 1$.
+	set by the values which	satisfy $p_{\mu} = 0.16$. The measurement sensitivity is 
+	evaluated by calculating the expected $\Delta\mu$ under the assumption of a 
+	signal-plus-background hypothesis, with $\mu = 1$. Again, an \mH value must be chosen 
+	for this hypothesis.
 
 \end{description}
 
