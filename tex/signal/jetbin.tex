@@ -21,9 +21,10 @@ $\sigma_0$, and an inclusive $\geq\!1$-jet cross section, $\sigma_{\geq1}$:
 where \ptcut is the jet \pt threshold \cite{YR2}. In $\sigma_{\geq1}$, the requirement of 
 a jet with $\pt > \ptcut$ introduces double logarithmic contributions 
 $\alpha_{\text{S}}^{k+m} L^{2m}$, where $L \sim \ln\parenths{\ptcut/Q}$ and $Q$ is the 
-scale of the hard scatter ($Q = \mH$ for ggF). These terms are analogous to the logarithms 
-introduced by soft gluon emission (see \Section~\ref{sec:qcd:resum}), though they depend 
-upon the process and also the jet algorithm and parameters (\eg \antikt with $R=0.4$).
+scale of the hard scatter ($Q = \mH$ is indicative for ggF). These terms are analogous to 
+the logarithms introduced by soft gluon emission (see \Section~\ref{sec:qcd:resum}), though 
+they depend upon the process and also the jet algorithm and parameters (\eg \antikt with 
+$R=0.4$).
 
 The schematic structures of the two inclusive cross sections are
 \begin{equation}
@@ -35,33 +36,31 @@ significant corrections to $\sigma_{\geq1}$. When these corrections are similar 
 the perturbative corrections to $\sigma_{\total}$, the scale dependence of $\sigma_0 = 
 \sigma_{\total} - \sigma_{\geq1}$ is reduced by cancellations between the two series. This 
 suggests that na\"{i}vely varying \mur and \muf might underestimate perturbative 
-uncertainties. This is confirmed in \Figure~\ref{fig:ggF:naive}, which shows that the 
+uncertainties. This is confirmed in \Figure~\ref{fig:ggF:ci}, which shows that the 
 cancellations at \unit{$\ptcut = 25$}{\GeV} (used in the \HWW analysis) are rather extreme.
 
-\begin{figure}[t]
-	\includegraphics[width=\mediumfigwidth]{tex/signal/sigma0_naive}
-	\caption{The exclusive 0-jet ggF cross section versus the jet \pt threshold \cite{YR2}. 
-	The bands show the perturbative uncertainties evaluated via na\"{i}ve scale variations.}
-	\label{fig:ggF:naive}
-\end{figure}
-
 When discussing uncertainties in jet-binned cross sections, it is convenient to consider 
-a general parametrisation of the covariance matrix. In the \braces{\sigma_0, \sigma_{\geq1}}
-basis, the covariance matrix is decomposed into two uncertainty sources
+a general parametrisation of the covariance matrix \cite{BLTPW:2013}. In the 
+\braces{\sigma_0, \sigma_{\geq1}} basis, the covariance matrix is decomposed into two 
+uncertainty sources
 \begin{equation}
 	C &= C^{\text{yield}} + C^{\text{migration}} \\
-	&= \twomatrix{\parenths{\Delta^{\text{y}}_0}^2 & \Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1}}{\Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1} & \parenths{\Delta^{\text{y}}_{\geq1}}^2} + \parenths{\Delta_{0\rightarrow}^{\text{mig}}}^2\twomatrix{+1 & -1}{-1 & +1} \,.
+	&= \twomatrix{\parenths{\Delta^{\text{y}}_0}^2 & \Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1}}{\Delta^{\text{y}}_0 \Delta^{\text{y}}_{\geq1} & \parenths{\Delta^{\text{y}}_{\geq1}}^2} + \parenths{\Delta_{0\rightarrow}^{\text{mig}}}^2\twomatrix{+1 & -1}{-1 & +1}
 \end{equation}
+where $\Delta^{\text{y}}_N$ is the uncertainty in the $N$-jet cross section due to the yield 
+uncertainty, and $\Delta^{\text{mig}}_{0\rightarrow}$ is the cross section uncertainty due 
+to bin migrations. 
 The yield component is fully correlated between jet bins, though can affect each with 
 different magnitudes. The migration component is fully anti-correlated and affects both 
-bins equally, conserving the normalisation. In the limit setting procedure, these sources 
-are treated as nuisance parameters with \braces{\sigma_0, \sigma_{\geq1}} uncertainty 
-amplitudes
+bins equally, conserving the normalisation. In the statistical model (see 
+\Section~\ref{sec:stat:likelihood}), these two sources are treated as nuisance parameters 
+$\theta$ with uncertainty amplitudes $\nu(\Delta\theta)$ in the \braces{\sigma_0, 
+\sigma_{\geq1}} basis:
 \begin{equation}
 	\begin{array}{l@{}l@{}l}
 		\begin{array}{r}
-			\kappa^{\text{yield}}              : \Big( \\
-			\kappa^{\text{mig}}_{0\rightarrow} : \Big(
+			\theta^{\text{yield}}              : \Big( \\
+			\theta^{\text{mig}}_{0\rightarrow} : \Big(
 		\end{array}
 		&
 		\begin{array}{@{}rrr@{}}
@@ -126,14 +125,16 @@ matrix has three components
 		0 & -1 & +1
 	}
 \end{equation}
-where $\rho$ is the fraction of migrations from the 0-jet bin that enter the \twojet bin. 
-In this case, there are three nuisance parameters with uncertainty amplitudes
+where $\rho$ is the fraction of migrations from the 0-jet bin 
+($\Delta^{\text{mig}}_{0\rightarrow}$) that enter the \twojet bin. 
+In this case, there are three nuisance parameters $\theta$ with uncertainty amplitudes 
+$\nu(\theta)$ in the \braces{\sigma_0, \sigma_1, \sigma_{\geq2}} basis:
 \begin{equation}
 	\begin{array}{l@{}l@{}l}
 		\begin{array}{r}
-			\kappa^{\text{yield}}              : \Big( \\
-			\kappa^{\text{mig}}_{0\rightarrow} : \Big( \\
-			\kappa^{\text{mig}}_{1\rightarrow} : \Big(
+			\theta^{\text{yield}}              : \Big( \\
+			\theta^{\text{mig}}_{0\rightarrow} : \Big( \\
+			\theta^{\text{mig}}_{1\rightarrow} : \Big(
 		\end{array}
 		&
 		\begin{array}{@{}rrr@{}}
@@ -163,7 +164,7 @@ The \textit{combined inclusive} (CI) prescription\footnote{
 	original proponents.
 } \cite{Stewart-Tackmann:2012} uses scale variations of $\sigma_{\geq1}$ and 
 $\sigma_{\geq2}$ to probe the size of the higher order logarithmic corrections, and 
-identifies that they are related to the bin migration uncertainties. It therefore chooses
+uses these to estimate the bin migration uncertainties. It therefore chooses
 \begin{equation}
 	\text{CI:}
 	\quad\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{\total},&
@@ -174,7 +175,18 @@ identifies that they are related to the bin migration uncertainties. It therefor
 	\quad\quad \rho &= 0
 \end{equation}
 where $\Delta\sigma_{\total}$, $\Delta\sigma_{\geq1}$ and $\Delta\sigma_{\geq2}$ are 
-evaluated at fixed order by varying \mur and \muf.
+evaluated, at a common fixed order in \alphaS, through variations of the \mur and \muf 
+scales.
+
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/signal/sigma0_naive}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/signal/sigma0_CI}
+	\caption{The exclusive 0-jet ggF cross section versus the jet \pt threshold 
+	\cite{YR2}. The bands show the perturbative uncertainties evaluated using the 
+	na\"{i}ve prescription (left) and the combined inclusive prescription (right).}
+	\label{fig:ggF:ci}
+\end{figure}
 
 This is equivalent to assuming inclusive cross sections have uncorrelated uncertainties
 \begin{equation}
@@ -186,18 +198,8 @@ This is equivalent to assuming inclusive cross sections have uncorrelated uncert
 Although this assumption is not believed to be exact, the CI prescription offers a 
 practical solution to the cancellations described in \Section~\ref{sec:ggF:naive} (see 
 \Figure~\ref{fig:ggF:ci}). It ensures that uncertainties in exclusive cross sections are 
-larger than those in the corresponding inclusive cross section, \ie $\Delta\sigma_{N} > 
-\Delta\sigma_{\geq N}$, and the large-\ptcut limit agrees with expectations. 
-
-\begin{figure}[t]
-	\includegraphics[width=0.495\textwidth]{tex/signal/sigma0_naive}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/signal/sigma0_CI}
-	\caption{The exclusive 0-jet ggF cross section versus the jet \pt threshold 
-	\cite{YR2}. The bands show the perturbative uncertainties evaluated using the 
-	na\"{i}ve prescription (left) and the combined inclusive prescription (right).}
-	\label{fig:ggF:ci}
-\end{figure}
+larger than those in the corresponding inclusive cross section, \ie $\Delta\sigma_{N} \geq 
+\Delta\sigma_{\geq N}$, with the equality valid in the large-\ptcut limit. 
 
 It should be emphasised that each inclusive cross section must be evaluated at the same 
 order in \alphaS (\eg $\sigma_{\total}^{\text{NNLO}}$, $\sigma_{\geq1}^{\text{NLO}}$ and 
@@ -221,12 +223,12 @@ used to propagate the $\Delta\sigma_{\geq N}$ to $\Delta\sigma_{N}$:
 	\delta\sigma_1^2 &= \parenths{\frac{1-f_0}{f_1}}^{\!\!2}\delta\sigma_{\geq1}^2 + \parenths{\frac{1-f_0}{f_1}-1}^{\!\!2}\delta\sigma_{\geq2}^2 \label{eq:ggF:ci_2}
 \end{equation}
 where $\delta\sigma_i = \Delta\sigma_i/\sigma_i$. This assumes the uncertainties are 
-Gaussian distributed, though the nuisance parameters are implemented as log-normal 
-distributions in the fitting code. The $\Delta\sigma_{\geq N}$ are evaluated via 
-independent variation of \mur and \muf in the range $\mH/4 \leq \mur,\muf \leq \mH$, whilst 
-observing the constraint $1/2 \leq \mur/\muf \leq 2$. These are then propagated to 
-$\Delta\sigma_N$ using (\ref{eq:ggF:ci_1}) and (\ref{eq:ggF:ci_2}), as shown in 
-\Table~\ref{tab:ggF:ci}.
+Gaussian distributed, though the nuisance parameters are constrained by log-normal 
+distributions in the statistical model (see \Section~\ref{sec:stat:likelihood}). The 
+$\Delta\sigma_{\geq N}$ are evaluated via independent variation of \mur and \muf in the 
+range $\mH/4 \leq \mur,\muf \leq \mH$, whilst observing the constraint $1/2 \leq \mur/\muf 
+\leq 2$. These are then propagated to $\Delta\sigma_N$ using (\ref{eq:ggF:ci_1}) and 
+(\ref{eq:ggF:ci_2}), as shown in \Table~\ref{tab:ggF:ci}.
 
 \begin{table}
 	\begin{tabular}{r@{\hskip 0.3in}c@{\hskip 0.3in}r@{\hskip 0.3in}r}
@@ -245,8 +247,8 @@ $\Delta\sigma_N$ using (\ref{eq:ggF:ci_1}) and (\ref{eq:ggF:ci_2}), as shown in
 		\bottomrule
 	\end{tabular}
 	\caption{Inputs and outputs (boxed) of the combined inclusive prescription for ggF, 
-	with \unit{$\mH = 125$}{\GeV} and \unit{$\sqrt{s} = 8$}{\TeV}. All inputs computed by 
-	\hnnlo except $\sigma_{\total}$ and $\Delta\sigma_{\total}$, which are from 
+	with \unit{$\mH = 125$}{\GeV} and \unit{$\sqrt{s} = 8$}{\TeV}. All inputs are computed 
+	by \hnnlo except $\sigma_{\total}$ and $\Delta\sigma_{\total}$, which are from 
 	\Reference~\cite{YR3}.}
 	\label{tab:ggF:ci}
 \end{table}
@@ -280,12 +282,12 @@ than those in the total cross section, \ie $\Delta\sigma_N > \Delta\sigma_{\tota
 This is equivalent to choosing
 \begin{equation}
 	\text{JVE:}
-	\quad\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{\total} \, \frac{\sigma_{0}}{\sigma_{\total}} \,,&
-	\quad\quad \Delta^{\text{y}}_1 &= \Delta\sigma_{\total} \, \frac{\sigma_{1}}{\sigma_{\total}} \,,&
-	\quad\quad \Delta^{\text{y}}_{\geq2} &= \Delta\sigma_{\total} \, \frac{\sigma_{\geq2}}{\sigma_{\total}} \,, \nonumber \\
-	\quad\quad \Delta^{\text{mig}}_{0\rightarrow} &= \Delta\epsilon_0 \, \sigma_{\total} \,,&
-	\quad\quad \Delta^{\text{mig}}_{1\rightarrow} &= \Delta\epsilon_1 \, \sigma_{\geq1} \,,&
-	\quad\quad \rho &= 1-\epsilon_1 \,. \label{eq:jve}
+	\quad \Delta^{\text{y}}_0 &= \Delta\sigma_{\total} \epsilon_0, &
+	\quad\quad \Delta^{\text{y}}_1 &= \Delta\sigma_{\total} \parenths{1-\epsilon_0} \epsilon_1, &
+	\quad\quad \Delta^{\text{y}}_{\geq2} &= \Delta\sigma_{\total} \parenths{1-\epsilon_0} \parenths{1-\epsilon_1}, \nonumber \\
+	\quad \Delta^{\text{mig}}_{0\rightarrow} &= \Delta\epsilon_0 \sigma_{\total}, &
+	\quad\quad \Delta^{\text{mig}}_{1\rightarrow} &= \Delta\epsilon_1 \sigma_{\total} \parenths{1-\epsilon_0}, &
+	\quad\quad \rho &= 1-\epsilon_1 . \label{eq:jve}
 \end{equation}
 Thus, the JVE prescription requires six inputs: $\sigma_{\total}$, $\epsilon_0$, 
 $\epsilon_1$, $\Delta\sigma_{\total}$, $\Delta\epsilon_0$ and $\Delta\epsilon_1$.
@@ -309,7 +311,7 @@ terms and therefore probe higher order corrections.\footnote{
 	\HepProcess{\Pquark\APquark \HepTo \PZ}, exhibit better agreement between schemes. 
 	This supports using these schemes to evaluate perturbative uncertainties.
 } 
-However, this probing is less susceptible to the accidental cancellations than scale 
+However, this probing is less susceptible to accidental cancellations than scale 
 variations. Thus, $\epsilon_N^{\parenths{\text{a}}}$ is used as the nominal $\epsilon_N$, 
 whilst $\Delta\epsilon_N$ is evaluated by scale variations in 
 $\epsilon_N^{\parenths{\text{a}}}$ or by the difference between the schemes, whichever is 
@@ -343,38 +345,23 @@ $\sigma_{\geq1}^{\text{NLO}}$ and $\sigma_{\geq2}^{\text{LO}}$ (see
 $\epsilon_1^{\text{(a)}}$ since a full $\sigma_{\geq1}^{\text{NNLO}}$ calculation is not 
 yet available. Instead, we choose $\epsilon_1 = (\epsilon_1^{\text{(b)}} + 
 \epsilon_1^{\text{(c)}})/2$ and $\Delta\epsilon_1$ is evaluated by an envelope of scale 
-uncertainties in both $\epsilon_1^{\text{(b)}}$ and $\epsilon_1^{\text{(c)}}$.
+uncertainties in both $\epsilon_1^{\text{(b)}}$ and $\epsilon_1^{\text{(c)}}$, which are 
+calculated using \mcfm \cite{MCFM:H2j}.
 The validity of this approximation is tested using \HepProcess{\Pgluon\Pgluon}-initiated 
 diagrams only, for which a $\sigma_{\geq1}^{\text{NNLO}}$ calculation exists 
 \cite{H+1j:NNLO}. For $k_{\text{T}}$ jets with $R = 0.5$ and \unit{$\ptcut = 30$}{\GeV}, we 
 find that $\epsilon_1^{\text{(a)}} = 0.831$, $\epsilon_1^{\text{(b)}} = 0.761$ and 
 $\epsilon_1^{\text{(c)}} = 0.843$.
 
-The NNLO+NNLL(QCD)+NLO(EW) $\sigma_{\total}$ calculation, the \jetvheto $\epsilon_0$ 
-calculation and the \mcfm $\epsilon_1$ calculation are used as inputs to the JVE 
+The NNLO+NNLL(QCD)+NLO(EW) $\sigma_{\total}$ calculation, the \jetvheto NNLO+NNLL 
+$\epsilon_0$ calculation and the \mcfm fixed order $\epsilon_1$ calculation are used as inputs to the JVE 
 prescription (\ref{eq:jve}). \Table~\ref{tab:ggF:jve} shows the jet-binned cross sections 
-and uncertainties obtained using simple Gaussian propagation of uncertainties.
+and uncertainties obtained using simple Gaussian propagation of uncertainties, though the 
+nuisance parameters are constrained by log-normal distributions in the statistical model 
+(see \Section~\ref{sec:stat:likelihood})
 
-\begin{table}[t]
-	\begin{tabular}{l@{\hskip 0.3in}r@{$\,\pm\,$}l}
-		\toprule
-		$\sigma_{\total}$ (\pico\barn) & 19.27 & 1.50 \\
-		$\epsilon_0$                   & 0.613 & 0.072 \\
-		$\epsilon_1$                   & 0.615 & 0.061 \\
-		\midrule
-		$\sigma_0$ (\pico\barn)        & 11.81 & 1.66 \\
-		$\sigma_1$ (\pico\barn)        &  4.59 & 1.03 \\
-		$\sigma_{\geq2}$ (\pico\barn)  &  2.87 & 0.73 \\
-		\bottomrule
-	\end{tabular}
-	\caption{Results of the jet veto efficiency prescription for ggF, with 
-	\unit{$\mH = 125$}{\GeV} and \unit{$\sqrt{s} = 8$}{\TeV}. $\sigma_{\total}$ is from 
-	\Reference~\cite{YR3}, $\epsilon_0$ is from \jetvheto and $\epsilon_1$ is from \mcfm.}
-	\label{tab:ggF:jve}
-\end{table}
-
-\Figure~\ref{fig:ggF:jve_compare} compares the $\epsilon_0$ and $\epsilon_1$ calculations 
-described above to a variety of different \meps{\powhegbox}{\pythia{8}} configurations.
+\Figure~\ref{fig:ggF:jve_compare} compares the above $\epsilon_0$ and $\epsilon_1$ 
+calculations to a variety of different \meps{\powhegbox}{\pythia{8}} configurations.
 The $\epsilon_N$ calculations are performed at parton-level in the large-$m_{\Ptop}$ 
 limit; the solid lines show similar configurations of \meps{\powhegbox}{\pythia{8}}, 
 and can be considered directly comparable. The effect of consecutively adding 
@@ -384,13 +371,34 @@ influences these observables. \Figure~\ref{fig:ggF:jve_compare} shows that, foll
 \ptH reweighting, the MC is within the perturbative uncertainty band for both $\epsilon_0$ 
 and $\epsilon_1$.
 
+\begin{table}[t]
+	\begin{tabular}{l@{\hskip 0.3in}r@{$\,\pm\,$}l@{\hskip 0.3in}c}
+		\toprule
+		& \multicolumn{2}{c@{\hskip 0.3in}}{$x$} & $\Delta x/x$ \\
+		\midrule
+		$\sigma_{\total}$ (\pico\barn) & 19.27 & 1.50  &  7.8\% \\
+		$\epsilon_0$                   & 0.613 & 0.072 & 11.7\% \\
+		$\epsilon_1$                   & 0.615 & 0.061 &  9.9\% \\
+		\midrule
+		$\sigma_0$ (\pico\barn)        & 11.81 & 1.66  & 14.1\% \\
+		$\sigma_1$ (\pico\barn)        &  4.59 & 1.03  & 22.4\% \\
+		$\sigma_{\geq2}$ (\pico\barn)  &  2.87 & 0.73  & 25.4\% \\
+		\bottomrule
+	\end{tabular}
+	\caption{Results of the jet veto efficiency prescription for ggF, with 
+	\unit{$\mH = 125$}{\GeV} and \unit{$\sqrt{s} = 8$}{\TeV}. $\sigma_{\total}$ is from 
+	\Reference~\cite{YR3}, $\epsilon_0$ is from \jetvheto and $\epsilon_1$ is from \mcfm.}
+	\label{tab:ggF:jve}
+\end{table}
+
 \begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/signal/eps0_jve_compare}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/signal/eps1_jve_compare}
 	\caption{Veto efficiencies of a first jet (left) and a second jet (right), versus the 
 	jet \pt threshold. Fixed order (green) and resummed (red) results are shown with their 
-	perturbative uncertainties, and are compared to different MC scenarios.}
+	perturbative uncertainties, and are compared to different MC scenarios.
+	\todo[inline]{Parametrise $\epsilon_1$ result}}
 	\label{fig:ggF:jve_compare}
 \end{figure}
 
@@ -411,15 +419,16 @@ perturbative uncertainties in the jet binning.
 $\epsilon_0$ calculation (\ie replace the red band with the green band in 
 \Figure~\ref{fig:ggF:jve_compare}). This has the same formal accuracy as ``fixed order CI'' 
 when calculating $\sigma_0$, and so their comparison in the 0-jet bin directly evaluates 
-how conservative each prescription is. JVE appears to be more conservative than CI.
+how conservative each prescription is. JVE is more conservative than CI.
 
 Recently, a more general prescription for evaluating perturbative uncertainties in 
-jet-binned cross sections has been proposed, which directly probes each uncertainty 
+jet-binned cross sections has been proposed, to directly estimate each uncertainty 
 amplitude in (\ref{eq:ggF:3bin_np}) \cite{BLTPW:2013}. Although it offers a further 
-reduction in uncertainty, this prescription was not considered. Time is needed for certain 
-details to be discussed: $\sigma_{\total}$ is larger than that presented in 
-\Reference~\cite{YR3}, incomplete higher order terms are included in the perturbative 
-series, and a controversial $\pi^2$ resummation technique is used.
+reduction in uncertainty, this prescription is not considered here. It is not viable as 
+it predicts $\sigma_{\total}$ to be \about10\% larger than that presented in 
+\Reference~\cite{YR3}, which is universally used by the ATLAS and CMS collaborations for 
+analyses of the Run~I dataset. Additionally, it includes incomplete higher order terms in 
+the perturbative series, and employs a controversial $\pi^2$ resummation technique.
 
 \begin{figure}[t]
 	\includegraphics[width=\largefigwidth]{custom_images/ggF_xs_jetbin}

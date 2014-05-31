@@ -206,3 +206,45 @@ matching prescriptions:
 	signals from out-of-time pile-up are overlaid with corresponding time shifts; again 
 	this depends on the beam conditions.
 \end{description}
+
+
+
+\subsection{Parton shower tuning study}
+\label{sec:mc:ps_tuning}
+
+When studying MC modelling uncertainties in the ggF process (see \Section~\ref{sec:ggf_mc}, 
+a discrepancy was observed at high jet multiplicity between \meps{\powhegbox}{\pythia{8}} 
+and \meps{\powhegbox}{\pythia{6}} (see the green and black lines in 
+\Figure~\ref{fig:mc:ps_tuning}). It is also observed in other electroweak processes.
+
+\begin{figure}[t]
+	\includegraphics[width=\smallfigwidth]{tex/signal/matching}
+	\caption{Jet multiplicity produced by \meps{\powhegbox}{\pythia{8}} with a selection 
+	of shower tunes. The green circles correspond to the tune used in the analysis. The red 
+	squares change the parton shower PDFs from CT10 to CTEQ6L1. The blue triangles 
+	additionally change the parton shower $\alphaS\parenths{\mZ}$ from 0.137 to 0.118 (in 
+	agreement with \powhegbox). \meps{\powhegbox}{\pythia{6}} is shown in black for 
+	reference, and is in good agreement with \meps{\powhegbox}{\fherwig}.}
+	\label{fig:mc:ps_tuning}
+\end{figure}
+
+The hadronisation and UE models of standalone \pythia{8} have been tuned to ATLAS 
+UE data with a variety of PDF sets (known as AU2 tunes) \cite{ATLAS:tune:2012}.
+However, the parton shower was not tuned since the default settings successfully described 
+experimental data. 
+
+When modelling ggF with \powhegbox, the AU2-CT10 tune was used in order to match the 
+PDFs used in the matrix element calculation. Technically speaking, a dedicated 
+\meps{\powhegbox}{\pythia{8}} tune should have been used, but this was unavailable. 
+Unfortunately, a couple of issues had a negative impact on the NLO-PS matching. First, 
+the parton shower evolves \alphaS at LO, whilst NLO PDFs were used in the shower. 
+Second, there was a mismatch between the \alphaS used in \powhegbox, 
+$\alphaS\parenths{\mZ} = 0.118$, and the default value in the parton shower, 
+$\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in 
+\Figure~\ref{fig:mc:ps_tuning}.
+
+Identification of this poor matching has led to improvements in the latest round of MC 
+tuning, where dedicated \meps{\powhegbox}{\pythia{8}} tunes are fit using an adjusted 
+parton shower \cite{ATLAS:tune:2013}.
+
+

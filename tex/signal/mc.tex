@@ -23,14 +23,18 @@ turned off in \meps{\powhegbox}{\pythia{8}}.
 The \ptH distribution of the generated MC events is reweighted to the best available 
 prediction.\footnote{
 	This \ptH reweighting is motivated by the \HepProcess{\PHiggs \HepTo \Pphoton\Pphoton} 
-	and \HepProcess{\PHiggs \HepTo \Ptau\Ptau} analyses, which feature boosted categories.
+	and \HepProcess{\PHiggs \HepTo \Ptau\Ptau} analyses, which feature boosted Higgs boson 
+	selection categories.
 }
-This reweighting simultaneously satisfies three criteria:
+Simply reweighting the inclusive \ptH distribution is found to underestimate $\sigma_{\geq2}$
+(\cf \Section~\ref{sec:ggf_jetbin}), due to correlations between \ptH and \njets. 
+Thus, the reweighting is required to simultaneously satisfy three criteria:
 \begin{itemize}[noitemsep,nolistsep]
-	\item inclusive \ptH distribution agrees with \hres \cite{HRes}
-	\item \twojet \ptH distribution agrees with \HepProcess{\Pgluon\Pgluon \HepTo 
-	\PHiggs jj} process of \meps{\minlo}{\pythia{8}} \cite{Minlo:Hjj}
-	\item jet-binned cross sections agree with \Section~\ref{sec:ggf_jetbin}.
+	\item the inclusive \ptH distribution agrees with \hres \cite{HRes},
+	\item the \ptH distribution in the \twojet bin agrees with the 
+	\HepProcess{\Pgluon\Pgluon \HepTo \PHiggs jj} process calculated by 
+	\meps{\minlo}{\pythia{8}} \cite{Minlo:Hjj},
+	\item and the jet-binned cross sections agree with \Section~\ref{sec:ggf_jetbin}.
 \end{itemize}
 \hres computes the inclusive \ptH distribution with NLO+NNLL accuracy and includes finite 
 $m_{\Ptop}$ and $m_{\Pbottom}$ effects in the loop. It also employs a dynamic scale of 
@@ -46,25 +50,25 @@ with the predicted \njets distribution.
 \subsection{Event selection acceptance}
 \label{sec:ggF:acc}
 
-In order to measure the total ggF cross section, it is necessary to estimate the signal 
-acceptance of the object and event selection. The extrapolation from the measured phase 
-space to the inclusive phase space introduces theoretical uncertainties. It is helpful to 
-separate these theoretical uncertainties from the others by measuring an intermediate cross 
+In order to measure the total ggF cross section, the signal acceptance of the object and 
+event selections must be estimated. The extrapolation from the measured phase 
+space to the inclusive phase space introduces uncertainties. It is helpful to 
+separate theoretical uncertainties from the others by measuring an intermediate cross 
 section in a \textit{fiducial region} of phase space, as defined in 
 \Table~\ref{tab:ggF:fiducial_region} for each signal region. These criteria use 
 hadron-level objects and are chosen to closely represent those of the detector-level 
-selection, in order to minimise the extrapolation.
+selection, in order to minimise the extrapolation to the fiducial region.
 
-Hadron-level object definitions follow. The MC event record is used to identify leptons 
+To define the hadron-level objects, the MC event record is used to identify charged leptons 
 and neutrinos which descend from the Higgs boson. A \truthmetvec vector is constructed from 
-the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a cone of 
+the neutrinos. Each charged lepton is `dressed' with the four-momenta of photons within a cone of 
 $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found using 
 individual particles as inputs (\cf topo-clusters at detector-level). Muons and neutrinos 
 are excluded from jet finding since they interact weakly with the calorimeter. Objects 
 must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-level.
 
 \begin{table}[t]
-	\begin{tabular}{ccc}
+	\begin{tabularx}{0.75\textwidth}{cYY}
 		\toprule
 		Jet binning & \emch/\mech & \eech/\mmch \\
 		\midrule
@@ -84,7 +88,7 @@ must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-
 		\twojet & $\mtautau < \mZ - 25$ & -- \\
 		& \multicolumn{2}{c}{Fail $\dyjj > 3.6$ or $\mjj > 600$ or CJV or OLV} \\
 		\bottomrule
-	\end{tabular}
+	\end{tabularx}
 	\caption{Hadron-level event selection criteria for each fiducial region. Cuts on 
 	energy, momentum and mass are given in \GeV, and angular cuts are given in radians. The 
 	CJV and OLV are the central jet veto and outside lepton veto, respectively. See 
@@ -112,8 +116,8 @@ On the other hand, the measured total cross section is extracted by
 where $A_{\text{ggF}}$ is the ratio of the expected number of ggF events passing the 
 fiducial selection to the total expected number of ggF events. $A_{\text{ggF}}$ accounts 
 for the acceptance of the event selection criteria. BR incorporates the branching 
-ratios of the Higgs and \PW bosons for the channel in question, and includes contributions 
-from leptonic \Ptau decays.
+ratios of the Higgs and \PW bosons for the channel in question, and here includes 
+contributions from leptonic \Ptau decays.
 
 Fiducial cross sections are only extracted from the 0-jet and 1-jet bins of the \emch/\mech 
 channels, since these are the most sensitive signal regions. The acceptances 
@@ -148,7 +152,7 @@ binning.
 		\quad PS/UE            & 2.2\% & 3.8\% \\
 		\quad NLO-PS           & 1.8\% & 1.1\% \\
 		\cmidrule(lr){1-3}
-		$C_{\text{ggF}} \cdot A_{\text{ggF}}$ ($\times 100$) & $7.0\pm0.5$ & $3.2\pm0.2$ \\
+		$C_{\text{ggF}} \cdot A_{\text{ggF}}$ ($\times 100$) & $7.0\pm1.1$ & $3.2\pm0.7$ \\
 		\bottomrule
 	\end{tabular}
 	\caption{The signal acceptances $C_{\text{ggF}}$, $A_{\text{ggF}}$ and $C_{\text{ggF}} 
@@ -174,7 +178,8 @@ whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$.
 Uncertainties due to PDFs are evaluated in two ways. First, the acceptance is compared to 
 that predicted with the MSTW2008 PDF \cite{MSTW}. Second, the set of PDF eigenvectors 
 corresponding to 90\% CL of the CT10 fit were used to evaluate an uncertainty, 
-which was then rescaled to 68\% CL. PDF uncertainties are evaluated using \mcatnlo.
+which was then rescaled to 68\% CL (assuming a Gaussian distribution). PDF uncertainties are 
+evaluated using \mcatnlo.
 
 Uncertainties due to the parton shower (PS), hadronisation and underlying event (UE) 
 models are evaluated by comparing \powhegbox showered by \pythia{8} (nominal), \pythia{6} 
@@ -240,15 +245,15 @@ in the fiducial regions described in \Table~\ref{tab:ggF:fiducial_region}.
 \label{sec:ggF:mt}
 
 Theoretical uncertainties in the shape of the \mt distribution are also investigated. 
-Uncertainties due to scale, PS/UE and NLO-PS choices are 
-considered using the methods described above. The split signal regions are not used in 
+Uncertainties due to scale, PS/UE and NLO-PS choices are considered using the methods 
+described above (PDF uncertainties are neglected). The split signal regions are not used in 
 this study since the statistical fluctuations in the \mt distributions are large.
 
 Each uncertainty is parametrised by fitting the ratio of the \mt shapes, and then 
 symmetrising the fit to produce ``up'' and ``down'' variations. The \mt distributions are 
 normalised to unit integral in order to remove effects from acceptance uncertainties. 
 In cases where multiple variations exist within a single uncertainty source (such as the 
-seven scale variations), the largest deviation from the nominal result is fit. A linear 
+six scale variations), the largest deviation from the nominal result is fit. A linear 
 fit is used in the central \mt region, and a constant is used in the low-\mt and 
 high-\mt tails of the distribution where statistical fluctuations dominate.
 
@@ -260,47 +265,8 @@ and 1-jet signal regions are displayed in \Figure~\ref{fig:signal:mTshape}.
 \begin{figure}[t]
 	\includegraphics[width=\largefigwidth]{custom_images/mT-shapes/ggf}
 	\caption{ggF \mt shape systematic uncertainties in the 0-jet and 1-jet signal regions 
-	of the \emch/\mech channels.}
+	of the \emch/\mech channels.
+	\todo[inline]{Make version with fits}}
 	\label{fig:signal:mTshape}
 \end{figure}
-
-
-
-\subsection{ME-PS matching}
-\label{sec:ggF:meps_matching}
-
-When studying the uncertainties described above, a discrepancy was observed at high jet 
-multiplicity between \meps{\powhegbox}{\pythia{8}} and \meps{\powhegbox}{\pythia{6}} (see 
-the green and black lines in \Figure~\ref{fig:signal:matching}). Although its effect is 
-included in the acceptance uncertainties, it is intrinsically interesting. It is also 
-observed in other electroweak processes.
-
-\begin{figure}[t]
-	\includegraphics[width=\smallfigwidth]{tex/signal/matching}
-	\caption{Jet multiplicity produced by \meps{\powhegbox}{\pythia{8}} with a selection 
-	of shower tunes. The green circles is the tune used in the analysis. The red squares 
-	change the parton shower PDFs from CT10 to CTEQ6L1. The blue triangles additionally 
-	change the parton shower $\alphaS\parenths{\mZ}$ from 0.137 to 0.118 (in agreement 
-	with \powhegbox). \meps{\powhegbox}{\pythia{6}} is shown in black for reference.}
-	\label{fig:signal:matching}
-\end{figure}
-
-The hadronisation and UE models of standalone \pythia{8} have been tuned to ATLAS 
-UE data with a variety of PDF sets (known as AU2 tunes) \cite{ATLAS:tune:2012}.
-However, the parton shower was not tuned since the default settings successfully described 
-experimental data. 
-
-When modelling ggF with \powhegbox, the AU2-CT10 tune was used in order to match the 
-PDFs used in the matrix element calculation. Technically speaking, a dedicated 
-\meps{\powhegbox}{\pythia{8}} tune should have been used, but this was unavailable. 
-Unfortunately, a couple of issues had a negative impact on the NLO-PS matching. First, 
-the parton shower evolves \alphaS at LO while NLO PDFs were used in the shower. 
-Second, there was a mismatch between the \alphaS used in \powhegbox, 
-$\alphaS\parenths{\mZ} = 0.118$, and the default value in the parton shower, 
-$\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in 
-\Figure~\ref{fig:signal:matching}.
-
-Identification of this poor matching has led to improvements in the latest round of MC 
-tuning, where dedicated \meps{\powhegbox}{\pythia{8}} tunes are fit using an adjusted 
-parton shower \cite{ATLAS:tune:2013}.
 
