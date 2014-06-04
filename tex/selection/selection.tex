@@ -399,9 +399,13 @@ jets, separated by a large rapidity gap devoid of hadronic activity. Thus, event
 containing a softer jet with \unit{$\pt > 20$}{\GeV} within this rapidity gap are removed 
 from the VBF selection. This is the \textit{central jet veto} (CJV). The VBF selection 
 also requires that the leptons lie within this rapidity gap, since the Higgs boson is 
-generally produced centrally. This is the \textit{outside lepton veto} (OLV). Finally, a 
-boosted decision tree (BDT) \cite{TMVA} is trained to discriminate VBF events based upon 
-eight input variables:
+generally produced centrally. This is the \textit{outside lepton veto} (OLV). 
+
+The VBF analysis is then split into two independent analyses: a cut-based analysis and a 
+multivariate analysis. The cut-based VBF analysis requires a high dijet mass, 
+\unit{$\mjj > 600$}{\GeV}, and a large rapidity gap, $\dyjj > 3.6$. The multivariate 
+analysis trains a boosted decision tree (BDT) \cite{TMVA} to discriminate VBF events based 
+upon eight input variables:
 
 \begin{listliketab}
 	\begin{tabular}{Ll@{\hskip 0.3in}llll}
@@ -424,14 +428,15 @@ than $-0.48$ are selected for the VBF analysis.
 Another search considers the \WH and \ZH production modes (collectively known as \VH), 
 where the vector boson decays hadronically (see \Figure~\ref{fig:feyn:VH}). Again, the 
 \twojet bin is the starting point for this selection. As with VBF, the jet kinematics can 
-be used to distinguish this from ggF. First, a small rapidity gap is required, $\dyjj < 1.2$. 
+be used to distinguish this from ggF. First, a small rapidity gap is required, $\dyjj < 1.2$.
 Second, the dijet system must have a mass corresponding to a \PW or \PZ boson, 
 \unit{$\mods{\mjj - 85} < 15$}{\GeV}.
 
-To maintain orthogonality with the VBF and \VH analyses, the ggF analysis requires that 
-events in the \twojet bin must fail at least one cut from each selection. That is, an event 
-must fail either the CJV, the OLV \textbf{or} the BDT score cut \textbf{and} it must fail 
-either the \dyjj \textbf{or} the \mjj cut.
+To maintain orthogonality with both the VBF analyses and the \VH analysis, the ggF analysis 
+requires that events in the \twojet bin must fail at least one cut from each selection. That 
+is, an event must fail either the CJV, the OLV \textbf{or} the BDT score VBF cut 
+\textbf{and} it must fail either the CJV, the OLV, the \mjj \textbf{or} the \dyjj VBF cut 
+\textbf{and} it must fail either the \dyjj \textbf{or} the \mjj \VH cut.
 
 Finally, the usual signal topology selection is made, \unit{$\mll < 55$}{\GeV} and 
 $\dphill < 1.8$. 
@@ -468,7 +473,10 @@ In total, there are 8 different signal regions: $\braces{\emch,\mech,\eech{}+\mm
 		& \multicolumn{6}{c}{$\ptleadlep > 22$ and $\ptsubleadlep > 10$} \\
 		&&& $\mll > 10$ & $\mll > 12$ \\
 		&&& -- & $\mods{\mll - \mZ} > 15$ \\ 
-		&&& $\corrtrackmet > 20$ & $\calometrel > 40$ \\ [1ex]
+		&&& $\corrtrackmet > 20$ & $\calometrel > 40$ \\
+		\ldelim\{{2}{2.5cm}[Select signal]
+		&&& \multicolumn{2}{c}{$\mll < 55$} \\
+		&&& \multicolumn{2}{c}{$\dphill < 1.8$} \\ [1ex]
 		\cmidrule(lr){2-7}
 		&\multicolumn{2}{c}{0-jet bin} & \multicolumn{2}{c}{1-jet bin} & \multicolumn{2}{c}{\twojet bin} \\
 		\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
@@ -482,18 +490,11 @@ In total, there are 8 different signal regions: $\braces{\emch,\mech,\eech{}+\mm
 		& \multicolumn{2}{c}{$\dphillmet > \pi/2$} & $\maxmtw > 50$ & -- & \multicolumn{2}{c}{--} \\
 		Reject top 
 		& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{$\nbjets = 0$} & \multicolumn{2}{c}{$\nbjets = 0$} \\
-		Reject VBF
-		& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{Fail CJV, OLV or BDT} \\
+		\ldelim\{{2}{2.5cm}[Reject VBF]
+		& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{Fail CJV, OLV \textbf{or} \{BDT \textbf{and}} \\
+		& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{($\mjj > 600$ \textbf{or} $\dyjj > 3.6$)\}} \\
 		Reject \VH
-		& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{Fail $\dyjj < 1.2$ or $\mods{\mjj - 85} < 15$} \\ [1ex]
-		\cmidrule(lr){2-7}
-		&&& \multicolumn{2}{c}{All jet bins} \\
-		\cmidrule(lr){4-5}
-		&&& \emch/\mech & \eech{}+\mmch \\
-		\cmidrule(lr){2-7}
-		\ldelim\{{2}{2.5cm}[Select signal]
-		&&& \multicolumn{2}{c}{$\mll < 55$} \\
-		&&& \multicolumn{2}{c}{$\dphill < 1.8$} \\
+		& \multicolumn{2}{c}{--} & \multicolumn{2}{c}{--} & \multicolumn{2}{c}{Fail $\dyjj < 1.2$ \textbf{or} $\mods{\mjj - 85} < 15$} \\
 		\bottomrule
 	\end{tabularx}
 	\caption{Summary of ggF event selection. Cuts on energy, momentum and mass are given 
@@ -503,7 +504,7 @@ In total, there are 8 different signal regions: $\braces{\emch,\mech,\eech{}+\mm
 \end{sidewaystable}
 
 \Chapter~\ref{chap:results} shall describe how statistical limits are extracted from these 
-signal regions, by comparing the observed \mt distribution to that expected. However, some 
+signal regions, by comparing the observed \mt distributions to those expected. However, some 
 key points are summarised here. The majority of the sensitivity lies in the 0-jet and 1-jet 
 bins of the \emch/\mech channels. In fact, the sensitivity is further optimised by splitting 
 each of these four signal regions into three bins of \ptsubleadlep and two bins of \mll 
