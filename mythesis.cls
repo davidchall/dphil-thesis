@@ -25,6 +25,8 @@
 \RequirePackage{cancel}
 \RequirePackage{mathtools}
 
+
+% Latin
 \DeclareRobustCommand{\eg}{\textit{e.g.\ }}
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
 \DeclareRobustCommand{\cf}{\textit{c.f.\ }}
