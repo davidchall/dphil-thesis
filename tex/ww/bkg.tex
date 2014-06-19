@@ -6,7 +6,7 @@ dominant background contribution following the event selection described in
 
 The \WW process is modelled at NLO by \meps{\powhegbox}{\pythia{6}}. It is necessary to 
 use \powhegbox since \mcatnlo does not feature ``singly resonant diagrams'', where the 
-mass of the dilepton + dineutrino system is that of a single \PW boson. Since the \HWW 
+mass of the dilepton + dineutrino system is that of a single \PZ boson. Since the \HWW 
 search is sensitive to off-shell \PW bosons, it is important to include these diagrams. 
 The \pythia{6} event generator is used as it is found to better describe the 
 experimental data in many exclusive observables, when compared to \pythia{8}. This is likely to be related to the \meps{\powhegbox}{\pythia{8}} matching issues mentioned in 
@@ -23,7 +23,7 @@ employed whereby MC is used to extrapolate from a high-purity control region (CR
 	\alpha_{\WW} &= N_{\WW}^{\text{MC,SR}} / N_{\WW}^{\text{MC,CR}} \label{eq:ww_bkg2}
 \end{equation}
 where $N_{\text{non-\WW}}^{\text{pred,CR}}$ is determined by dedicated methods (see 
-\Chapter~\ref{chap:backgrounds}). The CR is optimised to reduce 
+\Chapter~\ref{chap:backgrounds}). The CR is chosen to reduce 
 $N_{\text{non-\WW}}^{\text{pred,CR}}$ to avoid bias, whilst maintaining a large 
 $N_{\WW}^{\text{data,CR}}$ to minimise the statistical uncertainty in 
 $N_{\WW}^{\text{pred,SR}}$. The MC-based extrapolation $\alpha_{\WW}$ introduces experimental 
@@ -57,7 +57,7 @@ background estimation in the \twojet bin is MC-based (see \Section~\ref{sec:ww_b
 		$\dphill < 2.6$ & -- \\
 		\bottomrule
 	\end{tabularx}
-	\caption{Event selection criteria of the \WW control regions (unavailable in the 
+	\caption{Event selection criteria of the \WW control regions (not used in the 
 	\twojet bin). Cuts on energy, momentum and mass are given in \GeV, and angular cuts 
 	are given in radians. The relevant observables are described in 
 	\Chapter~\ref{chap:selection}.}
@@ -99,20 +99,15 @@ of experimental data in the CRs, following application of the normalisation fact
 Theoretical uncertainties in the extrapolation parameters $\alpha_{\WW}$ are evaluated 
 at hadron-level (\ie before detector simulation) by changing some aspect of the MC 
 modelling and measuring the effect upon each $\alpha_{\WW}$. This is done using NLO \WW 
-MC. Uncertainties due to \ggWW diagrams are negligible, since these diagrams only 
-contribute \about5\% (\about7\%) to the 0-jet (1-jet) bin SRs.
+MC. Uncertainties due to \ggWW diagrams are \about7\%, but have small impact on the 
+uncertainty in the measured signal since these diagrams only contribute \about5\% 
+(\about7\%) of the \WW background in the 0-jet (1-jet) bin SRs.
 
-The hadron-level event selection criteria used to evaluate these uncertainties are similar to 
-the detector-level criteria of the SRs (see \Table~\ref{tab:event_selection}) and CRs (see 
-\Table~\ref{tab:ww_cr_sel}), except the \Pbottom-jet veto and \frecoil cuts are omitted.
-
-Hadron-level object definitions follow. The MC event record is used to identify leptons 
-and neutrinos which descend from the \PW bosons. A \truthmetvec vector is constructed from 
-the neutrinos. Each lepton is `dressed' with the four-momenta of photons within a cone of 
-$\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found using 
-individual particles as inputs (\cf topo-clusters at detector-level). Muons and neutrinos 
-are excluded from jet finding since they interact weakly with the calorimeter. Objects 
-must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-level.
+The hadron-level event selection criteria used to evaluate these uncertainties are similar 
+to the detector-level criteria of the SRs (see \Table~\ref{tab:event_selection}) and CRs 
+(see \Table~\ref{tab:ww_cr_sel}), except the \Pbottom-jet veto and \frecoil cuts are omitted.
+Hadron-level object definitions are the same as those used for the \WW measurement (see 
+\Section~\ref{sec:ww:strategy}), with updated \pt requirements.
 
 Four sources of theoretical uncertainty are considered:
 \begin{itemize}[noitemsep,nolistsep]
@@ -128,10 +123,10 @@ renormalisation and factorisation scales in the range $\mu_0/2 \leq \mur,\muf
 the constraint $1/2 \leq \mur/\muf \leq 2$. These are evaluated with \amcatnlo and validated 
 with \mcfm. The largest deviation is used as the uncertainty.
 
-Uncertainties due to PDFs are evaluated in two ways. Predictions with the MSTW 2008 
-\cite{MSTW} and NNPDF 2.3 \cite{NNPDF} PDF sets are compared to those with the CT10 
-\cite{CTEQ} PDF sets, and the maximum deviation is found. Also, the set of PDF 
-eigenvectors corresponding to 90\% CL of the CT10 fit were used to evaluate an 
+Uncertainties due to PDFs are evaluated in two ways, which are added in quadrature. 
+Predictions with the MSTW 2008 \cite{MSTW} and NNPDF 2.3 \cite{NNPDF} PDF sets are compared 
+to those with the CT10 \cite{CTEQ} PDF sets, and the maximum deviation is found. Also, the 
+set of PDF eigenvectors corresponding to 90\% CL of the CT10 fit were used to evaluate an 
 uncertainty, which was then rescaled to 68\% CL. These are evaluated using \amcatnlo.
 
 Uncertainties due to the PS, hadronisation and UE models are evaluated by 
@@ -142,7 +137,8 @@ Uncertainties due to the NLO-PS matching scheme are evaluated by comparing
 The $\alpha_{\WW}$ theoretical uncertainties for each SR are shown in 
 \Table~\ref{tab:ww_bkg:alpha_unc} (experimental uncertainties are discussed in 
 \Chapter~\ref{chap:results}). Although small, they have a large effect in the final fit 
-because the \WW background is much larger than the signal. Those for the VR are also shown. 
+because the \WW background yield is much larger than the signal yield in the SR. 
+Extrapolation uncertainties for the VR are also shown. 
 The expected number of events in the validation region is \statsyst{123}{1}{1}, whilst the 
 observed number is 123\todo{update}. This agreement supports the extrapolation uncertainties 
 assigned to the SRs.
@@ -200,7 +196,7 @@ assigned to the SRs.
 \label{sec:ww_bkg:mt}
 
 Theoretical uncertainties in the shape of the \mt distribution are also investigated, 
-as they could affect the fit. Uncertainties due to scale, PS/UE and NLO-PS choices are 
+as they affect the fit. Uncertainties due to scale, PS/UE and NLO-PS choices are 
 considered within each signal region separately, using the methods described above.
 
 Each uncertainty is parametrised by fitting the ratio of the \mt shapes, and then 
