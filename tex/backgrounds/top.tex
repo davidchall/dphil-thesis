@@ -1,26 +1,24 @@
 %!TEX root = ../../thesis.tex
 
 The leading and subleading contributions to the top background are the \ttbar and 
-\HepProcess{\PW\Ptop} processes, respectively. These are irreducible backgrounds, in that 
+\HepProcess{\Ptop\PW} processes, respectively. These are irreducible backgrounds, in that 
 they both exhibit the opposite-sign dilepton + \met experimental signature. This signature 
 results from the top decays, $\text{BR}\parenths{\HepProcess{\Ptop \HepTo \PW\Pbottom}} 
 \approx 100\%$ (occurring before hadronisation), followed by leptonic \PW boson decays.
 
-Considering \HepProcess{\ttbar \HepTo \PW\PW\Pbottom\Pbottom} and \HepProcess{\PW\Ptop 
-\HepTo \PW\PW\Pbottom}, it is clear that top events feature one or two \Pbottom-jets. This 
-motivates the jet binning of the \HWW analysis (see \Figure~\ref{fig:sel:njets}), using 
-jets with a \pt threshold of \unit{25 (30)}{\GeV} in the central (forward) region (see 
-\Section~\ref{sec:objects:jets}). The top background is further discriminated by counting 
-the number of \Pbottom-tagged jets with \unit{$\pt > 20$}{\GeV} in the central region, 
-using an algorithm with a tagging efficiency of 85\% (see \Section~\ref{sec:objects:bjets}).
-In the 1-jet and \twojet bins, the top background is suppressed by vetoing events with 
-\Pbottom-tagged jets.
+The \Pbottom-jets present in top events motivate the jet binning of the \HWW analysis (see 
+\Figure~\ref{fig:sel:njets}). Jets with a \pt threshold of \unit{25 (30)}{\GeV} in the 
+central (forward) region are used for this binning (see \Section~\ref{sec:objects:jets}). 
+The top background is further discriminated by counting the number of \Pbottom-tagged jets 
+with \unit{$\pt > 20$}{\GeV} in the central region, using an algorithm with a tagging 
+efficiency of 85\% (see \Section~\ref{sec:objects:bjets}). In the 1-jet and \twojet bins, 
+the top background is suppressed by vetoing events with \Pbottom-tagged jets.
 
-\ttbar, \HepProcess{\PW\Ptop} and $s$-channel single top are modelled by 
-\meps{\powhegbox}{\pythia{6}}, while $t$-channel single top is modelled by 
-\meps{\acermc}{\pythia{6}}. However, the jet binning and \Pbottom-tagged jet veto 
-introduce large modelling uncertainties, and so data-driven techniques are used to 
-estimate this background.
+\ttbar, \HepProcess{\Ptop\PW} and $s$-channel single top (\HepProcess{\Ptop\Pbottom}) are 
+modelled by \meps{\powhegbox}{\pythia{6}}, while $t$-channel single top 
+(\HepProcess{\Ptop\Pbottom\Pquark}) is modelled by \meps{\acermc}{\pythia{6}}. However, the 
+jet binning and \Pbottom-tagged jet veto introduce large modelling uncertainties, and so 
+data-driven techniques are used to estimate this background.
 
 
 
@@ -43,16 +41,15 @@ passing the jet veto $N_{\text{top}}^{\text{pred,ESR,0j}}$, and then extrapolate
 where $\epsilon_{0}$ is the jet veto efficiency. \Figure~\ref{fig:sel:njets} shows that, 
 after pre-selection, top dominates the \emch/\mech channels, but \DYll dominates the 
 \eech/\mmch channels. For this reason, the top normalisation is derived from a combined 
-\emch{}+\mech channel and extrapolated to each \emch/\mech/\eech/\mmch SR. The normalisation 
-factor is measured to be \stat{1.09}{0.02}.
+\emch{}+\mech channel and extrapolated to each \emch/\mech/\eech/\mmch SR.
 
 The ESR is dominated by \ttbar events featuring two \Pbottom-jets. Since each 
 \Pbottom-quark originates from the decay of a top quark, the kinematic distributions of the 
-two jets are similar. Thus, it is possible to make the approximation 
-$\epsilon_{\text{0,top}} = \epsilon_{\text{1,top}}^2$, where $\epsilon_{1}$ is the veto 
-efficiency of a second jet. This $\epsilon_{\text{1,top}}$ is measured in a 
-high-purity top control region (CR) and is used to correct the $\epsilon_{\text{0,top}}$ 
-modelled by MC in the ESR:
+two jets are similar. Thus, it is possible to suppress systematic uncertainties by 
+correcting the MC using the second jet veto efficiency $\epsilon_{\text{1}}$ measured in a 
+top control region (CR). The square of the data-driven correction to 
+$\epsilon_{\text{1,top}}$ is used to correct the $\epsilon_{\text{0,top}}$ modelled by MC in 
+the ESR:
 \begin{equation}
 	\epsilon_{\text{0,top}}^{\text{pred,ESR}} &= \epsilon_{\text{0,top}}^{\text{MC,ESR}} \parenths{\frac{\epsilon_{1}^{\text{data,CR}}}{\epsilon_{\text{1,top}}^{\text{MC,CR}}}}^{\!\!2} \,. \label{eq:jvsp}
 \end{equation}
@@ -100,8 +97,7 @@ region (SR) with MC
 	\alpha_{\text{top}}^{\text{1j}} &= N_{\text{top}}^{\text{MC,SR,1j0\Pbottom}} / N_{\text{top}}^{\text{MC,ESR,1j0\Pbottom}} \,.
 \end{equation}
 The top normalisation is derived from a combined \emch{}+\mech channel and extrapolated to 
-each \emch/\mech/\eech/\mmch SR. The normalisation factor is measured to be 
-\stat{1.04}{0.01}.
+each \emch/\mech/\eech/\mmch SR.
 
 In order to estimate $N_{\text{top}}^{\text{pred,ESR,1j0\Pbottom}}$, the number of 1-jet 
 events in the ESR where the jet is \Pbottom-tagged $N^{\text{data,ESR,1j1\Pbottom}}$ is 
@@ -165,9 +161,8 @@ observed number of events is then extrapolated to the signal region (SR) using M
 	\alpha_{\text{top}}^{\geq2\text{j}} &= N_{\text{top}}^{\text{MC,SR}} / N_{\text{top}}^{\text{MC,CR}} \,.
 \end{equation}
 The uncertainty is dominated by theoretical uncertainties in the extrapolation 
-$\alpha_{\text{top}}^{\geq2\text{j}}$. The normalisation factor is measured to be 
-\stat{1.01}{0.03}. \Figure~\ref{fig:top:2j} shows the good description of experimental data 
-in the CR, after application of the normalisation factors.
+$\alpha_{\text{top}}^{\geq2\text{j}}$. \Figure~\ref{fig:top:2j} shows the good description 
+of experimental data in the CR, after application of the normalisation factors.
 
 \begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutFailVBFHighMllTopCR_2jetincl_MT_TrackHWW_Clj_mh125_lin}

@@ -59,9 +59,9 @@ section in a \textit{fiducial region} of phase space, as defined in
 hadron-level objects and are chosen to closely represent those of the detector-level 
 selection, in order to minimise the extrapolation to the fiducial region.
 
-To define the hadron-level objects, the MC event record is used to identify charged leptons 
-and neutrinos which descend from the Higgs boson. A \truthmetvec vector is constructed from 
-the neutrinos. Each charged lepton is `dressed' with the four-momenta of photons within a cone of 
+To define the hadron-level objects, the MC event record is used to identify prompt charged 
+leptons and neutrinos. A \truthmetvec vector is constructed from the neutrinos. Each charged 
+lepton is `dressed' by adding the four-momenta of photons within a cone of 
 $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found using 
 individual particles as inputs (\cf topo-clusters at detector-level). Muons and neutrinos 
 are excluded from jet finding since they interact weakly with the calorimeter. Objects 
@@ -195,8 +195,8 @@ in the fiducial regions described in \Table~\ref{tab:ggF:fiducial_region}.
 	\centering
 	\begin{tabular}{ccc|cccccc}
 		\toprule
-		& \mll & \ptsubleadlep & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/UE} & \multirow{2}{*}{NLO-PS} \\
-		& (\GeV) & (\GeV) & & collab. & 68\% CL & \pythia{6} & \fherwig & \\
+		& \mll & \ptsubleadlep & QCD & \multicolumn{2}{c}{PDF} & \multicolumn{2}{c}{PS/UE} & \multirow{2}{*}{NLO-PS} \\
+		& (\GeV) & (\GeV) & scale & collab. & 68\% CL & \pythia{6} & \fherwig & \\
 		\midrule
 		\multicolumn{9}{c}{\eech/\mmch channels} \\
 		\midrule

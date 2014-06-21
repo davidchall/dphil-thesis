@@ -9,7 +9,8 @@ use \powhegbox since \mcatnlo does not feature ``singly resonant diagrams'', whe
 mass of the dilepton + dineutrino system is that of a single \PZ boson. Since the \HWW 
 search is sensitive to off-shell \PW bosons, it is important to include these diagrams. 
 The \pythia{6} event generator is used as it is found to better describe the 
-experimental data in many exclusive observables, when compared to \pythia{8}. This is likely to be related to the \meps{\powhegbox}{\pythia{8}} matching issues mentioned in 
+experimental data in many exclusive observables, when compared to \pythia{8}. This is likely 
+to be related to the \meps{\powhegbox}{\pythia{8}} matching issues mentioned in 
 \Section~\ref{sec:mc:ps_tuning}. Also, the ATLAS underlying event AUET2B tune 
 \cite{ATLAS:tune:2011} was found to be overtuned to dijet data and consequently its 
 description of electroweak processes suffered. For this reason, the updated Perugia 2011C 
@@ -26,8 +27,8 @@ where $N_{\text{non-\WW}}^{\text{pred,CR}}$ is determined by dedicated methods (
 \Chapter~\ref{chap:backgrounds}). The CR is chosen to reduce 
 $N_{\text{non-\WW}}^{\text{pred,CR}}$ to avoid bias, whilst maintaining a large 
 $N_{\WW}^{\text{data,CR}}$ to minimise the statistical uncertainty in 
-$N_{\WW}^{\text{pred,SR}}$. The MC-based extrapolation $\alpha_{\WW}$ introduces experimental 
-and theoretical uncertainties to $N_{\WW}^{\text{pred,SR}}$.
+$N_{\WW}^{\text{pred,SR}}$. The MC-based extrapolation $\alpha_{\WW}$ introduces 
+experimental and theoretical uncertainties to $N_{\WW}^{\text{pred,SR}}$.
 
 As explained in \Section~\ref{sec:selection:higgs_decay}, the resonant \HWW and 
 non-resonant \WW processes are distinguished by the scalar nature of the Higgs boson, 
@@ -64,20 +65,16 @@ background estimation in the \twojet bin is MC-based (see \Section~\ref{sec:ww_b
 	\label{tab:ww_cr_sel}
 \end{table}
 
-The event selection criteria of the \WW CRs are outlined in \Table~\ref{tab:ww_cr_sel}. Since 
-the \eech/\mmch channels are dominated by \DYll, they are extrapolated from \emch/\mech CRs. 
-The selection criteria follow those of the SRs (see \Table~\ref{tab:event_selection}), with 
-different \mll and \dphill cuts. However, the \ptsubleadlep threshold is raised from 
-\unit{10}{\GeV} to \unit{15}{\GeV} in order to reduce contamination from the \Wjets 
-background. A validation region (VR) is also defined in the 0-jet bin with 
-\unit{$\mll > 110$}{\GeV}, to test the extrapolation from the CR.
+The event selection criteria of the \WW CRs are outlined in \Table~\ref{tab:ww_cr_sel}. 
+Since the \eech/\mmch channels are dominated by \DYll, they are extrapolated from 
+\emch/\mech CRs. The selection criteria follow those of the SRs (see 
+\Table~\ref{tab:event_selection}), with different \mll and \dphill cuts. However, the 
+\ptsubleadlep threshold is raised from \unit{10}{\GeV} to \unit{15}{\GeV} in order to reduce 
+contamination from the \Wjets background. A validation region (VR) is also defined in the 
+0-jet bin with \unit{$\mll > 110$}{\GeV}, to test the extrapolation from the CR.
 
-To estimate the \WW background in regions other than the SRs and VR, the method is viewed as 
-providing a simple data-driven normalisation factor. This is equivalent to neglecting the 
-extrapolation uncertainties, but is helpful when plotting observables. The normalisation 
-factors are measured to be \stat{1.21}{0.03} in the 0-jet bin and \stat{1.05}{0.05} in the 
-1-jet bin. \Figure~\ref{fig:ww_bkg:cr_plots} exhibits the excellent description 
-of experimental data in the CRs, following application of the normalisation factors.
+\Figure~\ref{fig:ww_bkg:cr_plots} exhibits the excellent description of experimental data in 
+the CRs, following application of the normalisation factors.\todo{Extend 1-jet \mt axis}
 
 \begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/ww/emme_CutWWControl_0jet_DPhill_mh125_lin}
@@ -111,17 +108,21 @@ Hadron-level object definitions are the same as those used for the \WW measureme
 
 Four sources of theoretical uncertainty are considered:
 \begin{itemize}[noitemsep,nolistsep]
-	\item higher order corrections,
+	\item higher order corrections (QCD and EW),
 	\item PDFs,
 	\item parton shower, hadronisation and underlying event models,
 	\item NLO-PS matching scheme.
 \end{itemize}
 
-Uncertainties due to higher order corrections are evaluated via independent variation of 
+Uncertainties due to QCD higher order corrections are evaluated via independent variation of 
 renormalisation and factorisation scales in the range $\mu_0/2 \leq \mur,\muf 
 \leq 2\mu_0$, where $\mu_0 = m_{\HepProcess{\Plepton\Pnu\Plepton'\Pnu'}}$, whilst observing 
 the constraint $1/2 \leq \mur/\muf \leq 2$. These are evaluated with \amcatnlo and validated 
 with \mcfm. The largest deviation is used as the uncertainty.
+
+Uncertainties due to EW higher order corrections are evaluated by reweighting \powhegbox 
+events (based upon the kinematics of the initial state and diboson system) to include NLO EW 
+corrections. Such corrections are derived in \Reference~\cite{WW:NLO-EW}.
 
 Uncertainties due to PDFs are evaluated in two ways, which are added in quadrature. 
 Predictions with the MSTW 2008 \cite{MSTW} and NNPDF 2.3 \cite{NNPDF} PDF sets are compared 
@@ -138,50 +139,50 @@ The $\alpha_{\WW}$ theoretical uncertainties for each SR are shown in
 \Table~\ref{tab:ww_bkg:alpha_unc} (experimental uncertainties are discussed in 
 \Chapter~\ref{chap:results}). Although small, they have a large effect in the final fit 
 because the \WW background yield is much larger than the signal yield in the SR. 
-Extrapolation uncertainties for the VR are also shown. 
-The expected number of events in the validation region is \statsyst{123}{1}{1}, whilst the 
-observed number is 123\todo{update}. This agreement supports the extrapolation uncertainties 
-assigned to the SRs.
+Extrapolation uncertainties for the VR are also shown. The observed number of events in the 
+\WW VR is 10\% higher than expected, corresponding to a $0.65\sigma$ deviation when 
+statistical and systematic uncertainties are considered. This agreement supports the 
+extrapolation uncertainties assigned to the SRs.
 
 \begin{table}[t]
 	\centering
-	\begin{tabular}{ccc|ccccc}
+	\begin{tabular}{ccc|cccccc}
 		\toprule
-		& \mll & \ptsubleadlep & \multirow{2}{*}{Scale} & \multicolumn{2}{c}{PDF} & \multirow{2}{*}{PS/UE} & \multirow{2}{*}{NLO-PS} \\
-		& (\GeV) & (\GeV) & & collab. & 68\% CL & & \\
+		& \mll & \ptsubleadlep & \multicolumn{2}{c}{Scale} & \multicolumn{2}{c}{PDF} & \multirow{2}{*}{PS/UE} & \multirow{2}{*}{NLO-PS} \\
+		& (\GeV) & (\GeV) & QCD & EW & collab. & 68\% CL & & \\
 		\midrule
-		\multicolumn{8}{c}{\eech/\mmch channels} \\
+		\multicolumn{9}{c}{\eech/\mmch channels} \\
 		\midrule
-		0-jet & 12--55 & $>10$ & 0.8\% & 0.5\% & 1.0\% & $-1.2\%$ & $+2.4\%$ \\
-		1-jet & 12--55 & $>10$ & 0.8\% & 0.5\% & 0.7\% & $-2.3\%$ & $+3.8\%$ \\
+		0-jet & 12--55 & $>10$ & 0.8\% & $+0.1\%$ & 0.5\% & 1.0\% & $-1.2\%$ & $+2.4\%$ \\
+		1-jet & 12--55 & $>10$ & 0.8\% & $-2.1\%$ & 0.5\% & 0.7\% & $-2.3\%$ & $+3.8\%$ \\
 		\midrule
-		\multicolumn{8}{c}{\emch/\mech channels} \\
+		\multicolumn{9}{c}{\emch/\mech channels} \\
 		\midrule
 		\multirow{6}{*}{0-jet}
 		& \multirow{3}{*}{10--30}
-	    &  10--15 & 0.7\% & 0.9\% & 0.2\% & $+2.2\%$ & $+0.4\%$ \\
-		&& 15--20 & 1.2\% & 0.8\% & 0.2\% & $+1.7\%$ & $+0.9\%$ \\
-		&&  $>20$ & 0.7\% & 0.5\% & 0.3\% & $-1.9\%$ & $+3.1\%$ \\
-		\cmidrule(lr){2-8}
+	    &  10--15 & 0.7\% & $+1.2\%$ & 0.9\% & 0.2\% & $+2.2\%$ & $+0.4\%$ \\
+		&& 15--20 & 1.2\% & $+0.7\%$ & 0.8\% & 0.2\% & $+1.7\%$ & $+0.9\%$ \\
+		&&  $>20$ & 0.7\% & $-0.3\%$ & 0.5\% & 0.3\% & $-1.9\%$ & $+3.1\%$ \\
+		\cmidrule(lr){2-9}
 		& \multirow{3}{*}{30--55}
-		&  10--15 & 0.7\% & 0.8\% & 0.1\% & $+1.5\%$ & $+0.5\%$ \\
-		&& 15--20 & 0.8\% & 0.7\% & 0.2\% & $+1.0\%$ & $+1.0\%$ \\
-		&&  $>20$ & 0.8\% & 0.4\% & 0.5\% & $-2.4\%$ & $+3.9\%$ \\
-		\cmidrule(lr){1-8}
+		&  10--15 & 0.7\% & $+0.8\%$ & 0.8\% & 0.1\% & $+1.5\%$ & $+0.5\%$ \\
+		&& 15--20 & 0.8\% & $+0.5\%$ & 0.7\% & 0.2\% & $+1.0\%$ & $+1.0\%$ \\
+		&&  $>20$ & 0.8\% & $-0.4\%$ & 0.4\% & 0.5\% & $-2.4\%$ & $+3.9\%$ \\
+		\cmidrule(lr){1-9}
 		\multirow{6}{*}{1-jet}
 		& \multirow{3}{*}{10--30}
-	    &  10--15 & 3.1\% & 0.5\% & 0.1\% & $-2.4\%$ & $-3.4\%$ \\
-		&& 15--20 & 1.6\% & 0.5\% & 0.1\% & $-3.0\%$ & $+0.7\%$ \\
-		&&  $>20$ & 1.0\% & 0.6\% & 0.2\% & $-3.6\%$ & $+5.3\%$ \\
-		\cmidrule(lr){2-8}
+	    &  10--15 & 3.1\% & $-0.9\%$ & 0.5\% & 0.1\% & $-2.4\%$ & $-3.4\%$ \\
+		&& 15--20 & 1.6\% & $-1.5\%$ & 0.5\% & 0.1\% & $-3.0\%$ & $+0.7\%$ \\
+		&&  $>20$ & 1.0\% & $-2.8\%$ & 0.6\% & 0.2\% & $-3.6\%$ & $+5.3\%$ \\
+		\cmidrule(lr){2-9}
 		& \multirow{3}{*}{30--55}
-		&  10--15 & 3.2\% & 0.5\% & 0.1\% & $-2.0\%$ & $+1.9\%$ \\
-		&& 15--20 & 1.5\% & 0.4\% & 0.1\% & $-3.0\%$ & $+2.4\%$ \\
-		&&  $>20$ & 1.3\% & 0.5\% & 0.4\% & $-3.1\%$ & $+5.6\%$ \\
+		&  10--15 & 3.2\% & $-0.9\%$ & 0.5\% & 0.1\% & $-2.0\%$ & $+1.9\%$ \\
+		&& 15--20 & 1.5\% & $-1.6\%$ & 0.4\% & 0.1\% & $-3.0\%$ & $+2.4\%$ \\
+		&&  $>20$ & 1.3\% & $-2.7\%$ & 0.5\% & 0.4\% & $-3.1\%$ & $+5.6\%$ \\
 		\midrule
-		\multicolumn{8}{c}{Validation region (\emch/\mech channels)} \\
+		\multicolumn{9}{c}{Validation region (\emch/\mech channels)} \\
 		\midrule
-		0-jet & $>110$ & $>15$ & 0.6\% & 0.6\% & 2.0\% & $+4.3\%$ & $-5.1\%$ \\
+		0-jet & $>110$ & $>15$ & 0.6\% & $+1.6\%$ & 0.6\% & 2.0\% & $+4.3\%$ & $-5.1\%$ \\
 		\bottomrule
 	\end{tabular}
 	\caption{Theoretical uncertainties in the \WW extrapolation parameter $\alpha_{\WW}$ 
@@ -234,12 +235,12 @@ bins, respectively.
 \label{sec:ww_bkg:2j}
 
 \powhegbox relies upon the parton shower to produce the second emission; consequently events 
-with two or more hard jets are likely to be poorly modelled. For this reason, \sherpa is used 
-to describe the \WW background in the \twojet bin, including up to three partons in the 
+with two or more hard jets are likely to be poorly modelled. For this reason, \sherpa is 
+used to describe the \WW background in the \twojet bin, including up to three partons in the 
 matrix element using LO ME-PS merging (see \Section~\ref{sec:mc:merging}).
 
-Two kinds of diagrams can be identified for the \WW~+~2~jets process: EW production (zero QCD 
-vertices at LO) and QCD production (two QCD vertices at LO), where VBF \WW production is 
+Two kinds of diagrams can be identified for the \WW~+~2~jets process: EW production (zero 
+QCD vertices at LO) and QCD production (two QCD vertices at LO), where VBF \WW production is 
 included in the former. The two production types are simulated separately by \sherpa, and 
 this causes their interference to be neglected. Interference with VBF Higgs boson production 
 is also neglected. The effect of each interference is investigated and treated as a 
@@ -247,5 +248,6 @@ systematic uncertainty.
 
 Uncertainties due to the choice of \mur and \muf scale are considered, and also a modelling 
 uncertainty is evaluated by comparing the \sherpa yield to that of 
-\meps{\madgraph}{\pythia{6}}.
+\meps{\madgraph}{\pythia{6}}. The uncertainty in QCD \WW~+~2~jets production is \about20\%, 
+and the uncertainty in EW \WW~+~2~jets production is \about10\%.
 

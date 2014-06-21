@@ -141,7 +141,7 @@ the extrapolation.
 
 The fiducial region is defined by the criteria in \Table~\ref{tab:ww:sel} applied to 
 hadron-level objects, which are now described. The MC event record is used to identify 
-leptons and neutrinos which descend from the \PW bosons. An \truthmetvec vector is constructed 
+prompt leptons and neutrinos. An \truthmetvec vector is constructed 
 from the neutrinos. Each lepton is `dressed' by adding the four-momenta of photons within a 
 cone of $\Delta R < 0.1$, in order to recover energy lost via QED FSR. Jets are found 
 using particle four-momenta as inputs (\cf topo-clusters at detector-level). Muons and 
@@ -384,7 +384,7 @@ MC generators used to model each process.
 		Process & MC generator \\
 		\midrule
 		\ttbar               & \meps{\mcatnlo}{\fherwig} \\
-		single top           & \meps{\acermc}{\pythia{6}} \\
+		\HepProcess{\Ptop\PW}, \HepProcess{\Ptop\Pbottom}, \HepProcess{\Ptop\Pbottom\Pquark} & \meps{\acermc}{\pythia{6}} \\
 		\Wjets, \DY, \Wgamma & \meps{\alpgen}{\fherwig} \\
 		\Wgstar              & \meps{\madgraph}{\pythia{6}} \\
 		\WZ, \ZZ             & \fherwig \\
@@ -414,7 +414,7 @@ MC generators used to model each process.
 	\begin{equation}
 		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pe}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\id{\Pe}\antiid{\Pe}} \\
 		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pmu\Pmu}}} &= f_{\Pmu} \cdot N^{\text{data,AR}}_{\id{\Pmu}\antiid{\Pmu}} \\
-		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pmu}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\id{\Pmu}\antiid{\Pe}} + f_{\Pmu} \cdot N^{\text{data,AR}}_{\id{\Pe}\antiid{\Pmu}} \,.
+		N_{\text{\Wjets}}^{\text{pred,SR,\HepProcess{\Pe\Pmu}}} &= f_{\Pe} \cdot N^{\text{data,AR}}_{\id{\Pmu}\antiid{\Pe}} + f_{\Pmu} \cdot N^{\text{data,AR}}_{\antiid{\Pmu}\id{\Pe}} \,.
 	\end{equation}
 	The fake factor $f_{\Plepton}$ is defined as the ratio of efficiencies for jets passing 
 	the lepton ID criteria to jets passing the anti-ID criteria. Each fake factor is 
@@ -436,28 +436,29 @@ MC generators used to model each process.
 	the \Wjets background to the \HWW search.
 
 \item[Top] \hfill \\
-	The jet veto is effective at rejecting the top background. The number of surviving 
-	top events is estimated by a data-driven \textit{template method}, which attempts to 
-	constrain the jet multiplicity distribution within a top control region (CR).
+	The top background is suppressed by the jet veto, and its yield is estimated by a 
+	data-driven \textit{template method}. This constrains the top \njets distribution within 
+	a \Pbottom-tagged control region (CR), subtracting contamination via a data-driven 
+	template fit. Then the 0-jet yield is extrapolated from the CR to the SR using MC.
 
-	An extended signal region (ESR) is defined without the jet veto and the \ptll cut. The 
-	top CR is a subset of the ESR, requiring at least one \Pbottom-tagged jet with 
-	\unit{$\pt > 20$}{\GeV}. The \njets distribution $\mathcal{T}$ is measured in the CR, 
-	and is extrapolated to the ESR by top MC. However, non-top contributions to the CR 
-	must be subtracted beforehand, and are estimated by an \njets template from MC 
-	scaled by a data-driven normalisation factor $K_{\text{non-top}}^{\text{data}}$. 
-	Thus, the predicted top \njets distribution in the ESR is
+	In detail, an extended signal region (ESR) is defined by removing the jet veto and the 
+	\ptll cut. The top CR is a subset of the ESR, requiring at least one \Pbottom-tagged jet 
+	with \unit{$\pt > 20$}{\GeV}. The top \njets distribution, $\mathcal{T}$, in the ESR is 
+	predicted by measuring $\mathcal{T}$ in the CR and extrapolating using MC:
 	\begin{equation}
-		\mathcal{T}_{\text{top}}^{\text{pred,ESR}} = \frac{\mathcal{T}_{\text{top}}^{\text{MC,ESR}}}{\mathcal{T}_{\text{top}}^{\text{MC,CR}}} \parenths{\mathcal{T}^{\text{data,CR}} - K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,CR}}} \,.
+		\mathcal{T}_{\text{top}}^{\text{pred,ESR}} = \frac{\mathcal{T}_{\text{top}}^{\text{MC,ESR}}}{\mathcal{T}_{\text{top}}^{\text{MC,CR}}} \parenths{\mathcal{T}^{\text{data,CR}} - K_{\text{non-top}}^{\text{fit}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,CR}}} \,.
 	\end{equation}
-	$K_{\text{non-top}}^{\text{data}}$ is assumed to be the same in the CR and the ESR, 
+	The non-top contamination in the CR is described by MC and scaled by a data-driven 
+	normalisation factor $K_{\text{non-top}}^{\text{fit}}$. This 
+	$K_{\text{non-top}}^{\text{fit}}$ is assumed to be the same in the CR and the ESR, 
 	and is constrained by an \njets fit in the ESR, \ie
 	\begin{equation}
-		\mathcal{T}^{\text{data,ESR}} = \mathcal{T}_{\text{top}}^{\text{pred,ESR}} + K_{\text{non-top}}^{\text{data}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,ESR}} \,.
+		\mathcal{T}^{\text{data,ESR}} = \mathcal{T}_{\text{top}}^{\text{pred,ESR}} + K_{\text{non-top}}^{\text{fit}} \cdot \mathcal{T}_{\text{non-top}}^{\text{MC,ESR}} \,.
 	\end{equation}
-	The fit yields $K_{\text{non-top}}^{\text{data}} = 1.07 \pm 0.03$.
-	Finally, once the 0-jet bin of $\mathcal{T}_{\text{top}}^{\text{pred,ESR}}$ is 
-	selected, the acceptance of the \ptll cut is modelled by top MC.
+	Note that this fit depends upon $K_{\text{non-top}}^{\text{fit}}$ twice: directly and 
+	via $\mathcal{T}_{\text{top}}^{\text{pred,ESR}}$. The fit yields 
+	$K_{\text{non-top}}^{\text{fit}} = 1.07 \pm 0.03$. Finally, the 0-jet bin of 
+	$\mathcal{T}_{\text{top}}^{\text{pred,ESR}}$ is extrapolated to the SR using MC.
 
 	The small number of 0-jet events in the top CR leads to a large statistical 
 	uncertainty in this background. The systematic uncertainty is dominated by 
@@ -500,8 +501,19 @@ in the \DY and non-\WW diboson backgrounds are considered correlated (since they
 dominated by uncertainties in the calorimeter energy scale), and those in the other 
 backgrounds are considered uncorrelated. A comparison of data to expectation suggests that 
 the measured cross section shall be higher than predicted. 
-% Two different \pt distributions of 
-% the selected events are displayed in \Figure~\ref{fig:ww:sr_distributions}.
+
+The fiducial and total cross sections are calculated for each channel with 
+(\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) respectively, using the values in 
+Tables~\ref{tab:ww:cww_aww} and \ref{tab:ww:sr_yield} and an integrated luminosity of 
+\unit{$L = 4.64 \pm 0.18$}{\invfb}. Systematic uncertainties in the signal acceptance and 
+the total background estimation are assumed uncorrelated, and propagate to the cross 
+sections via
+\begin{equation}
+	\parenths{\frac{\Delta\sigma^{\text{fid}}_{\WW}}{\sigma^{\text{fid}}_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta C_{\WW}}{C_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \label{eq:ww:fid_syst} \\
+	\parenths{\frac{\Delta\sigma_{\WW}}{\sigma_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta \parenths{C_{\WW} \cdot A_{\WW}}}{C_{\WW} \cdot A_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \,. \label{eq:ww:total_syst}
+\end{equation}
+The relative statistical uncertainty in each channel is simply 
+$\sqrt{N_{\text{obs}}} / \parenths{N_{\text{obs}} - N_{\text{bkg}}}$.
 
 \begin{table}[t]
 	\begin{tabular}{l@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}l}
@@ -526,30 +538,6 @@ the measured cross section shall be higher than predicted.
 	signal is normalised to the NLO cross section of \unit{44.7}{\pico\barn}.}
 	\label{tab:ww:sr_yield}
 \end{table}
-
-% \begin{figure}
-% 	\includegraphics[width=0.495\textwidth]{tex/ww/pt_leadlep}
-% 	\hfill
-% 	\includegraphics[width=0.495\textwidth]{tex/ww/pt_tot}
-% 	\caption{The \pt distribution of the leading lepton (left) and the dilepton + \met 
-% 	system (right), for all events passing the \WW event selection. Estimations of the 
-% 	top, \Wjets and \DY (Drell-Yan) backgrounds are data-driven. The \WW signal is 
-% 	normalised to the NLO cross section of \unit{44.7}{\pico\barn}.}
-% 	\label{fig:ww:sr_distributions}
-% \end{figure}
-
-The fiducial and total cross sections are calculated for each channel with 
-(\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) respectively, using the values in 
-Tables~\ref{tab:ww:cww_aww} and \ref{tab:ww:sr_yield} and an integrated luminosity of 
-\unit{$L = 4.64 \pm 0.18$}{\invfb}. Systematic uncertainties in the signal acceptance and 
-the total background estimation are assumed uncorrelated, and propagate to the cross 
-sections via
-\begin{equation}
-	\parenths{\frac{\Delta\sigma^{\text{fid}}_{\WW}}{\sigma^{\text{fid}}_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta C_{\WW}}{C_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \label{eq:ww:fid_syst} \\
-	\parenths{\frac{\Delta\sigma_{\WW}}{\sigma_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta \parenths{C_{\WW} \cdot A_{\WW}}}{C_{\WW} \cdot A_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \,. \label{eq:ww:total_syst}
-\end{equation}
-The relative statistical uncertainty in each channel is simply 
-$\sqrt{N_{\text{obs}}} / \parenths{N_{\text{obs}} - N_{\text{bkg}}}$.
 
 The combined total cross section from the three channels is obtained by maximising the 
 likelihood function of a Poisson process

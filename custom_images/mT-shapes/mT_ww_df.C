@@ -77,7 +77,7 @@ void mT_ww_df()
    TString colLabel[2] = {"#it{m}_{ll} < 30 GeV", "#it{m}_{ll} > 30 GeV"};
    TString rowName[3]  = {"slep20", "slep15", "slep10"}; // count from bottom row
    TString rowLabel[3] = {"#it{p}_{T,l}^{sublead} > 20 GeV", "#it{p}_{T,l}^{sublead}#in[15,20] GeV", "#it{p}_{T,l}^{sublead}#in[10,15] GeV"};
-   TString commonName  = "df_1j";
+   TString commonName  = "df_0j";
    TLatex *label[Nx][Ny];
 
 
@@ -106,6 +106,20 @@ void mT_ww_df()
          // Fit
          TString fitname = "f_"+rowName[j]+"_"+colName[i]+"_"+commonName;
          fit[i][j] = (TF1*)file->Get(fitname);
+         // adjust flat sections of DF 0j SR2c
+         if (colName[i] == "sr2" && rowName[j] == "slep20" && commonName == "df_0j") {
+            TString fitfunction = fit[i][j]->GetTitle();
+            fitfunction.ReplaceAll("x<65", "x<90");
+            fitfunction.ReplaceAll("x>=65", "x>=90");
+            fitfunction.ReplaceAll("x>180", "x>170");
+            fitfunction.ReplaceAll("x<=180", "x<=170");
+            fitfunction.ReplaceAll("0.912243", "0.947958");
+            fitfunction.ReplaceAll("1.076435", "1.062198");
+            fit[i][j] = new TF1(fitname, fitfunction, minX, maxX);
+            fit[i][j]->SetLineColor(fit[0][0]->GetLineColor());
+            fit[i][j]->SetLineWidth(fit[0][0]->GetLineWidth());
+            fit[i][j]->SetLineStyle(fit[0][0]->GetLineStyle());
+         }
          fit[i][j]->Draw("same");
          fitinv[i][j] = new TF1(fitname+"_inv", "1.0/"+fitname, minX, maxX);
          fitinv[i][j]->SetLineColor(fit[i][j]->GetLineColor());
