@@ -44,19 +44,20 @@ or via the extrapolation from a control region (as with many backgrounds).
 	reduce pile-up jets (see \Section~\ref{sec:objects:jets}). Unlike the trigger, lepton 
 	reconstruction and \Pbottom-tagging efficiencies, the JVF efficiency is not subject to 
 	a data-driven scale factor and so MC mismodelling introduces a systematic uncertainty to 
-	the \njets distribution. This is only an issue in signal events, since the data-driven 
-	background estimations are jet-binned. The mismodelling is evaluated as 1.2\% in a \DYll 
-	control region, producing negligible jet bin migrations.
+	the \njets distribution. The mismodelling of the JVF efficiency is evaluated as 1.2\% in 
+	a \DYll control region, resulting in negligible jet bin migrations. The data-driven 
+	background estimations are jet-binned and mostly avoid this issue. 
 
 \item[Jet energy scale and resolution] \hfill \\
 	The jet energy scale (JES) is calibrated as a function of \pt and $\eta$, as described 
 	in \Section~\ref{sec:objects:jets}. The \textit{in situ} calibration method of balancing 
-	jets against well-measured reference objects introduces uncertainties to the JES. Also, 
-	uncertainties in the pile-up environment introduce uncertainties to the JES through the 
-	pile-up subtraction step of the calibration. Finally, the JES is affected by 
-	uncertainties in the jet flavour composition and the detector response to each flavour.
-	The uncertainty components are treated separately (the total uncertainty is $<\!7\%$) 
-	and their impact is assessed by varying jet energies by $\pm1\sigma$.
+	jets against well-measured reference objects introduces experimental and theoretical 
+	uncertainties to the JES. Also, uncertainties in the pile-up environment introduce 
+	uncertainties to the JES through the pile-up subtraction step of the calibration. 
+	Finally, the JES is affected by uncertainties in the jet flavour composition and the 
+	detector response to each flavour. The uncertainty components are treated separately 
+	(the total uncertainty is $<\!7\%$) and their impact is assessed by varying jet energies 
+	by $\pm1\sigma$.
 
 	The jet energy resolution (JER) and its uncertainty are measured \textit{in situ} as a 
 	function of \pt and $\eta$ using dijet events \cite{Jets:JER:2011}. The bisector method 
@@ -80,9 +81,9 @@ or via the extrapolation from a control region (as with many backgrounds).
 	are defined using the calibrated electron, muon and jet objects, and are therefore 
 	correlated to the electron, muon and jet energy scales whose uncertainties are outlined 
 	above. In the \calomet calculation, uncertainties in the scale of the unassociated soft 
-	calorimeter deposits are also considered. In the \trackmet and \corrtrackmet 
-	calculations, uncertainties in the nett $\bvec{p}_{\text{T}}$ of unassociated tracks 
-	(\eg due to neutral particles) are also considered.
+	calorimeter deposits are considered. In the \trackmet and \corrtrackmet calculations, 
+	uncertainties in the $\bvec{p}_{\text{T}}$ imbalance of tracks unassociated with a 
+	physics object are considered (\eg due to the presence of neutral particles).
 
 \item[Lepton fake factors] \hfill \\
 	The lepton fake factors $f_{\Plepton}$ are important to the \Wjets and dijet background 
@@ -93,6 +94,13 @@ or via the extrapolation from a control region (as with many backgrounds).
 	control region method (see \Section~\ref{sec:diboson:sscr}). 
 	$f_{\Plepton}^{\text{dijet}}$ is measured in dijet events and is dominated by 
 	theoretical uncertainties in MC-based corrections.
+
+\item[Photon conversions] \hfill \\
+	Modelling photon conversions is important to the \Wgamma background estimation, in 
+	particular the efficiency of two electron identification criteria: the hit in the first 
+	pixel layer and the conversion vertex reconstruction. Mismodelling of these criteria is 
+	tested in \Zgamma events and applied as a systematic uncertainty (see 
+	\Section~\ref{sec:diboson:wgamma}).
 
 \item[Pile-up] \hfill \\
 	Uncertainties in the pile-up environment affect the jet calibration, as outlined above. 

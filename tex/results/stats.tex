@@ -29,7 +29,8 @@ $\braces{\emch,\mech,\eech{}+\mmch} \otimes \braces{\text{0-jet,1-jet}}$ signal 
 It is applied independently within each \ptsubleadlep-\mll bin in the \emch/\mech channels. 
 The algorithm starts with bin boundaries that give an equal number of expected signal 
 events in each bin. Then, each of the odd bin boundaries is scanned across \mt in order to 
-optimise the sum in quadrature of the per-bin significances of the two adjacent bins
+optimise the sum in quadrature of the per-bin statistical significances of the two adjacent 
+bins
 \begin{equation}
 	Z_b = \sqrt{\left(N_{b}^{\text{sig}} \middle/ \sqrt{N_{b}^{\text{bkg}}}\right)^{\!\!2} + \left(N_{b+1}^{\text{sig}} \middle/ \sqrt{N_{b+1}^{\text{bkg}}}\right)^{\!\!2}}
 \end{equation}
@@ -81,14 +82,15 @@ where \bvec{\mathcal{D}^{\text{SR}}} and \bvec{\mathcal{D}^{\text{CR}}} are the
 observed datasets in the signal regions (SRs) and control regions (CRs), respectively.
 This can be decomposed into a product of probabilities
 \begin{equation}
-	\mathcal{L}\parenths{\mu, \bvec{\theta}} = \!\!\!\!\!\prod\limits_{c\in\text{channels}} \!\!\!\!\!f\parenths{\mathcal{D}_{c}^{\text{SR}}; \,\mu, \bvec{\theta}} ~\!\!\!\!\!\prod\limits_{c\in\text{channels}}\!\!\!\!\! f\parenths{\mathcal{D}_{c}^{\text{CR}}; \,\mu, \bvec{\theta}} ~\prod\limits_{i} ~f_i(\tilde{\theta}_i; \,\theta_i, \Delta\tilde{\theta}_i)
+	\mathcal{L}\parenths{\mu, \bvec{\theta}} = \!\!\!\!\!\prod\limits_{c\in\text{channels}} \!\!\!\!\!f\parenths{\mathcal{D}_{c}^{\text{SR}}; \,\mu, \bvec{\theta}} ~\!\!\!\!\!\prod\limits_{c\in\text{channels}}\!\!\!\!\! f\parenths{\mathcal{D}_{c}^{\text{CR}}; \,\mu, \bvec{\theta}} \prod\limits_{i\in\text{n.p.}} f_i(\tilde{\theta}_i; \,\theta_i, \Delta\tilde{\theta}_i)
 \end{equation}
 where the SR channels are the eight SRs described in \Section~\ref{sec:stat:sr_binning}, and 
 the CR channels include the data used in data-driven background estimations. Each 
-$f(\tilde{\theta}; \,\theta, \Delta\tilde{\theta})$ acts to constrain the corresponding 
-nuisance parameter, and is often a Gaussian distribution. The nominal value $\tilde{\theta}$ 
-and uncertainty $\Delta\tilde{\theta}$ are determined by an auxiliary measurement, either 
-experimental (\eg trigger efficiency) or theoretical (\eg $\alpha_{\WW}$).
+$f_i(\tilde{\theta}_i; \,\theta_i, \Delta\tilde{\theta}_i)$ acts to constrain the 
+corresponding nuisance parameter, and is often a Gaussian distribution. The nominal value 
+$\tilde{\theta}$ and uncertainty $\Delta\tilde{\theta}$ are determined by an auxiliary 
+measurement, either experimental (\eg trigger efficiency) or theoretical (\eg 
+$\alpha_{\WW}$).
 
 The probability of producing an observed distribution $\mathcal{D}_c$ is described by 
 a product of Poisson distributions
@@ -105,8 +107,8 @@ of the SRs, and zero-dimensional in many of the CRs (\ie a single bin).
 
 The expected numbers of events depend upon the nuisance parameters according to
 \begin{equation}
-	N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} &= N_{cb}^{\text{sig}}(\tilde{\bvec{\theta}}) ~\prod\limits_{i} \nu_{cbi}(\theta_i - \tilde{\theta}_i) \\
-	N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}} &= \!\!\!\!\!\sum\limits_{p\in\text{processes}}\!\!\!\!\! N_{cbp}^{\text{bkg}}(\tilde{\bvec{\theta}}) ~\prod\limits_{i} \nu_{cbpi}(\theta_i - \tilde{\theta}_i)
+	N_{cb}^{\text{sig}}\parenths{\bvec{\theta}} &= N_{cb}^{\text{sig}}(\tilde{\bvec{\theta}}) \prod\limits_{i\in\text{n.p.}} \nu_{cbi}(\theta_i - \tilde{\theta}_i) \\
+	N_{cb}^{\text{bkg}}\parenths{\bvec{\theta}} &= \!\!\!\!\!\sum\limits_{p\in\text{processes}}\!\!\!\!\! N_{cbp}^{\text{bkg}}(\tilde{\bvec{\theta}}) \prod\limits_{i\in\text{n.p.}} \nu_{cbpi}(\theta_i - \tilde{\theta}_i)
 \end{equation}
 where $N(\tilde{\bvec{\theta}})$ is the expected events with the nominal nuisance parameters 
 as determined by auxiliary measurements, and $\nu_i(\theta_i - \tilde{\theta}_i)$ factorises 
@@ -119,7 +121,8 @@ Correlations can exist between bins and channels, \eg the
 $\nu_i(\theta_i - \tilde{\theta}_i)$ for a normalisation parameter would be 100\% 
 correlated between bins. Statistical uncertainties in the MC samples are implemented as 
 uncorrelated uncertainties in the total expected events in each bin, where the corresponding 
-constraint $f(\tilde{\theta}; \theta, \Delta\tilde{\theta})$ is a Poisson distribution.
+constraint $f_i(\tilde{\theta}_i; \theta_i, \Delta\tilde{\theta}_i)$ is a Poisson 
+distribution.
 
 
 
@@ -152,19 +155,22 @@ An alternative version of the profile likelihood ratio is defined as
 which limits the model to $\hat{\mu} \geq 0$.
 
 Frequentist techniques are used to test three different scenarios. First, we attempt to 
-exclude the Standard Model Higgs boson (\ie $\mu < 1$) at the 95\% confidence level (CL). 
-Second, we attempt to discover the Higgs boson (\ie $\mu > 0$) with $\geq\!5\sigma$ 
-significance. Third, we make a measurement of the signal strength $\mu$ (\ie with a 
-two-sided confidence interval). Each scenario is tested as a raster scan of \mH.
+exclude a Standard Model (\ie $\mu = 1$) Higgs boson at the 95\% confidence level (CL), by 
+testing $\mu < 1$. Second, we attempt to discover a Higgs boson (\ie $\mu \neq 0$) with 
+$\geq\!5\sigma$ significance, by testing $\mu > 0$. Third, we make a measurement of the 
+signal strength $\mu$ (with a two-sided confidence interval). Each scenario is tested as 
+a raster scan of \mH.
 
-In each scenario, a test statistic is constructed to quantify the disagreement between the 
-observed data and the null hypothesis. A $p$-value is then computed, which is the 
-probability of observing a test statistic at least as extreme as that observed, under the 
-assumption of the null hypothesis. The $p$-value is computed in the large-sample limit, 
-using an asymptotic formula for the sampling distribution \cite{Cowan:2010}. Finally, the 
-sensitivity of the analysis is quantified by calculating the expected limits under the 
-assumption of an alternative hypothesis (using the corresponding expected ``Asimov'' 
-dataset) \cite{Cowan:2010}.
+Under each scenario (detailed below), a test statistic is constructed to quantify the 
+disagreement between the observed data and a null hypothesis. A $p$-value is then 
+computed, which is the probability of observing a test statistic at least as extreme as that 
+observed, under the assumption of the null hypothesis. The $p$-value is computed by 
+integrating a sampling distribution of the test statistic, which is based upon the 
+likelihood function. This is done using an asymptotic formula, which is valid in the 
+large-sample limit, though pseudoexperiments could be used instead \cite{Cowan:2010}. 
+Finally, the expected sensitivity under the assumption of an alternative hypothesis is 
+quantified, by calculating the expected confidence levels with the corresponding expected 
+``Asimov'' dataset \cite{Cowan:2010}.
 
 \begin{description}
 \item[Exclusion] \hfill \\
@@ -181,9 +187,12 @@ dataset) \cite{Cowan:2010}.
 	considered physical. The compatibility of the data with the null hypothesis is 
 	quantified by the $p$-value
 	\begin{equation}
-		p_{\mu} = \int\limits_{\tilde{q}_{\mu,\text{obs}}}^{\infty} \! f(\tilde{q}_{\mu}~\given~\mu, \hat{\hat{\bvec{\theta}}}(\mu)) \,\, \d{\tilde{q}_{\mu}} \,.
+		p_{\mu} = \int\limits_{\tilde{q}_{\mu,\text{obs}}}^{\infty} \! f(\tilde{q}_{\mu}~\given~\mu, \hat{\hat{\bvec{\theta}}}(\mu)) \,\, \d{\tilde{q}_{\mu}}
 	\end{equation}
-	Thus, a 95\% CL upper limit upon $\mu$ is set at the value which satisfies 
+	where $f(\tilde{q}_{\mu}~\given~\mu, \hat{\hat{\bvec{\theta}}}(\mu))$ is the sampling 
+	distribution of the test statistic under the assumption of an underlying signal strength 
+	$\mu$, and $\tilde{q}_{\mu,\text{obs}}$ is the observed test statistic under the same 
+	assumption. Thus, a 95\% CL upper limit upon $\mu$ is set at the value which satisfies 
 	$p_{\mu} = 0.05$.
 
 	An unfortunate feature of this method is that a downward fluctuation in the observed 
@@ -241,6 +250,5 @@ dataset) \cite{Cowan:2010}.
 	for this hypothesis.
 
 \end{description}
-
 
 
