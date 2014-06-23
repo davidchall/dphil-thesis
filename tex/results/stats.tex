@@ -38,7 +38,9 @@ where $b$ is the bin number. The new bin boundary is accepted if the increase in
 statistically significant, \ie $(Z_b' - Z_b)/\Delta(Z_b' - Z_b) > 5$. The algorithm repeats 
 on the even bin boundaries, and continues to iterate between odd and even boundaries until 
 their positions stabilise.
-The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_binning}.
+
+The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_binning}, 
+and the inclusive \mt distribution of each jet bin is shown in \Figure~\ref{fig:results:mt}.
 
 \begin{table}[t]
 	\begin{tabular}{cc@{\hskip 0.3in}ccc@{\hskip 0.3in}c}
@@ -58,6 +60,19 @@ The binning of each discriminant observable is shown in \Table~\ref{tab:stat:sr_
 	algorithm used to determine the \mt bin boundaries is described in the text.}
 	\label{tab:stat:sr_binning}
 \end{table}
+
+\begin{figure}[b]
+	\null\hfill
+	\includegraphics[width=0.49\textwidth]{tex/results/CutFRecoil_0jet_MT_TrackHWW_Clj_mh125_lin}
+	\hfill
+	\includegraphics[width=0.49\textwidth]{tex/results/CutFRecoil_1jet_MT_TrackHWW_Clj_mh125_lin}
+	\hfill\null
+	\\
+	\includegraphics[width=0.49\textwidth]{tex/results/emme_CutFailVBFTopoDPhillggFlike_2jetincl_MT_TrackHWW_Clj_mh125_lin}
+	\caption{The \mt distribution in the signal region of the 0-jet (left), 1-jet 
+	(right) and \twojet (bottom) bin. Normalisation factors are applied.}
+	\label{fig:results:mt}
+\end{figure}
 
 
 

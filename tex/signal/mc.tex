@@ -16,7 +16,7 @@ $\mH/1.2$.\footnote{
 	Sudakov-like to ME-like. Its use in tuning \ptH is discussed in Sections~4.5 and 4.9 of 
 	\Reference~\cite{YR2}.
 }
-This setting reproduces the NLO+NNLL \ptH distribution calculated by \hqt \cite{HqT2} in 
+This setting reproduces the NNLO+NNLL \ptH distribution calculated by \hqt \cite{HqT2} in 
 the large-$m_{\Ptop}$ limit, when effects of hadronisation, MPI and finite quark masses are 
 turned off in \meps{\powhegbox}{\pythia{8}}.
 
@@ -36,7 +36,7 @@ Thus, the reweighting is required to simultaneously satisfy three criteria:
 	\meps{\minlo}{\pythia{8}} \cite{Minlo:Hjj},
 	\item and the jet-binned cross sections agree with \Section~\ref{sec:ggf_jetbin}.
 \end{itemize}
-\hres computes the inclusive \ptH distribution with NLO+NNLL accuracy and includes finite 
+\hres computes the inclusive \ptH distribution with NNLO+NNLL accuracy and includes finite 
 $m_{\Ptop}$ and $m_{\Pbottom}$ effects in the loop. It also employs a dynamic scale of 
 $\mu_0 = \sqrt{m_{\PHiggs}^2 + p_{\text{T,\PHiggs}}^2}$ as the nominal \mur and \muf scale, 
 which improves results at high \ptH compared to the fixed $\mu_0 = \mH$ scale used by \hqt.
@@ -172,8 +172,9 @@ Four sources of theoretical uncertainty are considered:
 
 Uncertainties due to higher order corrections are evaluated via independent variation of 
 renormalisation and factorisation scales in the range $\mH/2 \leq \mur,\muf \leq 2\mH$, 
-whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. 
-\todo{ggF+2j scale uncertainty in acceptance}
+whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. In the \twojet bin, this is 
+evaluated using NLO MC of the \ggH~+~1~jet process, since the NLO MC of the inclusive \ggH 
+process relies upon the parton shower to model the second jet.
 
 Uncertainties due to PDFs are evaluated in two ways. First, the acceptance is compared to 
 that predicted with the MSTW2008 PDF \cite{MSTW}. Second, the set of PDF eigenvectors 
@@ -227,7 +228,7 @@ in the fiducial regions described in \Table~\ref{tab:ggF:fiducial_region}.
 		&& 15--20 & 1.0\% & +1.8\% & 3.3\% & $(+)2.6\%$ &  $+13.5\%$ &   $+6.7\%$ \\
 		&&  $>20$ & 1.3\% & +1.8\% & 2.8\% & $(-)1.9\%$ & $(-)1.8\%$ & $(+)1.7\%$ \\
 		\cmidrule(lr){1-9}
-		\twojet & 10--55 & $>10$ &  18\% & +2.0\% & 2.2\% & $(-)1.7\%$ & $(+)1.7\%$ & $-4.5\%$ \\
+		\twojet & 10--55 & $>10$ & 3.6\% & +2.0\% & 2.2\% & $(-)1.7\%$ & $(+)1.7\%$ & $-4.5\%$ \\
 		\bottomrule
 	\end{tabular}
 	\caption{Theoretical uncertainties in the ggF acceptance for each signal region used 
