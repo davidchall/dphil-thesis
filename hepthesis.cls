@@ -360,7 +360,7 @@
 \newlength{\@appendixextramargin}%
 \setlength{\@appendixextramargin}{0cm}%
 \newlength{\@abstractextramargin}%
-\setlength{\@abstractextramargin}{1.5cm}%
+\setlength{\@abstractextramargin}{1cm}%
 \newlength{\@declarationextramargin}%
 \setlength{\@declarationextramargin}{1cm}%
 \newlength{\@acknowledgementsextramargin}%

@@ -8,8 +8,9 @@
 *.bbl
 *.fdb_latexmk
 comment.cut
-thesis.synctex.gz
+*.synctex.gz
 thesis.pdf
+standalone_abstract.pdf
 *.out
 *.tdo
 *.key
