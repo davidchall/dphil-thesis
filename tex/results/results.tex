@@ -5,83 +5,88 @@ The entire LHC Run~I dataset was analysed, corresponding to an integrated lumino
 \unit{$\sqrt{s} = 8$}{\TeV}. The major differences of the \unit{7}{\TeV} analysis, with 
 respect to \Chapter~\ref{chap:selection}, are the absence of the \twojet bin and the 
 dilepton triggers, and the use of a dijet fake factor in the \Wjets background estimation. 
+Additionally, the number of \mt bins used in the fit is reduced by a factor of two.
 Some minor differences also exist in the object and event selection criteria due to the less 
 harsh pile-up environment at \unit{7}{\TeV} (see \Section~\ref{sec:dataset:dataset}).
 
 
 
-\subsection{Exclusion, discovery and measurement}
-\label{sec:results:limits}
+\subsection{Exclusion, discovery and measurement of \ggHWW}
+\label{sec:results:ggF_limits}
 
-We now consider the \HWW results published in \Reference~\cite{HWW-Moriond}.
+The event selection criteria of the \ggHWW analysis are chosen such that the dominant 
+production mode of the selected Higgs boson events is ggF. Nevertheless, other production 
+modes can contribute to the signal acceptance. In the 0-jet and 1-jet bins this effect is 
+small, but in the \twojet bin the VBF (\VH) process contributes 15\% (10\%) of signal events.
+Such events are treated as signal and their expected yield is scaled by the same $\mu$ as 
+ggF. This has a small effect upon the results, and splitting $\mu$ according to production 
+mode shall be revisited in \Section~\ref{sec:results:combined_limits}.
+
 The observed and expected (under a background-only hypothesis) 95\% CL upper limit on $\mu$ 
-is shown as a function of \mH in \Figure~\ref{fig:results:CLs}. The mass range where this 
-limit is below unity is considered excluded at the 95\% CL, when considering an SM Higgs 
-boson ($\mu = 1$). In the absence of a Higgs boson, the expected excluded region is 
-\unit{119}{\GeV} to \unit{200}{\GeV}.\footnote{
+is shown as a function of \mH in \Figure~\ref{fig:ggf_results:CLs}. The mass range where 
+this limit is below unity is considered excluded at the 95\% CL, when considering an SM 
+Higgs boson ($\mu = 1$). In the absence of a Higgs boson, the expected excluded region is 
+\unit{116}{\GeV} to \unit{200}{\GeV}.\footnote{
 	This analysis is optimised to search for a low-mass Higgs boson and therefore the region 
 	\unit{$\mH > 200$}{\GeV} is not considered. A dedicated high-mass search for \HWW is 
 	described in \Reference~\cite{HWW-highmass}.
 }
-However, the observed excluded region is \unit{133}{\GeV} to \unit{200}{\GeV}.
+However, the observed excluded region is \unit{132}{\GeV} to \unit{200}{\GeV}.
 The fact that the observed exclusion is weaker than expected is indicative of an excess of 
 events consistent with a Higgs boson. Since the mass resolution of the \HWW analysis is 
 poor, the impact upon the exclusion is broad in \mH.
 
-To quantify the significance of the excess of events, \Figure~\ref{fig:results:p0} shows the 
-observed $p_0$ as a function of \mH. The maximum significance is $4.1\sigma$, occurring at 
-\unit{$\mH = 140$}{\GeV}, though the poor mass resolution leads to a broad $p_0$ curve. 
+To quantify the significance of the excess of events, \Figure~\ref{fig:ggf_results:p0} shows 
+the observed $p_0$ as a function of \mH. The maximum observed significance is $4.8\sigma$, 
+which occurs when testing \unit{$\mH = 130$}{\GeV}, though the poor mass resolution leads to 
+a relatively broad $p_0$ curve. This is very strong evidence for the existence of the Higgs 
+boson.
 
 \begin{figure}[t]
 	\begin{subfigure}[b]{0.495\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{tex/results/Mor13_CLs}
+		\includegraphics[width=\textwidth,clip=true,trim=0.6cm 0.8cm 1.0cm 0.4cm]{custom_images/limits/cls_ggf_only}
 		\caption{Exclusion}
-		\label{fig:results:CLs}
+		\label{fig:ggf_results:CLs}
 	\end{subfigure}
 	\hfill
 	\begin{subfigure}[b]{0.495\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{tex/results/Mor13_p0}
+		\includegraphics[width=\textwidth,clip=true,trim=0.6cm 0.8cm 1.0cm 0.4cm]{custom_images/limits/p0_ggf_only}
 		\caption{Discovery}
-		\label{fig:results:p0}
+		\label{fig:ggf_results:p0}
+	\end{subfigure}
+	\\[12pt]
+	\begin{subfigure}[b]{0.495\textwidth}
+		\centering
+		\includegraphics[width=\textwidth,clip=true,trim=0.6cm 0.8cm 1.0cm 0.4cm]{custom_images/limits/mu_ggf_only}
+		\caption{Measurement of $\mu$}
+		\label{fig:ggf_results:mu}
 	\end{subfigure}
 	\caption{(a) The observed (solid) 95\% CL upper limit on the signal strength $\mu$ as a 
-	function of \mH and the expectation (dashed) under the background-only hypothesis. \\
-	(b) The observed (solid) $p_0$ as a function of \mH and the expectation (dashed) under 
-	the signal-plus-background hypothesis with \unit{$\mH = 125$}{\GeV} and $\mu = 1$.
-	The bands show the $\pm1\sigma$ and $\pm2\sigma$ uncertainties on the expectation 
-	\cite{HWW-Moriond}.}
+	function of the mass under test \mH, and the expectation (dashed) under the 
+	background-only hypothesis. (b) The observed (solid) $p_0$ as a function of \mH and the 
+	expectation (dashed) under the signal-plus-background hypothesis with $\mu = 1$ and a 
+	hypothesised mass equal to that under test.	(c) The best-fit signal strength $\hat{\mu}$ 
+	(solid) as a function of \mH, with the 68\% CL interval shown (blue).}
 \end{figure}
 
-The measured signal strength $\hat{\mu}$ as a function of the \mH under test is shown in 
-\Figure~\ref{fig:results:mu}. A broad range of Higgs boson masses are consistent with the 
-assumption that the Higgs boson behaves as predicted by the SM (\ie $\mu = 1$). The data are 
-also consistent with a lower mass Higgs boson with $\mu > 1$ or a higher mass Higgs boson 
-with $\mu < 1$. By including \mH as a parameter of interest in the fit, it is possible to 
-test which $\parenths{\mu, \mH}$ pair are most favoured by the data. This is presented in 
+The best-fit signal strength $\hat{\mu}$ is shown as a function of the \mH under test in 
+\Figure~\ref{fig:ggf_results:mu}. A range of Higgs boson masses are consistent with the 
+assumption that the Higgs boson behaves as predicted by the SM (\ie $\mu = 1$). The data 
+are also consistent with a lower mass Higgs boson with $\mu > 1$ or a higher mass Higgs 
+boson with $\mu < 1$. 
+
+
+
+\subsection{Combination with VBF analysis}
+\label{sec:results:combined_limits}
+
+
+By including \mH as a parameter of interest in the fit, it is possible 
+to test which $\parenths{\mu, \mH}$ pair are most favoured by the data. This is presented in 
 \Figure~\ref{fig:results:mu_mH}, together with the 68\% CL and 95\% CL contours. This 
 clearly demonstrates that the analysis is more sensitive to $\mu$ than to \mH.
-
-\begin{figure}[t]
-	\begin{subfigure}[b]{0.495\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{tex/results/Mor13_mu}
-		\caption{Measurement of $\mu$}
-		\label{fig:results:mu}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.495\textwidth}
-		\centering
-		\includegraphics[width=\textwidth]{tex/results/Mor13_mu_mH}
-		\caption{Measurement of $\parenths{\mu, \mH}$}
-		\label{fig:results:mu_mH}
-	\end{subfigure}
-	\caption{(a) The best-fit signal strength $\hat{\mu}$ (solid) as a function of \mH, with 
-	the 68\% CL interval shown. (b) The best-fit signal strength $\hat{\mu}$ and mass 
-	$\hat{m}_{\PHiggs}$ (marker), with the 68\% CL and 95\% CL intervals shown 
-	\cite{HWW-Moriond}.}
-\end{figure}
 
 The updated results exhibit more than $5\sigma$ significance for the \ggHWWlvlv process, and 
 consequently for the existence of the Higgs boson itself. LHC searches for 
@@ -124,8 +129,6 @@ mostly driven by the \emch and \mech channels of the 0-jet and 1-jet bins, in th
 
 
 
-
-
 \subsection{Cross section measurements}
 \label{sec:results:xs}
 
@@ -140,3 +143,6 @@ of the 0-jet and 1-jet bins are used for this measurement. It is found that
 % measured total cross section
 % split mu into jet bins
 % measured fiducial cross sections
+
+
+

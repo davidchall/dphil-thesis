@@ -187,6 +187,13 @@
    graph->SetPoint(15,185,0.26391);
    graph->SetPoint(16,190,0.278098);
    graph->SetPoint(17,200,0.367533);
+
+   cout << "Observed:" << endl;
+   cout << "132.0: " << graph->Eval(132.0, 0, "S") << endl;
+   cout << "132.5: " << graph->Eval(132.5, 0, "S") << endl;
+   cout << "132.7: " << graph->Eval(132.7, 0, "S") << endl;
+   cout << "133.0: " << graph->Eval(133.0, 0, "S") << endl;
+   cout << endl;
    
    TH1F *Graph_Graph1 = new TH1F("Graph_Graph1","",100,101,209);
    Graph_Graph1->SetMinimum(0.125667);
@@ -240,6 +247,15 @@
    graph->SetPoint(15,185,0.211921);
    graph->SetPoint(16,190,0.2778);
    graph->SetPoint(17,200,0.426581);
+
+   cout << "Expected:" << endl;
+   cout << "115.0: " << graph->Eval(115.0, 0, "S") << endl;
+   cout << "115.5: " << graph->Eval(115.5, 0, "S") << endl;
+   cout << "115.7: " << graph->Eval(115.7, 0, "S") << endl;
+   cout << "116.0: " << graph->Eval(116.0, 0, "S") << endl;
+   cout << endl;
+
+
    
    TH1F *Graph_Graph2 = new TH1F("Graph_Graph2","",100,101,209);
    Graph_Graph2->SetMinimum(0.07948566);
@@ -322,7 +338,7 @@
    line->SetLineStyle(2);
    line->SetLineWidth(2);
    line->Draw();
-   TLatex *   tex = new TLatex(0.2,0.842,"#splitline{#sqrt{s} = 7 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 4.7 fb ^{-1}}{#sqrt{s} = 8 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 20.7 fb ^{-1}}");
+   TLatex *   tex = new TLatex(0.2,0.842,"#splitline{#sqrt{s} = 7 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 4.5 fb ^{-1}}{#sqrt{s} = 8 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 20.3 fb ^{-1}}");
 tex->SetNDC();
    tex->SetTextFont(42);
    tex->SetTextSize(0.04);
