@@ -54,6 +54,7 @@
 
 % tabularx centred column
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\raggedleft\arraybackslash}X}
 % dcolumn aligns decimal places
 \newcolumntype{d}[1]{D{.}{.}{#1}}
 

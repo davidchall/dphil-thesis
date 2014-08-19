@@ -42,7 +42,7 @@
    graph->SetPoint(17,200,0.705396);
    
    TH1F *Graph_Graph1 = new TH1F("Graph_Graph1","",100,101,209);
-   Graph_Graph1->SetMinimum(1e-10);
+   Graph_Graph1->SetMinimum(1e-11);
    Graph_Graph1->SetMaximum(1000);
    Graph_Graph1->SetDirectory(0);
    Graph_Graph1->SetStats(0);
@@ -97,7 +97,7 @@
    graph->SetPoint(17,200,2.55121e-05);
    
    TH1F *Graph_Graph2 = new TH1F("Graph_Graph2","",100,101,209);
-   Graph_Graph2->SetMinimum(1e-10);
+   Graph_Graph2->SetMinimum(1e-11);
    Graph_Graph2->SetMaximum(1000);
    Graph_Graph2->SetDirectory(0);
    Graph_Graph2->SetStats(0);
@@ -122,7 +122,7 @@
    
    graph->Draw("l");
    
-   TLegend *leg = new TLegend(0.7,0.8,0.85,0.92,NULL,"brNDC");
+   TLegend *leg = new TLegend(0.55,0.8,0.85,0.92,NULL,"brNDC");
    leg->SetBorderSize(0);
    leg->SetTextFont(62);
    leg->SetTextSize(0.04);
@@ -159,7 +159,7 @@
    leg->SetFillColor(0);
    leg->SetFillStyle(0);
    leg->Draw();
-   TLatex *   tex = new TLatex(0.2,0.842,"#splitline{#sqrt{s} = 7 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 4.5 fb ^{-1}}{#sqrt{s} = 8 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 20.3 fb ^{-1}}");
+   TLatex *   tex = new TLatex(0.18,0.85,"#splitline{#sqrt{s} = 7 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 4.5 fb ^{-1}}{#sqrt{s} = 8 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 20.3 fb ^{-1}}");
 tex->SetNDC();
    tex->SetTextFont(42);
    tex->SetTextSize(0.04);

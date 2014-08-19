@@ -179,7 +179,7 @@
    line->SetLineStyle(2);
    line->SetLineWidth(2);
    line->Draw();
-   TLatex *   tex = new TLatex(0.2,0.842,"#splitline{#sqrt{s} = 7 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 4.5 fb ^{-1}}{#sqrt{s} = 8 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 20.3 fb ^{-1}}");
+   TLatex *   tex = new TLatex(0.18,0.85,"#splitline{#sqrt{s} = 7 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 4.5 fb ^{-1}}{#sqrt{s} = 8 TeV:   #lower[-0.2]{#scale[0.6]{#int}} Ldt = 20.3 fb ^{-1}}");
 tex->SetNDC();
    tex->SetTextFont(42);
    tex->SetTextSize(0.04);

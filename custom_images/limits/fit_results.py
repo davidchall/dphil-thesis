@@ -46,7 +46,7 @@ class FitResult(object):
 		self.graph_mu.SetMarkerStyle(34)
 		self.graph_mu.SetPoint(0, self.mu_nom, y)
 		self.graph_mu.SetPointError(0, abs(self.mu_lo), self.mu_hi, 0.0, 0.0)
-		self.graph_mu.Draw('PZ SAME')
+		self.graph_mu.Draw('PZ0 SAME')
 
 
 class FitGroup(object):
@@ -92,64 +92,64 @@ SF = '#it{#scale[0.9]{ee}}/#it{#mu#mu}'
 
 results = []
 results.append( FitGroup('Total', 0,
-	FitResult('7',   0.56, 0.38, +0.70, -0.70),      # TODO
-	FitResult('8',   4.12, 1.26, +0.41, -0.35),    # TODO
-	FitResult('7+8', 6.07, 1.10, +0.23, -0.21)) )
+	FitResult('7',   0.53, 0.30, +0.58, -0.57),
+	FitResult('8',   6.30, 1.22, +0.25, -0.23),
+	FitResult('7+8', 6.07, 1.11, +0.23, -0.21)) )
 results.append( FitGroup('0-jet', 1,
-	FitResult('7',   0.56, 0.38, +0.70, -0.70),      # TODO
+	FitResult('7',   0.56, 0.37, +0.72, -0.67),
 	FitResult('8',   4.12, 1.26, +0.41, -0.35),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7+8', 4.03, 1.14, +0.37, -0.31)) )
 results.append( FitGroup(DF, 2,
-	FitResult('7',   0.40, 0.29, +0.70, -0.70),      # TODO
+	FitResult('7',   0.41, 0.29, +0.74, -0.71),
 	FitResult('8',   4.36, 1.39, +0.45, -0.37),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7+8', 4.23, 1.25, +0.39, -0.33)) )
 results.append( FitGroup(SF, 2,
-	FitResult('7',   0.54, 0.81, +0.70, -0.70),      # TODO
+	FitResult('7',   0.55, 0.84, +1.57, -1.55),
 	FitResult('8',   0.42, 0.33, +0.74, -0.76),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7+8', 0.57, 0.40, +0.69, -0.69)) )
 results.append( FitGroup('1-jet', 1,
-	FitResult('7',   1.43, 1.58, +0.70, -0.70),      # TODO
+	FitResult('7',   1.43, 1.57, +1.34, -1.11),
 	FitResult('8',   2.41, 0.97, +0.54, -0.42),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7+8', 2.54, 0.99, +0.51, -0.42)) )
 results.append( FitGroup(DF, 2,
-	FitResult('7',   1.60, 1.96, +0.70, -0.70),      # TODO
+	FitResult('7',   1.60, 1.95, +1.52, -1.24),
 	FitResult('8',   2.70, 1.17, +0.56, -0.48),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7+8', 2.87, 1.19, +0.57, -0.46)) )
 results.append( FitGroup(SF, 2,
-	FitResult('7',   0.05, 0.03, +0.70, -0.70),      # TODO
+	FitResult('7',   0.03,-0.01, +2.30, -2.18),
 	FitResult('8',   0.25, 0.24, +1.21, -1.07),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7+8', 0.21, 0.19, +1.07, -0.98)) )
 results.append( FitGroup('#geq2-jet (ggF)', 1,
 	FitResult('7',   None, None, None, None),
 	FitResult('8',   1.49, 1.25, +1.01, -0.85),
 	FitResult('7+8', None, None, None, None)) )
 results.append( FitGroup('#geq2-jet (VBF)', 1,
-	FitResult('7',   0.56, 0.38, +0.70, -0.70),      # TODO
-	FitResult('8',   3.68, 1.59, +0.65, -0.54),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7',   None,-0.66, +0.73, -0.73),
+	FitResult('8',   4.12, 1.41, +0.52, -0.43),
+	FitResult('7+8', 3.84, 1.25, +0.48, -0.40)) )
 results.append( FitGroup(DF, 2,
-	FitResult('7',   0.56, 0.38, +0.70, -0.70),      # TODO
-	FitResult('8',   2.78, 1.27, +0.67, -0.54),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7',   None,-0.66, +1.00, -1.00),
+	FitResult('8',   3.22, 1.14, +0.52, -0.43),
+	FitResult('7+8', 3.00, 1.01, +0.48, -0.40)) )
 results.append( FitGroup(SF, 2,
-	FitResult('7',   0.56, 0.38, +0.70, -0.70),      # TODO
-	FitResult('8',   2.96, 2.60, +1.34, -1.07),
-	FitResult('7+8', 3.80, 1.15, +0.29, -0.26)) )   # TODO
+	FitResult('7',   None,-1.57, +2.57, -2.54),
+	FitResult('8',   3.14, 2.36, +1.15, -0.90),
+	FitResult('7+8', 2.96, 2.07, +1.03, -0.82)) )
 
 
 
 if __name__ == '__main__':
-	canvas = r.TCanvas('canvas', 'canvas', 600, 500)
+	canvas = r.TCanvas('canvas', 'canvas', 600, 600)
 	canvas.Range(0.0, 0.0, 1.0, 1.0)
 	x_start, x_split = 0.2, 0.5
-	y_min, y_max = 0.0, 100.0
+	y_min, y_max = 0.0, 120.0
 	frame_width = 3
 
 
 	# Significance pad
 	pad_z  = r.TPad('z', 'z', x_start, 0.0, x_split, 1.0)
 	pad_z.SetTickx()
-	pad_z.SetMargin(0.05, 0.03, 0.1, 0.08)
+	pad_z.SetMargin(0.05, 0.03, 0.08, 0.08)
 	pad_z.SetFrameLineWidth(frame_width)
 	pad_z.Draw()
 	pad_z.cd()
@@ -176,7 +176,7 @@ if __name__ == '__main__':
 	# Signal strength pad
 	pad_mu = r.TPad('mu', 'mu', 1.0 - x_split, 0.0, 1.0, 1.0)
 	pad_mu.SetTickx()
-	pad_mu.SetMargin(0.03, 0.05, 0.1, 0.08)
+	pad_mu.SetMargin(0.03, 0.05, 0.08, 0.08)
 	pad_mu.SetFrameLineWidth(frame_width)
 	pad_mu.Draw()
 	pad_mu.cd()

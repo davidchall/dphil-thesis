@@ -55,8 +55,10 @@ event selections must be estimated. The extrapolation from the measured phase
 space to the inclusive phase space introduces uncertainties. It is helpful to 
 separate theoretical uncertainties from the others by measuring an intermediate cross 
 section in a \textit{fiducial region} of phase space, as defined in 
-\Table~\ref{tab:ggF:fiducial_region} for each signal region. These criteria use 
-hadron-level objects and are chosen to closely represent those of the detector-level 
+\Table~\ref{tab:ggF:fiducial_region} for each signal region. Events featuring leptonic \Ptau 
+decays are excluded from the fiducial region, in order to make it easier for theorists to 
+calculate the expected fiducial cross section within their model of choice. These criteria 
+use hadron-level objects and are chosen to closely represent those of the detector-level 
 selection, in order to minimise the extrapolation to the fiducial region.
 
 To define the hadron-level objects, the MC event record is used to identify prompt charged 
@@ -89,7 +91,8 @@ must pass the same \pt, $\eta$ and overlap removal criteria applied at detector-
 		& \multicolumn{2}{c}{Fail $\dyjj > 3.6$ or $\mjj > 600$ or CJV or OLV} \\
 		\bottomrule
 	\end{tabularx}
-	\caption{Hadron-level event selection criteria for each fiducial region. Cuts on 
+	\caption{Hadron-level event selection criteria for each fiducial region. Events 
+	featuring leptonic \Ptau decays are excluded from the fiducial region. Cuts on 
 	energy, momentum and mass are given in \GeV, and angular cuts are given in radians. The 
 	CJV and OLV are the central jet veto and outside lepton veto, respectively. See 
 	\Chapter~\ref{chap:selection} for a detailed explanation of the criteria.}
@@ -116,43 +119,44 @@ On the other hand, the measured total cross section is extracted by
 where $A_{\text{ggF}}$ is the ratio of the expected number of ggF events passing the 
 fiducial selection to the total expected number of ggF events. $A_{\text{ggF}}$ accounts 
 for the acceptance of the event selection criteria. BR incorporates the branching 
-ratios of the Higgs and \PW bosons for the channel in question, and here includes 
-contributions from leptonic \Ptau decays.
+ratios of the Higgs and \PW bosons for the channel in question.
 
 Fiducial cross sections are only extracted from the 0-jet and 1-jet bins of the \emch/\mech 
 channels, since these are the most sensitive signal regions. The acceptances 
 $C_{\text{ggF}}$, $A_{\text{ggF}}$ and $C_{\text{ggF}} \cdot A_{\text{ggF}}$ are displayed 
 in \Table~\ref{tab:ggF:cggF_aggF}, together with their respective uncertainties.
 
-Theoretical uncertainties in $A_{\text{ggF}}$ (other than the jet binning uncertainties 
+Theoretical uncertainties in the acceptance (other than the jet binning uncertainties 
 discussed in \Section~\ref{sec:ggf_jetbin}) are evaluated at hadron-level by changing some 
 aspect of the MC modelling and measuring the change in acceptance relative to the 
 jet-binned cross sections. In the case of PDF uncertainties, the acceptance is calculated 
 relative to the total cross section, in order to include PDF uncertainties in the jet 
-binning.
+binning. Since these uncertainties are used in extracting the signal strength, the fiducial 
+volume is modified to include events featuring lepton \Ptau decays. 
 
 \begin{table}[t]
-	\begin{tabular}{l@{}c@{\hskip 0.2in}c}
+	\begin{tabular}{lc@{\hskip 0.2in}c}
 		\toprule
 		& 0-jet & 1-jet \\
 		\midrule
-		$C_{\text{ggF}}$ ($\times 100$) & $46.3\pm2.4$ & $46.4\pm1.9$ \\
+		$C_{\text{ggF}}$ ($\times 100$) & $50.7\pm2.7$ & $50.6\pm2.2$ \\
 		\quad Trigger efficiency              & 0.7\% & 0.6\% \\
 		\quad Lepton efficiency               & 2.6\% & 2.4\% \\
-		\quad Lepton \pt scale and resolution & 1.3\% & 1.3\% \\
-		\quad Jet energy scale and resolution & 4.3\% & 2.0\% \\
-		\quad Jet \Pbottom-tagging efficiency & 0.0\% & 1.9\% \\
-		\quad \met modelling                  & 0.2\% & 0.7\% \\
+		\quad Lepton \pt scale and resolution & 1.1\% & 0.9\% \\
+		\quad Jet energy scale and resolution & 4.3\% & 2.2\% \\
+		\quad Jet \Pbottom-tagging efficiency & 0.0\% & 1.8\% \\
+		\quad \met modelling                  & 0.1\% & 0.1\% \\
+		\quad PS/UE                           & 1.5\% & 2.0\% \\
 		\cmidrule(lr){1-3}
-		$A_{\text{ggF}}$ ($\times 100$) & $16.3\pm2.1$ & $6.0\pm1.3$ \\
+		$A_{\text{ggF}}$ ($\times 100$) & $20.6\pm3.0$ & $7.5\pm1.7$ \\
 		\quad Perturbative QCD \\
-		\quad\quad Jet binning & 12\%  & 21\%  \\
+		\quad\quad Jet binning & 14\%  & 22\%  \\
 		\quad\quad Other cuts  & 1.1\% & 1.4\% \\
 		\quad PDFs             & 3.7\% & 3.4\% \\
 		\quad PS/UE            & 2.2\% & 3.8\% \\
 		\quad NLO-PS           & 1.8\% & 1.1\% \\
 		\cmidrule(lr){1-3}
-		$C_{\text{ggF}} \cdot A_{\text{ggF}}$ ($\times 100$) & $7.5\pm1.1$ & $2.8\pm0.6$ \\
+		$C_{\text{ggF}} \cdot A_{\text{ggF}}$ ($\times 100$) & $10.4\pm1.6$ & $3.8\pm0.9$ \\
 		\bottomrule
 	\end{tabular}
 	\caption{The signal acceptances $C_{\text{ggF}}$, $A_{\text{ggF}}$ and $C_{\text{ggF}} 
