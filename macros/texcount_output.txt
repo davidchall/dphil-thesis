@@ -8,8 +8,8 @@
 3300 words in Chapter: Signal modelling
 4260 words in Chapter: \WW measurement and modelling
 6005 words in Chapter: Other backgrounds
-4018 words in Chapter: Experimental results
+4012 words in Chapter: Experimental results
 2646 words in Chapter: Conclusions
 ::: Total :::
-Words: 36606
+Words: 36600
 Formulae: 94
