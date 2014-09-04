@@ -185,7 +185,8 @@ The \WW process is modelled at NLO by \meps{\mcatnlo}{\fherwig}. The NNLO \ggWW 
 contribute \about3\% to the total cross section, due to the large gluon luminosities at 
 the LHC, and are modelled by \meps{\ggtoww}{\fherwig} \cite{gg2ww}. The signal 
 acceptances $C_{\WW}$ and $A_{\WW}$ are corrected for the small mismodelling of trigger and 
-lepton reconstruction efficiencies, through \textit{in situ} tag-and-probe studies.
+lepton reconstruction efficiencies, through \textit{in situ} tag-and-probe studies (see 
+\Section~\ref{sec:objects:electrons}).
 
 The jet veto in the event selection is responsible for the dominant uncertainties in both 
 $C_{\WW}$ and $A_{\WW}$. Uncertainties in the jet energy scale (JES) and jet energy 
@@ -493,14 +494,25 @@ MC generators used to model each process.
 \subsection{Experimental results}
 \label{sec:ww:results}
 
-The observed number of events passing the event selection is shown for each channel in 
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/ww/ww_ptleadlep}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/ww/ww_dphill}
+	\caption{The \ptleadlep (left) and \dphill (right) distributions for the selected \WW 
+	candidates, including \emch, \eech and \mmch channel events.}
+	\label{fig:ww_meas:sr_plots}
+\end{figure}
+
+The observed and expected \ptleadlep and \dphill distributions in the signal region are 
+displayed in \Figure~\ref{fig:ww_meas:sr_plots}, and the observed number of events passing 
+the event selection is shown for each channel in 
 \Table~\ref{tab:ww:sr_yield}. The expected number of events is also shown, with the 
 signal and background contributions estimated as described in 
 Sections~\ref{sec:ww:signal} and \ref{sec:ww:bkg}, respectively. Systematic uncertainties 
 in the \DY and non-\WW diboson backgrounds are considered correlated (since they are both 
 dominated by uncertainties in the calorimeter energy scale), and those in the other 
 backgrounds are considered uncorrelated. A comparison of data to expectation suggests that 
-the measured cross section shall be higher than predicted. 
+the measured cross section shall be higher than predicted.
 
 The fiducial and total cross sections are calculated for each channel with 
 (\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) respectively, using the values in 
@@ -564,7 +576,8 @@ uncertainty is related to lepton energy mismeasurement).
 The measured cross sections are shown in \Table~\ref{tab:ww:xs_results}. The combined total 
 cross section is \statsystlumi{51.9}{2.0}{3.9}{2.0}~\pico\barn, which is slightly higher 
 than the theoretical prediction of \unit{$44.7\pm2.0$}{\pico\barn}. However, the discrepancy 
-is not significant. If contributions from \HWW and VBF \WW production are included, the 
+is not significant. If contributions from \HWW and VBF \WW production are included as 
+backgrounds, the 
 measured cross section reduces to \statsystlumi{50.5}{2.0}{3.9}{2.0}~\pico\barn.
 
 \begin{table}

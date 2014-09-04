@@ -6,10 +6,12 @@ dominant background contribution following the event selection described in
 
 The \WW process is modelled at NLO by \meps{\powhegbox}{\pythia{6}}. It is necessary to 
 use \powhegbox since \mcatnlo does not feature ``singly resonant diagrams'', where the 
-mass of the dilepton + dineutrino system is that of a single \PZ boson. Since the \HWW 
-search is sensitive to off-shell \PW bosons, it is important to include these diagrams. 
-The \pythia{6} event generator is used as it is found to better describe the 
-experimental data in many exclusive observables, when compared to \pythia{8}. This is likely 
+mass of the dilepton + dineutrino system is that of a single \PZ boson. This occurs in \DYll 
+events where a lepton radiates a \PW boson, and the final state is indistinguishable from 
+the \WW process. Since the \HWW search is sensitive to off-shell \PW bosons, it is important 
+to include these diagrams. The \meps{\powhegbox}{\pythia{6}} event generator is used as it 
+is found to better describe the experimental data in many exclusive observables, when 
+compared to \meps{\powhegbox}{\pythia{8}}. This is likely 
 to be related to the \meps{\powhegbox}{\pythia{8}} matching issues mentioned in 
 \Section~\ref{sec:mc:ps_tuning}. Also, the ATLAS underlying event AUET2B tune 
 \cite{ATLAS:tune:2011} was found to be overtuned to dijet data and consequently its 

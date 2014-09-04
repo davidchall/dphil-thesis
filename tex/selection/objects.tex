@@ -329,7 +329,8 @@ $\mods{\eta} < 2.5$ are selected.
 	\unit{1.0}{\milli\metre}$.
 
 \item[Efficiency] \hfill \\
-	The efficiency of each selection step is measured via tag-and-probe of 
+	The efficiency of each selection step is measured via tag-and-probe (see 
+	\Section~\ref{sec:objects:electrons}) of 
 	\HepProcess{\PZ \HepTo \Pmu\Pmu} events \cite{Muons:2012}. For example, the 
 	reconstruction efficiency is shown in \Figure~\ref{fig:objects:mu_recoeff}. 
 	Comparison with MC yields efficiency scale factors.
@@ -510,9 +511,23 @@ experimental reconstruction (see below).
 
 Since the measurement of \met relies on the measurement of all the visible particles 
 produced in the event, it generally has a poor experimental resolution.
-In particular, pile-up has an adverse effect on performance. 
+In particular, pile-up has an adverse effect on performance (see 
+\Figure~\ref{fig:objects:met_resolution}). 
 Object mismeasurement can produce a fake imbalance that is highly correlated to the event 
 kinematics.
+
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth,clip=true,trim=0.6cm 0.4cm 1.7cm 1.35cm]{tex/selection/met_rms_0j}
+	\hfill
+	\includegraphics[width=0.495\textwidth,clip=true,trim=0.6cm 0.4cm 1.7cm 1.35cm]{tex/selection/met_rms_1j}
+	\caption{The root-mean-square of the missing transverse momentum versus the mean number 
+	of interactions per bunch crossing, $\mu$, measured in \HepProcess{\PZ \HepTo \Pmu\Pmu} 
+	events featuring 0 jets (left) and 1 jet (right). Results are shown for 
+	calorimeter-based \calomet (red), track-based \trackmet (black) and jet-corrected 
+	track-based \corrtrackmet (blue). In the 0-jet case, \trackmet and \corrtrackmet are 
+	identical.}
+	\label{fig:objects:met_resolution}
+\end{figure}
 
 \begin{description}
 \item[Calorimeter-based \calomet] \hfill \\
@@ -544,7 +559,8 @@ kinematics.
 		} \,.
 	\end{equation}
 	Unfortunately, \calomet is highly susceptible to pile-up because the starting points 
-	are calorimeter cells, which are not easily associated to the primary vertex.
+	are calorimeter cells, which are not easily associated to the primary vertex. This is 
+	shown by the red points in \Figure~\ref{fig:objects:met_resolution}.
 
 \item[Track-based \trackmet] \hfill \\
 	One can alternatively reconstruct missing transverse momentum with ID tracks. 
@@ -580,7 +596,8 @@ kinematics.
 		} \,.
 	\end{equation}
 	\trackmet is very resilient to pile-up. However, its inability to include neutral 
-	hadrons significantly degrades the resolution.
+	hadrons significantly degrades the resolution. This is shown by the black points in 
+	\Figure~\ref{fig:objects:met_resolution}.
 
 \item[Jet-corrected track-based \corrtrackmet] \hfill \\
 	It is possible to correct \trackmet for neutral hadrons using calorimeter information. 
@@ -595,7 +612,8 @@ kinematics.
 		} \,.
 	\end{equation}
 	This has the best resolution, but the use of calorimeter information does introduce 
-	some pile-up dependence.
+	some pile-up dependence. This is shown by the blue points in 
+	\Figure~\ref{fig:objects:met_resolution}.
 
 \item[Relative missing transverse momentum] \hfill \\
 	The effect of object mismeasurement upon missing transverse momentum can be reduced 

@@ -148,8 +148,8 @@ matching prescriptions:
 \item[MC@NLO] \hfill \\
 	Simply adding a parton shower to an NLO ME introduces double counting of 
 	emissions. The \mcatnlo method compensates for this overlap through a correction to 
-	the NLO calculation. This renders the ME dependent upon the parton shower 
-	used in the MC event generator. It also introduces negatively weighted events.
+	the NLO calculation. This correction renders the ME dependent upon the parton shower 
+	used in the MC event generator, and is also a source of negatively weighted events.
 
 	Originally implemented in the \mcatnlo program for matching to \fherwig 
 	\cite{MCatNLO-Herwig} and \herwigpp \cite{MCatNLO-Herwig++}, the method has now been 
@@ -222,9 +222,9 @@ and \meps{\powhegbox}{\pythia{6}} (see the green and black lines in
 	\caption{Jet multiplicity produced by \meps{\powhegbox}{\pythia{8}} with a selection 
 	of shower tunes. The green circles correspond to the tune used in the analysis. The red 
 	squares change the parton shower PDFs from CT10 to CTEQ6L1. The blue triangles 
-	additionally change the parton shower $\alphaS\parenths{\mZ}$ from 0.137 to 0.118 (in 
-	agreement with \powhegbox). \meps{\powhegbox}{\pythia{6}} is shown in black for 
-	reference, and is in good agreement with \meps{\powhegbox}{\fherwig}.}
+	additionally change the parton shower $\alphaS\parenths{\mZ}$ from 0.137 to 0.118 (as 
+	used in \powhegbox). \meps{\powhegbox}{\pythia{6}} is shown in black for 
+	reference, and is in good agreement with \meps{\powhegbox}{\fherwig} (not shown).}
 	\label{fig:mc:ps_tuning}
 \end{figure}
 
@@ -245,6 +245,6 @@ $\alphaS\parenths{\mZ} = 0.137$. The effect of these issues is shown in
 
 Identification of this poor matching has led to improvements in the latest round of MC 
 tuning, where dedicated \meps{\powhegbox}{\pythia{8}} tunes are fit using an adjusted 
-parton shower \cite{ATLAS:tune:2013}.
+parton shower \cite{ATLAS:tune:2013}. These shall be used in Run~II.
 
 

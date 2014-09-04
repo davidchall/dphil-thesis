@@ -87,8 +87,8 @@ class FitGroup(object):
 		self.tex.Draw()
 
 
-DF = '#it{#scale[0.9]{e}#mu}/#it{#mu#scale[0.9]{e}}'
-SF = '#it{#scale[0.9]{ee}}/#it{#mu#mu}'
+DF = '#it{#scale[0.9]{e}#mu}+#it{#mu#scale[0.9]{e}}'
+SF = '#it{#scale[0.9]{ee}}+#it{#mu#mu}'
 
 results = []
 results.append( FitGroup('Total', 0,

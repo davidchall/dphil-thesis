@@ -261,7 +261,7 @@ where $i = \text{OS, SS}$. The injection of $\eta$-dependence from the dijet fak
 is also shown in (\ref{eq:wjet_ff}). The \Zjets fake factor is used because \Zjets has a 
 similar jet flavour composition to \Wjets. The correction factors are derived with 
 \meps{\alpgen}{\pythia{6}}, and compared to those of \meps{\alpgen}{\fherwig} and 
-\meps{\powhegbox}{\pythia{8}} to obtain a systematic uncertainty. The corrections factors 
+\meps{\powhegbox}{\pythia{8}} to obtain a systematic uncertainty. The correction factors 
 are \statsyst{0.99}{0.05}{0.19} for OS electrons, \statsyst{1.00}{0.08}{0.21} for OS 
 muons, \statsyst{1.25}{0.08}{0.30} for SS electrons and \statsyst{1.40}{0.14}{0.47} for 
 SS muons.
@@ -307,5 +307,16 @@ for the correlation between $f_{\Plepton}$ and the other object in the event
 The dijet background has a very small contribution to the \HWW signal regions, but has 
 large uncertainties dominated by the MC-based corrections. It is difficult to define a 
 high purity dijet validation region in the dilepton sample, though good agreement with 
-experimental data is observed in the low \met regions where this background is enhanced.
+experimental data is observed in the low \met regions where this background is enhanced 
+(see \Figure~\ref{fig:dijet_vr}).
 
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutDijetControl_0jet_MET_TrackHWW_Clj_zoom_mh125_SS_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/backgrounds/emme_CutDijetControl_0jet_MT_TrackHWW_Clj_mh125_SS_lin}
+	\caption{The \corrtrackmet (left) and \mt (right) distributions in the \emch/\mech 
+	channels of same-sign dilepton events. Selected events have passed the 
+	\unit{$\ptleadlep > 22$}{\GeV}, \unit{$\mll > 10$}{\GeV}, $\njets = 0$ and 
+	$\dphillmet > \pi/2$ criteria.}
+	\label{fig:dijet_vr}
+\end{figure}

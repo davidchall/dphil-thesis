@@ -19,10 +19,10 @@ which iteratively combine the closest pair of particles according to some distan
 $d_{ij}$. 
 
 Consider an algorithm where all the inter-particle distances $d_{ij}$ and particle-beam 
-distances $d_{i\text{B}}$ are calculated. If the minimum is a $d_{ij}$, then particles $i$ 
-and $j$ are combined into single new particle. If the minimum is a $d_{i\text{B}}$, then 
-particle $i$ is declared a jet and removed from the list of particles. Then the algorithm 
-restarts. We define the distances
+distances $d_{i\text{B}}$ are calculated. If the minimum of these is a $d_{ij}$ rather than a 
+$d_{i\text{B}}$, then particles $i$ and $j$ are combined into single new particle. If the 
+minimum is a $d_{i\text{B}}$, then particle $i$ is declared a jet and removed from the list 
+of particles. Then the algorithm restarts. We define the distances
 \begin{equation}
 	d_{ij} &= \min\parenths{p^{2m}_{\text{T}i}, p^{2m}_{\text{T}j}} \frac{\Delta R^2_{ij}}{R^2} \,,
 	&& \Delta R^2_{ij} = \parenths{y_i - y_j}^2 + \parenths{\phi_i - \phi_j}^2 \\
