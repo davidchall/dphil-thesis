@@ -80,11 +80,12 @@ The criteria were chosen to optimise the analysis sensitivity, \eg a low \et thr
 of \unit{10}{\GeV} gives a large signal acceptance but must be compensated by tight 
 identification requirements to reject the large \Wjets and dijet backgrounds.
 
-Electrons with $\et > \unit{10}{\GeV}$ and $\mods{\eta} < 2.47$ are selected. Additionally, electrons with $1.37 < \mods{\eta} < 1.52$ are vetoed since they correspond
+Electrons with $\et > \unit{10}{\GeV}$ and $\mods{\eta} < 2.47$ are selected. Additionally, 
+electrons with $1.37 < \mods{\eta} < 1.52$ are vetoed since they correspond
 to the crack region (see \Section~\ref{sec:atlas:calo}).
 
-\begin{figure}[t]
-	\includegraphics[width=\smallfigwidth]{tex/selection/electron_composition}
+\begin{figure}[p]
+	\includegraphics[width=\mediumfigwidth]{tex/selection/electron_composition}
 	\caption{The composition of reconstructed electron candidates as a function of 
 	transverse energy, simulated by a \pythia{6} sample of dijet, heavy flavour, prompt 
 	photon, \PW boson and \PZ boson production \cite{ElectronPerf:Expect}. Non-isolated 
@@ -94,6 +95,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	\label{fig:objects:el_composition}
 \end{figure}
 
+\clearpage
 \begin{description}
 \item[Reconstruction] \hfill \\
 	Energy deposits in ECal cells are clustered by a \textit{sliding window} 
@@ -155,6 +157,19 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 	calorimeter. The cuts are summarised in \Table~\ref{tab:objects:el_iso} and explained 
 	below.
 
+	\textit{Tracker isolation:} $\ptcone{R_0}$ is the summed \pt of all tracks of 
+	$\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R < R_0$, excluding the electron 
+	track itself. For robustness against pile-up, the tracks are required to originate 
+	from the primary vertex.
+
+	\textit{Calorimeter isolation:} Uncalibrated topological clusters (see 
+	\Section~\ref{sec:objects:jets}) are built from energy deposits in the ECal 
+	and HCal. These are more robust against pile-up than cell deposits as they 
+	suppress noise. $\etcone{R_0}$ is the summed \et of the topological clusters within a 
+	cone of $\Delta R < R_0$, excluding cells in a $5 \times 7$ window around the 
+	electron (see \Figure~\ref{fig:objects:el_iso}). Corrections are made for electron 
+	energy leakage and deposits from pile-up and the underlying event.
+
 	\begin{table}[t]
 		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
 			\toprule
@@ -169,19 +184,6 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 		were chosen to optimise the sensitivity of a low mass \HWWlvlv search.}
 		\label{tab:objects:el_iso}
 	\end{table}
-
-	\textit{Tracker isolation:} $\ptcone{R_0}$ is the summed \pt of all tracks of 
-	$\pt > \unit{0.4}{\GeV}$ within a cone of $\Delta R < R_0$, excluding the electron 
-	track itself. For robustness against pile-up, the tracks are required to originate 
-	from the primary vertex.
-
-	\textit{Calorimeter isolation:} Uncalibrated topological clusters (see 
-	\Section~\ref{sec:objects:jets}) are built from energy deposits in the ECal 
-	and HCal. These are more robust against pile-up than cell deposits as they 
-	suppress noise. $\etcone{R_0}$ is the summed \et of the topological clusters within a 
-	cone of $\Delta R < R_0$, excluding cells in a $5 \times 7$ window around the 
-	electron (see \Figure~\ref{fig:objects:el_iso}). Corrections are made for electron 
-	energy leakage and deposits from pile-up and the underlying event.
 
 	\begin{figure}[t]
 		\includegraphics[width=0.8\smallfigwidth]{tex/selection/el_isolation}
@@ -248,6 +250,7 @@ to the crack region (see \Section~\ref{sec:atlas:calo}).
 
 
 
+\clearpage
 \subsection{Muons}
 \label{sec:objects:muons}
 
@@ -295,6 +298,7 @@ $\mods{\eta} < 2.5$ are selected.
 	$\etcone{R_0}$ variables are defined similarly to electrons, though the size of the 
 	subtracted calorimeter window is reduced for muons.
 
+	\clearpage
 	\begin{table}[t]
 		\begin{tabular}{c@{\hskip 0.3in}c@{\hskip 0.3in}c}
 			\toprule

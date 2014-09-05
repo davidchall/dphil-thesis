@@ -71,26 +71,6 @@ triggers, because the backgrounds are much smaller when two leptons are required
 	\label{fig:sel:trig_eff}
 \end{figure}
 
-\begin{table}[t]
-	\begin{tabular}{lllcl}
-		\toprule
-		\multirow{2}{2.5cm}{Single-lepton triggers} & \Pe  & \verb|EF_e24vhi_medium1| & or & \verb|EF_e60_medium1| \\
-		& \Pmu & \verb|EF_mu24i_tight| & or & \verb|EF_mu36_tight|  \\
-		\midrule
-		\multirow{3}{2.5cm}{Dilepton triggers} & \HepProcess{\Pe\Pe} & \verb|EF_2e12Tvh_loose1| & or & \verb|EF_2e12Tvh_loose1_L2StarB| \\
-		& \HepProcess{\Pmu\Pmu} & \multicolumn{3}{l}{\texttt{EF\symbol{95}mu18\symbol{95}tight\symbol{95}mu8\symbol{95}EFFS}} \\
-		& \HepProcess{\Pe\Pmu}  & \multicolumn{3}{l}{\texttt{EF\symbol{95}e12Tvh\symbol{95}medium1\symbol{95}mu8}} \\
-		\bottomrule
-	\end{tabular}
-	\caption{Employed triggers. \texttt{EF} refers to event filter, \texttt{e} is an 
-	electron, \texttt{mu} is a muon, the subsequent number is the \pt threshold, 
-	\texttt{vh} indicates calorimeter isolation, \texttt{i} indicates track isolation, 
-	and \texttt{tight}, \texttt{medium} or \texttt{loose} is the identification. Other 
-	parts relate to the trigger chain. Criteria are looser than those applied 
-	offline.}
-	\label{tab:sel:triggers}
-\end{table}
-
 Events are required to pass at least one trigger listed in \Table~\ref{tab:sel:triggers}. 
 The single-lepton triggers include a tighter low-\pt trigger and a looser high-\pt 
 trigger in order to maximise the efficiency. Dilepton triggers are then used to recover some 
@@ -115,6 +95,26 @@ Lepton trigger efficiencies are measured via tag-and-probe (see
 passed the offline lepton selection and the tag has successfully matched to a triggered 
 lepton object. For example, single-lepton trigger efficiencies are displayed in 
 \Figure~\ref{fig:sel:trig_eff}. Comparison with MC yields efficiency scale factors.
+
+\begin{table}[t]
+	\begin{tabular}{lllcl}
+		\toprule
+		\multirow{2}{2.5cm}{Single-lepton triggers} & \Pe  & \verb|EF_e24vhi_medium1| & or & \verb|EF_e60_medium1| \\
+		& \Pmu & \verb|EF_mu24i_tight| & or & \verb|EF_mu36_tight|  \\
+		\midrule
+		\multirow{3}{2.5cm}{Dilepton triggers} & \HepProcess{\Pe\Pe} & \verb|EF_2e12Tvh_loose1| & or & \verb|EF_2e12Tvh_loose1_L2StarB| \\
+		& \HepProcess{\Pmu\Pmu} & \multicolumn{3}{l}{\texttt{EF\symbol{95}mu18\symbol{95}tight\symbol{95}mu8\symbol{95}EFFS}} \\
+		& \HepProcess{\Pe\Pmu}  & \multicolumn{3}{l}{\texttt{EF\symbol{95}e12Tvh\symbol{95}medium1\symbol{95}mu8}} \\
+		\bottomrule
+	\end{tabular}
+	\caption{Employed triggers. \texttt{EF} refers to event filter, \texttt{e} is an 
+	electron, \texttt{mu} is a muon, the subsequent number is the \pt threshold, 
+	\texttt{vh} indicates calorimeter isolation, \texttt{i} indicates track isolation, 
+	and \texttt{tight}, \texttt{medium} or \texttt{loose} is the identification. Other 
+	parts relate to the trigger chain. Criteria are looser than those applied 
+	offline.}
+	\label{tab:sel:triggers}
+\end{table}
 
 
 
@@ -177,7 +177,7 @@ number of jets (see \Figure~\ref{fig:sel:njets}). Thus, at this stage the analys
 binned according to jet multiplicity (0-jet, 1-jet, \twojet), so that backgrounds can be 
 targeted individually. In the \twojet bin, only the \emch/\mech channels are used.
 
-\begin{figure}[t]
+\begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutMETRel_m_jet_n_upTo7_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutMETRel_m_jet_n_upTo7_mh125_lin}
@@ -233,7 +233,7 @@ greatly reduced by requiring \unit{$\ptll > 30$}{\GeV} (see
 also suppressed by an additional cut \unit{$\trackmetrel > 40$}{\GeV} (see 
 \Figure~\ref{fig:sel:0j:sf_cuts}).
 
-\begin{figure}[t]
+\begin{figure}
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutDPhillMET_0jet_Ptll_mh125_log}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutDPhillMET_0jet_Ptll_mh125_log}
@@ -241,6 +241,17 @@ also suppressed by an additional cut \unit{$\trackmetrel > 40$}{\GeV} (see
 	channels. These are made in the 0-jet bin, after the \dphillmet cut. The selection 
 	removes events to the left of each dashed line.}
 	\label{fig:sel:0j:ptll}
+\end{figure}
+
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutTopoMll_0jet_METRel_TrackHWW_mh125_log}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutTopoDPhill_0jet_f_recoil_mh125_log}
+	\caption{The \trackmetrel (left) and \frecoil (right) distributions in the \eech/\mmch 
+	channels. The subsequent selection removes events to the left of the dashed line in the 
+	\trackmetrel plot, and removes events to the right of the dashed line in the \frecoil 
+	plot.}
+	\label{fig:sel:0j:sf_cuts}
 \end{figure}
 
 After the signal topology selection (see \Section~\ref{sec:selection:higgs_decay}), a 
@@ -260,20 +271,9 @@ $\frecoil < 0.1$ in the \eech/\mmch channels (see \Figure~\ref{fig:sel:0j:sf_cut
 \frecoil is also instrumental in estimating the \DYll background, and shall be revisited in 
 \Section~\ref{sec:dy}.
 
-\begin{figure}
-	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutTopoMll_0jet_METRel_TrackHWW_mh125_log}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutTopoDPhill_0jet_f_recoil_mh125_log}
-	\caption{The \trackmetrel (left) and \frecoil (right) distributions in the \eech/\mmch 
-	channels. The subsequent selection removes events to the left of the dashed line in the 
-	\trackmetrel plot, and removes events to the right of the dashed line in the \frecoil 
-	plot.}
-	\label{fig:sel:0j:sf_cuts}
-\end{figure}
-
 The \mt distributions of the selected 0-jet events are shown in \Figure~\ref{fig:sel:0j:mt}.
 
-\begin{figure}
+\begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutFRecoil_0jet_MT_TrackHWW_Clj_mh125_lin}
 	\hfill
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutFRecoil_0jet_MT_TrackHWW_Clj_mh125_lin}
@@ -284,6 +284,7 @@ The \mt distributions of the selected 0-jet events are shown in \Figure~\ref{fig
 
 
 
+\clearpage
 \subsection{1-jet selection}
 \label{sec:selection:1j}
 
@@ -304,16 +305,6 @@ leptonic hadron or \Ptau decay, \maxmtw tends to peak at lower values (see
 \emch/\mech channels. In the \eech/\mmch channels, the tighter \met cuts reject the dijet 
 background so a \maxmtw cut is not needed.
 
-\begin{figure}[t]
-	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutbVeto_1jet_MaxMTW_TrackHWW_Clj_mh125_lin}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutMaxMTlep_1jet_Mtt_TrackHWW_Clj_mh125_lin}
-	\caption{The \maxmtw (left) and \mtautau (right) distributions in the \emch/\mech 
-	channels. The selection removes events to the left of the dashed line in the \maxmtw 
-	plot, and removes events to the right of the dashed line in the \mtautau plot.}
-	\label{fig:sel:1j:df_cuts}
-\end{figure}
-
 At this stage, the \DYtt background dominates the \emch/\mech channels. To aid 
 discrimination, a ditau mass is constructed:
 \begin{equation}
@@ -330,6 +321,16 @@ $\Delta\phi\parenths{\Plepton,\HepProcess{\Pnut\Pnulepton}} = 0$ \cite{Tau:colli
 This approximation is reasonable since each \Ptau has large \pt. We require 
 \unit{$\mtautau < \mZ - 25$}{\GeV} (see \Figure~\ref{fig:sel:1j:df_cuts}). In rare cases 
 where the ditau system is poorly reconstructed (\ie $x_i < 0$), the event is accepted.
+
+\begin{figure}[t]
+	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutbVeto_1jet_MaxMTW_TrackHWW_Clj_mh125_lin}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutMaxMTlep_1jet_Mtt_TrackHWW_Clj_mh125_lin}
+	\caption{The \maxmtw (left) and \mtautau (right) distributions in the \emch/\mech 
+	channels. The selection removes events to the left of the dashed line in the \maxmtw 
+	plot, and removes events to the right of the dashed line in the \mtautau plot.}
+	\label{fig:sel:1j:df_cuts}
+\end{figure}
 
 \begin{figure}[b]
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/eemm_CutTopoMll_1jet_METRel_TrackHWW_mh125_log}
@@ -350,6 +351,7 @@ $-\ptlljvec$ and the denominator becomes \ptllj. This is because a hard jet has 
 found, and so it is the dilepton + jet system that must be balanced by the soft recoil.
 
 The \mt distributions of the selected 1-jet events are shown in \Figure~\ref{fig:sel:1j:mt}.
+\clearpage
 
 \begin{figure}[t]
 	\includegraphics[width=0.495\textwidth]{tex/selection/\blindfolder/emme_CutFRecoil_1jet_MT_TrackHWW_Clj_mh125_lin}
@@ -448,6 +450,7 @@ The \mt distribution of the selected \twojet events is shown in \Figure~\ref{fig
 
 
 
+\clearpage
 \subsection{Summary of signal regions}
 \label{sec:selection:summary}
 

@@ -32,9 +32,9 @@
 \DeclareRobustCommand{\cf}{\textit{c.f.\ }}
 
 % Line spacing
-\setfrontmatterspacing{double}
-\setmainmatterspacing{double}
-\setappendixspacing{double}
+\setfrontmatterspacing{onehalf}
+\setmainmatterspacing{onehalf}
+\setappendixspacing{onehalf}
 \setbackmatterspacing{onehalf}
 
 

@@ -103,7 +103,7 @@ of the \HWW search, and does not require such stringent optimisation.
 	the Higgs boson decay are obviously not applied. The major differences are the raised 
 	lepton thresholds, the raised \met cuts, and the lack of \dphillmet and \frecoil cuts.
 
-	\begin{table}[b]
+	\begin{table}[t]
 		\begin{tabularx}{0.5\textwidth}{YY}
 			\toprule
 			\emch & \eech/\mmch \\
@@ -250,6 +250,19 @@ modelling and measuring the effect upon the jet veto acceptance $\epsilon$. Thes
 uncertainties are 
 displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described below.
 
+Uncertainties due to higher order corrections are evaluated using the combined inclusive 
+method described in \Section~\ref{sec:ggF:ci}. The renormalisation and factorisation 
+scales are independently varied in the range $\mu_0/2 \leq \mur,\muf \leq 2\mu_0$, where 
+$\mu_0$ is the default scale for the process in question\footnote{
+	The default scales used by \mcatnlo are determined by 
+	$\mu_0^2 = m_{\Plepton\Plepton}^2 + p_{\text{T,\HepProcess{\Plepton\Plepton}}}^2$ 
+	for \PZ production and 
+	$\mu_0^2 = (m_{\Plepton\Pnu}^2 + p_{\text{T,\HepProcess{\Plepton\Pnu}}}^2 + 
+	m_{\Plepton'\Pnu'}^2 + p_{\text{T,\HepProcess{\Plepton'\Pnu'}}}^2) / 2$
+	for \WW production.
+}, whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. The largest deviation is 
+used as the uncertainty.
+
 \begin{table}[t]
 	\begin{tabular}{r|ccccc|cc}
 		\toprule
@@ -290,19 +303,6 @@ displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described 
 	two.}
 	\label{tab:ww:jetveto_unc}
 \end{table}
-
-Uncertainties due to higher order corrections are evaluated using the combined inclusive 
-method described in \Section~\ref{sec:ggF:ci}. The renormalisation and factorisation 
-scales are independently varied in the range $\mu_0/2 \leq \mur,\muf \leq 2\mu_0$, where 
-$\mu_0$ is the default scale for the process in question\footnote{
-	The default scales used by \mcatnlo are determined by 
-	$\mu_0^2 = m_{\Plepton\Plepton}^2 + p_{\text{T,\HepProcess{\Plepton\Plepton}}}^2$ 
-	for \PZ production and 
-	$\mu_0^2 = (m_{\Plepton\Pnu}^2 + p_{\text{T,\HepProcess{\Plepton\Pnu}}}^2 + 
-	m_{\Plepton'\Pnu'}^2 + p_{\text{T,\HepProcess{\Plepton'\Pnu'}}}^2) / 2$
-	for \WW production.
-}, whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. The largest deviation is 
-used as the uncertainty.
 
 Uncertainties due to parton distribution functions (PDFs) are evaluated in two ways, and 
 added in quadrature. The jet veto acceptance predicted with the CT10 PDF is compared to that 
@@ -395,6 +395,7 @@ MC generators used to model each process.
 	\label{tab:ww:mc_samples}
 \end{table}
 
+\newpage
 \begin{description}
 \item[\Wjets and dijet] \hfill \\
 	The \Wjets background comprises events where a jet is misidentified as a lepton. The 
@@ -494,15 +495,6 @@ MC generators used to model each process.
 \subsection{Experimental results}
 \label{sec:ww:results}
 
-\begin{figure}[t]
-	\includegraphics[width=0.495\textwidth]{tex/ww/ww_ptleadlep}
-	\hfill
-	\includegraphics[width=0.495\textwidth]{tex/ww/ww_dphill}
-	\caption{The \ptleadlep (left) and \dphill (right) distributions for the selected \WW 
-	candidates, including \emch, \eech and \mmch channel events.}
-	\label{fig:ww_meas:sr_plots}
-\end{figure}
-
 The observed and expected \ptleadlep and \dphill distributions in the signal region are 
 displayed in \Figure~\ref{fig:ww_meas:sr_plots}, and the observed number of events passing 
 the event selection is shown for each channel in 
@@ -514,20 +506,16 @@ dominated by uncertainties in the calorimeter energy scale), and those in the ot
 backgrounds are considered uncorrelated. A comparison of data to expectation suggests that 
 the measured cross section shall be higher than predicted.
 
-The fiducial and total cross sections are calculated for each channel with 
-(\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) respectively, using the values in 
-Tables~\ref{tab:ww:cww_aww} and \ref{tab:ww:sr_yield} and an integrated luminosity of 
-\unit{$L = 4.64 \pm 0.18$}{\invfb}. Systematic uncertainties in the signal acceptance and 
-the total background estimation are assumed uncorrelated, and propagate to the cross 
-sections via
-\begin{equation}
-	\parenths{\frac{\Delta\sigma^{\text{fid}}_{\WW}}{\sigma^{\text{fid}}_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta C_{\WW}}{C_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \label{eq:ww:fid_syst} \\
-	\parenths{\frac{\Delta\sigma_{\WW}}{\sigma_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta \parenths{C_{\WW} \cdot A_{\WW}}}{C_{\WW} \cdot A_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \,. \label{eq:ww:total_syst}
-\end{equation}
-The relative statistical uncertainty in each channel is simply 
-$\sqrt{N_{\text{obs}}} / \parenths{N_{\text{obs}} - N_{\text{bkg}}}$.
+\begin{figure}
+	\includegraphics[width=0.495\textwidth]{tex/ww/ww_ptleadlep}
+	\hfill
+	\includegraphics[width=0.495\textwidth]{tex/ww/ww_dphill}
+	\caption{The \ptleadlep (left) and \dphill (right) distributions for the selected \WW 
+	candidates, including \emch, \eech and \mmch channel events.}
+	\label{fig:ww_meas:sr_plots}
+\end{figure}
 
-\begin{table}[t]
+\begin{table}
 	\begin{tabular}{l@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}r@{\hskip 0.2in}r@{$\,\pm\,$}r@{$\,\pm\,$}l}
 		\toprule
 		& \multicolumn{3}{c@{\hskip 0.2in}}{\emch} & \multicolumn{3}{c@{\hskip 0.2in}}{\eech} & \multicolumn{3}{c@{\hskip 0.2in}}{\mmch} & \multicolumn{3}{c}{All} \\
@@ -550,6 +538,19 @@ $\sqrt{N_{\text{obs}}} / \parenths{N_{\text{obs}} - N_{\text{bkg}}}$.
 	signal is normalised to the NLO cross section of \unit{44.7}{\pico\barn}.}
 	\label{tab:ww:sr_yield}
 \end{table}
+
+The fiducial and total cross sections are calculated for each channel with 
+(\ref{eq:ww:fid_xs}) and (\ref{eq:ww:total_xs}) respectively, using the values in 
+Tables~\ref{tab:ww:cww_aww} and \ref{tab:ww:sr_yield} and an integrated luminosity of 
+\unit{$L = 4.64 \pm 0.18$}{\invfb}. Systematic uncertainties in the signal acceptance and 
+the total background estimation are assumed uncorrelated, and propagate to the cross 
+sections via
+\begin{equation}
+	\parenths{\frac{\Delta\sigma^{\text{fid}}_{\WW}}{\sigma^{\text{fid}}_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta C_{\WW}}{C_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \label{eq:ww:fid_syst} \\
+	\parenths{\frac{\Delta\sigma_{\WW}}{\sigma_{\WW}}}_{\text{\!syst}}^{\!2} &= \parenths{\frac{\Delta \parenths{C_{\WW} \cdot A_{\WW}}}{C_{\WW} \cdot A_{\WW}}}^{\!2} \!+ \parenths{\frac{\Delta N_{\text{bkg}}}{N_{\text{obs}} - N_{\text{bkg}}}}^{\!2} \!+ \parenths{\frac{\Delta L}{L}}^{\!2} \,. \label{eq:ww:total_syst}
+\end{equation}
+The relative statistical uncertainty in each channel is simply 
+$\sqrt{N_{\text{obs}}} / \parenths{N_{\text{obs}} - N_{\text{bkg}}}$.
 
 The combined total cross section from the three channels is obtained by maximising the 
 likelihood function of a Poisson process
