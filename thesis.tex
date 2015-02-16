@@ -1,11 +1,12 @@
-\documentclass[hyper,allcolors=blue]{mythesis}
+\documentclass[hyper,allcolors=blue]{mythesis}  % color hyperlinks (digital copy)
+%\documentclass[hyper,allcolors=black]{mythesis} % B&W hyperlinks (print copy)
 
 \makeatother
 
 \title{Discovery and measurement of the Higgs boson in the \WW decay channel}
 \author{David Christopher Hall}
 
-% Blinding
+% Blinding of results
 \newcommand{\blindfolder}{unblinded}
 
 \begin{document}
@@ -24,143 +25,16 @@
     \label{chap:intro}
     \input{tex/introduction}
 
-  \chapter{Theoretical motivation}
-    \label{chap:motivation}
-    \input{tex/motivation/intro}
-    \section{The Standard Model of particle physics}
-      \label{sec:sm}
-      \input{tex/motivation/sm}
-    \section{Electroweak unification}
-      \label{sec:ewsb}
-      \input{tex/motivation/ewsb}
-    \section{Properties of the Higgs boson}
-      \label{sec:properties}
-      \input{tex/motivation/properties}
-    \section{Pre-LHC constraints on the Higgs boson mass}
-      \label{sec:prior_constraints}
-      \input{tex/motivation/constraints}
-
-  \chapter{Computational techniques for the LHC}
-    \label{chap:tools}
-    \input{tex/tools/intro}
-    \section{Quantum chromodynamics}
-      \label{sec:qcd}
-      \input{tex/tools/qcd}
-    \section{Monte Carlo event generation}
-      \label{sec:mc}
-      \input{tex/tools/mc}
-    \section{Jet algorithms}
-      \label{sec:jets}
-      \input{tex/tools/jets}
-
-  \chapter{The ATLAS experiment}
-    \label{chap:experiment}
-    \input{tex/experiment/intro}
-    \section{The Large Hadron Collider}
-      \label{sec:lhc}
-      \input{tex/experiment/lhc}
-    \section{\pp collision data}
-      \label{sec:dataset}
-      \input{tex/experiment/dataset}
-    \section{The ATLAS detector}
-      \label{sec:atlas}
-      \input{tex/experiment/atlas}
-  
-  \chapter{Overview of the \HWW analysis}
-    \label{chap:selection}
-    \input{tex/selection/intro}
-    \section{Experimental signature}
-      \label{sec:signature}
-      \input{tex/selection/signature}
-    \section{Reconstruction of physics objects}
-      \label{sec:objects}
-      \input{tex/selection/objects}
-    \clearpage
-    \section{Event selection criteria}
-      \label{sec:selection}
-      \input{tex/selection/selection}
-
-  \chapter{Signal modelling}
-    \label{chap:signal}
-    \input{tex/signal/intro}
-    \clearpage
-    \section{Jet-binned cross sections}
-      \label{sec:ggf_jetbin}
-      \input{tex/signal/jetbin}
-    \newpage
-    \section{Monte Carlo modelling}
-      \label{sec:ggf_mc}
-      \input{tex/signal/mc}
-
-  \chapter{\WW measurement and modelling}
-    \label{chap:ww}
-    \input{tex/ww/intro}
-    \section{Cross section measurement in the 0-jet bin}
-      \label{sec:ww_meas}
-      \input{tex/ww/meas}
-    \section{Background estimation for \HWW search}
-      \label{sec:ww_as_bkg}
-      \input{tex/ww/bkg}
-
-  \chapter{Other backgrounds}
-    \label{chap:backgrounds}
-    \input{tex/backgrounds/intro}
-    \newpage
-    \section{\Wjets and dijet}
-      \label{sec:wjets}
-      \input{tex/backgrounds/wjets}
-    \clearpage
-    \section{Non-\WW diboson}
-      \label{sec:diboson}
-      \input{tex/backgrounds/diboson}
-    \section{Top}
-      \label{sec:top}
-      \input{tex/backgrounds/top}
-    \clearpage
-    \section{\DY}
-      \label{sec:dy}
-      \input{tex/backgrounds/dy}
-    \section{Summary of normalisation factors}
-      \label{sec:NFs}
-      \input{tex/backgrounds/nf}
-
-  \chapter{Experimental results}
-    \label{chap:results}
-    \input{tex/results/intro}
-    \section{Systematic uncertainties}
-      \label{sec:systematics}
-      \input{tex/results/systematics}
-    \section{Statistical model}
-      \label{sec:stats}
-      \input{tex/results/stats}
-    \section{Results}
-      \label{sec:results}
-      \input{tex/results/results}
-
-  \chapter{Status of Higgs physics}
-    \label{chap:conclusions}
-    \input{tex/conclusions/intro}
-    \section{Properties of the discovered Higgs boson}
-      \label{sec:searches}
-      \input{tex/conclusions/searches}
-    \section{Theoretical implications}
-      \label{sec:implications}
-      \input{tex/conclusions/implications}
-    \section{Outlook}
-      \label{sec:outlook}
-      \input{tex/conclusions/outlook}
-
-  \chapter{Conclusions}
-    \label{chap:thesis_conclusions}
-    \input{tex/conclusions/thesis}
-
+  \include{tex/motivation/chap}
+  \include{tex/tools/chap}
+  \include{tex/experiment/chap}
+  \include{tex/selection/chap}
+  \include{tex/signal/chap}
+  \include{tex/ww/chap}
+  \include{tex/backgrounds/chap}
+  \include{tex/results/chap}
+  \include{tex/conclusions/chap}
+  \include{tex/conclusions/thesis}
 \end{mainmatter}
-
-\begin{backmatter}
-  \bibliographystyle{thesis}
-  \bibliography{theory,pheno,mc,experiment}
-  %\listoffigures
-  %\listoftables
-\end{backmatter}
 
 \end{document}

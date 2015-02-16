@@ -24,6 +24,7 @@
 \RequirePackage{dcolumn}
 \RequirePackage{cancel}
 \RequirePackage{mathtools}
+\RequirePackage{chapterbib}
 
 
 % Latin
@@ -58,3 +59,25 @@
 % dcolumn aligns decimal places
 \newcolumntype{d}[1]{D{.}{.}{#1}}
 
+% Make bibliography a section rather than a chapter (for Springer)
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\section*{\bibname}% <-- this line was changed from \chapter* to \section*
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
