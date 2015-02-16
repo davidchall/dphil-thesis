@@ -63,7 +63,7 @@
 \makeatletter
 \renewenvironment{thebibliography}[1]
      {\section*{\bibname}% <-- this line was changed from \chapter* to \section*
-      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      %\@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
       \list{\@biblabel{\@arabic\c@enumiv}}%
            {\settowidth\labelwidth{\@biblabel{#1}}%
             \leftmargin\labelwidth
