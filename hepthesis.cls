@@ -367,6 +367,8 @@
 \setlength{\@acknowledgementsextramargin}{0cm}%
 \newlength{\@prefaceextramargin}%
 \setlength{\@prefaceextramargin}{0cm}%
+\newlength{\@forewordextramargin}%
+\setlength{\@forewordextramargin}{0cm}%
 \newlength{\@pagequoteextramargin}%
 \setlength{\@pagequoteextramargin}{2cm}%
 
@@ -497,6 +499,7 @@
 \DeclareRobustCommand{\setdeclarationextramargins}[1]{\setlength{\@declarationextramargin}{#1}}
 \DeclareRobustCommand{\setacknowledgementsextramargins}[1]{\setlength{\@acknowledgementsextramargin}{#1}}
 \DeclareRobustCommand{\setprefaceextramargins}[1]{\setlength{\@prefaceextramargin}{#1}}
+\DeclareRobustCommand{\setforewordextramargins}[1]{\setlength{\@forewordextramargin}{#1}}
 
 
 %% An environment for the rubbish at the front of a typical thesis
@@ -583,6 +586,24 @@
     \begingroup
     \ifx\@sftitles\@empty\else\sf\fi
     {\LARGE{\textbf{Preface}}}%
+    \endgroup
+  \end{center}%
+  \vspace*{1cm}%
+}{%
+  \endadjustwidth%
+  \ignorespacesafterend %
+}
+
+
+%% Environment for foreword page in frontmatter
+\newenvironment{foreword}{%
+  \cleardoublepage%
+  \adjustwidth{\@forewordextramargin}{\@forewordextramargin}%
+  \vspace*{\@frontmattertopskip}%
+  \begin{center}%
+    \begingroup
+    \ifx\@sftitles\@empty\else\sf\fi
+    {\LARGE{\textbf{Supervisor's foreword}}}%
     \endgroup
   \end{center}%
   \vspace*{1cm}%
@@ -839,6 +860,7 @@
 \newenvironment{thesisabstract}[1][Abstract]{\thesistypeout\abstract[#1]}{\endabstract\ignorespacesafterend}
 \newenvironment{thesischapterintro}[1]{\thesistypeout\chapterintro{#1}}{\endchapterintro\ignorespacesafterend}
 \newenvironment{thesispreface}{\thesistypeout\preface}{\endpreface\ignorespacesafterend}
+\newenvironment{thesisforeword}{\thesistypeout\foreword}{\endforeword\ignorespacesafterend}
 \newenvironment{thesisacknowledgements}[1]{\thesistypeout\acknowledgements}{\endacknowledgements\ignorespacesafterend}
 \newenvironment{thesisfrontmatter}{\thesistypeout\frontmatter}{\ignorespacesafterend}
 \newenvironment{thesismainmatter}{\thesistypeout\mainmatter}{\ignorespacesafterend}
