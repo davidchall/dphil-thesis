@@ -1,7 +1,7 @@
 ::: Subtotals :::
 0 words in _top_
-449 words in Chapter: Overview
-3210 words in Chapter: Introduction and theoretical motivation
+214 words in Chapter: Overview
+3311 words in Chapter: Introduction and theoretical motivation
 ::: Total :::
-Words: 3659
+Words: 3525
 Formulae: 16
