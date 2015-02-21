@@ -25,6 +25,7 @@
 \RequirePackage{cancel}
 \RequirePackage{mathtools}
 \RequirePackage{chapterbib}
+\RequirePackage{wrapfig}
 
 
 % Latin

@@ -37,4 +37,13 @@
   \include{tex/conclusions/thesis}
 \end{mainmatter}
 
+%% wrapfig doesn't work in mainmatter environment
+\begin{onehalfspacing}
+  \cleardoublepage
+  \section*{About the author}
+  \addcontentsline{toc}{chapter}{About the author}
+  \thispagestyle{plain}
+  \input{tex/author}
+\end{onehalfspacing}
+
 \end{document}
