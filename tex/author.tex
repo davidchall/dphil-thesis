@@ -1,5 +1,10 @@
 %!TEX root = ../thesis.tex
 
+\section*{About the author}
+\addcontentsline{toc}{chapter}{About the author}
+\markboth{\MakeUppercase About the author}{\MakeUppercase About the author}
+\thispagestyle{plain}
+
 \begin{wrapfigure}{r}{0.5\textwidth}
 	\vspace{-20pt}
 	\centering
@@ -7,5 +12,26 @@
 	\vspace{-20pt}
 \end{wrapfigure}
 
-David Hall obtained his DPhil degree at the University of Oxford whilst working on the ATLAS experiment at CERN. This research focussed on measuring the \WW production cross section and searching for evidence of the Higgs boson. Following this, David moved into proton therapy research and spent a short time at the Particle Therapy Cancer Research Institute, Oxford. He is now a postdoctoral research fellow at Massachusetts General Hospital and Harvard Medical School, developing Monte Carlo simulation programs and treatment planning systems for proton therapy. 
+David Hall obtained a first class MPhys degree at the University of Warwick in 2010. For his 
+masters research, he developed a prototype for a novel intensity modulated radiotherapy 
+treatment modality at the University Hospital in Coventry, under the supervision of Prof.\ 
+Adrian Wilson.
 
+David then received his DPhil degree at the University of Oxford whilst working on the ATLAS 
+experiment at CERN. This involved measuring the \WW production cross section and 
+searching for evidence of the Higgs boson, under the supervision of Dr Chris Hays. He also 
+worked as the ATLAS Monte Carlo software coordinator in the preparation for Run-II of the LHC.
+
+In January 2015, David moved into proton therapy research in order to combine his previous 
+research experience, and spent a short time at the Particle Therapy Cancer Research 
+Institute, University of Oxford. He is now a postdoctoral research fellow at Massachusetts 
+General Hospital and Harvard Medical School. He develops Monte Carlo simulation programs and 
+treatment planning systems for proton therapy, in Prof.\ Harald Paganetti's group.
+
+\nocite{HWW-RunI-submit,ATLAS:combination:2013,YR3,ATLAS-discovery,WW-7TeV,WW-1ifb,VersatileLinkConnectors,VersatileLinkFibres,VersatileLink}
+
+\let\oldbibname\bibname
+\renewcommand{\bibname}{Selected publications}
+\bibliographystyle{thesis}
+\bibliography{theory,pheno,mc,experiment}
+\let\bibname\oldbibname
