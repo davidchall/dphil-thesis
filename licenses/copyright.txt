@@ -1,3 +1,6 @@
+Licenses for Oxford Research Archive (non-commercial)
+=====================================================
+
 Figure 1.2 -> obtained 06/09/14
 Figure 1.4 -> Creative Commons 3.0 Attribution License
 Figure 1.5 -> Creative Commons 3.0 Attribution License
@@ -10,3 +13,21 @@ Figure 2.3 -> requested from Frank Krauss on 06/09/14 (granted 06/09/14)
 
 Figure 9.4 -> requested from Gfitter on 06/09/14 (granted 06/09/14)
 Figure 9.5 -> Creative Commons Attribution Noncommercial License
+
+
+
+Licenses for Springer Theses (commercial)
+=========================================
+
+Figure 1.2 -> Springer must request
+Figure 1.4 -> Creative Commons 3.0 Attribution License
+Figure 1.5 -> Creative Commons 3.0 Attribution License
+Figure 1.6 -> obtained 04/03/15
+Figure 1.7 -> obtained 04/03/15
+
+Figure 2.1 -> granted by PDG on 18/02/15
+Figure 2.2 -> obtained 04/03/15
+Figure 2.3 -> granted by Frank Krauss on 06/09/14
+
+Figure 9.4 -> obtained 04/03/15
+Figure 9.5 -> Problem since article under non-commercial license

@@ -1,7 +1,17 @@
 ::: Subtotals :::
 0 words in _top_
 214 words in Chapter: Overview
+3229 words in Chapter: Introduction and theoretical motivation
+3275 words in Chapter: Computational techniques for the LHC
+3006 words in Chapter: The ATLAS experiment
+6736 words in Chapter: Overview of the \HWW analysis
+3311 words in Chapter: Signal modelling
+4302 words in Chapter: \WW measurement and modelling
+6039 words in Chapter: Other backgrounds
+4037 words in Chapter: Experimental results
+2657 words in Chapter: Status of Higgs physics
+261 words in Chapter: Conclusions
 177 words in Chapter: About the author
 ::: Total :::
-Words: 391
-Formulae: 0
+Words: 37244
+Formulae: 95
