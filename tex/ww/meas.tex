@@ -63,6 +63,7 @@ the reconstruction of physics objects is slightly different to that described in
 
 
 
+\clearpage
 \subsection{Event selection criteria}
 
 As mentioned above, the event selection of the \WW measurement can be tighter than that 
@@ -211,15 +212,6 @@ jet veto acceptance to be reduced, at the expense of introducing a theoretical
 uncertainty to $C_{\WW}$. However, in the product $C_{\WW} \cdot A_{\WW}$ the 
 theoretical uncertainty is also reduced.
 
-Correction factors $\epsilon^{\text{data}}_{\PZ} / \epsilon^{\text{MC}}_{\PZ}$ are 
-measured in control regions with high \HepProcess{\PZ \HepTo \Plepton \Plepton} purity. 
-Events are selected with \unit{$\ptleadlep > 25$}{\GeV}, \unit{$\ptsubleadlep > 20$}{\GeV}
-and \unit{$\mods{\mll - \mZ} < 15$}{\GeV} in the \eech and \mmch channels. The correction 
-factor for the \emch channel is taken as the average of the other two. The correction 
-factors are 0.957, 0.954 and 0.956 for the \eech, \mmch and \emch channels respectively. 
-Statistical uncertainties are negligible compared to the experimental and theoretical 
-uncertainties.
-
 \begin{table}[t]
 	\begin{tabularx}{\textwidth}{c|YY|YY}
 		\toprule
@@ -236,32 +228,6 @@ uncertainties.
 	Strategies with and without the jet veto correction factor are considered.}
 	\label{tab:ww:jetveto_contrib}
 \end{table}
-
-Uncertainties in $\epsilon^{\text{MC}}_{\WW}$ and $\epsilon^{\text{MC}}_{\PZ}$ due to the 
-JES are evaluated by increasing and decreasing jet energies by one standard deviation, 
-and using the average of the absolute deviations. The JES uncertainty is determined during 
-the \textit{in situ} calibration \cite{Jets:Calib:2011}. Similarly, uncertainties due to the 
-JER are evaluated by increasing the JER by one standard deviation. The JER uncertainty is 
-determined using other \textit{in situ} techniques \cite{Jets:JER:2011}. These 
-uncertainties are displayed in \Table~\ref{tab:ww:jetveto_unc}.
-
-Theoretical uncertainties are evaluated at hadron-level by changing some aspect of the MC 
-modelling and measuring the effect upon the jet veto acceptance $\epsilon$. These 
-uncertainties are 
-displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described below.
-
-Uncertainties due to higher order corrections are evaluated using the combined inclusive 
-method described in \Section~\ref{sec:ggF:ci}. The renormalisation and factorisation 
-scales are independently varied in the range $\mu_0/2 \leq \mur,\muf \leq 2\mu_0$, where 
-$\mu_0$ is the default scale for the process in question\footnote{
-	The default scales used by \mcatnlo are determined by 
-	$\mu_0^2 = m_{\Plepton\Plepton}^2 + p_{\text{T,\HepProcess{\Plepton\Plepton}}}^2$ 
-	for \PZ production and 
-	$\mu_0^2 = (m_{\Plepton\Pnu}^2 + p_{\text{T,\HepProcess{\Plepton\Pnu}}}^2 + 
-	m_{\Plepton'\Pnu'}^2 + p_{\text{T,\HepProcess{\Plepton'\Pnu'}}}^2) / 2$
-	for \WW production.
-}, whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. The largest deviation is 
-used as the uncertainty.
 
 \begin{table}[t]
 	\begin{tabular}{r|ccccc|cc}
@@ -303,6 +269,41 @@ used as the uncertainty.
 	two.}
 	\label{tab:ww:jetveto_unc}
 \end{table}
+
+Correction factors $\epsilon^{\text{data}}_{\PZ} / \epsilon^{\text{MC}}_{\PZ}$ are 
+measured in control regions with high \HepProcess{\PZ \HepTo \Plepton \Plepton} purity. 
+Events are selected with \unit{$\ptleadlep > 25$}{\GeV}, \unit{$\ptsubleadlep > 20$}{\GeV}
+and \unit{$\mods{\mll - \mZ} < 15$}{\GeV} in the \eech and \mmch channels. The correction 
+factor for the \emch channel is taken as the average of the other two. The correction 
+factors are 0.957, 0.954 and 0.956 for the \eech, \mmch and \emch channels respectively. 
+Statistical uncertainties are negligible compared to the experimental and theoretical 
+uncertainties.
+
+Uncertainties in $\epsilon^{\text{MC}}_{\WW}$ and $\epsilon^{\text{MC}}_{\PZ}$ due to the 
+JES are evaluated by increasing and decreasing jet energies by one standard deviation, 
+and using the average of the absolute deviations. The JES uncertainty is determined during 
+the \textit{in situ} calibration \cite{Jets:Calib:2011}. Similarly, uncertainties due to the 
+JER are evaluated by increasing the JER by one standard deviation. The JER uncertainty is 
+determined using other \textit{in situ} techniques \cite{Jets:JER:2011}. These 
+uncertainties are displayed in \Table~\ref{tab:ww:jetveto_unc}.
+
+Theoretical uncertainties are evaluated at hadron-level by changing some aspect of the MC 
+modelling and measuring the effect upon the jet veto acceptance $\epsilon$. These 
+uncertainties are 
+displayed in \Table~\ref{tab:ww:jetveto_unc}, and their estimation is described below.
+
+Uncertainties due to higher order corrections are evaluated using the combined inclusive 
+method described in \Section~\ref{sec:ggF:ci}. The renormalisation and factorisation 
+scales are independently varied in the range $\mu_0/2 \leq \mur,\muf \leq 2\mu_0$, where 
+$\mu_0$ is the default scale for the process in question\footnote{
+	The default scales used by \mcatnlo are determined by 
+	$\mu_0^2 = m_{\Plepton\Plepton}^2 + p_{\text{T,\HepProcess{\Plepton\Plepton}}}^2$ 
+	for \PZ production and 
+	$\mu_0^2 = (m_{\Plepton\Pnu}^2 + p_{\text{T,\HepProcess{\Plepton\Pnu}}}^2 + 
+	m_{\Plepton'\Pnu'}^2 + p_{\text{T,\HepProcess{\Plepton'\Pnu'}}}^2) / 2$
+	for \WW production.
+}, whilst observing the constraint $1/2 \leq \mur/\muf \leq 2$. The largest deviation is 
+used as the uncertainty.
 
 Uncertainties due to parton distribution functions (PDFs) are evaluated in two ways, and 
 added in quadrature. The jet veto acceptance predicted with the CT10 PDF is compared to that 
@@ -379,7 +380,7 @@ Although many backgrounds are modelled by a data-driven technique, there is ofte
 underlying dependence upon MC. For this reason, \Table~\ref{tab:ww:mc_samples} states the 
 MC generators used to model each process.
 
-\begin{table}[t]
+\begin{table}
 	\begin{tabular}{c@{\hskip 0.3in}c}
 		\toprule
 		Process & MC generator \\

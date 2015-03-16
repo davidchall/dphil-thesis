@@ -9,6 +9,13 @@
 % Blinding of results
 \newcommand{\blindfolder}{unblinded}
 
+% Line spacing
+\setfrontmatterspacing{single}
+\setmainmatterspacing{single}
+\setappendixspacing{single}
+\setbackmatterspacing{single}
+
+
 \begin{document}
 %TC:ignore
 \begin{frontmatter}
@@ -38,9 +45,9 @@
 \end{mainmatter}
 
 %% wrapfig doesn't work in mainmatter environment
-\begin{onehalfspacing}
+\begin{singlespacing}
   \cleardoublepage
   \include{tex/author}
-\end{onehalfspacing}
+\end{singlespacing}
 
 \end{document}

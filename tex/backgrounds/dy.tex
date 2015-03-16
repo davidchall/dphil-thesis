@@ -24,6 +24,7 @@ modelling provided by \meps{\alpgen}{\fherwig}. Overlap between the \DY MC and t
 
 
 
+\newpage
 \subsection{\DY boson transverse momentum}
 \label{sec:dy:pt}
 
@@ -74,6 +75,18 @@ correction.
 \subsection{\DYtt estimation}
 \label{sec:dy:tautau}
 
+The \DYtt background is measured in a dedicated control region (CR), and then 
+extrapolated to the signal region (SR) using MC
+\begin{equation}
+	N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,SR}} &= \alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} \cdot \parenths{N^{\text{data,CR}} - N_{\text{non-}\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,CR}}} \\
+	\alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} &= N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,SR}} / N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,CR}} \,.
+\end{equation}
+CRs are defined in each jet bin of the \emch{}+\mech channel, according to the event 
+selection criteria in \Table~\ref{tab:dytt_cr_sel}. Each \emch{}+\mech CR is used to 
+extrapolate to the corresponding jet-binned \emch/\mech/\eech{}+\mmch SRs. 
+\Figure~\ref{fig:dytt:cr} exhibits the excellent MC modelling of the shapes of this 
+background, following application of the normalisation factors.
+
 \begin{table}[t]
 	\begin{tabularx}{0.7\textwidth}{YYY}
 		\toprule
@@ -98,18 +111,6 @@ correction.
 	relevant observables are described in \Chapter~\ref{chap:selection}.}
 	\label{tab:dytt_cr_sel}
 \end{table}
-
-The \DYtt background is measured in a dedicated control region (CR), and then 
-extrapolated to the signal region (SR) using MC
-\begin{equation}
-	N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,SR}} &= \alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} \cdot \parenths{N^{\text{data,CR}} - N_{\text{non-}\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{pred,CR}}} \\
-	\alpha_{\HepProcess{\PZ\HepTo\Ptau\Ptau}} &= N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,SR}} / N_{\HepProcess{\PZ\HepTo\Ptau\Ptau}}^{\text{MC,CR}} \,.
-\end{equation}
-CRs are defined in each jet bin of the \emch{}+\mech channel, according to the event 
-selection criteria in \Table~\ref{tab:dytt_cr_sel}. Each \emch{}+\mech CR is used to 
-extrapolate to the corresponding jet-binned \emch/\mech/\eech{}+\mmch SRs. 
-\Figure~\ref{fig:dytt:cr} exhibits the excellent MC modelling of the shapes of this 
-background, following application of the normalisation factors.
 
 \begin{figure}[t]
 	\includegraphics[width=0.48\textwidth]{tex/backgrounds/emme_CutZttControl_0jet_MT_TrackHWW_Clj_mh125_lin}

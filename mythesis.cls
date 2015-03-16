@@ -33,12 +33,6 @@
 \DeclareRobustCommand{\ie}{\textit{i.e.\ }}
 \DeclareRobustCommand{\cf}{\textit{c.f.\ }}
 
-% Line spacing
-\setfrontmatterspacing{onehalf}
-\setmainmatterspacing{onehalf}
-\setappendixspacing{onehalf}
-\setbackmatterspacing{onehalf}
-
 
 % Fix hyperref labels in PDFTeX
 \@ifpackageloaded{hyperref}{%
