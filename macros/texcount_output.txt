@@ -1,6 +1,5 @@
 ::: Subtotals :::
 0 words in _top_
-214 words in Chapter: Overview
 3226 words in Chapter: Introduction and theoretical motivation
 3275 words in Chapter: Computational techniques for the LHC
 3006 words in Chapter: The ATLAS experiment
@@ -13,5 +12,5 @@
 261 words in Chapter: Conclusions
 177 words in Chapter: About the author
 ::: Total :::
-Words: 37241
+Words: 37027
 Formulae: 95

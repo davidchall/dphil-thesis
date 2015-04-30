@@ -1,0 +1,5 @@
+The thesis is built with latexmk like so:
+   latexmk -cd -f -pdf
+
+You can choose between coloured and B&W hyperlinks by commenting out 
+either of the first two lines in thesis.tex
