@@ -1,10 +1,14 @@
 {
 	"spell_check": true,
+	"indent_to_bracket": true,
 	"folders":
 	[
 		{
 			"path": ".",
-			"file_exclude_patterns": ["*.aux", "*.log", "*.lot", "*.lof", "*.toc", "*.tdo", "*.blg", "*bbl", "*.gz", "*.fdb_latexmk", "comment.cut", "*.out"]
+			"file_exclude_patterns": ["*.eps", "*.pdf", "*.png", "*.svg", "*.dvi", "*.ps", "*.aux", "*.log", "*.lot", "*.lof", "*.toc", "*.tdo", "*.blg", "*bbl", "*.gz", "*.fdb_latexmk", "comment.cut", "*.out", "*.fls"]
 		}
-	]
+	],
+    "options": {
+        "root": "thesis.tex"
+    }
 }
